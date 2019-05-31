@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/Headers
+END
+AbstractHeader.php
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/Headers/AbstractHeader.php
+END
+UnstructuredHeader.php
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/Headers/UnstructuredHeader.php
+END
+IdentificationHeader.php
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/Headers/IdentificationHeader.php
+END
+MailboxHeader.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/Headers/MailboxHeader.php
+END
+ParameterizedHeader.php
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/Headers/ParameterizedHeader.php
+END
+PathHeader.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/Headers/PathHeader.php
+END
+DateHeader.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/Headers/DateHeader.php
+END

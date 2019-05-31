@@ -1,0 +1,93 @@
+<div class="create">
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'documents-form',
+	'enableAjaxValidation'=>false,
+	'htmlOptions' => array(
+			'autocomplete' => 'off'
+		),
+)); ?>
+	<div class="formColumn">
+		<div class="row">
+			<?php echo $form->labelEx($model,'document_title'); ?>
+			
+			<div class="inputBg_create">
+				<?php echo $form->textField($model,'document_title', array( 'autocomplete'=>'off')); ?>
+			</div>
+			
+			<?php echo $form->error($model,'document_title'); ?>
+		</div>
+
+	</div>
+	<div class="formColumn">
+		<div class="row">
+			<?php echo $form->labelEx($model,'id_category'); ?>
+			
+			<div class="selectBg_create">
+				<?php echo $form->dropDownList($model,'id_category', DocumentsCategories::getAll($model->model_table, $model->category ? $model->category->category : (isset($module_category) ? $module_category : NULL)), array('prompt' => Yii::t('translations', 'Choose a category'))); ?>
+			</div>
+			
+			<?php echo $form->error($model,'id_category'); ?>
+		</div>
+	</div>
+	
+	<div class="row textarea_row">
+		<?php echo $form->labelEx($model,'description'); ?>
+		<div class="textarea_div">
+		<?php echo $form->textArea($model, 'description', array('rows'=>6)); ?>
+		</div>
+		<?php echo $form->error($model, 'description'); ?>
+	</div>
+	
+	<?php
+		Yii::import("xupload.models.XUploadForm");
+		$this->widget( 'xupload.XUpload', array(
+        	'url' => Yii::app( )->createUrl("documents/upload"),
+            'model' => new XUploadForm(),
+            'htmlOptions' => array('id'=>'documents-form'),
+            'attribute' => 'file',
+			'autoUpload' => true,
+            'multiple' => false,
+			'options' => array(
+				'maxFileSize' => 15728640,		
+				'completed' => 'js: function(e, data) {
+					$(".files div.box:not(:last)").remove();
+				}',
+			),
+        ));
+	?>	
+	
+	<div class="files inline-block" data-toggle="modal-gallery" data-target="#modal-gallery">
+		<?php 
+			if (($filepath = $model->getFile(true)) != null) {
+				$path_parts = pathinfo($filepath);
+		?>
+		<div class="box template-download fade" id="tr0">
+			<div class="title">
+				<a href="<?php echo $this->createUrl('site/download', array('file' => $filepath));?>" title="<?php echo $path_parts['basename'];?>" rel="gallery" download="<?php echo $path_parts['basename'];?>"><?php echo $path_parts['basename'];?></a>
+			</div>				       	
+	       	<div class="size">
+	        	<span><?php echo Utils::getReadableFileSize(filesize($filepath));?></span>
+	        </div>			        
+			<div class="delete">
+				<button class="btn btn-danger delete"
+					 data-url="<?php echo $this->createUrl( "upload", array(
+                                "_method" => "delete",
+                                "file" => $filepath
+                            ));?>" 
+					data-type="POST">
+				</button>
+			</div>
+		</div>
+		<?php } ?>
+	</div>
+	<div class="row"><?php echo $form->error($model, 'file'); ?></div>
+	
+	<div class="row buttons">
+		<?php echo CHtml::submitButton('Submit', array('class'=>'submit')); ?>
+	</div>
+	
+	<br clear="all"/>
+<?php $this->endWidget(); ?>
+
+</div><!-- form -->
+<br clear="all" />

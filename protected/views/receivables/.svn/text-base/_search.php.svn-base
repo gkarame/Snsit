@@ -1,0 +1,123 @@
+<?php
+/* @var $this ExpensesController */
+/* @var $model Expenses */
+/* @var $form CActiveForm */
+?>
+
+<div class="wide search" id="receivablesSearch">
+
+	<?php $form=$this->beginWidget('CActiveForm', array(
+		'method'=>'get',
+	)); ?>
+	
+		<div class="row invoice_number">
+			<div class="inputBg_txt">
+				<?php echo $form->label($model, 'invoice_number'); ?>
+				<span class="spliter"></span>
+				<?php echo $form->textField($model, 'final_invoice_number',array('class' => 'width55', 'size'=>50,'maxlength'=>50)); ?>
+			</div>
+		</div>
+		
+		<div class="row customer">
+			<div class="inputBg_txt">
+				<?php echo $form->label($model, 'customer'); ?>
+				<span class="spliter"></span>
+				<?php 
+				$this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+						'model' => $model,
+						'attribute' => 'id_customer',		
+						'source'=>Invoices::getCustomersAutocomplete(),
+						// additional javascript options for the autocomplete plugin
+						'options'=>array(
+							'minLength'=>'0',
+							'showAnim'=>'fold',
+						),
+						'htmlOptions'=>array(
+							'onfocus' => "javascript:$(this).autocomplete('search','');",
+							'class'	  => "width75",
+						),
+				));
+				?>
+			</div>
+		</div>
+		
+		<div class="row idea_short">
+			<div class="inputBg_txt">
+				<?php echo $form->label($model, 'id_ea'); ?>
+				<span class="spliter"></span>
+				<?php echo $form->textField($model, 'id_ea', array('class' => 'width45', 'size'=>50,'maxlength'=>50)); ?>
+			</div>
+		</div>
+	
+		<div class="row idea_age">
+			<div class="selectBg_search">
+				<?php echo $form->label($model, 'age'); ?>
+				<span class="spliter"></span>
+				<div class="select_container"><?php echo $form->dropDownList($model, 'age', Receivables::getAgeOptions(), array('prompt'=>'')); ?></div>
+			</div>
+		</div>
+	
+		<div class="row status">
+			<div class="selectBg_search">
+				<?php echo $form->label($model, 'status'); ?>
+				<span class="spliter"></span>
+				<div class="select_container "><?php echo $form->dropDownList($model, 'status', Invoices::getStatusList(array('New','To Print')), array('prompt'=>'')); ?></div>
+			</div>
+		</div>
+	
+		<div class="row partener">
+			<div class="selectBg_search">
+				<?php echo $form->label($model, 'partner'); ?>
+				<span class="spliter"></span>
+				<div class="select_container "><?php echo $form->dropDownList($model, 'partner_status', Receivables::getPartnerStatus(), array('prompt'=>'')); ?></div>
+			</div>
+		</div>
+	
+		<div class="btn receivables-grid">
+			<?php echo CHtml::submitButton(Yii::t('translations', 'Search'), array('class'=>'search-btn')); ?>
+			<div class="wrapper_action" id="action_tabs_right">
+				<div onclick="chooseActions();" class="action triggerAction"><u><b>ACTION</b></u></div>
+				<div class="action_list actionPanel">
+			    	<div class="headli"></div>
+					<div class="contentli">
+					<?php 
+					if (GroupPermissions::checkPermissions('financial-receivables', 'write'))
+					{
+					?>
+						<div class="cover">
+							<div class="li noborder" onclick="changeStatusPaid();">Set to Paid</div>
+						</div>
+						<div class="cover">
+							<div class="li noborder" onclick="printReceivables();">Print</div>
+						</div>
+					<?php 
+					}
+					?>
+						<div class="cover">
+							<div class="li noborder"><a class="shareby_button" href="#" onclick="shareReceivables(this);return false;" >Share</a></div>
+						</div>
+					<?php 
+					if (GroupPermissions::checkPermissions('financial-receivables','write'))
+					{
+					?>
+						<div class="cover">
+							<div class="li noborder" onclick="getUsers();"> Assign new User</div>
+						</div>
+					<?php 
+					}
+					?>
+						<div class="cover">
+							<div class="li noborder" onclick="getExcel();">Export to Excel</div>
+						</div>
+					</div>
+					<div class="ftrli"></div>
+			    </div>
+			    <div id="users-list" style="display:none;"></div>
+			 </div>
+		</div>
+		
+	<div class="horizontalLine search-margin"></div>
+	
+	<?php $this->endWidget(); ?>
+
+</div><!-- search-form -->

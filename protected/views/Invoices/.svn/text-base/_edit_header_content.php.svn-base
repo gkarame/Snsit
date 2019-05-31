@@ -1,0 +1,116 @@
+<div class="bg"></div>
+<fieldset id="header_fieldset" >
+	
+	 <div class="textBox inline-block bigger_amt">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"sold_by"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "sold_by",  Codelkups::getCodelkupsDropDown('unit'), array( 
+					'class'=>'input_text_value','prompt'=>'')); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "status", array('id'=>"Eas_currency_em_")); ?>
+	</div>
+	<div class="textBox inline-block bigger_amt">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"status"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "status",  Invoices::getStatusList(), array( 
+					'class'=>'input_text_value',
+				)); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "status", array('id'=>"Eas_currency_em_")); ?>
+	</div>
+	<div class="textBox bigger_amt inline-block">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"partner invoice"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "partner_inv", array('class'=> 'input_text_value')); ?>
+		</div>
+		<?php echo CCustomHtml::error($model, "partner_inv", array('id'=>"")); ?>
+	</div>
+
+	<div class="textBox inline-block bigger_amt">
+		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"partner"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model,"partner", Codelkups::getCodelkupsDropDown('partner'), array('class'=>'input_text_value','onchange' => 'changeCategory(this);')); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "partner", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox bigger_amt inline-block hidden ">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"sns_share"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "sns_share", array('class'=> 'input_text_value')); ?>
+		</div>
+		<?php echo CCustomHtml::error($model, "sns_share", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"old"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "old", array('No'=>'No','Yes'=>'Yes'), array( 
+					'class'=>'input_text_value',
+				)); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "old", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt hidden ">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"partner_status"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "partner_status", array('Not Paid'=>'Not Paid','Paid'=>'Paid'), array( 
+					'class'=>'input_text_value',
+				)); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "partner_status", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width161">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"Invoice date"); ?></div>
+		<div class="input_text width161">	
+			<div class="hdselect inv_date_edit_header">
+				<?php echo Invoices::getInvoiceDateEdit($model->invoice_date_month,$model->invoice_date_year,$model->id); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "partner_status", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"type"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "type", array('Standard'=>'Standard' ,'Airfare/Visas'=>'Airfare/Visas', 'Expenses'=>'Expenses'), array('class'=>'input_text_value','prompt'=>" ",'style'=>'width:104px;border:none;',"onchange"=>"changeInput(value,$model->id,1)")); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "type", array('id'=>"")); ?>
+	</div>
+	
+	 <div style="right:95px;top:140px" class="save" onclick="updateHeader(this);return false;"><u><b>SAVE</b></u></div>
+	<div style="right:30px;color:#333;top:140px" class="save" onclick="$(this).parents('.tache.new').siblings('.tache').removeClass('hidden');$(this).parents('.tache.new').addClass('hidden');$(this).parents('.tache.new').html('');"><u><b>CANCEL</b></u></div>
+</fieldset>
+<script type="text/javascript">
+$(function() {
+	changeCategory('#Invoices_partner');
+	console.log("1");
+}); 
+
+function changeCategory(element) {
+	$this =  $(element);
+	console.log('2');
+	if($this.val() != <?php echo Maintenance::PARTNER_SNS; ?> && $this.val() != "") {
+		$('#Invoices_sns_share').parents('div.textBox').removeClass('hidden');
+		$('#Invoices_partner_status').parents('div.textBox').removeClass('hidden');
+	}else if($this.val() == <?php echo Maintenance::PARTNER_SNS; ?> || $this.val() == null)
+		{
+			$('#Invoices_sns_share').parents('div.textBox').addClass('hidden');
+			$('#Invoices_partner_status').parents('div.textBox').addClass('hidden');
+		}
+}
+</script>

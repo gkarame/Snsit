@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/HeaderEncoder
+END
+QpHeaderEncoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/HeaderEncoder/QpHeaderEncoder.php
+END
+Base64HeaderEncoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/HeaderEncoder/Base64HeaderEncoder.php
+END

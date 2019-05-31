@@ -1,0 +1,33 @@
+<div class="simpleForm settingsForm">
+<?php echo CHtml::beginForm(); ?>
+<?php foreach ($settings as $i => $setting) { ?>
+	<div class="row">
+		<label><?php echo $setting->label;?></label>
+<?php 
+	switch ($setting->system_parameter) 
+	{
+		case 'page_size':
+			echo '<div class="inputBg_create">';
+			echo CHtml::activeTextField($setting, "[$i]value");
+			echo '</div>';
+			break;
+		case 'vat_no':
+		case 'registration_no':
+			echo '<div class="inputBg_create">';
+			echo CHtml::activeTextField($setting, "[$i]value", array('maxlength'=>'20'));
+			echo '</div>';
+			break;
+		case 'bank_details':			
+		default:
+			echo CHtml::activeTextArea($setting, "[$i]value");
+			break;	
+	}	
+?>
+	</div>
+<?php } ?>
+<div class="row buttons">
+		<?php echo CHtml::submitButton('Save'); ?>
+</div>
+<?php echo CHtml::endForm(); ?>
+</div>
+<br clear="all" />

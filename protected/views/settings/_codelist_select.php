@@ -1,0 +1,2 @@
+<?php echo CHtml::dropDownList($codelist->codelist, '', Codelkups::getCodelkupsDropDownOriginals($codelist->codelist), 
+		array('prompt'=>'Choose your '.$codelist->label, 'class'=>'codelist_dropdown')); ?>

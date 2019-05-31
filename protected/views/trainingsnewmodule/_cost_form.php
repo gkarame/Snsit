@@ -1,0 +1,5 @@
+<div class="tache2 new" ><fieldset class="new_cost">	<div class="bg2">	<div class="row">	<div class="selectBg_create"><?php echo CHtml::DropDownlist('cost_type',"",TrainingCosts::getCostTypeList(),array('prompt' => Yii::t('translations', 'Choose Type') ,'class'=>'margint10 marginl18'));?>
+	</div>	</div>	<div class="row"><div class="">	<?php echo CHtml::activeTextField($model,"amount", array('style'=>'border: thin solid #cccccc;height:22px;margin-top:5px;margin-left:300px;','placeholder'=>'Amount')); ?>
+		</div>	<?php echo CCustomHtml::error($model,"amount",array('id'=>"TrainingCosts_amount_em_")); ?></div>	<div style="right:141px;" class="save" onclick="saveCost(this,$('#cost_type').val());"><u><b>SAVE</b></u></div>
+		<div style="color:#333;right:77px;" class="save" onclick="$(this).parents('.tache2.new').siblings('.new_cost').show();$(this).parents('.tache2.new').remove();$.fn.yiiGridView.update('costs-grid');"><u><b>CANCEL</b></u></div>
+	</fieldset>	</div></div>

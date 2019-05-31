@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Encoder
+END
+QpEncoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Encoder/QpEncoder.php
+END
+Rfc2231Encoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Encoder/Rfc2231Encoder.php
+END
+Base64Encoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Encoder/Base64Encoder.php
+END

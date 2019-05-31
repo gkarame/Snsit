@@ -1,0 +1,9 @@
+<?php
+/* @var $this RequestsController */
+
+$this->breadcrumbs=array(
+	'Requests',
+);
+?>
+
+<?php echo $this->message;?>

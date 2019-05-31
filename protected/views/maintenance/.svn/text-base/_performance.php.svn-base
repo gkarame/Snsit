@@ -1,0 +1,58 @@
+<table class="items">
+	<thead>
+		<tr>
+			<th id="performance-grid_c0">Year</th>
+			<th id="performance-grid_c1">Issues</th>
+			<th id="performance-grid_c2">Escalations</th>
+			<th id="performance-grid_c3">System  Down</th>
+			<th id="performance-grid_c4">Hours</th>
+			<th id="performance-grid_c5">Revenues</th>
+			<th id="performance-grid_c6">Cost</th>
+			<th id="performance-grid_c7">Profit</th>
+			<th id="performance-grid_c8">Profit %</th>
+		</tr>
+	</thead>
+	<tbody>
+	
+	
+<?php $values = Maintenance::getAllSupportDesk($model);?>
+<?php foreach($values as $k=>$val)
+	{?>
+		<tr>
+			<td><?php echo $k;?></td>
+			<?php $support = $val['support'];?>
+			<td><?php echo count($support);?></td>
+			<td></td>
+			<td><?php echo (isset($val['system_down']))?$val['system_down']:"0";?></td>
+			<td><?php echo Maintenance::getHoursByYear($model->id_maintenance, $k)?></td>
+			<td><?php echo Utils::formatNumber($model->getTotalNetAmountYear($k));?></td>
+			<td><?php echo Utils::formatNumber(Maintenance::getHoursByYear($model->id_maintenance, $k)*SystemParameters::getCost());?></td>
+			<td><?php echo Utils::formatNumber($model->getTotalNetAmountYear($k)-Maintenance::getHoursByYear($model->id_maintenance, $k)*SystemParameters::getCost())?></td>
+			<td><?php echo Utils::formatNumber(($model->getTotalNetAmountYear($k)-Maintenance::getHoursByYear($model->id_maintenance, $k)*SystemParameters::getCost())/$model->getTotalNetAmountYear($k)*100)?></td>
+		</tr>
+<?php }?>
+		
+	</tbody>
+</table>		
+
+<div class="board inline-block ui-state-default " >
+	<div class="bhead">
+		<div class="title">number of issues, hours per year </div>
+		<div class="drag"></div>
+	</div>	
+	<div class="bcontenu">	
+		<div id="chartContainerMaintenance" class="style_chart700 graph"  style="padding-top:25px"></div>  
+	</div>
+	<div class="ftr"></div>
+</div>   
+<div class="board inline-block ui-state-default " >
+	<div class="bhead">
+		<div class="title">Revenues, Cost, Profit per year </div>
+		<div class="drag"></div>
+	</div>	
+	<div class="bcontenu">
+		<div id="chartContainerLine" class="style_chart700 graph" style="padding-top:25px"></div>     
+	</div>  
+	<div class="ftr"></div>
+</div>    
+                

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/.gitignore
+END
+.gitattributes
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/.gitattributes
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/README.md
+END
+SwiftMailer.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/SwiftMailer.php
+END

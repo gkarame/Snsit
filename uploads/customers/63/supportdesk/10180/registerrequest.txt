@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_10" class="java.beans.XMLDecoder"> 
+ <object class="com.boomi.pdm.om.RegisterRequest"> 
+  <void property="companyName"> 
+   <string>Aramex</string> 
+  </void> 
+  <void property="hostName"> 
+   <string>EG26AMCAP09VS</string> 
+  </void> 
+  <void property="networkName"> 
+   <string>EG26AMCAP09VS</string> 
+  </void> 
+  <void property="osArch"> 
+   <string>x86</string> 
+  </void> 
+  <void property="osName"> 
+   <string>Windows XP</string> 
+  </void> 
+  <void property="processorCount"> 
+   <short>4</short> 
+  </void> 
+  <void property="serialKey"> 
+   <string>CEVZ55D5YTN</string> 
+  </void> 
+  <void property="versionInfo"> 
+   <object class="com.boomi.pdm.om.VersionInfo"> 
+    <void property="build"> 
+     <int>310</int> 
+    </void> 
+    <void property="major"> 
+     <int>3</int> 
+    </void> 
+    <void property="minor"> 
+     <int>3</int> 
+    </void> 
+    <void property="revision"> 
+     <int>0</int> 
+    </void> 
+   </object> 
+  </void> 
+ </object> 
+</java> 

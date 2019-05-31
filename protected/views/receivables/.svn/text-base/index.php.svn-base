@@ -1,0 +1,632 @@
+<?php
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('receivables-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+");
+?>
+
+<div class="search-form" style="overflow: inherit;">
+<?php $this->renderPartial('_search',array(
+	'model'=>$model,
+));?>
+</div>
+
+<?php 
+	switch(true)
+	{
+		case (isset($_GET['group']) && $_GET['group'] == 'customer'):
+			$this->widget('ext.groupgridview.GroupGridView', array(
+				'id' => 'receivables-grid',
+				'dataProvider' => $model->searchReceivablesGr('customer.name'),
+				'extraRowColumns' => array('id_customer'),
+				'extraRowExpression' => '$data->customer->name',
+				'summaryText' => '',
+				'enablePagination' => false,
+			    'template'=>'{items}',	
+				'rowCssClassExpression' => '"test"',
+				'columns'=>array(
+						array(
+								'class'=>'CCheckBoxColumn',
+								'id'=>'checkinvoice',
+								'htmlOptions' => array('class' => 'item checkbox_grid_invoice check_invoice'),
+								'selectableRows'=>2,
+						),
+						
+						array(
+								'header' => 'Invoice #',
+								'value' => 'CHtml::link($data->final_invoice_number, Yii::app()->createUrl("receivables/view",array("id"=>$data->id)))',
+								'type'=>'raw',
+								'name' => 'final_invoice_number',
+								'htmlOptions' => array('class' => 'column100'),
+								'headerHtmlOptions' => array('class' => 'column100'),
+						),
+						array(
+								'name' => 'customer',
+								'header' => '<a href="'.Yii::app()->getBaseUrl(true).'/receivables">customer</a>',
+								'value'=>'$data->customer->name',
+								'htmlOptions' => array('class' => 'column65 customer_name'),
+								'headerHtmlOptions' => array('class' => 'column65 customer_name'),
+						),
+				
+						array(
+								'header'=>Yii::t('translations', 'Net Amount'),
+								'value' => 'Utils::formatNumber($data->net_amount)." ".$data->rCurrency->codelkup',
+								'htmlOptions' => array('class' => 'column65'),
+								'headerHtmlOptions' => array('class' => 'column65'),
+						),
+				
+						array(
+								'header'=>Yii::t('translations', 'Gross Amount'),
+								'value' => 'Utils::formatNumber($data->gross_amount)." ".$data->rCurrency->codelkup',
+								'htmlOptions' => array('class' => 'column75'),
+								'headerHtmlOptions' => array('class' => 'column75'),
+						),
+							
+						array(
+							'name' => 'status',
+							'value'=>'$data->status',
+							'htmlOptions' => array('class' => 'column65'),
+							'headerHtmlOptions' => array('class' => 'column65'),
+						),
+				        array(
+							'name' => 'printed_date',
+							'value' => 'date("d/m/Y", strtotime($data->printed_date))',
+				        	'htmlOptions' => array('class' => 'column90'),
+				        	'headerHtmlOptions' => array('class' => 'column90'),
+						),
+						array(
+								'name' => 'age',
+								'header' => '<a href="'.Yii::app()->getBaseUrl(true).'/receivables?group=age">age</a>',
+								'value' => '$data->age',
+								'htmlOptions' => array('class' => 'column90'),
+								'headerHtmlOptions' => array('class' => 'column90'),
+						),
+				),
+			));
+			break;
+			case (isset($_GET['group']) && $_GET['group'] == 'age'):
+				$this->widget('ext.groupgridview.GroupGridView', 
+					array(
+					'id' => 'receivables-grid',
+					'dataProvider' => $model->searchReceivablesGr('textdays'),
+					'extraRowColumns' => array('textdays'),
+					'extraRowExpression' => '$data->textdays',
+					'summaryText' => '',
+					'enablePagination' => false,
+					'template'=>'{items}',
+					'rowCssClassExpression' => '"test"',
+					'columns'=>array(
+						array(
+							'class'=>'CCheckBoxColumn',
+							'id'=>'checkinvoice',
+							'htmlOptions' => array('class' => 'item checkbox_grid_invoice check_invoice'),
+							'selectableRows'=>2,
+						),
+						array(
+								'header' => 'Invoice #',
+								'value' => 'CHtml::link($data->final_invoice_number, Yii::app()->createUrl("receivables/view", array("id"=>$data->id)))',
+								'type'=>'raw',
+								'name' => 'final_invoice_number',
+								'htmlOptions' => array('class' => 'column100'),
+								'headerHtmlOptions' => array('class' => 'column100'),
+						),
+						array(
+								'name' => 'customer',
+								'header' => '<a href="'.Yii::app()->getBaseUrl(true).'/receivables?group=customer">customer</a>',
+								'value'=>'$data->customer->name',
+								'htmlOptions' => array('class' => 'column65 customer_name'),
+								'headerHtmlOptions' => array('class' => 'column65 customer_name'),
+						),
+					
+						array(
+							'header'=>Yii::t('translations', 'Net Amount'),
+							'value' => 'Utils::formatNumber($data->net_amount)." ".$data->rCurrency->codelkup',
+							'htmlOptions' => array('class' => 'column65'),
+							'headerHtmlOptions' => array('class' => 'column65'),
+						),
+					
+						array(
+							'header'=>Yii::t('translations', 'Gross Amount'),
+							'value' => 'Utils::formatNumber($data->gross_amount)." ".$data->rCurrency->codelkup',
+							'htmlOptions' => array('class' => 'column75'),
+							'headerHtmlOptions' => array('class' => 'column75'),
+						),
+							
+						array(
+							'name' => 'status',
+							'value'=>'$data->status',
+							'htmlOptions' => array('class' => 'column65'),
+							'headerHtmlOptions' => array('class' => 'column65'),
+						),
+						array(
+							'name' => 'printed_date',
+							'value' => 'date("d/m/Y", strtotime($data->printed_date))',
+							'htmlOptions' => array('class' => 'column90'),
+							'headerHtmlOptions' => array('class' => 'column90'),
+						),
+						array(
+								'name' => 'age',
+								'header' => '<a href="'.Yii::app()->getBaseUrl(true).'/receivables">age</a>',
+								'value' => '$data->age',
+								'htmlOptions' => array('class' => 'column90'),
+								'headerHtmlOptions' => array('class' => 'column90'),
+						),
+						array(
+								'name' => 'textdays',
+								'value' => '$data->textdays',
+								'htmlOptions' => array('class' => 'hidden'),
+								'headerHtmlOptions' => array('class' => 'hidden'),
+						),
+					),
+				));
+				break;
+		default:
+			$this->widget('zii.widgets.grid.CGridView', array(
+			'id'=>'receivables-grid',
+			'dataProvider'=>$model->searchReceivablesGr(),
+			'summaryText' => '',
+			'pager'=> Utils::getPagerArray(),
+		    'template'=>'{items}{pager}',
+			'columns'=>array(
+				array(
+						'class'=>'CCheckBoxColumn',
+						'id'=>'checkinvoice',
+						'htmlOptions' => array('class' => 'item checkbox_grid_invoice check_invoice'),
+						'selectableRows'=>2,
+						'name' => 'final_invoice_number'
+				),
+				
+				array(
+						'header' => 'Invoice #',
+						'value' => 'CHtml::link($data->final_invoice_number, Yii::app()->createUrl("receivables/view", array("id"=>$data->id)))',
+						'type'=>'raw',
+						'name' => 'final_invoice_number',
+						'htmlOptions' => array('class' => 'column100'),
+						'headerHtmlOptions' => array('class' => 'column100'),
+				),
+				array(
+						'name' => 'customer',
+						'header' => '<a href="'.Yii::app()->getBaseUrl(true).'/receivables?group=customer">customer</a>',
+						'value'=>'$data->customer->name',
+						'htmlOptions' => array('class' => 'column65 customer_name'),
+						'headerHtmlOptions' => array('class' => 'column65 customer_name'),
+				),
+		
+				array(
+						'header'=>Yii::t('translations', 'Net Amount'),
+						'value' => 'Utils::formatNumber($data->net_amount)." ".$data->rCurrency->codelkup',
+						'htmlOptions' => array('class' => 'column65'),
+						'headerHtmlOptions' => array('class' => 'column65'),
+				),
+		
+				array(
+						'header'=>Yii::t('translations', 'Gross Amount'),
+						'value' => 'Utils::formatNumber($data->gross_amount)." ".$data->rCurrency->codelkup',
+						'htmlOptions' => array('class' => 'column75'),
+						'headerHtmlOptions' => array('class' => 'column75'),
+				),
+					
+				array(
+					'name' => 'status',
+					'value'=>'$data->status',
+					'htmlOptions' => array('class' => 'column65'),
+					'headerHtmlOptions' => array('class' => 'column65'),
+				),
+		        array(
+					'name' => 'printed_date',
+					'value' => 'date("d/m/Y", strtotime($data->printed_date))',
+		        	'htmlOptions' => array('class' => 'column90'),
+		        	'headerHtmlOptions' => array('class' => 'column90'),
+				),
+				array(
+					'name' => 'age',
+					'value' => '$data->age',
+					'header' => '<a href="'.Yii::app()->getBaseUrl(true).'/receivables?group=age">age</a>',
+					'htmlOptions' => array('class' => 'column90'),
+					'headerHtmlOptions' => array('class' => 'column90'),
+				),
+			),
+		)); 
+	}
+?>
+
+<script type="text/javascript">
+	var isSubmitted = false;
+
+	$(document).ready(function() {
+		//on click plus minus sign collapse or narrow
+		$(document).on('click', '.plus-minus', function() {
+			if ($(this).attr('data-collapsed') == 1)
+			{
+				$(this).attr('data-collapsed', '0').css('background-position', '0px -1px');
+				$(this).parents('.project_thead').nextUntil('.project_thead').hide();
+			}
+			else
+			{
+				$(this).attr('data-collapsed', '1').css('background-position', '0px -22px');
+				$(this).parents('.project_thead').nextUntil('.project_thead').show();
+			}
+		});
+		collapseOrNot();
+	});
+	
+	function collapseOrNot()
+	{
+		// foreach project collapse or expand if it has hours worked or not 
+		$('.plus-minus').each(function(index){
+			$(this).attr('data-collapsed', '0').css('background-position', '0px -1px');
+			$(this).parents('.project_thead').nextUntil('.project_thead').hide();
+			
+		});
+	}
+	
+	function assignUsers() {
+		if ($('#assign-users-form').serialize() != '') {
+			$.ajax({
+		 		type: "POST",					
+			  	url: "<?php echo Yii::app()->createAbsoluteUrl('receivables/assignUsers');?>", 
+			  	dataType: "json",
+			  	data:  $('#assign-users-form').serialize()+'&'+$('.checkbox_grid_invoice input').serialize(),
+			  	success: function(data) {
+			  		if (data.status == "success") {
+			  			$("input[type='checkbox']").prop('checked', false);	
+			  			$('#users-list').fadeOut(100);
+			  		}
+			  		else
+			  		{
+			  			var action_buttons = {
+					        "Ok": {
+								click: function() 
+						        {
+						            $( this ).dialog( "close" );
+						        },
+						        class : 'ok_button'
+					        }
+						}
+						custom_alert('ERROR MESSAGE', data.message, action_buttons);
+			  		}
+		  		}
+			});
+		} else {
+			var action_buttons = {
+			        "Ok": {
+						click: function() 
+				        {
+				            $( this ).dialog( "close" );
+				        },
+				        class : 'ok_button'
+			        }
+				}
+				custom_alert('ERROR MESSAGE', 'You have to select a user in order to save!', action_buttons);
+		}
+	}
+	
+	function getUsers() 
+	{
+		if ($('.checkbox_grid_invoice input').serialize() != '') {
+			if (!$('#users-list').is(':visible')) {
+				$.ajax({
+			 		type: "POST",					
+				  	url: "<?php echo Yii::app()->createAbsoluteUrl('receivables/getUsers');?>", 
+				  	dataType: "json",
+				  	data: $('.checkbox_grid_invoice input').serialize(),
+				  	success: function(data) {
+				  		if (data.status == "success") {
+					  		$('#users-list').html(data.div);
+					  		$('.action_list').hide();
+					  		$('#users-list').show();
+					  		$('#users-list').find('.scroll_div').mCustomScrollbar();
+					  		
+				  		}
+			  		}
+				});
+			} else {
+				$('#users-list').fadeOut(100);
+			}
+		}
+		else
+		{
+			var action_buttons = {
+			        "Ok": {
+						click: function() 
+				        {
+				            $( this ).dialog( "close" );
+				        },
+				        class : 'ok_button'
+			        }
+				}
+				custom_alert('ERROR MESSAGE', 'You have to select at least one invoice!', action_buttons);
+		}
+	}
+	
+	function changeStatus() {
+		$.ajax({
+	 		type: "POST",
+		  	url: "<?php echo Yii::app()->createAbsoluteUrl('invoices/changeStatus');?>",
+		  	dataType: "json",
+		  	data: $('.checkbox_grid_invoice input').serialize(),
+		  	success: function(data) {
+			  	if (data) {
+				  	if (data.status == 'success') {
+				  		$('.action_list').hide();
+				  		$.fn.yiiGridView.update('invoice-grid');
+				  	} else {
+				  		var action_buttons = {
+						        "Ok": {
+									click: function() 
+							        {
+							            $( this ).dialog( "close" );
+							        },
+							        class : 'ok_button'
+						        }
+							}
+			  			custom_alert('ERROR MESSAGE', data.message, action_buttons);
+							$('.action_list').hide();
+					}
+			  	}
+	  		}
+		});
+	}
+	
+	function printReceivables() {
+		if ($('.checkbox_grid_invoice input').serialize() != '') {	
+			$('.action_list').hide();
+			window.location.replace("<?php echo Yii::app()->createAbsoluteUrl('invoices/PrintReceivables');?>/?"+$('.checkbox_grid_invoice input').serialize());
+		} else {
+			$('.action_list').hide();
+	  		var action_buttons = {
+		        "Ok": {
+					click: function() 
+			        {
+			            $( this ).dialog( "close" );
+			        },
+			        class : 'ok_button'
+		        }
+			}
+  			custom_alert('ERROR MESSAGE', "You have to select at least one invoice!", action_buttons);
+		}
+	}
+	
+	function getExcel() {
+		if ($('.checkbox_grid_invoice input').serialize() != '') {	
+			$('.action_list').hide();
+			if ($('#checkinvoice_all').is(':checked'))
+			{
+				$("input[type='checkbox']").prop('checked', false);	
+				window.location.replace("<?php echo Yii::app()->createAbsoluteUrl('receivables/getExcel');?>/?exportAll=1&"+$('.search-form form').serialize());
+			}
+			else
+			{
+				var ids = $('.checkbox_grid_invoice input').serialize();
+				$("input[type='checkbox']").prop('checked', false);
+				window.location.replace("<?php echo Yii::app()->createAbsoluteUrl('receivables/getExcel');?>/?"+ids);
+			}
+		} else {
+			$('.action_list').hide();
+			var action_buttons = {
+				"Ok": {
+					click: function() 
+			        {
+			            $( this ).dialog( "close" );
+			        },
+			        class : 'ok_button'
+		        }
+			}
+  			custom_alert('ERROR MESSAGE', "You have to select at least one invoice!", action_buttons);
+		}
+	}
+	
+	function changeStatusPaid() {
+		if ($('.checkbox_grid_invoice input').serialize() != '') {
+			$.ajax({
+		 		type: "POST",
+			  	url: "<?php echo Yii::app()->createAbsoluteUrl('receivables/changeStatusPaid');?>",
+			  	dataType: "json",
+			  	data: $('.checkbox_grid_invoice input').serialize(),
+			  	success: function(data) {
+				  	if (data) {
+				  		$('.action_list').hide();
+					  	if (data.status == 'success') {
+					  		$("input[type='checkbox']").prop('checked', false);
+					  		if (!data.no_change)
+					  		{
+					  			$.fn.yiiGridView.update('receivables-grid');
+					  		}
+					  	} else {
+					  		var action_buttons = {
+							        "Ok": {
+										click: function() 
+								        {
+								            $( this ).dialog( "close" );
+								        },
+								        class : 'ok_button'
+							        }
+								}
+				  			custom_alert('ERROR MESSAGE', data.message, action_buttons);
+						}
+				  	}
+		  		}
+			});
+		} else {
+			$('.action_list').hide();
+			var action_buttons = {
+				"Ok": {
+					click: function() 
+			        {
+			            $( this ).dialog( "close" );
+			        },
+			        class : 'ok_button'
+		        }
+			}
+  			custom_alert('ERROR MESSAGE', "You have to select at least one invoice!", action_buttons);
+		}
+	}
+	
+	function changeInvoiceDate(date,type,id) {
+		$.ajax({
+	 		type: "POST",
+		  	url: "<?php echo Yii::app()->createAbsoluteUrl('invoices/changeInvoiceDate');?>",
+		  	dataType: "json",
+		  	data: {'value':date,'type':type,'id':id},
+		  	success: function(data) {
+			  	if (data) {
+				  	if (data.status == 'success') {
+				  		$.fn.yiiGridView.update('invoice-grid');
+				  	} else {
+				  		var action_buttons = {
+					        "Ok": {
+								click: function() 
+						        {
+						            $( this ).dialog( "close" );
+						        },
+						        class : 'ok_button'
+					        }
+						}
+			  			custom_alert('ERROR MESSAGE', data.message, action_buttons);
+						$('.action_list').hide();
+					}
+			  	}
+	  		}
+		});
+	}
+
+	function getTemplate(val)
+	{
+		if(val != '')
+		{
+			$.ajax({
+		 		type: "POST",					
+			  	dataType: "json",
+			  	url : configJs.urls.baseUrl + '/projects/GetCurrencyRate/'+val,
+			  	success: function(data) {
+			  		if (data) {
+					  	$('#ShareByForm_body').val(data.template);
+			  		}
+				}
+			});
+		}
+	}
+	
+	function shareReceivables(element) {
+		if (isSubmitted == false) {
+			isSubmitted = true;
+
+			var send = $('.checkbox_grid_invoice input').serialize();			
+			var dialog = $('.popup_list');
+
+			if (!$(element).hasClass('shareby_button')) {
+				send += '&'+ $(element).parents('.shareby_fieldset').serialize()+'&ShareForm[footer]='+$('#ShareByForm_footer').html();
+				$('.loader').show();
+			}
+			else {
+				dialog.removeClass('popup_shareby').hide().html('');
+			}
+			
+			var action_buttons = {
+			        "Ok": {
+				        	class: 'ok_button',
+				        	click: function() 
+					        {
+					            $( this ).dialog( "close" );
+					        }
+			        }
+	  		}
+			
+			$.ajax({
+		 		type: "POST",					
+		 		url: "<?php echo Yii::app()->createAbsoluteUrl('receivables/share');?>",
+			  	dataType: "json",
+			  	data: send,
+			  	success: function(data) {
+			  		if (data) {
+			  			isSubmitted = false;
+			  			
+			  			if (dialog.find('.loader').length) {
+			  				$('.loader').hide();
+			  			}
+				  		if (data.status == "failure") {
+				  			dialog.html(data.form);
+				  			dialog.addClass('popup_shareby');
+				  			if (data.file_found == 0)
+			  				{
+				  				custom_alert('ERROR MESSAGE', 'The file was not found on the server', action_buttons);
+			  				}
+				  			dialog.show();
+				  		} else {
+				  			if (data.status == "success") {
+				  				if (!data.not_sent_to)
+				  				{
+					  				dialog.fadeOut(100);
+					  				dialog.html('');
+				  				}
+				  				else
+			  					{
+					  				custom_alert('ERROR MESSAGE', 'The email was not sent to '+data.not_sent_to, action_buttons);		  					
+			  					}
+				  			} else {
+				  				if (data.status == "fail") {
+				  					custom_alert('ERROR MESSAGE', data.message, action_buttons);
+						  		}
+				  				else
+				  					custom_alert('ERROR MESSAGE', 'There was an error. Please try again!', action_buttons);
+				  			}
+				  		}
+			  		}
+		  		},
+				error: function() {
+					isSubmitted = false;
+					if (dialog.find('.loader').length) {
+		  				$('.loader').hide();
+		  			}
+					custom_alert('ERROR MESSAGE', 'There was an error. Please try again!', action_buttons);
+				}
+			});
+		}
+	}
+
+	function getSoAFiles()
+	{
+		if (!$('.soaBtn').hasClass('checked'))
+		{
+			$('.soaBtn').addClass('checked');
+			$.ajax({
+		 		type: "POST",					
+			  	dataType: "json",
+			  	data :$('.checkbox_grid_invoice input').serialize(),
+			  	url : configJs.urls.baseUrl + '/receivables/getSoA/',
+			  	success: function(data) {
+			  		if (data && data.file) {
+					  	$('.attachments').append(data.file);
+			  		} else {
+			  			var action_buttons = {
+						        "Ok": {
+							        	class: 'ok_button',
+							        	click: function() 
+								        {
+								            $( this ).dialog( "close" );
+								        }
+						        }
+				  		}
+			  			custom_alert('ERROR MESSAGE', 'The file was not found on the server', action_buttons);
+			  			$('.soaBtn').removeClass('checked');
+			  		}
+				}
+			});
+		}
+		else
+		{
+			$('.soaBtn').removeClass('checked');
+			$('.attachments .soaFile').remove();
+		}
+	}
+	function checkStatus(){}
+</script>
+

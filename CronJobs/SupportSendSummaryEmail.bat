@@ -1,0 +1,1 @@
+start https://snsitnew.sns-emea.com/sns/supportDesk/SendSummaryEmail

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/CharacterReader
+END
+Utf8Reader.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/CharacterReader/Utf8Reader.php
+END
+GenericFixedWidthReader.php
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/CharacterReader/GenericFixedWidthReader.php
+END
+UsAsciiReader.php
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/CharacterReader/UsAsciiReader.php
+END

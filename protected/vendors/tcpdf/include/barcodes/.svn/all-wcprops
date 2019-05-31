@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SNSITNEW/!svn/ver/6/sns/protected/vendors/tcpdf/include/barcodes
+END
+qrcode.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SNSITNEW/!svn/ver/6/sns/protected/vendors/tcpdf/include/barcodes/qrcode.php
+END
+datamatrix.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SNSITNEW/!svn/ver/6/sns/protected/vendors/tcpdf/include/barcodes/datamatrix.php
+END
+pdf417.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SNSITNEW/!svn/ver/6/sns/protected/vendors/tcpdf/include/barcodes/pdf417.php
+END

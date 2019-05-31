@@ -1,0 +1,4 @@
+EDI_DC40_U   0000000001504015          DELVRY03                                                    SHPCON                                           AIRLINK_IFLSELAIRLINKUAE                                                                                           SAPIM2    LS  IM2CLNT300                                                                                           04052015121929                                                                                                                20150512121929      
+E2EDL20003                       0000000001504015              0080056164
+E2EDL18                          0000000001504015              PIC
+E2EDL24007                       0000000001504015              9000018970944602                          GAUGE; OIL LEVEL                                                                                                                      1              

@@ -1,0 +1,251 @@
+<div class="bg maintenance_bg"></div>
+<fieldset id="header_fieldset">
+	
+	<div class="textBox three-smaller inline-block itms">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "contract_description"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "contract_description", array('class'=> 'input_text_value')); ?>
+		</div>
+		<?php 
+			echo CCustomHtml::error($model, "contract_description", array('id'=>"")); 
+		 ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width122">
+		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"owner"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model,"owner", Codelkups::getCodelkupsDropDown('partner'), array('class'=>'input_text_value','onchange' => 'changeCategory(this);')); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "owner", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width122">
+		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"product"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model,"product", Codelkups::getCodelkupsDropDown('product'), array('class'=>'input_text_value')); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "product", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox three-smaller inline-block itms">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "short_description"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "short_description", array('class'=> 'input_text_value')); ?>
+		</div>
+		<?php 
+			echo CCustomHtml::error($model, "short_description", array('id'=>"")); 
+		 ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width122">
+		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"customer"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, 'customer', Customers::getAllCustomersSelect(), array('prompt'=>Yii::t('translations', ''))); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "customer", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width122">
+		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"frequency"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model,"frequency", Codelkups::getCodelkupsDropDown('frequency'), array('class'=>'input_text_value')); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "frequency", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width165">
+		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"support_service"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model,"support_service", Codelkups::getCodelkupsDropDown('support_service'), array('class'=>'input_text_value')); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "support_service", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox bigger_amt inline-block width165">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"original_amount"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "original_amount", array('class'=> 'input_text_value')); ?>
+		</div>
+		<?php echo CCustomHtml::error($model, "original_amount", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox bigger_amt inline-block width165">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"escalation_factor"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "escalation_factor", array('class'=> 'input_text_value')); ?>
+		</div>
+		<?php echo CCustomHtml::error($model, "escalation_factor", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width122">
+		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"currency"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model,"currency", Codelkups::getCodelkupsDropDown('currency'), array('class'=>'input_text_value')); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "currency", array('id'=>"")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width122">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"status"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "status",  array('Active'=>'Active','Inactive'=>'Inactive'), array( 
+					'class'=>'input_text_value',
+				)); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "status", array('id'=>"Eas_currency_em_")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width165">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"contract_duration"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "contract_duration",  array('Open Ended'=>'Open Ended','1 Year'=>'1 Year','2 Years'=>'2 Years','3 Years'=>'3 Years','5 Years'=>'5 Years'), array( 
+					'class'=>'input_text_value',
+				)); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "contract_duration", array('id'=>"Eas_currency_em_")); ?>
+	</div>
+	
+	<div class="textBox bigger_amt inline-block width165">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"support_from_time"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "support_from_time", array('class'=> 'input_text_value', 'id'=>'time3')); ?>
+		</div>
+		<?php echo CCustomHtml::error($model, "support_from_time", array('id'=>"Eas_lump_sum_em_")); ?>
+	</div>
+	
+	<div class="textBox bigger_amt inline-block width165">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"support_to_time"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "support_to_time", array('class'=> 'input_text_value', 'id'=>'time4')); ?>
+		</div>
+		<?php echo CCustomHtml::error($model, "support_to_time", array('id'=>"Eas_lump_sum_em_")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width125">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"travel_expenses"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "travel_expenses", array('Billable'=>'Billable','Not Billable'=>'Not Billable'), array( 
+					'class'=>'input_text_value',
+				)); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "travel_expenses", array('id'=>"Eas_currency_em_")); ?>
+	</div>
+	
+	<div class="textBox inline-block bigger_amt width122">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"po_renewal"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "po_renewal",  array('Yes'=>'Yes','No'=>'No'), array( 
+					'class'=>'input_text_value',
+				)); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "po_renewal", array('id'=>"Eas_currency_em_")); ?>
+	</div>
+	<div class="textBox inline-block bigger_amt width165">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"weekend_support"); ?></div>
+		<div class="input_text">
+			<div class="hdselect">
+				<?php echo CHtml::activeDropDownList($model, "weekend_support",  array('Yes'=>'Yes','No'=>'No'), array( 
+					'class'=>'input_text_value',
+				)); ?>
+			</div>
+		</div>
+		<?php echo CCustomHtml::error($model, "weekend_support", array('id'=>"Eas_currency_em_")); ?>
+	</div>
+		
+	<div class="textBox bigger_amt inline-block width165">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"sns_share"); ?></div>
+		<div class="input_text">
+			<?php echo CHtml::activeTextField($model, "sns_share", array('class'=> 'input_text_value')); ?>
+		</div>
+		<?php echo CCustomHtml::error($model, "sns_share", array('id'=>"Eas_lump_sum_em_")); ?>
+	</div>
+	
+	<div class="textBox bigger_amt inline-block width165">
+		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,'starting_date'); ?></div>
+		<?php if($model->starting_date != null) 
+				$model->starting_date = date("d/m/Y",strtotime($model->starting_date ));?>
+		<div class="dataRow margin_right0 input_text"><?php echo  CHtml::activeTextField($model,'starting_date'); ?><span class="calendar calfrom"></span></div>
+		<?php echo CCustomHtml::error($model,'starting_date'); ?>
+	</div>
+	<div style="right:95px;" class="save top350" onclick="updateHeader(this);return false;"><u><b>SAVE</b></u></div>
+	<div style="right:30px;color:#333;" class="save top350" onclick="$(this).parents('.tache.new').siblings('.tache').removeClass('hidden');$(this).parents('.tache.new').addClass('hidden');$(this).parents('.tache.new').html('');"><u><b>CANCEL</b></u></div>
+</fieldset>
+<script type="text/javascript">
+$(function() {
+	changeCategory('#Maintenance_owner');
+	
+}); 
+
+function changeCategory(element) {
+	$this =  $(element);
+	if($this.val() != <?php echo Maintenance::PARTNER_SNS; ?> && $this.val() != "") {
+		$('#Maintenance_sns_share').parents('div.textBox').removeClass('hidden');
+	}else if($this.val() == <?php echo Maintenance::PARTNER_SNS; ?> || $this.val() == null)
+		{
+			$('#Maintenance_sns_share').parents('div.textBox').addClass('hidden');
+		}
+}
+
+$("#Maintenance_starting_date").datepicker({ dateFormat: 'dd/mm/yy' });
+$("#time3, #time4").timePicker();
+	
+	//Store time used by duration.
+	var oldTime = $.timePicker("#time3").getTime();
+	//Keep the duration between the two inputs.
+	$("#time3").change(function() {
+		if ($("#time4").val()) { // Only update when second input has a value.
+		 // Calculate duration.
+		 var duration = ($.timePicker("#time4").getTime() - oldTime);
+		 var time = $.timePicker("#time3").getTime();
+		 // Calculate and update the time in the second input.
+		 $.timePicker("#time4").setTime(new Date(new Date(time.getTime() + duration)));
+		 oldTime = time;
+		}
+	});
+	//Validate.
+	$("#time4").change(function() {
+		if($.timePicker("#time3").getTime() > $.timePicker(this).getTime()) {
+		 $(this).addClass("error");
+		}
+		else {
+		 $(this).removeClass("error");
+		}
+	});
+	function addPercent(element) {
+		var val = parseFloat($(element).val());
+		if (isNaN(val)) {
+			$(element).val('0%');			
+		} else {
+			$(element).val(val + '%');
+		}
+	}
+
+	function removePercent(element) {
+		var val = parseFloat($(element).val());
+		if (isNaN(val) || val == 0) {
+			$(element).val("");
+		} else {
+			$(element).val(val);
+		}
+	}
+</script>

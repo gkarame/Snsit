@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage
+END
+WideImage_Exception.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage_Exception.php
+END
+gpl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/gpl.txt
+END
+WideImage.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage.php
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/LICENSE
+END
+WideImage_TrueColorImage.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage_TrueColorImage.php
+END
+WideImage_PaletteImage.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage_PaletteImage.php
+END
+WideImage_Image.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage_Image.php
+END
+EWideImage.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/EWideImage.php
+END
+WideImage_Coordinate.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage_Coordinate.php
+END
+WideImage_OperationFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage_OperationFactory.php
+END
+WideImage_Canvas.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage_Canvas.php
+END
+lgpl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/lgpl.txt
+END
+WideImage_MapperFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/WideImage_MapperFactory.php
+END

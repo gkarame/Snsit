@@ -1,0 +1,8 @@
+<?php
+/* @var $this RequestsController */
+
+$this->breadcrumbs=array(
+	'Requests',
+);
+?>
+Your request was send.

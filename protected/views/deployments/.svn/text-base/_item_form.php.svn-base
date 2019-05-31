@@ -1,0 +1,46 @@
+<div class="tache new">
+	<div class="bg" style="top:0px;"></div>
+	<fieldset class="items_fieldset">
+		<?php $id = $model->isNewRecord ? 'new' : $model->id;?>
+		<div class="textBox three-smaller inline-block itms">
+			<div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "contract_description"); ?></div>
+			<div class="input_text">
+				<?php echo CHtml::activeTextField($model, "contract_description", array('class'=> 'input_text_value')); ?>
+			</div>
+			<?php 
+				echo CCustomHtml::error($model, "contract_description"); 
+			 ?>
+		</div>
+		<div class="textBox bigger_amt inline-block right-free">
+			<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"amount"); ?></div>
+			<div class="input_text">
+				<?php echo CHtml::activeTextField($model, "amount", array('class'=> 'input_text_value')); ?>
+			</div>
+			<?php echo CCustomHtml::error($model, "amount"); ?>
+		</div>
+		<div class="textBox inline-block bigger_amt">
+			<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"currency"); ?></div>
+			<div class="input_text">
+				<div class="hdselect">
+					<?php echo CHtml::activeDropDownList($model,"currency", Codelkups::getCodelkupsDropDown('currency'), array('class'=>'input_text_value')); ?>
+				</div>
+			</div>
+			<?php echo CCustomHtml::error($model, "currency", array('id'=>"")); ?>
+		</div>
+		<?php if($model->idContract->owner !=  Maintenance::PARTNER_SNS){?>
+			<div class="textBox bigger_amt inline-block ">
+				<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"sns_share"); ?></div>
+				<div class="input_text">
+					<?php echo CHtml::activeTextField($model, "sns_share", array('class'=> 'input_text_value')); ?>
+				</div>
+				<?php echo CCustomHtml::error($model, "sns_share", array('id'=>"Eas_lump_sum_em_")); ?>
+			</div>
+		<?php }?>
+		<?php if ($model->id) { ?>
+				<input type="hidden" name="MaintenanceItems[id]" value="<?php echo $model->id;?>" />
+		<?php } ?>	
+		<div style="right:75px;" class="save" onclick="updateItem(this, '<?php echo $id;?>');return false;"><u><b>SAVE</b></u></div>
+		<div style="color:#333;" class="save" onclick="$(this).parents('.tache.new').siblings('.tache').show();$(this).parents('.tache.new').remove();<?php if (!$model->isNewRecord) {?>$.fn.yiiGridView.update('items-grid');panelClip('.item_clip');
+		panelClip('.term_clip');<?php }?>"><u><b>CANCEL</b></u></div>
+	</fieldset>
+</div>

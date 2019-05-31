@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/ContentEncoder
+END
+QpContentEncoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/ContentEncoder/QpContentEncoder.php
+END
+PlainContentEncoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/ContentEncoder/PlainContentEncoder.php
+END
+Base64ContentEncoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/ContentEncoder/Base64ContentEncoder.php
+END
+NativeQpContentEncoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/ContentEncoder/NativeQpContentEncoder.php
+END
+RawContentEncoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mime/ContentEncoder/RawContentEncoder.php
+END

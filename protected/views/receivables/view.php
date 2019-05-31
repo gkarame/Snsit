@@ -1,0 +1,78 @@
+<div class="mytabs receivable_view"><?php $form=$this->beginWidget('CActiveForm', array(	'id'=>'invoice-form','enableAjaxValidation'=>false,'htmlOptions' => array('class' => 'ajax_submit',	'enctype' => 'multipart/form-data',	),	)); ?>
+	<div class="checkbox_grid_invoice"><input id="receivable_checkbox" name="checkinvoice[]" type="hidden" value="<?php echo $model->final_invoice_number;?>" /></div>
+	<div id="invoice_header" class="edit_header">	<div class="header_title">	<span class="red_title"><?php echo Yii::t('translations', 'INVOICE HEADER');?></span>
+			<div class="btn" style="margin-top:-25px">	<div class="wrapper_action" id="action_tabs_right">	<div onclick="chooseActions();" class="action triggerAction"><u><b>ACTION</b></u></div>
+					<div class="action_list actionPanel"> 	<div class="headli"></div>	<div class="contentli">	<?php if(GroupPermissions::checkPermissions('financial-receivables','write')) {	?>
+							<div class="cover">	<div class="li noborder"><a class="special_edit_header" onclick="showHeader(this);return false;" href="<?php echo Yii::app()->createAbsoluteUrl('receivables/updateHeader', array('id' => $model->id));?>"><?php echo Yii::t('translations', 'EDIT HEADER');?></a></div>
+							</div>	<?php if ($model->partner!=77 &&$model->partner_status != 'Paid')	{ ?>
+							<div class="cover"><div class="li noborder" onclick="changeStatusPaid();">SET TO PAID</div></div> <?php } } ?>			<div class="cover">
+								<div class="li noborder"><a  class="special_edit_header" href="<?php echo $this->createUrl('invoices/printOne', array('id' => $model->id));?>">PRINT INVOICE</a></div>
+							</div></div><div class="ftrli"></div></div><div id="users-list" style="display:none;"></div></div></div></div>
+		<div class="header_content tache"><?php $this->renderPartial('_header_content', array('model' => $model));?></div>
+		<div class="hidden edit_header_content tache new" style="width:98%;height:170px;"></div><br clear="all" />	</div>	<?php $this->endWidget(); ?></div><br clear="all" />
+<script type="text/javascript">
+	function showHeader(element){
+		var url = $(element).attr('href');
+		$.ajax({type: "POST",url: url,dataType: "json",
+		  	success: function(data) {
+			  	if (data) {
+				  	if (data.status == 'success') {
+						$('.edit_header_content').html(data.html);	$('.edit_header_content').removeClass('hidden');	$('.header_content').addClass('hidden');
+						$('.action_list').hide();  	}  	}	}	});	}
+	function updateHeader(element) {
+		$.ajax({type: "POST",data: $('#header_fieldset').serialize()  + '&ajax=invoice-form',  	url: "<?php echo Yii::app()->createAbsoluteUrl('receivables/updateHeader', array('id' => $model->id));?>",   	dataType: "json",
+		  	success: function(data) {
+			  	if (data) {
+				  	if (data.status == 'saved' && data.html) {
+				  		$('.header_content').html(data.html); 		$('.header_content').removeClass('hidden');  		$('.edit_header_content').addClass('hidden');
+				  	}else if(data.status == 'failure'){
+				  			var action_buttons = {
+							        "Ok": {
+										click: function() 
+								        {
+								            $( this ).dialog( "close" );
+								        },
+								        class : 'ok_button'
+							        }
+								}
+			  				custom_alert('ERROR MESSAGE', 'Cannot set status to paid before changing partner status.', action_buttons);			  				
+				  	} 
+				  	else if(data.status == 'failureAssigned') 	{
+				  			var action_buttons = {
+							        "Ok": {
+										click: function() 
+								        {
+								            $( this ).dialog( "close" );
+								        },
+								        class : 'ok_button'
+							        }
+								}
+			  				custom_alert('ERROR MESSAGE', 'Cannot set status to paid before specifying Assigned To', action_buttons);
+				  	}else {
+				  		if (data.status == 'success' && data.html) {
+				  			$('.action_list').hide();	$('.edit_header_content').removeClass('hidden');
+				  			$('.edit_header_content').html(data.html);		$('.header_content').addClass('hidden');
+				  		}  	}
+				  	showErrors(data.error);
+			  	} 		}	});	}
+	function changeStatusPaid() {
+		$.ajax({type: "POST",url: "<?php echo Yii::app()->createAbsoluteUrl('receivables/changeStatusPaid');?>", 	dataType: "json",	  	data: $('.checkbox_grid_invoice input').serialize(),
+		  	success: function(data) {
+			  	if (data) {
+				  	if (data.status == 'success') {
+				  		$('.action_list').hide();	$('.status_partner').html('<?php echo Invoices::STATUS_PAID;?>'); 
+				  	} else {
+				  		var action_buttons = {
+						        "Ok": {
+									click: function() 
+							        {
+							            $( this ).dialog( "close" );
+							        },
+							        class : 'ok_button'
+						        }
+							}
+			  			custom_alert('ERROR MESSAGE', data.message, action_buttons);
+						$('.action_list').hide();
+					}	  	}  		}		});	}
+	function checkStatus(){}
+</script>

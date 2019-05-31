@@ -1,0 +1,33 @@
+
+update wmwhse4.orders set type='3' ,destinationnestid='3' where consigneekey in ( '209', 'BAH209') and status<'95'
+GO;
+
+update wmwhse4.orders set type='3' , destinationnestid='6' where consigneekey in ( 'O99','OMNO99') and status<'95'
+Go;
+update wmwhse4.orders set type='3' , destinationnestid='5' where consigneekey in ('409','KSA409') and status<'95'
+Go;
+update wmwhse4.orders set type='3' , destinationnestid='2' where consigneekey in ('509','UAE509') and status<'95'
+
+select * from wmwhse4.orders where destinationnestid='5'
+update wmwhse4.orders set type='6' where destinationnestid='5'
+
+update wmwhse4.orders set type='6' where orderkey in (select distinct orderkey from wmwhse4.pickdetail where orderkey in 
+(select orderkey from wmwhse4.orders where consigneekey in ('409','KSA409','509','UAE509','O99','OMNO99','209', 'BAH209')) and exportflag='0' and status='9')
+
+update wmwhse5.orders set type='6' where orderkey in (select distinct orderkey from wmwhse4.pickdetail where orderkey in 
+(select orderkey from wmwhse4.orders where consigneekey in ('409','KSA409','509','UAE509','209', 'BAH209','309','KWT309')) and exportflag='0' and status='9')  
+
+update wmwhse5.orders set type='3' , destinationnestid='3' where consigneekey in ( '209', 'BAH209') and status<'95'
+Go;
+update wmwhse5.orders set type='3' , destinationnestid='4' where consigneekey in ( '309','KWT309') and status<'95'
+Go;
+update wmwhse5.orders set type='3' , destinationnestid='5' where consigneekey in ('409','KSA409') and status<'95'
+Go;
+update wmwhse5.orders set type='3' , destinationnestid='2' where consigneekey in ('509','UAE509') and status<'95'
+
+
+
+
+
+select distinct orderkey from pickdetail where orderkey in (select 
+

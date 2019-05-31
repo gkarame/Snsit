@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SNS...</title>
+            <style>
+                html {
+                    font-size: 100%; /* 1 */
+                    -webkit-text-size-adjust: 100%; /* 2 */
+                }
+
+                body {
+                    margin:0;
+                    background: url('back.png') #fff no-repeat left top;
+                    background-size:100% auto;
+                    font-size: 15px;
+                    font-family: Arial,Verdana,sans-serif;
+                    font-weight: bold;
+                }
+
+                .amount {
+                    margin-left: 85%;
+                    padding-top: 5%;
+                    width: 23.3%;
+                    font-size: 1.5em;
+                }
+                .supplier {
+                    margin-left: 21.2%;
+                    margin-top: 7.5%;/*19.5%;*/
+                    width: 75.3%;
+                    font-size: 1.5em;
+                }
+                .amountLetters {
+                    margin-left: 21.2%;
+                    margin-top: 1.5%;
+                    width: 75.3%;
+                    font-size: 1.5em;
+                }
+                .place {
+                    margin-left: 43.5%;
+                    margin-top: 5%;
+                    width: 11%;
+                    font-size: 1.3em;
+                    float: left;
+                    clear: left;
+                }
+                .date {
+                    margin-left: 13%;/*9.6%;*/
+                    margin-top: 5%;
+                    width: 11%;
+                    float: left;
+                    font-size: 1.3em;
+                }
+            </style>
+    </head>
+    <body>
+        <div class="amount"><?php echo $model->amount;?></div>
+        <div class="supplier"><?php echo $model->idSupplier->name;?></div>
+        <div class="amountLetters"><?php echo Utils::convert_number_to_words($model->amount)?></div>
+        <div class="place"><?php echo $model->idSupplier->city;?></div>
+        <div class="date"><?php echo date('d/m/Y',strtotime($model->date));?>
+        </div>
+    </body>
+</html>

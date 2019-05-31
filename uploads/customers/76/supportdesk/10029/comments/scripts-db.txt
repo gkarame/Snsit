@@ -1,0 +1,9 @@
+
+INSERT INTO ssaadmin.MESSAGE_ID ( MsgId, MsgIcon, MsgButton, MsgDefaultButton, MsgSeverity, MsgPrint, MsgUserInput, AddWho, EditWho ) 
+        VALUES ( 'PB_ALTSKU', 'Exclamation ', 'OK', 1, 1, ' ', ' ', 'SNS', 'SNS' )
+go
+
+
+INSERT INTO ssaadmin.MESSAGE_TEXT ( MsgId, MsgLangId, MsgTitle, MsgText, AddWho, EditWho ) 
+        VALUES ( 'PB_ALTSKU', 1033,'AltSku Validation', 'AltSku is not valid.', 'SNS', 'SNS' )
+go

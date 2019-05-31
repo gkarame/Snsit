@@ -1,0 +1,3 @@
+<div class="visas no_background" id="visas"><?php $this->widget('zii.widgets.grid.CGridView', array('id'=>'visas-grid','dataProvider'=>$model->getVisas(),'summaryText' => '','pager'=> Utils::getPagerArray(),  'template'=>'{items}{pager}',
+	'columns'=>array('type',array('name' => 'expiry_date','value' => 'date("m/d/Y", strtotime($data->expiry_date))'),'visa_type','duration_of_stay',	array('name' => 'country',	'value' => 'Codelkups::getCodelkup($data->country)'	),
+		array(	'value' => '$data->getNotesGrid()',	'type'=>'raw',	),	),)); ?></div>

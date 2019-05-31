@@ -1,0 +1,94 @@
+<?php
+/* @var $this MaintenanceController */
+/* @var $data Maintenance */
+?>
+
+<div class="view">
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_maintenance')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->id_maintenance), array('view', 'id'=>$data->id_maintenance)); ?>
+	<br />
+
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('short_description')); ?>:</b>
+	<?php echo CHtml::encode($data->short_description); ?>
+	<br />
+	
+	
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('customer')); ?>:</b>
+	<?php echo CHtml::encode($data->customer); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('owner')); ?>:</b>
+	<?php echo CHtml::encode($data->owner); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('product')); ?>:</b>
+	<?php echo CHtml::encode($data->product); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('support_service')); ?>:</b>
+	<?php echo CHtml::encode($data->support_service); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('frequency')); ?>:</b>
+	<?php echo CHtml::encode($data->frequency); ?>
+	<br />
+
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('original_amount')); ?>:</b>
+	<?php echo CHtml::encode($data->original_amount); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('currency')); ?>:</b>
+	<?php echo CHtml::encode($data->currency); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('escalation_factor')); ?>:</b>
+	<?php echo CHtml::encode($data->escalation_factor); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('sns_share')); ?>:</b>
+	<?php echo CHtml::encode($data->sns_share); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('starting_date')); ?>:</b>
+	<?php echo CHtml::encode($data->starting_date); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
+	<?php echo CHtml::encode($data->status); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('short_description')); ?>:</b>
+	<?php echo CHtml::encode($data->short_description); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('contract_description')); ?>:</b>
+	<?php echo CHtml::encode($data->contract_description); ?>
+	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('file')); ?>:</b>
+	<?php echo CHtml::encode($data->file); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('contract_duration')); ?>:</b>
+	<?php echo CHtml::encode($data->contract_duration); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('trabel_expenses')); ?>:</b>
+	<?php echo CHtml::encode($data->trabel_expenses); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('po_renewal')); ?>:</b>
+	<?php echo CHtml::encode($data->po_renewal); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('weekend_support')); ?>:</b>
+	<?php echo CHtml::encode($data->weekend_support); ?>
+	<br />
+
+	*/ ?>
+
+</div>

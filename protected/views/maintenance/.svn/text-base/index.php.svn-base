@@ -1,0 +1,110 @@
+<?php
+/* @var $this MaintenanceController */
+/* @var $dataProvider CActiveDataProvider */
+
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('maintenance-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+");
+?>
+
+<div class="search-form">
+<?php $this->renderPartial('_search',array(
+	'model'=>$model,
+)); ?>
+<?php $searchArray = Utils::getSearchSession();?>
+<div class="header_title" id="export">	
+	<a>Export to Excel</a>
+
+</div>
+
+</div><!-- search-form -->
+<?php
+	
+	$tmpl = '{delete}';
+	
+		
+		$butoane = array
+            (
+            	'delete' => array(
+            		'label' => Yii::t('translations', 'Delete'),
+            		'imageUrl' => null,		
+            	),
+               
+            );
+		
+	
+
+$this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'maintenance-grid',
+	'dataProvider'=>$model->search(),
+	'summaryText' => '',
+	'selectableRows'=>1,
+	'selectionChanged'=>'function(id){idg = $.fn.yiiGridView.getSelection(id); location.href = "'.$this->createUrl('view').'/"+idg;}',
+	'pager'=> Utils::getPagerArray(),
+    'template'=>'{items}{pager}',
+	'columns'=>array(
+		array(
+		    'name' => 'Short Description',
+			'value'=>'$data->short_description',
+			'headerHtmlOptions' => array('class' => 'column300'),
+		),
+		array(
+		    'name' => 'customer',
+			'value'=>'$data->customer0->name',
+		),
+		
+		array(
+		    'name' => 'owner',
+			'value'=>'$data->owner0->codelkup',
+		),
+		array(
+		    'name' => 'frequency',
+			'value'=>'$data->frequency0->codelkup',
+		),
+		array(
+		    'name' => 'Amount USD',
+			'value'=>'Utils::formatNumber($data->amount)',
+		),
+		array(
+		    'name' => 'Net USD',
+			'value'=>'Utils::formatNumber($data->amount*($data->sns_share/100))',
+		),
+		array(
+		    'name' => 'Start date',
+			'value'=>'date(\'d/m/Y\', strtotime($data->starting_date))',
+		),
+		'status',
+		array(
+			'class' => 'CCustomButtonColumn',
+			'template'=>$tmpl,
+			'htmlOptions'=>array('class' => 'button-column','style'=>'text-align:left'),
+            'buttons'=>$butoane,
+		),
+	),
+)); ?>
+<script type="text/javascript">
+<!--
+$( "#export" ).click(function() {
+	$.ajax({
+ 		type: "POST",
+ 		data: $('#search_maintenance').serialize()  + '&ajax=maintenance-form',					
+	  	url: "<?php echo Yii::app()->createAbsoluteUrl('maintenance/getExcel');?>", 
+	  	dataType: "json",
+	  	success: function(data) {
+			  	if(data.success == 'success')
+			  		window.location = "<?php echo Yii::app()->createAbsoluteUrl("site/download", array('file'=>Utils::getFileExcel(true)));?>";
+			  	
+  		}
+	});
+});
+//-->	
+</script>

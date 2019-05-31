@@ -1,0 +1,38 @@
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('travel_cod')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode('#'.$model->travel_cod); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode(Yii::t('translations', 'Resource')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->idUser->firstname.' '.$model->idUser->lastname); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('id_customer')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->idCustomer->name); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('id_project')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->idProject->name); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('expense_type')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->expenseType->codelkup); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('billable')); ?></div>
+	<div class="general_col4 capitalize"><?php echo CHtml::encode($model->billable); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('amount')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode(Utils::formatNumber($model->amount)); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('currency')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->currencyType->codelkup); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('status')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode(Travel::getStatusNameByStatus($model->status)); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('date')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode(date('d/m/Y', strtotime($model->date))); ?></div>
+</div>
+<?php if($model->status == 1){?>
+	<div class="view_row">
+		<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('Invoice#')); ?></div>
+		<div class="general_col2 "><?php echo CHtml::encode(Utils::paddingCode($model->inv_number)); ?></div>
+		<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('Final Invoice#')); ?></div>
+		<div class="general_col4 "><?php echo CHtml::encode($model->final_inv_number); ?></div>
+	</div>
+<?php }?>

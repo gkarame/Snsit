@@ -1,0 +1,85 @@
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('name')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode(($model->name)); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('id_type')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode(($model->idType->codelkup)); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('country')); ?></div>
+	<div class="general_col2 "><?php echo $model->countryId > 0 ? CHtml::encode(($model->idCountry->codelkup)) : ""; ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('city')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->city); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('currency')); ?></div>
+	<div class="general_col2 "><?php echo $model->currencyId > 0 ? CHtml::encode(($model->idCurrency->codelkup)) : ""; ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('main_contact')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode(($model->main_contact)); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('main_phone')); ?></div>
+	<div class="general_col2"><?php echo CHtml::encode(($model->main_phone)); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('other_phone')); ?></div>
+	<div class="general_col4"><?php echo CHtml::encode($model->other_phone); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('account_name')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->account_name); ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('bank_name')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->bank_name); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('iban')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode(($model->iban)); ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('swift')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->swift); ?></div>
+</div>
+<div class="header_title">	
+		<span class="red_title"><?php echo Yii::t('translations', 'PRINTED');?></span>
+	</div>
+<div id="print_grid"  class="grid border-grid">
+	
+	<?php 
+	$provider = $model->getSuppliersProvider();
+	$eas = $provider->getData();
+	$this->widget('zii.widgets.grid.CGridView', array(
+		'id'=>'budget-record-grid',
+		'dataProvider'=>$provider,
+		'summaryText' => '',
+		'pager'=> Utils::getPagerArray(),
+		'template'=>'{items}{pager}',
+		'columns'=>array(
+			array(            
+				'header'=>Yii::t('translations', 'Check #'),
+				'value'=>'$data->check',
+				'name' => 'ea_number',
+				'htmlOptions' => array('class' => 'column50'),
+				'headerHtmlOptions' => array('class' => 'column50'),
+			),
+			array(
+				'name' => 'Description',
+				'value' => '$data->description',
+				'htmlOptions' => array('class' => 'column65'),
+				'headerHtmlOptions' => array('class' => 'column65'),
+			),
+			array(
+				'name' => 'Amount',
+				'value' => 'Utils::formatNumber($data->amount)',
+				'htmlOptions' => array('class' => 'column65'),
+				'headerHtmlOptions' => array('class' => 'column65'),
+			),
+			array(
+				'header' => 'Date',
+				'value' => 'date("d/m/Y",strtotime($data->date))',
+				'htmlOptions' => array('class' => 'column65'),
+				'headerHtmlOptions' => array('class' => 'column65'),
+			),
+			array(
+				'header' => 'User name',
+				'value' => '$data->idUser->username',
+				'htmlOptions' => array('class' => 'column65'),
+				'headerHtmlOptions' => array('class' => 'column65'),
+			)
+		),
+	)); ?>
+</div>

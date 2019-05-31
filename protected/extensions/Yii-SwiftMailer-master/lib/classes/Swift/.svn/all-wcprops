@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift
+END
+EmbeddedFile.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/EmbeddedFile.php
+END
+Transport.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Transport.php
+END
+DependencyException.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/DependencyException.php
+END
+ReplacementFilterFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/ReplacementFilterFactory.php
+END
+OutputByteStream.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/OutputByteStream.php
+END
+SmtpTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/SmtpTransport.php
+END
+Preferences.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Preferences.php
+END
+LoadBalancedTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/LoadBalancedTransport.php
+END
+CharacterReaderFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/CharacterReaderFactory.php
+END
+SpoolTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/SpoolTransport.php
+END
+TransportException.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/TransportException.php
+END
+KeyCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/KeyCache.php
+END
+ConfigurableSpool.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/ConfigurableSpool.php
+END
+SignedMessage.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/SignedMessage.php
+END
+MimePart.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/MimePart.php
+END
+CharacterReader.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/CharacterReader.php
+END
+DependencyContainer.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/DependencyContainer.php
+END
+Image.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Image.php
+END
+Message.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Message.php
+END
+FailoverTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/FailoverTransport.php
+END
+Encoding.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Encoding.php
+END
+Attachment.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Attachment.php
+END
+Validate.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Validate.php
+END
+FileStream.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/FileStream.php
+END
+Spool.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Spool.php
+END
+FileSpool.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/FileSpool.php
+END
+InputByteStream.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/InputByteStream.php
+END
+MailTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/MailTransport.php
+END
+StreamFilter.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/StreamFilter.php
+END
+CharacterStream.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/CharacterStream.php
+END
+Filterable.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Filterable.php
+END
+Mailer.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Mailer.php
+END
+SendmailTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/SendmailTransport.php
+END
+SwiftException.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/SwiftException.php
+END
+Encoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Encoder.php
+END
+RfcComplianceException.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/RfcComplianceException.php
+END
+MemorySpool.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/MemorySpool.php
+END
+IoException.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/IoException.php
+END
+NullTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/NullTransport.php
+END
+Signer.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/Yii-SwiftMailer-master/lib/classes/Swift/Signer.php
+END

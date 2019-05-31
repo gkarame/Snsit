@@ -1,0 +1,14 @@
+SELECT billadmin.BIC_CHARGE.CUST_CODE  ,-- wmwhse1.storer.COMPANY, 
+convert(varchar(10), billadmin.BIC_CHARGE.charge_date, 120) CHARGEDATE, 
+format(SUM(billadmin.BIC_CHARGE.CHARGE_QTY),'0.00') TOTALVOLUME, 
+format(billadmin.BIC_CHARGE.CHARGE_RATE,'0.00') CHARGERATE, 
+format(SUM(billadmin.BIC_CHARGE.CHARGE_AMT),'0.00') TOTALCHARGE 
+FROM billadmin.BIC_CHARGE -- , wmwhse1.storer
+--where billadmin.BIC_CHARGE.CUST_CODE = '89' --wmwhse1.storer.storerkey = billadmin.BIC_CHARGE.cust_code
+--and wmwhse1.storer.type = '1'
+--and convert(varchar(10), billadmin.BIC_CHARGE.charge_date, 120) between ? and ?
+--and ((billadmin.BIC_CHARGE.CUST_CODE = ? ) or (? = 'all'))
+GROUP BY billadmin.BIC_CHARGE.cust_code,--wmwhse1.storer.company,
+ billadmin.BIC_CHARGE.CHARGE_DATE
+ , billadmin.BIC_CHARGE.CHARGE_RATE
+ORDER BY billadmin.BIC_CHARGE.CHARGE_DATE,billadmin.BIC_CHARGE.CUST_CODE ASC;

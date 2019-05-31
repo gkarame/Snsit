@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Mapper
+END
+WideImage_Mapper_GD.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Mapper/WideImage_Mapper_GD.php
+END
+WideImage_Mapper_TGA.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Mapper/WideImage_Mapper_TGA.php
+END
+WideImage_Mapper_GD2.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Mapper/WideImage_Mapper_GD2.php
+END
+WideImage_Mapper_BMP.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Mapper/WideImage_Mapper_BMP.php
+END
+WideImage_Mapper_PNG.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Mapper/WideImage_Mapper_PNG.php
+END
+WideImage_Mapper_GIF.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Mapper/WideImage_Mapper_GIF.php
+END
+WideImage_Mapper_JPEG.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Mapper/WideImage_Mapper_JPEG.php
+END

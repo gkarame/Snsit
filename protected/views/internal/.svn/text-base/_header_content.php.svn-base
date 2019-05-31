@@ -1,0 +1,95 @@
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('contract_description')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->contract_description); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('id_customer')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->customer0->name); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('owner')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->owner0->codelkup); ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('product')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->product0->codelkup); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('support_service')); ?></div>
+	<div class="general_col2 "><?php //echo CHtml::encode($model->supportService->codelkup); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('frequency')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->frequency0->codelkup); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('original_amount')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode(Utils::formatNumber($model->original_amount)); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('currency')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->currency0->codelkup); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('Amount USD')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode(Utils::formatNumber($model->amount)); ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('Net Amount USD')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode(Utils::formatNumber($model->amount*($model->sns_share)/100)); ?></div>
+</div>
+<div class="view_row">
+	<?php switch ($model->frequency0->codelkup) { 
+	case 'Biyearly':?>
+		<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('Periodic Amount USD')); ?></div>
+		<div class="general_col2 "><?php echo CHtml::encode(Utils::formatNumber($model->amount/2)); ?></div>
+	<?php 
+	break;
+	case 'Quarterly':
+	?>
+		<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('Periodic Amount USD')); ?></div>
+		<div class="general_col2 "><?php echo CHtml::encode(Utils::formatNumber($model->amount/4)); ?></div>
+	<?php 
+	break;
+	case 'Monthly':
+	?>
+		<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('Periodic Amount USD')); ?></div>
+		<div class="general_col2 "><?php echo CHtml::encode(Utils::formatNumber($model->amount/12)); ?></div>
+	<?php break;
+	case 'Yearly':
+	?>
+		<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('Periodic Amount USD')); ?></div>
+		<div class="general_col2 "><?php echo CHtml::encode(Utils::formatNumber($model->amount)); ?></div>
+	<?php break;
+	}
+	?>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('Partner Amount USD')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode(Utils::formatNumber($model->amount*(1-$model->sns_share/100))); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('escalation_factor')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->escalation_factor.'%'); ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('SNS SHARE')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->sns_share.' %'); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('starting_date')); ?></div>
+	<div class="general_col2 "><?php echo date('d/m/Y',strtotime($model->starting_date)) 	; ?></div>
+	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('status')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->status); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('short_description')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->short_description); ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('Support Task')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->customer0->name.' - '.$model->short_description); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('contract_duration')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->contract_duration); ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('travel_expenses')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->travel_expenses); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('po_renewal')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->po_renewal); ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('weekend_support')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->weekend_support); ?></div>
+</div>
+<div class="view_row">
+	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('support_from_time')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode($model->support_from_time); ?></div>
+	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('support_to_time')); ?></div>
+	<div class="general_col4 "><?php echo CHtml::encode($model->support_to_time); ?></div>
+</div>
+<div class="horizontalLine smaller_margin"></div>

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups
+END
+_groups_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_groups_list.php
+END
+_view.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_view.php
+END
+view.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/view.php
+END
+permissions.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/permissions.php
+END
+_default_tasks_tab.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_default_tasks_tab.php
+END
+_email_notifications.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_email_notifications.php
+END
+_unassigned_users.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_unassigned_users.php
+END
+_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_form.php
+END
+update.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/update.php
+END
+_permissions_tabs.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_permissions_tabs.php
+END
+_assign_users.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_assign_users.php
+END
+_email_notifications_tab.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_email_notifications_tab.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/index.php
+END
+_default_tasks.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SNSITNEW/!svn/ver/6/sns/protected/views/groups/_default_tasks.php
+END

@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation
+END
+WideImage_Operation_AsGrayscale.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_AsGrayscale.php
+END
+WideImage_Operation_Rotate.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_Rotate.php
+END
+WideImage_Operation_Merge.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_Merge.php
+END
+WideImage_Operation_Resize.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_Resize.php
+END
+WideImage_Operation_ApplyMask.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_ApplyMask.php
+END
+WideImage_Operation_Crop.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_Crop.php
+END
+WideImage_Operation_CorrectGamma.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_CorrectGamma.php
+END
+WideImage_Operation_CopyChannelsPalette.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_CopyChannelsPalette.php
+END
+WideImage_Operation_Mirror.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_Mirror.php
+END
+WideImage_Operation_Unsharp.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_Unsharp.php
+END
+WideImage_Operation_RoundCorners.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_RoundCorners.php
+END
+WideImage_Operation_CopyChannelsTrueColor.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_CopyChannelsTrueColor.php
+END
+WideImage_Operation_ApplyConvolution.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_ApplyConvolution.php
+END
+WideImage_Operation_AsNegative.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_AsNegative.php
+END
+WideImage_Operation_AddNoise.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_AddNoise.php
+END
+WideImage_Operation_Flip.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_Flip.php
+END
+WideImage_Operation_GetMask.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_GetMask.php
+END
+WideImage_Operation_ApplyFilter.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_ApplyFilter.php
+END
+WideImage_Operation_AutoCrop.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_AutoCrop.php
+END
+WideImage_Operation_ResizeCanvas.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/EWideImage/Operation/WideImage_Operation_ResizeCanvas.php
+END

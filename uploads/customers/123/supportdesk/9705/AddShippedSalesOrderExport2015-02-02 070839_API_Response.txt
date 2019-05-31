@@ -1,0 +1,1474 @@
+<Message>
+  <Head>
+    <MessageID />
+    <Date />
+    <MessageType>ShipmentOrder</MessageType>
+    <Sender>
+      <SystemID>SCPRD_wmwhse7</SystemID>
+      <CompanyID />
+      <ReplyToQ />
+    </Sender>
+    <Recipient>
+      <SystemID>WMSWS</SystemID>
+      <CompanyID />
+      <ReplyToQ />
+    </Recipient>
+  </Head>
+  <Body>
+    <Result>
+      <ShipmentOrder>
+        <ShipmentOrderHeader>
+          <SerialKey>2613</SerialKey>
+          <WhseId>wmwhse7</WhseId>
+          <OrderKey>0000002719</OrderKey>
+          <StorerKey>CROCS</StorerKey>
+          <ExternOrderKey>S215000436</ExternOrderKey>
+          <OrderDate>02/02/2015 05:08:39</OrderDate>
+          <DeliveryDate>01/30/2015 00:00:00</DeliveryDate>
+          <Priority>5</Priority>
+          <C_Contact1 />
+          <C_Contact2 />
+          <C_Address1>SHOP 11, SUNRIDGE PARK VILLAGE, KRAGGAKAMMA R</C_Address1>
+          <C_City>PORT ELIZABETH</C_City>
+          <C_State>Eastern Cape</C_State>
+          <C_Zip>6330</C_Zip>
+          <C_Country>ZA</C_Country>
+          <C_Phone1 />
+          <C_Fax1 />
+          <BuyerPo />
+          <ReturnToParty />
+          <B_Contact1 />
+          <B_Address1 />
+          <B_City />
+          <B_State />
+          <B_Zip />
+          <B_Country />
+          <B_Phone1 />
+          <B_Fax1 />
+          <OpenQty>0.0</OpenQty>
+          <Status>02</Status>
+          <DC_ID />
+          <Deliver_Date />
+          <ReceiptKey />
+          <ReferenceAccountingEntity />
+          <ShipmentOrderDetail>
+            <SerialKey>32819</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00001</OrderLineNumber>
+            <OrderDetailSysId>254</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>1</ExternLineNo>
+            <Sku>883503765870</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32820</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00002</OrderLineNumber>
+            <OrderDetailSysId>17203</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>10</ExternLineNo>
+            <Sku>883503610545</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32821</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00003</OrderLineNumber>
+            <OrderDetailSysId>45241</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>11</ExternLineNo>
+            <Sku>883503630260</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32822</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00004</OrderLineNumber>
+            <OrderDetailSysId>17256</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>12</ExternLineNo>
+            <Sku>883503630284</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32823</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00005</OrderLineNumber>
+            <OrderDetailSysId>47493</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>13</ExternLineNo>
+            <Sku>883503630307</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32824</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00006</OrderLineNumber>
+            <OrderDetailSysId>61436</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>14</ExternLineNo>
+            <Sku>883503630420</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32825</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00007</OrderLineNumber>
+            <OrderDetailSysId>54280</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>15</ExternLineNo>
+            <Sku>883503630444</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32826</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00008</OrderLineNumber>
+            <OrderDetailSysId>50020</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>16</ExternLineNo>
+            <Sku>883503630468</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32827</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00009</OrderLineNumber>
+            <OrderDetailSysId>56805</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>17</ExternLineNo>
+            <Sku>883503956964</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32828</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00010</OrderLineNumber>
+            <OrderDetailSysId>50420</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>18</ExternLineNo>
+            <Sku>883503957190</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32829</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00011</OrderLineNumber>
+            <OrderDetailSysId>13810</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>19</ExternLineNo>
+            <Sku>883503957206</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32830</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00012</OrderLineNumber>
+            <OrderDetailSysId>37323</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>2</ExternLineNo>
+            <Sku>883503765900</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32831</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00013</OrderLineNumber>
+            <OrderDetailSysId>53766</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>20</ExternLineNo>
+            <Sku>883503957213</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32832</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00014</OrderLineNumber>
+            <OrderDetailSysId>55782</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>21</ExternLineNo>
+            <Sku>883503957220</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32833</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00015</OrderLineNumber>
+            <OrderDetailSysId>62999</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>22</ExternLineNo>
+            <Sku>883503617193</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32834</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00016</OrderLineNumber>
+            <OrderDetailSysId>18749</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>23</ExternLineNo>
+            <Sku>883503617209</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32835</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00017</OrderLineNumber>
+            <OrderDetailSysId>40469</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>24</ExternLineNo>
+            <Sku>883503617223</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32836</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00018</OrderLineNumber>
+            <OrderDetailSysId>63540</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>25</ExternLineNo>
+            <Sku>883503617230</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32837</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00019</OrderLineNumber>
+            <OrderDetailSysId>42316</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>26</ExternLineNo>
+            <Sku>883503617247</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32838</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00020</OrderLineNumber>
+            <OrderDetailSysId>11730</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>27</ExternLineNo>
+            <Sku>883503617254</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32839</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00021</OrderLineNumber>
+            <OrderDetailSysId>48822</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>28</ExternLineNo>
+            <Sku>883503617261</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>3.0</OriginalQty>
+            <OpenQty>3.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32840</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00022</OrderLineNumber>
+            <OrderDetailSysId>4641</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>29</ExternLineNo>
+            <Sku>883503617278</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>3.0</OriginalQty>
+            <OpenQty>3.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32841</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00023</OrderLineNumber>
+            <OrderDetailSysId>32346</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>3</ExternLineNo>
+            <Sku>883503765917</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32842</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00024</OrderLineNumber>
+            <OrderDetailSysId>54662</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>30</ExternLineNo>
+            <Sku>883503617285</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32843</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00025</OrderLineNumber>
+            <OrderDetailSysId>22172</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>31</ExternLineNo>
+            <Sku>883503647909</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32844</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00026</OrderLineNumber>
+            <OrderDetailSysId>37155</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>32</ExternLineNo>
+            <Sku>883503647916</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32845</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00027</OrderLineNumber>
+            <OrderDetailSysId>16710</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>33</ExternLineNo>
+            <Sku>883503647923</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32846</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00028</OrderLineNumber>
+            <OrderDetailSysId>13501</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>34</ExternLineNo>
+            <Sku>883503647930</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32847</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00029</OrderLineNumber>
+            <OrderDetailSysId>19788</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>35</ExternLineNo>
+            <Sku>883503647947</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32848</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00030</OrderLineNumber>
+            <OrderDetailSysId>26839</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>36</ExternLineNo>
+            <Sku>883503557062</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32849</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00031</OrderLineNumber>
+            <OrderDetailSysId>41347</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>37</ExternLineNo>
+            <Sku>883503557079</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32850</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00032</OrderLineNumber>
+            <OrderDetailSysId>30091</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>38</ExternLineNo>
+            <Sku>883503557086</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32851</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00033</OrderLineNumber>
+            <OrderDetailSysId>42832</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>39</ExternLineNo>
+            <Sku>883503557093</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32852</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00034</OrderLineNumber>
+            <OrderDetailSysId>34776</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>4</ExternLineNo>
+            <Sku>883503765924</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32853</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00035</OrderLineNumber>
+            <OrderDetailSysId>26931</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>40</ExternLineNo>
+            <Sku>883503557109</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32854</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00036</OrderLineNumber>
+            <OrderDetailSysId>23695</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>41</ExternLineNo>
+            <Sku>883503557116</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32855</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00037</OrderLineNumber>
+            <OrderDetailSysId>10945</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>42</ExternLineNo>
+            <Sku>883503521360</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32856</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00038</OrderLineNumber>
+            <OrderDetailSysId>20462</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>43</ExternLineNo>
+            <Sku>883503511101</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32857</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00039</OrderLineNumber>
+            <OrderDetailSysId>16628</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>44</ExternLineNo>
+            <Sku>883503511118</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>3.0</OriginalQty>
+            <OpenQty>3.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32858</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00040</OrderLineNumber>
+            <OrderDetailSysId>15921</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>45</ExternLineNo>
+            <Sku>883503511125</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>3.0</OriginalQty>
+            <OpenQty>3.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32859</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00041</OrderLineNumber>
+            <OrderDetailSysId>63903</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>46</ExternLineNo>
+            <Sku>883503511149</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32860</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00042</OrderLineNumber>
+            <OrderDetailSysId>16521</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>47</ExternLineNo>
+            <Sku>883503381230</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32861</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00043</OrderLineNumber>
+            <OrderDetailSysId>10065</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>48</ExternLineNo>
+            <Sku>883503381247</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32862</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00044</OrderLineNumber>
+            <OrderDetailSysId>7653</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>49</ExternLineNo>
+            <Sku>883503381254</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32863</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00045</OrderLineNumber>
+            <OrderDetailSysId>6559</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>5</ExternLineNo>
+            <Sku>883503766044</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32864</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00046</OrderLineNumber>
+            <OrderDetailSysId>56885</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>50</ExternLineNo>
+            <Sku>883503381261</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32865</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00047</OrderLineNumber>
+            <OrderDetailSysId>23568</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>51</ExternLineNo>
+            <Sku>883503381421</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>3.0</OriginalQty>
+            <OpenQty>3.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32866</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00048</OrderLineNumber>
+            <OrderDetailSysId>18047</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>52</ExternLineNo>
+            <Sku>883503381445</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32867</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00049</OrderLineNumber>
+            <OrderDetailSysId>16751</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>53</ExternLineNo>
+            <Sku>887350292275</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32868</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00050</OrderLineNumber>
+            <OrderDetailSysId>12412</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>54</ExternLineNo>
+            <Sku>883503381414</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>1.0</OriginalQty>
+            <OpenQty>1.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32869</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00051</OrderLineNumber>
+            <OrderDetailSysId>19095</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>55</ExternLineNo>
+            <Sku>883503381438</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32870</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00052</OrderLineNumber>
+            <OrderDetailSysId>33608</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>56</ExternLineNo>
+            <Sku>887350175219</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32871</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00053</OrderLineNumber>
+            <OrderDetailSysId>35939</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>57</ExternLineNo>
+            <Sku>887350175226</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32872</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00054</OrderLineNumber>
+            <OrderDetailSysId>63382</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>58</ExternLineNo>
+            <Sku>887350175240</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32873</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00055</OrderLineNumber>
+            <OrderDetailSysId>4090</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>59</ExternLineNo>
+            <Sku>887350175257</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32874</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00056</OrderLineNumber>
+            <OrderDetailSysId>458</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>6</ExternLineNo>
+            <Sku>883503766068</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32875</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00057</OrderLineNumber>
+            <OrderDetailSysId>17394</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>7</ExternLineNo>
+            <Sku>883503766075</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32876</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00058</OrderLineNumber>
+            <OrderDetailSysId>41762</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>8</ExternLineNo>
+            <Sku>883503610521</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>2.0</OriginalQty>
+            <OpenQty>2.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+          <ShipmentOrderDetail>
+            <SerialKey>32877</SerialKey>
+            <WhseId>wmwhse7</WhseId>
+            <OrderKey>0000002719</OrderKey>
+            <OrderLineNumber>00059</OrderLineNumber>
+            <OrderDetailSysId>13669</OrderDetailSysId>
+            <ExternOrderKey>S215000436</ExternOrderKey>
+            <ExternLineNo>9</ExternLineNo>
+            <Sku>883503610538</Sku>
+            <StorerKey>CROCS</StorerKey>
+            <OriginalQty>0.0</OriginalQty>
+            <OpenQty>0.0</OpenQty>
+            <ShippedQty>0.0</ShippedQty>
+            <AdjustedQty>0.0</AdjustedQty>
+            <QtyPreAllocated>0.0</QtyPreAllocated>
+            <QtyAllocated>0.0</QtyAllocated>
+            <QtyPicked>0.0</QtyPicked>
+            <UOM>EA</UOM>
+            <OkToSubstitute>0</OkToSubstitute>
+            <IsSubstitute>0</IsSubstitute>
+            <OriginalSKU />
+            <ActualShipDate />
+            <QtyInTransit>0.0</QtyInTransit>
+          </ShipmentOrderDetail>
+        </ShipmentOrderHeader>
+      </ShipmentOrder>
+    </Result>
+  </Body>
+</Message>

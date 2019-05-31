@@ -1,0 +1,87 @@
+<?php
+/* @var $this SuppliersController */
+/* @var $model Suppliers */
+/* @var $form CActiveForm */
+?>
+<div class="wide search" id="search-suppliers">
+
+	<?php $form=$this->beginWidget('CActiveForm', array(
+		'action'=>Yii::app()->createUrl($this->route),
+		'method'=>'get',
+	)); ?>
+	
+		<div class="row width203">
+			<div class="inputBg_txt">
+				<label><?php echo Yii::t('translations', 'Name');?></label>
+				<span class="spliter"></span>
+				<?php 
+				$this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+						'model' => $model,
+						'attribute' => 'name',		
+						'source'=>Suppliers::getNamesAutocomplete(),
+						// additional javascript options for the autocomplete plugin
+						'options'=>array(
+							'minLength'=>'0',
+							'showAnim'=>'fold',
+						),
+						'htmlOptions'=>array(
+							'onfocus' => "javascript:$(this).autocomplete('search','');",
+						),
+				));
+				?>
+			</div>
+		</div>
+		
+		<div class="row " >
+			<div class="selectBg_search">
+				<?php echo $form->label($model, 'id_type'); ?>
+				<span class="spliter"></span>
+				<div class="select_container width111">
+					<?php echo $form->dropDownList($model, 'id_type', Codelkups::getCodelkupsDropDown('supplier_type'), array('prompt'=>'Select Type')); ?>
+					<?php /* $this->widget('ext.select2.ESelect2',array(
+					  	'model'=>$model,
+					  	'attribute'=>'id_type',
+					  	'data'=>Codelkups::getCodelkupsDropDown('supplier_type'),
+						'options'=>array(
+							'placeholder'=>'Select Type',
+							'allowClear'=>true,
+							'minimumResultsForSearch' => -1,
+							'width'	=> '100%'
+						),
+					)); */ ?>
+				</div>
+			</div>
+		</div>
+	
+		<div class="row margin_right0 width203">
+			<div class="inputBg_txt">
+				<label><?php echo Yii::t('translations', 'Contact');?></label>
+				<span class="spliter"></span>
+				<?php 
+				$this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+						'model' => $model,
+						'attribute' => 'main_contact',		
+						'source'=>Suppliers::getContactsAutocomplete(),
+						// additional javascript options for the autocomplete plugin
+						'options'=>array(
+							'minLength'=>'0',
+							'showAnim'=>'fold',
+						),
+						'htmlOptions'=>array(
+							'onfocus' => "javascript:$(this).autocomplete('search','');",
+						),
+				));
+				?>
+			</div>
+		</div>
+		
+		<div class="btn">
+			<?php echo CHtml::submitButton(Yii::t('translations', 'Search'), array('class'=>'search-btn')); ?>
+			
+			
+		</div>
+		<div class="horizontalLine search-margin"></div>	
+		
+	<?php $this->endWidget(); ?>
+	
+</div><!-- search-form -->

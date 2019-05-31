@@ -1,0 +1,10 @@
+SELECT P.projectName , C.customername ,  U.firstname + ' ' + U.lastname ProjectManager ,
+pt.time time_in_hr , pt.time/8 time_in_man_days
+FROM Projects P,  users U , Customers C , project_time pt
+WHERE P.projectmanager = U.iduser
+AND C.idcustomer = P.customer
+and p.projectid = pt.projectid
+and p.projectid  in (
+select  distinct projectcode from Tasks where Tasks.idtask in (
+select task from timesheetentriesall t ,timesheet ts where   t.timesheetid = ts.idsheet and convert(datetime,ts.firstweekday,103) >= convert(datetime,getdate() - 65,103)))
+order by C.customername 

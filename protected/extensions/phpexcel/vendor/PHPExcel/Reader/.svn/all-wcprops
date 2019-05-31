@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader
+END
+Excel2007.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/Excel2007.php
+END
+Gnumeric.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/Gnumeric.php
+END
+IReadFilter.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/IReadFilter.php
+END
+CSV.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/CSV.php
+END
+IReader.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/IReader.php
+END
+Exception.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/Exception.php
+END
+OOCalc.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/OOCalc.php
+END
+SYLK.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/SYLK.php
+END
+Abstract.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/Abstract.php
+END
+HTML.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/HTML.php
+END
+Excel5.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/Excel5.php
+END
+DefaultReadFilter.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/DefaultReadFilter.php
+END
+Excel2003XML.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/SNSITNEW/!svn/ver/6/sns/protected/extensions/phpexcel/vendor/PHPExcel/Reader/Excel2003XML.php
+END

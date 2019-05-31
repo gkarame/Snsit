@@ -1,0 +1,107 @@
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'travel-form',
+	'enableAjaxValidation'=>false,
+)); ?>
+<fieldset id="travel_fields" class="create"> 
+	<div class="formColumn">
+		<div class="row">
+			<?php echo CHtml::activeLabelEx($model, 'id_user'); ?>
+			
+			<div class="selectBg_create">
+				<?php echo CHtml::activeDropDownList($model, 'id_user', Users::getAllSelect(), array('prompt'=>Yii::t('translations', 'Select user'))); ?>
+			</div>
+			
+			<?php echo CCustomHtml::error($model,'id_user', array('id'=>"Travel_id_user_em_")); ?>
+		</div>
+		<div class="row">
+			<?php echo CHtml::activeLabelEx($model, 'id_customer'); ?>
+			
+			<div class="selectBg_create">
+				<?php echo CHtml::activeDropDownList($model, 'id_customer', Customers::getAllCustomersSelect(), array('prompt'=>Yii::t('translations', 'Select customer'), 'onchange' => 'refreshProjectListsTravel()')); ?>
+			</div>
+			
+			<?php echo CCustomHtml::error($model,'id_customer', array('id'=>"Travel_id_customer_em_")); ?>
+		</div>
+		<div class="row">
+			<?php echo CHtml::activeLabelEx($model, 'id_project'); ?>
+			
+			<div class="selectBg_create">
+				<?php echo CHtml::activeDropDownList($model, 'id_project', Projects::getAllProjectsSelect($model->id_customer), array('onchange' => 'refreshBillableBasedOnProjectEA(this);')); ?>
+			</div>
+			
+			<?php echo CCustomHtml::error($model,'id_project', array('id'=>"Travel_id_project_em_")); ?>
+		</div>
+		<div class="row">
+			<?php echo CHtml::activeLabelEx($model, 'expense_type'); ?>
+			
+			<div class="selectBg_create">
+				<?php echo CHtml::activeDropDownList($model, 'expense_type', Travel::getAllExpenseTypesSelect(), array('prompt'=>Yii::t('translations', 'Select Type'))); ?>
+			</div>
+			
+			<?php echo CCustomHtml::error($model,'expense_type', array('id'=>"Travel_expense_type_em_")); ?>
+		</div>
+	</div>
+	<div class="formColumn">
+		<div class="row">
+			<?php echo CHtml::activeLabelEx($model,'amount'); ?>
+			
+			<div class="inputBg_create">
+				<?php echo CHtml::activeTextField($model,'amount'); ?>
+			</div>
+			
+			<?php echo CCustomHtml::error($model,'amount', array('id'=>"Travel_amount_em_")); ?>
+		</div>
+		<div class="row">
+			<?php echo CHtml::activeLabelEx($model, 'billable'); ?>
+			
+			<div class="selectBg_create">
+				<?php echo CHtml::activeDropDownList($model, 'billable', Travel::getBillabledSelect()); ?>
+			</div>
+			
+			<?php echo CCustomHtml::error($model,'billable', array('id'=>"Travel_billable_em_")); ?>
+		</div>
+		
+		<div class="row">
+			<?php echo CHtml::activeLabelEx($model, 'status'); ?>
+			
+			<div class="selectBg_create">
+				<?php echo CHtml::activeDropDownList($model, 'status', Travel::getStatusSelect()); ?>
+			</div>
+			
+			<?php echo CCustomHtml::error($model,'status', array('id'=>"Travel_status_em_")); ?>
+		</div>
+		<div class="row item inline-block normal">
+			<?php echo CHtml::activeLabelEx($model, 'date'); ?>
+			<div class="dataRow">
+				<?php 
+			    $this->widget('zii.widgets.jui.CJuiDatePicker',array(
+			        'model'=> $model,
+			    	'attribute' => "date", 
+			    	'cssFile' => false,
+			        'options'=>array(
+			    		'dateFormat'=>'yy-mm-dd',
+			    		'showAnim' => 'fadeIn'
+			    	),
+			    	'htmlOptions' => array(
+			    		'class' => 'datefield'
+			    	),
+			    	
+			    ));
+				?>
+				<span class="calendar calfrom"></span></div>
+			<?php echo $form->error($model,'date'); ?>
+		</div>
+	</div>
+</fieldset>
+
+<div class="row buttons saveDiv">
+	<div class="save"><?php echo CHtml::submitButton(Yii::t('translations','Save')); ?></div>
+	<div class="cancel"><?php echo CHtml::button(Yii::t('translations', 'Cancel'), array('onclick'=>'js:custom_cancel()')); ?></div>
+</div>
+<?php $this->endWidget(); ?>
+<script> 
+	var getProjectsByClientUrl = '<?php echo Yii::app()->createAbsoluteUrl('projects/getProjectsByClient');?>'; 
+	var testProjectActualsExpensesUrl = '<?php echo Yii::app()->createAbsoluteUrl('projects/testProjectActualExpenses');?>'; 
+	var modelId = '<?php echo $model->id;?>';
+</script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/scripts/travel.js"></script>

@@ -1,0 +1,113 @@
+Received: from SNSIT (10.10.10.6) by MX1.sns-emea.com (10.10.10.8) with
+ Microsoft SMTP Server (TLS) id 14.1.438.0; Thu, 10 Jul 2014 11:23:46 +0300
+From: noreply-SNSit <no-reply@sns-emea.com>
+To: "medalla@tdac.co.jp" <medalla@tdac.co.jp>, "jmedalla@tdac.co.jp"
+	<jmedalla@tdac.co.jp>, "medina@tdac.co.jp" <medina@tdac.co.jp>, Julien Obata
+	<obata@tdac.co.jp>, "b.ardao@tdac.co.jpz" <b.ardao@tdac.co.jpz>, Takuma
+ Hayakawa <t.hayakawa@tdac.co.jp>
+CC: Mohammed Obaidah <Mohammed.Obaidah@sns-emea.com>, Simon Kosseifi
+	<Simon.Kosseifi@sns-emea.com>, Bernard Khazzaka
+	<Bernard.Khazzaka@sns-emea.com>, Hussein Naim <Hussein.Naim@sns-emea.com>,
+	Ahmad Merehby <Ahmad.Merehby@sns-emea.com>, Elias Milan
+	<Elias.Milan@sns-emea.com>, Alain Saad <Alain.Saad@sns-emea.com>, Muhammed
+ Itani <Muhammed.Itani@sns-emea.com>, Tony Oudaimy
+	<Tony.Oudaimy@sns-emea.com>, Tarek El Husseini
+	<Tarek.ElHusseini@sns-emea.com>, Daniel Karam <Daniel.Karam@sns-emea.com>,
+	Bassel Khodr <Bassel.Khodr@sns-emea.com>, Denise Ibrahim
+	<Denise.Ibrahim@sns-emea.com>, Paul Donikian <Paul.Donikian@sns-emea.com>,
+	Simon Abou Zeid <Simon.AbouZeid@sns-emea.com>, Johny Dagher
+	<Johny.Dagher@sns-emea.com>, Ramy Khattar <Ramy.Khattar@sns-emea.com>
+Subject: TD n Company Limited Issue 6440 - Fixed - Waiting For Customer
+ Confirmation - Shipping Mark Summary XML file to Loftware
+Thread-Topic: TD n Company Limited Issue 6440 - Fixed - Waiting For Customer
+ Confirmation - Shipping Mark Summary XML file to Loftware
+Thread-Index: Ac+cF+VUL6V78wErQKa7anuPTfV+fA==
+Content-Class: urn:content-classes:message
+Date: Thu, 10 Jul 2014 08:23:47 +0000
+Message-ID: <862A4CE72CD54D15974607147C202B5E@snsemea.com>
+Reply-To: SNS-CS <SNS-CS@sns-emea.com>
+Content-Language: en-GB
+X-MS-Exchange-Organization-AuthMechanism: 06
+X-MS-Exchange-Organization-AuthSource: MX1.sns-emea.com
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-originating-ip: [10.10.10.6]
+Content-Type: multipart/alternative;
+	boundary="_000_862A4CE72CD54D15974607147C202B5Esnsemeacom_"
+MIME-Version: 1.0
+
+--_000_862A4CE72CD54D15974607147C202B5Esnsemeacom_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Dear Customer,
+
+We would like to inform you that you have received an update for Issue Requ=
+est Number (IR):SNS6440.
+
+Status:Fixed - Waiting For Customer Confirmation
+
+SNS: Dear Jacque , We have improved the tentative fix on the DEV (10.30.37.=
+52) to print more labels. Can you please do a full round of testing and upd=
+ate us accordingly. Thank you
+
+Issue Description: Dear Support, we are encountering an issue with the Ship=
+ping Mark Sumamry Report (FBR052) in PRD, for one Load (External LoadID 541=
+59) it is not retrieving all the cases and omitting one, caseno E240. I hav=
+e checked the data and could not find any irregularity, can you please chec=
+k why it is omitting this particular case? Thanks Julien
+
+
+
+Please check the below link:
+
+Issue Request Number (IR):SNS6440<http://www.sns-emea.com/SNSIT/CustomerIss=
+ues/issuehistory.asp?issueid=3D6440>
+
+Regards,
+SNS Customer Services
+
+
+--_000_862A4CE72CD54D15974607147C202B5Esnsemeacom_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+</head>
+<body>
+<font face=3D"MS Sans Serif" size=3D"2">Dear Customer,<br>
+<br>
+We would like to inform you that you have received an update for Issue Requ=
+est Number (IR):SNS6440.<br>
+<br>
+<strong>Status:</strong>Fixed - Waiting For Customer Confirmation<br>
+<br>
+<strong>SNS:</strong> Dear Jacque , We have improved the tentative fix on t=
+he DEV (10.30.37.52) to print more labels. Can you please do a full round o=
+f testing and update us accordingly. Thank you
+<br>
+<br>
+<strong>Issue Description:</strong> Dear Support, we are encountering an is=
+sue with the Shipping Mark Sumamry Report (FBR052) in PRD, for one Load (Ex=
+ternal LoadID 54159) it is not retrieving all the cases and omitting one, c=
+aseno E240. I have checked the data
+ and could not find any irregularity, can you please check why it is omitti=
+ng this particular case? Thanks Julien<br>
+<br>
+<br>
+<br>
+Please check the below link:<br>
+<br>
+<a href=3D"http://www.sns-emea.com/SNSIT/CustomerIssues/issuehistory.asp?is=
+sueid=3D6440">Issue Request Number (IR):SNS6440</a><br>
+<br>
+Regards,<br>
+SNS Customer Services<br>
+</font>
+</body>
+</html>
+
+--_000_862A4CE72CD54D15974607147C202B5Esnsemeacom_--

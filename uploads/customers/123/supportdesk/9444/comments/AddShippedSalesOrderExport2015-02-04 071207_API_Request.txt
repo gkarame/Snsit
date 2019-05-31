@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<Message xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Head>
+    <Sender />
+    <Recipient />
+  </Head>
+  <Body>
+    <ShipmentOrder>
+      <ShipmentOrderHeader>
+        <ExternOrderKey>AS002751</ExternOrderKey>
+        <OrderDate>02/04/2015 05:12:07</OrderDate>
+        <ReferenceType />
+        <DeliveryDate>01/29/2015</DeliveryDate>
+        <Priority>5</Priority>
+        <C_Company>Craig White</C_Company>
+        <C_Address1>Old Warehouse Building, Blackriver Park Fir S</C_Address1>
+        <C_Address2>treet, Observatory</C_Address2>
+        <C_Address3 />
+        <C_Address4 />
+        <C_Address5 />
+        <C_Address6 />
+        <C_City>Cape Town</C_City>
+        <C_State>Western Cape</C_State>
+        <C_Zip>7925</C_Zip>
+        <C_Country>ZA</C_Country>
+        <C_Phone1 />
+        <C_Fax1 />
+        <C_Contact1>Craig White</C_Contact1>
+        <C_Contact2 />
+        <C_Phone2 />
+        <C_Vat />
+        <B_Contact1 />
+        <B_Contact2 />
+        <B_Company>Craig White</B_Company>
+        <B_Address1>Old Warehouse Building, Black River Park Sout</B_Address1>
+        <B_Address2>h Fir Street, Observatory</B_Address2>
+        <B_Address3 />
+        <B_Address4 />
+        <B_Address5 />
+        <B_Address6 />
+        <B_City>Cape Town</B_City>
+        <B_State>Western Cape</B_State>
+        <B_Zip>7925</B_Zip>
+        <B_Country>ZA</B_Country>
+        <B_Phone1 />
+        <B_Phone2 />
+        <B_Fax1 />
+        <B_Vat />
+        <Type>7</Type>
+        <SUsr1>10258</SUsr1>
+        <SUsr2 />
+        <SUsr3 />
+        <SUsr4 />
+        <SUsr5 />
+        <RequestedShipDate>01/29/2015</RequestedShipDate>
+        <ExternalOrderKey2>SOR1403678</ExternalOrderKey2>
+        <StorerKey>ASICS</StorerKey>
+        <ShipmentOrderDetail>
+          <ExternLineNo>10000</ExternLineNo>
+          <StorerKey>ASICS</StorerKey>
+          <Sku>8718108949481</Sku>
+          <OpenQty>1</OpenQty>
+          <UOM />
+          <Tax01>0.0</Tax01>
+          <Tax02>0.0</Tax02>
+          <ExtendedPrice>0.0</ExtendedPrice>
+          <AllocateStrategyType>1</AllocateStrategyType>
+          <UnitPrice>0.0</UnitPrice>
+          <SUsr2 />
+          <SUsr3 />
+          <SUsr4 />
+          <SUsr5 />
+        </ShipmentOrderDetail>
+        <ShipmentOrderDetail>
+          <ExternLineNo>20000</ExternLineNo>
+          <StorerKey>ASICS</StorerKey>
+          <Sku>8718108955826</Sku>
+          <OpenQty>1</OpenQty>
+          <UOM />
+          <Tax01>0.0</Tax01>
+          <Tax02>0.0</Tax02>
+          <ExtendedPrice>0.0</ExtendedPrice>
+          <AllocateStrategyType>1</AllocateStrategyType>
+          <UnitPrice>0.0</UnitPrice>
+          <SUsr2 />
+          <SUsr3 />
+          <SUsr4 />
+          <SUsr5 />
+        </ShipmentOrderDetail>
+        <ShipmentOrderDetail>
+          <ExternLineNo>30000</ExternLineNo>
+          <StorerKey>ASICS</StorerKey>
+          <Sku>8718108952306</Sku>
+          <OpenQty>1</OpenQty>
+          <UOM />
+          <Tax01>0.0</Tax01>
+          <Tax02>0.0</Tax02>
+          <ExtendedPrice>0.0</ExtendedPrice>
+          <AllocateStrategyType>1</AllocateStrategyType>
+          <UnitPrice>0.0</UnitPrice>
+          <SUsr2 />
+          <SUsr3 />
+          <SUsr4 />
+          <SUsr5 />
+        </ShipmentOrderDetail>
+      </ShipmentOrderHeader>
+    </ShipmentOrder>
+  </Body>
+</Message><?xml version="1.0"?>
+<Message xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Head>
+    <Sender />
+    <Recipient />
+  </Head>
+  <Body>
+    <ShipmentOrder>
+      <ShipmentOrderHeader>
+        <ExternOrderKey>AS002749</ExternOrderKey>
+        <OrderDate>02/04/2015 05:12:07</OrderDate>
+        <ReferenceType />
+        <DeliveryDate>02/02/2015</DeliveryDate>
+        <Priority>5</Priority>
+        <C_Company>Carlos Cuyas</C_Company>
+        <C_Address1>Old Warehouse Building,Blackriver Park Fir St</C_Address1>
+        <C_Address2>reet, Observatory</C_Address2>
+        <C_Address3 />
+        <C_Address4 />
+        <C_Address5 />
+        <C_Address6 />
+        <C_City>Cape Town</C_City>
+        <C_State>Western Cape</C_State>
+        <C_Zip>7925</C_Zip>
+        <C_Country>ZA</C_Country>
+        <C_Phone1 />
+        <C_Fax1 />
+        <C_Contact1 />
+        <C_Contact2 />
+        <C_Phone2 />
+        <C_Vat />
+        <B_Contact1 />
+        <B_Contact2 />
+        <B_Company>Carlos Cuyas</B_Company>
+        <B_Address1>Old Warehouse Building, Black River Park Sout</B_Address1>
+        <B_Address2>h Fir Street, Observatory</B_Address2>
+        <B_Address3 />
+        <B_Address4 />
+        <B_Address5 />
+        <B_Address6 />
+        <B_City>Cape Town</B_City>
+        <B_State>Western Cape</B_State>
+        <B_Zip>7925</B_Zip>
+        <B_Country>ZA</B_Country>
+        <B_Phone1 />
+        <B_Phone2 />
+        <B_Fax1 />
+        <B_Vat />
+        <Type>7</Type>
+        <SUsr1>10391</SUsr1>
+        <SUsr2 />
+        <SUsr3 />
+        <SUsr4 />
+        <SUsr5 />
+        <RequestedShipDate>02/02/2015</RequestedShipDate>
+        <ExternalOrderKey2>SOR1403845</ExternalOrderKey2>
+        <StorerKey>ASICS</StorerKey>
+        <ShipmentOrderDetail>
+          <ExternLineNo>10000</ExternLineNo>
+          <StorerKey>ASICS</StorerKey>
+          <Sku>8718108949504</Sku>
+          <OpenQty>1</OpenQty>
+          <UOM />
+          <Tax01>0.0</Tax01>
+          <Tax02>0.0</Tax02>
+          <ExtendedPrice>0.0</ExtendedPrice>
+          <AllocateStrategyType>1</AllocateStrategyType>
+          <UnitPrice>0.0</UnitPrice>
+          <SUsr2 />
+          <SUsr3 />
+          <SUsr4 />
+          <SUsr5 />
+        </ShipmentOrderDetail>
+        <ShipmentOrderDetail>
+          <ExternLineNo>20000</ExternLineNo>
+          <StorerKey>ASICS</StorerKey>
+          <Sku>8714554995201</Sku>
+          <OpenQty>1</OpenQty>
+          <UOM />
+          <Tax01>0.0</Tax01>
+          <Tax02>0.0</Tax02>
+          <ExtendedPrice>0.0</ExtendedPrice>
+          <AllocateStrategyType>1</AllocateStrategyType>
+          <UnitPrice>0.0</UnitPrice>
+          <SUsr2 />
+          <SUsr3 />
+          <SUsr4 />
+          <SUsr5 />
+        </ShipmentOrderDetail>
+        <ShipmentOrderDetail>
+          <ExternLineNo>30000</ExternLineNo>
+          <StorerKey>ASICS</StorerKey>
+          <Sku>8714554993184</Sku>
+          <OpenQty>1</OpenQty>
+          <UOM />
+          <Tax01>0.0</Tax01>
+          <Tax02>0.0</Tax02>
+          <ExtendedPrice>0.0</ExtendedPrice>
+          <AllocateStrategyType>1</AllocateStrategyType>
+          <UnitPrice>0.0</UnitPrice>
+          <SUsr2 />
+          <SUsr3 />
+          <SUsr4 />
+          <SUsr5 />
+        </ShipmentOrderDetail>
+        <ShipmentOrderDetail>
+          <ExternLineNo>30001</ExternLineNo>
+          <StorerKey>ASICS</StorerKey>
+          <Sku>8714554993146</Sku>
+          <OpenQty>1</OpenQty>
+          <UOM />
+          <Tax01>0.0</Tax01>
+          <Tax02>0.0</Tax02>
+          <ExtendedPrice>0.0</ExtendedPrice>
+          <AllocateStrategyType>1</AllocateStrategyType>
+          <UnitPrice>0.0</UnitPrice>
+          <SUsr2 />
+          <SUsr3 />
+          <SUsr4 />
+          <SUsr5 />
+        </ShipmentOrderDetail>
+        <ShipmentOrderDetail>
+          <ExternLineNo>40000</ExternLineNo>
+          <StorerKey>ASICS</StorerKey>
+          <Sku>8717999702434</Sku>
+          <OpenQty>1</OpenQty>
+          <UOM />
+          <Tax01>0.0</Tax01>
+          <Tax02>0.0</Tax02>
+          <ExtendedPrice>0.0</ExtendedPrice>
+          <AllocateStrategyType>1</AllocateStrategyType>
+          <UnitPrice>0.0</UnitPrice>
+          <SUsr2 />
+          <SUsr3 />
+          <SUsr4 />
+          <SUsr5 />
+        </ShipmentOrderDetail>
+      </ShipmentOrderHeader>
+    </ShipmentOrder>
+  </Body>
+</Message>

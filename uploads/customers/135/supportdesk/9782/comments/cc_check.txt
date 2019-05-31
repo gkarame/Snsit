@@ -1,0 +1,3 @@
+
+select editdate,* from ADJUSTMENTDETAIL where EDITDATE > GETDATE() -50  and REASONCODE = 'ISUZUCC'
+and ADJUSTMENTKEY + ADJUSTMENTLINENUMBER not in ( select sourcekey from itrn where TRANTYPE = 'AJ')

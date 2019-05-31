@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Head>
+    <Sender />
+    <Recipient />
+  </Head>
+  <Body>
+    <Suplier>
+      <SuplierHeader>
+        <StorerKey>ToysRus</StorerKey>
+        <Type>5</Type>
+        <Description>test</Description>
+        <Company>test</Company>
+        <Vat>14</Vat>
+        <Address1>1</Address1>
+        <Address2>2</Address2>
+        <Address3>3</Address3>
+        <Address4>4</Address4>
+        <City>City</City>
+        <State>State</State>
+        <Zip>1234</Zip>
+        <Country>SA</Country>
+        <ISOCntryCode>11</ISOCntryCode>
+        <Contact1>Test1</Contact1>
+        <Contact2>test2</Contact2>
+        <Phone1>11111111</Phone1>
+        <Phone2>2222222</Phone2>
+        <Fax1>333333</Fax1>
+        <Fax2>44444</Fax2>
+        <Email1>wilma.mulder@rtt.co.za</Email1>
+        <Email2>wilma.mulder@rtt.co.za</Email2>
+        <Title1>m</Title1>
+        <Title2>m</Title2>
+        <AccountingEntity>1212</AccountingEntity>
+      </SuplierHeader>
+    </Suplier>
+  </Body>
+</Message>
