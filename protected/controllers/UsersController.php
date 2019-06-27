@@ -467,7 +467,7 @@ class UsersController extends Controller{
 			}
 			$ops.=" 0 ) ";			
 			$techPS=" and uts.id_user in ("; 			
-			foreach(UserPersonalDetails::getPS() as $t){
+			foreach(UserPersonalDetails::getPSAll() as $t){
 				$techPS.=" '".$t['id']."',";
 			}
 			$techPS.=" 0 ) ";
