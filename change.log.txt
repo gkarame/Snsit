@@ -1,0 +1,54 @@
+Author: Mike
+
+1) task: remove the closure notification email and on the last product closure on the IR include in the subject IR# is now closed
+
+    changes:
+        - files: InstallationrequestsController.php (func: actionCreatemodelinfo;actionChangeProductStatus)
+
+
+2) Date picker on edit header display 1970 in case the starting date is empty
+
+    changes:
+        - files: MaintenanceController.php (func: actionUpdateHeader)
+
+
+3) Add email to be triggered and sent to the PM and Bernard when a task FBR is flagged as redundant
+
+    changes:
+        -command: sendprojectsfbrsredundant
+        -db: add column redundant_send(int, default 0) for projects_tasks table (check send or not)
+        -files: protected/config/console.php
+        -description: need create cron tab for console command
+
+
+4) Export on the header level generates a corrupted file
+
+    changes:
+        -files: SupportDeskController (func: actionGetExcel)
+                protected/extensions/phpexcel/vendor/PHPExcel/Calculation/Functions.php (this changes need if use php version ^7)
+
+5) When bill to customer is specified, grey out the autofilled fields
+
+    changes:
+        -files: protected/views/customers/_general_form_tab.php
+
+6) Add estimated MDs per t&m EA and display it on status report
+
+    changes:
+        -db: add column mds(text, null) for eas table
+        -files: EasController.php (func: actionCreate)
+                protected/models/Eas.php (add attr mds)
+                protected\models\Projects.php (add func getMDS)
+                protected/views/eas/_header_content.php  |
+                protected/views/eas/create.php           | - show MDS in views
+                protected/views/eas/index.php            |
+                protected/views/projects/_general_tab.php|
+
+7) Add a sorting button (arrow up and arrow down) in order to arrange the sequence of the notes when printing an eas
+
+    changes:
+        -db: add column sort_rang(int, default null) for table codelkups
+        -files: protected/models/Codelkups.php (add attr, func: getCodelkupsDropDownUniqueEas)
+                protected/models/Eas.php (func: getNotes)
+                protected/views/eas/update.php
+                EasController.php (add func actionChangeSortRangeNote)

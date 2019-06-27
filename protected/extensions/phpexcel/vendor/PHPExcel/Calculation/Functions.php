@@ -549,6 +549,11 @@ class PHPExcel_Calculation_Functions {
 	 *		An error value		16
 	 *		Array or Matrix		64
 	 */
+    /*
+     * Author: Mike
+     * Date: 17.06.19
+     * Del < break; - 581 > because is generate error in latest version php
+     */
 	public static function TYPE($value = NULL) {
 		$value	= self::flattenArrayIndexed($value);
 		if (is_array($value) && (count($value) > 1)) {
@@ -573,7 +578,6 @@ class PHPExcel_Calculation_Functions {
 				return 4;
 		} elseif(is_array($value)) {
 				return 64;
-				break;
 		} elseif(is_string($value)) {
 			//	Errors
 			if ((strlen($value) > 0) && ($value{0} == '#')) {

@@ -153,10 +153,21 @@
 			<div class="general_col4 "><?php echo CHtml::encode((Projects::getStatusLabel($model->status))); ?></div>
 			<?php } else{ ?>
 			<div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','t&m')); ?></div>
-			<div class="general_col4 "><?php echo Projects::checktandm($model->id); ?></div><?php }  ?>	</div>
+            <!--
+                /*
+                 * Author: Mike
+                 * Date: 19.06.19
+                 * MDs display it on status report
+                 */
+            -->
+            <div class="general_col4 "><?php echo Projects::checktandm($model->id); ?></div>
+            <div class="general_col1"><?php echo CHtml::encode(Yii::t('translations','mds')); ?></div>
+            <div class="general_col2 "><?php echo Projects::getMDS($model->id); ?></div><?php }  ?></div>
 		<?php  if($model->id_type== '28' ) { ?>	<div class="view_row">
 			<div class="general_col1"><?php echo CHtml::encode(Yii::t('translations','t&m')); ?></div>
 			<div class="general_col2 "><?php echo Projects::checktandm($model->id); ?></div>
+            <div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','mds')); ?></div>
+            <div class="general_col4 "><?php echo Projects::getMDS($model->id); ?></div>
 			<div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','survey status')); ?></div>
 			<?php	$checkprojectstatus = Projects::getProjectStatus($model->id); $surv_type='';
 			if($checkprojectstatus=="2"){	$surv_type='close';	}		

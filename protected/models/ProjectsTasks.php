@@ -17,7 +17,7 @@ class ProjectsTasks extends CActiveRecord{
 			array('keywords,notes', 'length', 'max'=>3000),
 			array('type','validatetype'),
 			
-			array('id, id_project_phase, man_days_budgeted, billable, description,type, fbr, title, module, keywords,notes, existsfbr', 'safe', 'on'=>'search'),
+			array('id, id_project_phase, man_days_budgeted, billable, description,type, fbr, title, module, keywords,notes, existsfbr, redundant_send', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations(){

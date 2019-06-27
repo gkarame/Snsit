@@ -14,6 +14,11 @@ class Eas extends CActiveRecord{
 	public function tableName(){
 		return 'eas';
 	}
+    /*
+     * Author: Mike
+     * Date: 19.06.19
+     * Add estimated MDs per t&m EA, add column mds to eas table
+     */
 	public function rules()	{
 		return array(
 			array('id_customer, ea_number, status, author, category, description', 'required'),
@@ -32,7 +37,7 @@ class Eas extends CActiveRecord{
 			array('TM,customization', 'length', 'max'=>3),
 			array('start_date, end_date', 'safe'),
 			array('customization','validatesupport'),
-			array('id, id_customer, ea_number, description, id_project, status,TM, author, created, approved, category', 'safe', 'on'=>'search'),
+			array('id, id_customer, ea_number, description, id_project, status,TM, author, created, approved, category, mds', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations()	{
@@ -201,7 +206,8 @@ class Eas extends CActiveRecord{
 			'customer_lpo' => 'Customer LPO',
 			'expense' => 'Expense',
 			'crmOpp' => 'CRM #',
-			'template' => 'Subtype'
+			'template' => 'Subtype',
+            'mds' => 'Mds'
 		);
 	}	
 	public function getFormatExpense()	{
@@ -710,7 +716,12 @@ class Eas extends CActiveRecord{
 		        ),
 		    ),
 		));
-	}	
+	}
+    /*
+    * Author: Mike
+    * Date: 18.06.19
+    * Add a sorting for eas notes
+    */
 	public function getNotes($all = false){
 		if ($all){
 			return Yii::app()->db->createCommand()
@@ -718,6 +729,7 @@ class Eas extends CActiveRecord{
 	    		->from('eas_notes n')
 	    		->join('codelkups c', 'c.id=n.id_note')
 	    		->where('id_ea =:id', array(':id'=>$this->id))
+                ->order('c.sort_rang')
 	    		->queryColumn();
 		}
 		return Yii::app()->db->createCommand()

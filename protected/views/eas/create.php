@@ -113,8 +113,22 @@
 				</div>            
 			<?php echo  CCustomHtml::error($model,'TM'); ?>
 		</div>
-	
-	<div class="horizontalLine" style="    margin-top: 55px;
+    <!--
+        /*
+         * Author: Mike
+         * Date: 17.06.19
+         * MDs display it on status report
+         */
+    -->
+    <div class="row marginb20 <?php echo ($model->TM == '1')?'' : 'hidden' ?> row_textarea_ea" id="Mds" style="height:60px !important;" >
+        <?php echo $form->labelEx($model, 'mds'); ?>
+        <div class="inputBg_create width200">
+            <?php echo $form->textField($model, 'mds',array('autocomplete'=>'off')); ?>
+        </div>
+        <?php echo $form->error($model,'mds'); ?>
+    </div>
+
+    <div class="horizontalLine" style="    margin-top: 55px;
 "></div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Submit', array('class'=>'next_submit')); ?>
@@ -124,6 +138,21 @@
 </div>
 <br clear="all" />
 <script type="text/javascript">
+    /*
+     * Author: Mike
+     * Date: 17.06.19
+     * MDs display it on status report
+     */
+    $(document).ready(function () {
+        $('#Eas_TM').change(function () {
+            if ($(this).attr("checked") === 'checked'){
+                $('#Mds').removeClass('hidden')
+            }else {
+                $('#Mds').addClass('hidden');
+            }
+        })
+    });
+    
 	$(function() {	changeCategory('#Eas_category'); validateCustomization(); }); 
 	function changeEaDesc(id_training){
 		var training = id_training.value;
