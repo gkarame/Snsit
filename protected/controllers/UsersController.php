@@ -462,7 +462,7 @@ class UsersController extends Controller{
 				'{body}',
 			);
 			$ops="and uts.id_user in ("; 			
-			foreach(UserPersonalDetails::getOps() as $o){
+			foreach(UserPersonalDetails::getOpsAll() as $o){
 				$ops.=" '".$o['id']."',";
 			}
 			$ops.=" 0 ) ";			
@@ -472,7 +472,7 @@ class UsersController extends Controller{
 			}
 			$techPS.=" 0 ) ";
 			$techCS=" and uts.id_user in ("; 			
-			foreach(UserPersonalDetails::getCS() as $t){
+			foreach(UserPersonalDetails::getCSAll() as $t){
 				$techCS.=" '".$t['id']."',";
 			}
 			$techCS.=" 0 ) ";			

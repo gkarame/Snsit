@@ -1563,7 +1563,7 @@ $sr = Yii::app()->db->createCommand(" select DATEDIFF(CURDATE(), LAST_DAY(CONCAT
 		 	 (
 		 	 	select sum(r.amount) as tot from (select sum(uts.amount) as amount  from  users u , user_time uts , projects_tasks t where u.id=uts.id_user and uts.id_task=t.id and uts.`default`=0 and t.billable IN ('Yes','No') and uts.date like '".$month."%'  ".$resources." 
 		 	 	union all
-				select sum(uts.amount) as amount  from users u , user_time uts , internal_tasks dti where u.id=uts.id_user and uts.id_task=dti.id and uts.`default`=3 and dti.billable in ('Yes','No') and uts.date like '$month%'   
+				select sum(uts.amount) as amount  from users u , user_time uts , internal_tasks dti where u.id=uts.id_user and uts.id_task=dti.id and uts.`default`=3 and dti.billable in ('Yes','No') and uts.date like '".$month."%'  ".$resources." 
 				union all 
 		 	    select  sum(uts.amount) as amount  from  users u , user_time uts , default_tasks dt where u.id=uts.id_user and uts.id_task=dt.id and uts.`default`=1   and dt.billable IN ('Yes','No') and  uts.date like '".$month."%'   ".$resources.") as r 
 			) as total ")->queryScalar();			

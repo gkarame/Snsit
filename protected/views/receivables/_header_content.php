@@ -6,6 +6,13 @@
 	<div class="general_col2 "><?php echo CHtml::encode($model->customer->name); ?></div>
 	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('project_name')); ?></div>
 	<div class="general_col4 "><?php echo CHtml::encode($model->project_name); ?></div>	</div>
+
+<div class="view_row"><div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('type')); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode(Receivables::getType($model->type)); ?></div>
+<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('invoice_number')); ?></div>
+	<div class="general_col4 "><?php echo Receivables::getlinkperInvoice($model->invoice_number); ?></div>
+</div>
+
 <div class="view_row"><div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('id_ea')); ?></div>
 	<div class="general_col2 "><?php if (empty($model->ea->ea_number)){  echo CHtml::encode("");   }else{  echo Receivables::getEASerInvoice($model->id_ea);} ?></div>
 	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('currency')); ?></div>
@@ -73,7 +80,6 @@
 	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('remarks')); ?></div>
 	<div class="general_col2 "><?php echo CHtml::encode($model->remarks); ?></div>
 
-	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('invoice_number')); ?></div>
-	<div class="general_col4 "><?php echo Receivables::getlinkperInvoice($model->invoice_number); ?></div>
+	
 </div>	
 <div class="horizontalLine smaller_margin"></div>
