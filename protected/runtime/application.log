@@ -18666,3 +18666,30 @@ Stack trace:
 #22 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
 #23 C:\wamp\www\sns\index.php(26): CWebApplication->run()
 REQUEST_URI=/sns/receivables/view/923
+2019/06/27 18:27:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/06/28 14:21:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/06/28 14:22:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
