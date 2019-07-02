@@ -25,7 +25,7 @@ class EasController extends Controller
 			array('allow',
 				'actions'=>array(
 						'index','view','create','update', 'delete',
-						'GetTrainings', 
+						'GetTrainings', 'ChangeSortRangeNote',
 						'manageItem', 'getTrainingDesc','getRegion','manageTerm','manageTermSecond','manageTermSandUSec', 'manageTermSandU', 'manageNote' , 'saveDiscount','saveNetAmount',
 						'deleteItem', 'deleteTerm', 'view', 'print', 
 						'upload','testPdf', 'updateHeader', 'deleteUpload','DeleteUploadSheet' ,'checkDuration','updateDuration'
@@ -47,8 +47,24 @@ class EasController extends Controller
 		 		 'stateVariable' => 'eas'
 			 ),
 		 );
-	}	
-	public function actiontestPdf(){	$model = $this->loadModel('23');	$this->render('_export_pdf', array('model' => $model)); }	
+	}
+    /*
+    * Author: Mike
+    * Date: 18.06.19
+    * Add a sorting input
+    */
+	public function actionChangeSortRangeNote($id){
+	    Yii::app()->db->createCommand("UPDATE codelkups SET sort_rang=".(int)trim(Yii::app()->getRequest()->getQuery('range'))." WHERE id=".(int)$id)->execute();
+        echo json_encode(array('successes'));
+        exit();
+    }
+
+	public function actiontestPdf(){	$model = $this->loadModel('23');	$this->render('_export_pdf', array('model' => $model)); }
+    /*
+     * Author: Mike
+     * Date: 19.06.19
+     * Add estimated MDs per t&m EA
+     */
 	public function actionCreate()
 	{
 		if(!GroupPermissions::checkPermissions('eas-list','write'))
@@ -196,6 +212,11 @@ class EasController extends Controller
 							}
 						break;
 				}
+
+				if (isset($_POST['Eas']['mds']) && !empty($_POST['Eas']['mds'])){
+                    $model->mds = trim($_POST['Eas']['mds']);
+                }
+
 				if ($model->save()) 
 				{	
 					$model->ea_number = Utils::paddingCode($model->id);

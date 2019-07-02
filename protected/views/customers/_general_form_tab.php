@@ -70,7 +70,14 @@
 		<div class="row">
 			<?php echo CHtml::activeLabelEx($model,'bill_to_contact_person'); ?>			
 			<div class="inputBg_create">
-				<?php echo CHtml::activeTextField($model, 'bill_to_contact_person'); ?>
+                <!--
+                    /*
+                     * Author: Mike
+                     * Date: 19.06.19
+                     * disable autofilled fields
+                     */
+                -->
+				<?php echo CHtml::activeTextField($model, 'bill_to_contact_person',['disabled' => 'disabled']); ?>
 			</div>			
 			<?php echo CCustomHtml::error($model,'bill_to_contact_person', array('id'=>"Customers_bill_to_contact_person_em_")); ?>
 		</div>
@@ -164,7 +171,14 @@
 		<div class="row <?php if(Customers::hasMaint($model->id) != 0 || Customers::hasMaintMainCustomer($model->id) != 0)  { echo 'margint115';}else{ echo 'margint36';} ?> ">
 			<?php echo CHtml::activeLabelEx($model,'bill_to_contact_email'); ?>			
 			<div class="inputBg_create">
-				<?php echo CHtml::activeTextField($model, 'bill_to_contact_email'); ?>
+                <!--
+                    /*
+                     * Author: Mike
+                     * Date: 19.06.19
+                     * disable autofilled fields
+                     */
+                -->
+                    <?php echo CHtml::activeTextField($model, 'bill_to_contact_email',['disabled' => 'disabled']); ?>
 			</div>			
 			<?php echo CCustomHtml::error($model,'bill_to_contact_email', array('id'=>"Customers_bill_to_contact_email_em_")); ?>
 		</div>
@@ -256,7 +270,14 @@
 		
 			<?php echo CHtml::activeLabelEx($model,'bill_to_address'); ?>			
 			<div class="textareaBg_create">
-				<?php echo CHtml::activeTextArea($model, 'bill_to_address'); ?>
+                <!--
+                    /*
+                     * Author: Mike
+                     * Date: 19.06.19
+                     * disable autofilled fields
+                     */
+                -->
+				<?php echo CHtml::activeTextArea($model, 'bill_to_address',['disabled' => 'disabled']); ?>
 			</div>					
 			<?php echo CCustomHtml::error($model, 'bill_to_address', array('id'=>"Customers_bill_to_address_em_")); ?>
 		</div>

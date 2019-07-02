@@ -274,11 +274,19 @@
 					$ea_notes = $model->getNotes();
 					foreach ($notes as $key => $note) {
 				?>
+                    <!--
+                         /*
+                         * Author: Mike
+                         * Date: 18.06.19
+                         * Add a sorting input
+                         */
+                    -->
 					<div class="row note_item chk" onclick="CheckOrUncheckInput(this)" onmouseover="$(this).find('label').css('color','#990000');" onmouseout="$(this).find('label').css('color','#666');">
-						<div class="input <?php echo !$can_modify ? 'checkboxDisabled' : '';echo in_array($key, $ea_notes) ? ' checked' : '';?>"></div>
+                        <input onblur="updateSortRangeNotes('<?php echo $key?>')" style="width: 13px;float: left;border: 1px solid #ccc;margin-right: 2px;border-radius: 4px;" type="text" id="note_<?php echo $key?>" value="<?php echo $note['sort_rang'];?>">
+                        <div class="input <?php echo !$can_modify ? 'checkboxDisabled' : '';echo in_array($key, $ea_notes) ? ' checked' : '';?>"></div>
 						<input type="checkbox" name="EasNotes[]" value="<?php echo $key;?>" 
 						<?php echo in_array($key, $ea_notes) ? 'checked' : '';?> <?php  echo $key==228 ? 'disabled="disabled"' : '';?> <?php echo !$can_modify ? 'disabled="disabled"' : '';?>  />
-						<label><?php echo $note;?></label>
+						<label style="width: 88%;"><?php echo $note['note'];?></label>
 					</div>
 				<?php 					
 					}
@@ -362,6 +370,18 @@
 		$(element).each(function() {
 			if ($(this).width() < width) { $(this).parent().find('u').hide(); console.log($(this).parent().find('u').attr('class')); }	});
 	}
+    /*
+    * Author: Mike
+    * Date: 18.06.19
+    * Add a sorting input
+    */
+	function updateSortRangeNotes(id) {
+        if ($(`#note_${id}`).val().trim().length > 0){
+            $.get(`http://snsit.loc/eas/ChangeSortRangeNote/${id}?range=${$(`#note_${id}`).val()}`,function (data) {
+                alert(data)
+            });
+        }
+    }
 	function modeNotEditable() {
 		$.fn.yiiGridView.update('terms-grid');  $.fn.yiiGridView.update("sanduterms-grid"); 	$.fn.yiiGridView.update('items-grid');	$('.tache.new_item').hide();$('.tache.new_termSU').hide();
 		$('.tache.new_term').hide(); $('.total_amounts .apply').hide();	$('#Eas_discount').prop('disabled',true); 	$('#net_amount').prop('disabled',true);

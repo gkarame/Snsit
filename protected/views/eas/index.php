@@ -4,6 +4,13 @@ $('.search-form form').submit(function(){	$.fn.yiiGridView.update('eas-grid', {	
 <div class="search-form">
 <?php $this->renderPartial('_search',array('model'=>$model,)); ?>
 </div>
+<!--
+    /*
+     * Author: Mike
+     * Date: 19.06.19
+     * MDs display it on status report
+     */
+-->
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'eas-grid','dataProvider'=>$model->search(),'summaryText' => '','pager'=> Utils::getPagerArray(),'template'=>'{items}{pager}',
 	'columns'=>array(
@@ -16,6 +23,7 @@ $('.search-form form').submit(function(){	$.fn.yiiGridView.update('eas-grid', {	
 		array( 'name' => 'amount', 'value' => 'Utils::formatNumber($data->getNetAmount(true))." USD"', 'htmlOptions' => array('class' => 'column90'), 'headerHtmlOptions' => array('class' => 'column90'),),
 		array( 'name' => 'eAuthor.fullname', 'header' => Yii::t('translations', 'Author'), 'value' => 'isset($data->eAuthor->fullname) ? $data->eAuthor->fullname : ""', 'htmlOptions' => array('class' => 'column90'), 'headerHtmlOptions' => array('class' => 'column90'),),
         array( 'name' => 'created', 'value' => 'date("d/m/Y", strtotime($data->created))', 'htmlOptions' => array('class' => 'column90'), 'headerHtmlOptions' => array('class' => 'column90'),),
+        array( 'name' => 'mds', 'value' => '$data->mds', 'htmlOptions' => array('class' => 'column90'), 'headerHtmlOptions' => array('class' => 'column90'),),
 		array( 'class'=>'CCustomButtonColumn', 'template'=>'{download} {share} {delete}', 'htmlOptions'=>array('class' => 'button-column'),
             'buttons'=>array
             ( 	'delete' => array( 'label' => Yii::t('translations', 'Delete'), 'imageUrl' => null, 'url' => 'Yii::app()->createUrl("eas/delete", array("id"=>$data->id))', 'visible' => '$data->status != Eas::STATUS_INVOICED && $data->status != Eas::STATUS_APPROVED  				&& $data->status != Eas::STATUS_PART_INVOICED && $data->status != Eas::STATUS_FULLY_INVOICED',   	), 	'download' => array( 		'label' => Yii::t('translations', 'Print'),  		'imageUrl' => null, 		'url' => 'Yii::app()->createUrl("eas/print", array("id"=>$data->id))', 	), 	'share' => array( 'label' => Yii::t('translations', 'Share'), 'url' => 'Yii::app()->createUrl("site/shareby", array("id"=>$data->id))', 'options' => array( 		'onclick' => 'shareBySubmit(this, "eas");return false;', 		'class'=>'shareby_button', ), 	),

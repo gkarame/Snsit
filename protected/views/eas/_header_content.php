@@ -175,6 +175,17 @@ switch ($model->category) {
 		<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('T&M')); ?></div>
 		<div class="general_col4 "><?php if($model->TM=='1'){echo'Yes';}else {echo 'No';}; ?></div>
 	</div>
+    <!--
+        /*
+        * Author: Mike
+        * Date: 19.06.19
+        * Show MDS
+        */
+    -->
+        <div class="view_row">
+            <div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('mds')); ?></div>
+            <div class="general_col2 "><?php if(isset($model->mds)){ echo CHtml::encode($model->mds);}else { echo ''; }  ?></div>
+        </div>
 	<div class="view_row">		
 		<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('Primary Contact')); ?></div>
 			<div class="general_col2 "><?php  if(isset($model->primary_contact_name) && ($model->primary_contact_name <>' ') && ($model->primary_contact_name <>'')) { echo $model->primary_contact_name ; }else{ echo CHtml::encode($model->getPrimaryContact($model->id_customer));} ?></div>

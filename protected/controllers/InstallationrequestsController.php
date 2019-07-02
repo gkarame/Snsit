@@ -322,6 +322,11 @@ class InstallationRequestsController extends Controller{
 		$id = (int) $id;
 		Yii::app()->db->createCommand("DELETE FROM installation_requests_products WHERE id='{$id}'")->execute();
 	}
+	/*
+	 * Author: Mike
+	 * Date: 17.06.19
+	 * remove the closure notification email and on the last product closure on the IR include in the subject IR# is now closed
+	 */
 	public function actionmanageProduct($id = NULL){
 		$new = false;
 		if (!isset($_POST['id_ir']))
@@ -373,7 +378,7 @@ class InstallationRequestsController extends Controller{
 						(select count(*) as total from installation_requests_products where id_ir = ".$model->id_ir.") as q1
 		,
 					(select count(*) as finished from installation_requests_products where id_ir = ".$model->id_ir." and status =".InstallationrequestsProducts::STATUS_CLOSED.") as q2)")->queryScalar();
-				if($closed != 0){
+				if($closed != 0 && $closed != 1){
 					$update_ir = Yii::app()->db->createCommand("update installation_requests set status =".InstallationRequests::STATUS_COMPLETED." where id = ".$model->id_ir)->execute();
 					if(!empty($id_user)) {
 						self::SendCompletedEmail($model->id_ir,$id_user);					
@@ -436,6 +441,11 @@ class InstallationRequestsController extends Controller{
 	    echo json_encode(array('status'=>'failure', 'error'=>$model->getErrors()));
 		exit;
 	}
+    /*
+     * Author: Mike
+     * Date: 17.06.19
+     * remove the closure notification email and on the last product closure on the IR include in the subject IR# is now closed
+     */
 	public function actionChangeProductStatus(){
 		$error = 0;	$error_message = '';	$id = (int) $_POST['id'];
 		$id_user = Yii::app()->user->id;
@@ -465,13 +475,11 @@ class InstallationRequestsController extends Controller{
 					(select count(*) as finished from installation_requests_products where id_ir = ".$model->id_ir." and status =".InstallationrequestsProducts::STATUS_CLOSED.") as q2)")->queryScalar();
 			if($closed != 0){					
 					$update_ir = Yii::app()->db->createCommand("update installation_requests set status =".InstallationRequests::STATUS_COMPLETED." where id = ".$model->id_ir)->execute();
-					if(!empty($id_user)) { 
+					if(!empty($id_user) && $closed != 1) {
 						self::SendCompletedEmail($model->id_ir,$id_user);
 					}
 				}
 			if ($redirect == 0)	{
-				if ($status == 1)
-				{self::SendProductdoneNoinfo($model->id_ir,  $model->id_product ,$id_user);}
 				echo json_encode(array_merge(array('status'=>'success')));
 				exit;
 				}else{
@@ -931,6 +939,12 @@ class InstallationRequestsController extends Controller{
 		}
 	}
 }
+
+    /*
+     * Author: Mike
+     * Date: 17.06.19
+     * remove the closure notification email and on the last product closure on the IR include in the subject IR# is now closed
+     */
 	public function actionCreatemodelinfo($id = null){
 		if(!(GroupPermissions::checkPermissions('ir-general-installationrequests','write'))){
 			throw new CHttpException(403,'You don\'t have permission to access this page.');
@@ -972,7 +986,7 @@ class InstallationRequestsController extends Controller{
 						$closed = Yii::app()->db->createCommand("select (total = finished) from(
 						(select count(*) as total from installation_requests_products where id_ir = ".$id_ir.") as q1,
 					(select count(*) as finished from installation_requests_products where id_ir = ".$id_ir." and status =".InstallationrequestsProducts::STATUS_CLOSED.") as q2)")->queryScalar();
-					if($closed != 0){
+					if($closed != 0 && $closed != 1){
 					$update_ir = Yii::app()->db->createCommand("update installation_requests set status =".InstallationRequests::STATUS_COMPLETED." where id = ".$id_ir)->execute();
 					self::SendCompletedEmail($id_ir,$id_user);			
 					}

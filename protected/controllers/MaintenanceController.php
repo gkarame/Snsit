@@ -145,6 +145,11 @@ class MaintenanceController extends Controller{
 			'starting_date'=>isset($_POST['Maintenance']['starting_date'])?$_POST['Maintenance']['starting_date']:"",
 		));
 	}
+	/*
+	 * Author: Mike
+	 * Date: 17.06.19
+	 * Fix Date picker on edit header display 1970 in case the starting date is empty
+	 */
 	public function actionUpdateHeader($id){
 		$id = (int) $id;
 		$model = $this->loadModel($id);
@@ -264,7 +269,7 @@ class MaintenanceController extends Controller{
 		);
 		echo json_encode(array_merge(array(
 				'status'=>'success',
-				'starting_date'=>date('d/m/Y', strtotime($model->starting_date)),
+				'starting_date'=>isset($model->starting_date)?date('d/m/Y', strtotime($model->starting_date)):null,
 				'html'=>$this->renderPartial('_edit_header_content', array('model'=> $model), true, true)
 		), $extra));
 		Yii::app()->end();

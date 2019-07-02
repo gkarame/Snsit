@@ -153,16 +153,25 @@
 			<div class="general_col4 "><?php echo CHtml::encode((Projects::getStatusLabel($model->status))); ?></div>
 			<?php } else{ ?>
 			<div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','t&m')); ?></div>
-			<div class="general_col4 "><?php echo Projects::checktandm($model->id); ?></div><?php }  ?>	</div>
+            <!--
+                /*
+                 * Author: Mike
+                 * Date: 19.06.19
+                 * MDs display it on status report
+                 *
+                 * Date: 25.06.19
+                 * Hide survey fields on the projects
+                 */
+            -->
+            <div class="general_col4 "><?php echo Projects::checktandm($model->id); ?></div>
+            <div class="general_col1"><?php echo CHtml::encode(Yii::t('translations','mds')); ?></div>
+            <div class="general_col2 "><?php echo Projects::getMDS($model->id); ?></div><?php }  ?></div>
 		<?php  if($model->id_type== '28' ) { ?>	<div class="view_row">
 			<div class="general_col1"><?php echo CHtml::encode(Yii::t('translations','t&m')); ?></div>
 			<div class="general_col2 "><?php echo Projects::checktandm($model->id); ?></div>
-			<div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','survey status')); ?></div>
-			<?php	$checkprojectstatus = Projects::getProjectStatus($model->id); $surv_type='';
-			if($checkprojectstatus=="2"){	$surv_type='close';	}		
-			 if( ($model->id_type=='27' || $model->id_type=='26')  &&    $surv_type=='close' ) { ?> 		
-			<div class="general_col4 "><?php echo CHtml::encode($model->surveystatus);?></div>
-				<?php } else { ?>	<div class="general_col4 "><?php echo CHtml::encode("");?></div><?php }   ?></div>	<?php }?>
+            <div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','mds')); ?></div>
+            <div class="general_col4 "><?php echo Projects::getMDS($model->id); ?></div>
+	<?php }?>
 
 		<?php if($model->id_type=='27' && ($model->template==1 || $model->template==4 || $model->template==6 )){ ?> 
 <div class="view_row">
@@ -172,40 +181,18 @@
 			<div class="general_col4 "><?php echo  Codelkups::getCodelkup($model->version); ?></div>
 </div>
 			<?php }?>
-		<?php  if($model->id_type== '27' ) { ?>	
+		<?php  if($model->id_type== '27' ) { ?>
 
 		<div class="view_row">
 
 			<div class="general_col1"><?php echo CHtml::encode(Yii::t('translations','Complex Modules to Implement')); ?></div>
-			<?php  if($model->complexmodule == 'Yes' ) { ?>	
+			<?php  if($model->complexmodule == 'Yes' ) { ?>
 				<div class="general_col2 "><?php echo CHtml::encode($model->complexnotes ); ?></div>
 			<?php } else   {?>
-				<div class="general_col2 "><?php echo CHtml::encode($model->complexmodule); ?></div>		
-			<?php } ?>				
-			<div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','survey status')); ?></div>
-				<?php	$checkprojectstatus = Projects::getProjectStatus($model->id); $surv_type='';
-				if($checkprojectstatus=="2"){	$surv_type='close';		}		
-				if( ($model->id_type=='27' || $model->id_type=='26')  &&    $surv_type=='close' ) { ?>
-				<div class="general_col4 "><?php echo CHtml::encode($model->surveystatus);?></div>
-				<?php } else { ?><div class="general_col4 "><?php echo CHtml::encode("");?></div><?php } ?>
+				<div class="general_col2 "><?php echo CHtml::encode($model->complexmodule); ?></div>
+			<?php } ?>
 		</div>	<?php }?>
 
-		<div class="view_row">	<?php  if(empty($model->complexmodule || $model->id_type!='26')) { ?>	
-			<div class="general_col1"><?php echo CHtml::encode(Yii::t('translations','survey status')); ?></div>
-			<?php	$checkprojectstatus = Projects::getProjectStatus($model->id); $surv_type='';
-			if($checkprojectstatus=="2"){	$surv_type='close';	}	
-			if( ($model->id_type=='27' || $model->id_type=='26')  &&    $surv_type=='close' ) { ?> 		
-			<div class="general_col2 "><?php echo CHtml::encode($model->surveystatus);?></div>
-				<?php } else { ?><div class="general_col2 "><?php echo CHtml::encode("");?></div><?php } }  ?>
-				<?php if($model->id_type=='27'){ ?>	
-				<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('is_billable')); ?></div>
-			<div class="general_col2 "><?php echo (Projects::getExpensesType($model->customer_id, $model->id) == 'Actuals') ? 'Yes' : 'No';?></div>	
-		
-				<?php } ?>
-			<div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','Survey Rating')); ?></div>
-			<?php	if($p_list != 'empty'){ if(count($p_list)){ foreach ($p_list as $key => $value) {  ?>
-	  <div class='fq' id="readsurvey_<?php echo $value['id_project']; ?>_<?php  echo $value['surv_type']; ?>" project="<?php echo $value['id_project']; ?>" resp_date="<?php echo $value['response_date'];?>" surveyee="<?php echo $value['first'].' '.$value['last']?>" type="<?php echo $value['surv_type']; ?>" ><?php echo ($value['count']*10)."%"; ?> <img height='10' src="../../images/<?php echo $value['rate'];?>stars.png" />  </div>
-		 <?php   } } }  ?>	</div>	
 
 		<div class="horizontalLine smaller_margin"></div></div><?php }?><div id="budget_record"  class="grid border-grid">
 <?php $provider = $model->getEasProvider(); $eas = $provider->getData();

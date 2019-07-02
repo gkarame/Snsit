@@ -1671,7 +1671,13 @@ SELECT sd.id , MIN(TIMESTAMPDIFF(SECOND,sd.date,NOW()+ INTERVAL 10 HOUR))/172800
 			Yii::app()->mailer->MsgHTML("<div style='font-size:11pt;font-family:Calibri;'>".nl2br($body)."</div>");
 			Yii::app()->mailer->Send(true);
 		}
-	} 
+	}
+
+	/*
+     * Author: Mike
+     * Date: 17.06.19
+     * Fix export on the header level generates a corrupted file
+     */
 	public function actionGetExcel($id){
 		$data = SupportDesk::model()->findAllByPk((int)$id);		
 		Yii::import('ext.phpexcel.XPHPExcel');
@@ -1742,6 +1748,7 @@ SELECT sd.id , MIN(TIMESTAMPDIFF(SECOND,sd.date,NOW()+ INTERVAL 10 HOUR))/172800
 		}
 		$objPHPExcel->getActiveSheet()->setTitle('SR # - '.$row->sd_no);
 		$objPHPExcel->setActiveSheetIndex(0);
+		ob_end_clean();
 		header('Content-Type: application/vnd.ms-excel');
 		header('Content-Disposition: attachment;filename="SR #'.$row->sd_no.'.xls"');
 		header('Cache-Control: max-age=0');

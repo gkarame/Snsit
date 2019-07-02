@@ -618,6 +618,10 @@ public static function getAllProjectsAssignedtoUserProd($user_id){
 		$tm = Yii::app()->db->createCommand("SELECT TM FROM eas WHERE id_project =".$proj." ")->queryScalar();
 		if ($tm == 1){	return 'Yes'; }else{	return 'No'; }
 	}
+	public static function getMDS($id){
+        $mds = Yii::app()->db->createCommand("SELECT mds FROM eas WHERE id_project =".$id." ")->queryScalar();
+        return $mds;
+    }
 	public static function getAllTandMProjects($customer_id=0){
 		if ($customer_id){
 			$projects = CHtml::listData(self::model()->findAll(array(
@@ -791,7 +795,7 @@ GROUP BY p.name")->queryAll();
 				case 'N/A':
 				default:
 					$curr= Projects::getRate($val->currency);
-					$sum_budget += ($val->expense * $curr);
+					$sum_budget += ((int)$val->expense * (int)$curr);
 					break;
 			}
 		}

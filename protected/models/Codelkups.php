@@ -6,11 +6,16 @@ class Codelkups extends CActiveRecord{
 	public function tableName(){
 		return 'codelkups';
 	}
+    /*
+    * Author: Mike
+    * Date: 18.06.19
+    * Add a sorting input. Add column sort_rang for table codelkups
+    */
 	public function rules(){
 		return array(
 			array('id_codelist, codelkup', 'required'),
 			array('id_codelist', 'numerical', 'integerOnly'=>true),
-			array('id, id_codelist, codelkup', 'safe', 'on'=>'search'),
+			array('id, id_codelist, codelkup, sort_rang', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations(){
@@ -71,11 +76,14 @@ and maintenance.product not in (select product from maintenance m join installat
 		return $products;
 	}
 	public static function getCodelkupsDropDownUniqueEas($ea){
-		$ids= Yii::app()->db->createCommand("select id,codelkup from codelkups where id_codelist=9 and (custom=0 or id in (SELECT codelkup FROM eas_specific_notes  WHERE id_ea=".$ea.") or id in (SELECT id_note FROM eas_notes  WHERE id_ea=".$ea." )) order by codelkup")->queryAll();
+		$ids= Yii::app()->db->createCommand("select id,codelkup,sort_rang from codelkups where id_codelist=9 and (custom=0 or id in (SELECT codelkup FROM eas_specific_notes  WHERE id_ea=".$ea.") or id in (SELECT id_note FROM eas_notes  WHERE id_ea=".$ea." )) order by codelkup")->queryAll();
 		$notes = array();
 		$j = 0;
 		foreach ($ids as $i=>$res){
-			$notes[$res['id']] = $res['codelkup'];				
+			$notes[$res['id']] = [
+			    'note' => $res['codelkup'],
+                'sort_rang' => $res['sort_rang']
+            ];
 		}
 		return $notes;
 	}
