@@ -100,6 +100,28 @@ class Receivables extends CActiveRecord{
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	public static function getType($type){
+		$str="";
+		$arr= explode(',', $type);
+		$i=0;
+		foreach ($arr as $key => $a) {
+			//print_r($a);exit;
+			if ($a == 'TandM'){
+				$str.= "T&M";
+			}else if($a == 'Expenses'){
+				$str.= "Expense Sheet";
+			}
+			else{
+				$str.= $a;
+			}
+			if($key< (count($arr) -1))
+			{
+				$str .= ", ";
+			}
+			//print_r($str);
+		}
+		return $str;	
 	}	
 	public static function getAgeOptions(){
 		return array(
@@ -482,8 +504,8 @@ public static function getInvPerAssigned($id){
 		}
 		if (isset($this->type) && $this->type[0]!='' &&  $this->type!=' ' && !empty($this->type)){         	
 			$types=$this->type;		$inv_type="";
-        	foreach ($types as $value) {	$inv_type.="'%".rtrim(ltrim($value," ")," ")."%' or ";	}        	
-        	$criteria->addCondition("( t.type like ".$inv_type."  t.type ='NON' ) ");        
+        	foreach ($types as $value) {	$inv_type.=" t.type like '%".rtrim(ltrim($value," ")," ")."%' or ";	}        	
+        	$criteria->addCondition("(  ".$inv_type."  t.type ='NON' ) ");        
         }
 
        // print_r($criteria);exit;
