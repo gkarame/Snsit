@@ -39,8 +39,19 @@ class Projects extends CActiveRecord{
 			'checklist'=>array(self::HAS_MANY, 'ProjectsChecklist', 'id_project'),
 			'alert' => array(self::HAS_ONE,'ProjectsAlerts','id_project'),
 			'eas'=>array(self::HAS_MANY, 'eas', 'id_project'),
+			'eas2'=>array(self::HAS_MANY,'eas', 'id_parent_project'),
 		);
 	}
+	
+	public function __get($name)
+	{
+		if(($name == 'eas') || ($name == 'eas2')) {
+			return parent::__get('eas') + parent::__get('eas2');
+		}
+		else
+			return parent::__get($name);
+	}
+	
 	public function validatefields(){
 	 if ( $this->id_type == 27 && ($this->template == 1 || $this->template == 4 || $this->template == 6)) {
 	        if(empty($this->product)){

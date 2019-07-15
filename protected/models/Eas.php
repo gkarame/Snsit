@@ -109,7 +109,7 @@ class Eas extends CActiveRecord{
 	}
 	public static function validateMaintenanceEa($ea, $customer)
 	{
-		$result= Yii::app()->db->createCommand("SELECT count(1) FROM eas where id_customer= ".$customer." and id= ".$ea." and ( category=454 or category=25 ) ")->queryScalar();
+		$result= Yii::app()->db->createCommand("SELECT count(1) FROM eas where id_customer= ".$customer." and id= ".$ea." and (( category=454 or category=25 )  or customization=1) ")->queryScalar();
 		if($result>0)
 		{ 
 			return true;

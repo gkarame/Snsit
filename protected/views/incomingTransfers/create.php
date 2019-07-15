@@ -5,13 +5,36 @@
 	<div>
 		<?php echo $form->labelEx($model,'id_customer'); ?>
 		<div class="inputBg_create">
-		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array('model' => $model,'attribute' => 'customer_name','source'=>Customers::getAllAutocomplete(),
-				'options'=>array('minLength'=>'0','showAnim'=>'fold',
-					'select'=>"js:function(event, ui) { $('#InstallationRequests_id_customer').val(ui.item.id); }",
-					'change'=>"js:function(event, ui) { if (!ui.item) { $('#InstallationRequests_id_customer').val(''); }
-									}", ),
-				'htmlOptions'=>array( 'onfocus' => "javascript:$(this).autocomplete('search','');",
-					'onblur' => 'blurAutocomplete(event, this, "#InstallationRequests_id_customer");' ), )); ?>		 
+		<?php $this->widget('zii.widgets.jui.CJuiAutoComplete',array(
+						'model' => $model,
+						'attribute' => 'id_customer',		
+						'source'=>Customers::getAllAutocomplete(true),
+						'options'=>array(
+							'minLength'=>'0',
+							'showAnim'=>'fold',
+							 'select'=>"js:function(event, ui) {
+            var terms = split(this.value);
+            // remove the current input
+            terms.pop();
+            // add the selected item
+            terms.push( ui.item.value );
+            // add placeholder to get the comma-and-space at the end
+            terms.push('');
+
+            this.value = terms.join(', ');
+            refreshProjectListsProjects();
+            refreshDestination();
+            (document.getElementById('.header_title')).onclick();
+            
+            return false;
+
+        }"
+						),
+						'htmlOptions'=>array(
+							'onfocus' => "javascript:$(this).autocomplete('search','');",
+						),
+				));
+				?> 		 
 		</div>
 	</div>
 	<?php echo $form->hiddenField($model, 'id_customer'); ?>
@@ -26,6 +49,18 @@
 		<?php echo $form->error($model,'partner'); ?>
 	</div>
 </td>
+
+<td><div class="row projectRow">
+		<?php echo $form->labelEx($model, 'offsetting'); ?>
+		<div class="selectBg_create">
+			<?php echo $form->dropDownList($model, 'offsetting',IncomingTransfers::getOffsettingList(), array('prompt' => Yii::t('translations', ''))); ?>
+		</div>
+		<?php echo $form->error($model,'offsetting'); ?>
+	</div>
+</td>
+</tr>
+<tr>
+
 <td><div class="row contactname" >
 	<div>
 		<?php echo $form->labelEx($model,'received_amount'); ?>
@@ -35,9 +70,6 @@
 	<?php echo $form->error($model,'received_amount'); ?>
 	</div>
 </div></td>
-</tr>
-<tr>
-
 <td><div class="row projectRow">
 		<?php echo $form->labelEx($model, 'currency'); ?>
 		<div class="selectBg_create">
@@ -56,12 +88,32 @@
 	</div>
 </div></td>
 
+</tr>
+<tr>
 <td><div class="row projectRow">
-		<?php echo $form->labelEx($model, 'offsetting'); ?>
+		<?php echo $form->labelEx($model, 'bank_dolphin'); ?>
 		<div class="selectBg_create">
-			<?php echo $form->dropDownList($model, 'offsetting',IncomingTransfers::getOffsettingList(), array('prompt' => Yii::t('translations', ''))); ?>
+			<?php echo $form->dropDownList($model, 'bank_dolphin', Codelkups::getCodelkupsDropDown('bank_code'), array('prompt' => Yii::t('translations', 'Choose Bank'))); ?>
 		</div>
-		<?php echo $form->error($model,'offsetting'); ?>
+		<?php echo $form->error($model,'bank_dolphin'); ?>
+	</div>
+</td>
+<td><div class="row projectRow">
+		<?php echo $form->labelEx($model, 'aux'); ?>
+		<div class="selectBg_create">
+			<?php echo $form->dropDownList($model, 'aux', Codelkups::getCodelkupsDropDown('aux_code'), array('prompt' => Yii::t('translations', 'Choose Auxliary'))); ?>
+		</div>
+		<?php echo $form->error($model,'aux'); ?>
+	</div>
+</td>
+
+	 
+<td><div class="row projectRow">
+		<?php echo $form->labelEx($model, 'month'); ?>
+		<div class="selectBg_create">
+			<?php echo $form->dropDownList($model, 'month', Invoices::getMonths(), array('prompt' => Yii::t('translations', 'Choose Month'))); ?>
+		</div>
+		<?php echo $form->error($model,'month'); ?>
 	</div>
 </td>
 </tr>
@@ -75,7 +127,7 @@
 	<?php echo $form->error($model,'notes'); ?>
 	</div>
 </div></td>
-	<td><div class="row " >
+<td><div class="row " >
 	<div>
 		<?php echo $form->labelEx($model,'remarks'); ?>
 		<div class="inputBg_create">

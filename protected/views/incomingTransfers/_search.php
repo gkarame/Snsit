@@ -72,6 +72,7 @@
 						<?php if(GroupPermissions::checkPermissions('financial-incomingTransfers','write')){ ?>
 						<!--	<div class="li noborder" ><a class="special_edit_header" href="<?php //echo Yii::app()->createAbsoluteUrl('incomingTransfers/create');?>"><?php //echo Yii::t('translations', 'NEW TR');?></a></div>-->
 							
+							<div class="li noborder" ><a class="special_edit_header"  href="<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/create');?>"><?php echo Yii::t('translations', 'NEW TRANSFER');?></a></div>
 							 <div class="li noborder" onclick="getRecipients();">ADD INVOICES</div>
 						<?php } ?>
 							 <div class="li noborder" onclick="getExcel();">EXPORT TO EXCEL</div>

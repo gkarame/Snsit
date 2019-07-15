@@ -12,15 +12,15 @@ class IncomingTransfers extends CActiveRecord {
 	}
 	public function rules(){
 return array(
-		array('it_no, partner, received_amount,bank,currency,status,offsetting,id_user,rate,bank_dolphin,aux', 'required'),
-		array('partner,id_customer ,currency,status,offsetting,id_user,bank_dolphin,aux', 'numerical', 'integerOnly'=>true),
+		array('it_no, partner, received_amount,bank,currency,status,offsetting,id_user,rate,bank_dolphin,aux,id_customer', 'required'),
+		array('partner ,currency,status,offsetting,id_user,bank_dolphin,aux, month', 'numerical', 'integerOnly'=>true),
 		array('bank,received_amount,rate', 'numerical', 'integerOnly'=>false),
 		//array('id_customer', 'exist', 'attributeName' => 'id', 'className' => 'Customers','allowEmpty'=>false),
 		array('customer_name', 'exist', 'attributeName' => 'name', 'className' => 'Customers','allowEmpty'=>true),
 		array('id_user', 'exist', 'attributeName' => 'id', 'className' => 'Users','allowEmpty'=>true),
-		array('notes, remarks','length','max'=>2000),
+		array('notes,id_customer, remarks','length','max'=>2000),
 		array('status','validateStatus'),
-		array('it_no,partner, currency, offsetting, status,id_user,bank_dolphin,aux', 'safe', 'on'=>'search'),
+		array('it_no,partner,id_customer, currency, offsetting, status,id_user,bank_dolphin,aux', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations(){
@@ -64,7 +64,7 @@ return array(
 	public function attributelabels(){
 		return array(
 			'it_no' => 'TR#',
-			//'id_customer' => 'Customer',
+			'id_customer' => 'Customer',
 			'partner' => 'Partner',
 			'notes' => 'Notes',
 			'remarks' => 'Remarks',

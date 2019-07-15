@@ -2084,3 +2084,724 @@ Stack trace:
 REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
 HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
 ---
+2019/07/03 07:32:42 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'mds' in 'field list'. The SQL statement executed was: SELECT mds FROM eas WHERE id_project =782 .
+2019/07/03 07:32:43 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'mds' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\models\Projects.php(622): CDbCommand->queryScalar()
+#2 C:\wamp\www\sns\protected\views\projects\_general_tab.php(173): Projects::getMDS('782')
+#3 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#4 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#6 C:\wamp\www\sns\protected\views\projects\view.php(13): CController->renderPartial('_general_tab', Array, true)
+#7 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#8 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#10 C:\wamp\www\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#11 C:\wamp\www\sns\protected\controllers\ProjectsController.php(225): CController->render('view', Array)
+#12 [internal function]: ProjectsController->actionView('782', NULL)
+#13 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#14 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectsController), Object(ReflectionMethod), Array)
+#15 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#22 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('view')
+#24 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('projects/view')
+#25 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#26 C:\wamp\www\sns\index.php(26): CApplication->run()
+#27 {main}
+REQUEST_URI=/sns/projects/view/782
+HTTP_REFERER=http://snsitn/sns/projects/index
+---
+2019/07/03 11:39:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/04 11:21:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/04 11:22:44 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'. The SQL statement executed was: SELECT `values` from codelkups where id='458' .
+2019/07/04 11:22:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\controllers\EasController.php(1856): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): EasController->actionupdateDuration()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('updateDuration')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('eas/updateDurat...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/eas/updateDuration
+HTTP_REFERER=http://snsitn/sns/eas/update/1460?new=1
+---
+2019/07/04 11:24:07 [error] [appMailer] Failed to send "EA 01460 Approved" email to []
+Message:
+The Following EA has been Approved:
+EA #01460
+Category: Support/Subscription/Hosting
+Description: Test Maintenance Contract Empty Start Date
+Customer: BPC
+Author: Micheline Daaboul
+Total Amount: 10,000  USD
+Discount: 0 %
+Total Net Amount: 10,000 USD
+Payment Terms:- 50% Upon Signature of EA- 50% Upon Completion of Work
+ 
+2019/07/04 11:51:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/04 12:42:33 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'. The SQL statement executed was: SELECT `values` from codelkups where id='64' .
+2019/07/04 12:42:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\controllers\EasController.php(1856): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): EasController->actionupdateDuration()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('updateDuration')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('eas/updateDurat...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/eas/updateDuration
+HTTP_REFERER=http://snsitn/sns/eas/update/1461?new=1
+---
+2019/07/04 12:44:29 [error] [appMailer] Failed to send "EA 01461 Approved" email to []
+Message:
+The Following EA has been Approved:
+EA #01461
+Category: SW ServiceSubtype: SCE Implementation
+Description: Test Project
+Customer: Abyat
+Project: Test ProjectAuthor: Micheline Daaboul
+Total Amount: 65,000  USD
+Discount: 0 %
+Total Net Amount: 65,000 USD
+Total Man Days: 40
+Net Man Day Rate: 1,625 USD Payment Terms:- 50% Upon Signature of Proposal- 50% Upon Completion of Work
+2019/07/04 12:44:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/04 12:55:22 [error] [appMailer] Failed to send "EA 01459 Approved" email to []
+Message:
+The Following EA has been Approved:
+EA #01459
+Category: Recruitment
+Description: test
+Customer: ABA
+Author: Houda Nasser
+Total Amount: 100  USD
+Discount: 0 %
+Total Net Amount: 100 USD
+Payment Terms:- 100% Upon Signature of EA
+ 
+2019/07/04 12:57:44 [error] [appMailer] Failed to send "EA 01457 New" email to []
+Message:
+The Following EA has been Created:
+EA #01457
+Customer: ABA
+Category: Consulting
+Description: test
+Project: testAuthor: Houda Nasser
+Total Amount: 4,000  USD
+Discount: 0 %
+Total Net Amount: 4,000 USD
+Total Man Days: 4
+Net Man Day Rate: 1,000 USD Payment Terms:- 100% Upon Completion of Work
+2019/07/04 12:59:20 [error] [appMailer] Failed to send "EA 01457 Approved" email to []
+Message:
+The Following EA has been Approved:
+EA #01457
+Category: Consulting
+Description: test
+Customer: ABA
+Project: testAuthor: Houda Nasser
+Total Amount: 4,000  USD
+Discount: 0 %
+Total Net Amount: 4,000 USD
+Total Man Days: 4
+Net Man Day Rate: 1,000 USD Payment Terms:- 100% Upon Completion of Work
+2019/07/04 13:07:49 [error] [appMailer] Failed to send "New Customer Creation" email to []
+Message:
+Dear Senior Admin Team,
+
+Please note that a new customer TEST GFF   has been created on SNSit by Micheline Daaboul.
+Kindly you are requested to complete all the information required for invoicing.
+
+
+Best Regards.
+SNSit
+2019/07/04 13:08:23 [error] [appMailer] Failed to send "New Customer Creation" email to []
+Message:
+Dear Senior Admin Team,
+
+Please note that a new customer TEST GFF   has been created on SNSit by Micheline Daaboul.
+Kindly you are requested to complete all the information required for invoicing.
+
+
+Best Regards.
+SNSit
+2019/07/04 13:08:26 [error] [appMailer] Failed to send "New Customer Creation" email to []
+Message:
+Dear Senior Admin Team,
+
+Please note that a new customer TEST GFF   has been created on SNSit by Micheline Daaboul.
+Kindly you are requested to complete all the information required for invoicing.
+
+
+Best Regards.
+SNSit
+2019/07/04 13:12:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/04 13:13:06 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'. The SQL statement executed was: SELECT `values` from codelkups where id='64' .
+2019/07/04 13:13:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\controllers\EasController.php(1856): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): EasController->actionupdateDuration()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('updateDuration')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('eas/updateDurat...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/eas/updateDuration
+HTTP_REFERER=http://snsitn/sns/eas/update/1462?new=1
+---
+2019/07/04 13:14:41 [error] [appMailer] Failed to send "EA 01462 Approved" email to []
+Message:
+The Following EA has been Approved:
+EA #01462
+Category: SW ServiceSubtype: SCE Implementation
+T&M: Yes 
+Description: Test T&M
+Customer: GILSON S.A.S
+Project: Test T&M
+Author: Micheline Daaboul
+Discount: 0 % 
+Net Man Day Rate: 1,000 EUR Payment Terms:- 100% Upon Completion of Work- 100% On a yearly basis starting from the deployment date on Live environment (Yearly Support)
+2019/07/04 14:54:02 [error] [php] Undefined variable: model_health_indicators (C:\wamp\www\sns\protected\controllers\ProjectsController.php:3689)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): ProjectsController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): ProjectsController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): ProjectsController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): ProjectsController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/projects/updatestatusreport/1093
+2019/07/05 09:34:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/mCSB_buttons.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('images/mCSB_but...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/images/mCSB_buttons.png
+HTTP_REFERER=http://snsitn/sns/css/mCustomScrollbar.css
+---
+2019/07/05 09:34:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/mCSB_buttons.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('images/mCSB_but...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/images/mCSB_buttons.png
+HTTP_REFERER=http://snsitn/sns/css/mCustomScrollbar.css
+---
+2019/07/05 09:37:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/05 09:37:50 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index?SupportDesk%5Bsd_no%5D=&SupportDesk%5Bid_customer%5D=GWC&SupportDesk%5Bseverity%5D=&SupportDesk%5Breason%5D=&SupportDesk%5Bassigned_to%5D=&SupportDesk%5Bresponsibility%5D=&SupportDesk%5Bproduct%5D=&SupportDesk%5Bsubmitter_name%5D=&ajax=supportdesk-grid
+2019/07/05 09:37:53 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index?SupportDesk%5Bsd_no%5D=&SupportDesk%5Bid_customer%5D=GWC&SupportDesk%5Bseverity%5D=&SupportDesk%5Breason%5D=&SupportDesk%5Bassigned_to%5D=&SupportDesk%5Bresponsibility%5D=&SupportDesk%5Bproduct%5D=&SupportDesk%5Bsubmitter_name%5D=&ajax=supportdesk-grid
+2019/07/05 09:37:57 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index?SupportDesk%5Bsd_no%5D=&SupportDesk%5Bid_customer%5D=GWC&SupportDesk%5Bseverity%5D=&SupportDesk%5Breason%5D=&SupportDesk%5Bassigned_to%5D=&SupportDesk%5Bresponsibility%5D=&SupportDesk%5Bproduct%5D=&SupportDesk%5Bsubmitter_name%5D=&ajax=supportdesk-grid
+2019/07/05 09:38:07 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index?SupportDesk%5Bsd_no%5D=&SupportDesk%5Bid_customer%5D=GWC&SupportDesk%5Bseverity%5D=&SupportDesk%5Bstatus%5D%5B%5D=0&SupportDesk%5Breason%5D=&SupportDesk%5Bassigned_to%5D=&SupportDesk%5Bresponsibility%5D=&SupportDesk%5Bproduct%5D=&SupportDesk%5Bsubmitter_name%5D=&ajax=supportdesk-grid
+2019/07/05 09:38:10 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index?SupportDesk%5Bsd_no%5D=&SupportDesk%5Bid_customer%5D=GWC&SupportDesk%5Bseverity%5D=&SupportDesk%5Bstatus%5D%5B%5D=4&SupportDesk%5Breason%5D=&SupportDesk%5Bassigned_to%5D=&SupportDesk%5Bresponsibility%5D=&SupportDesk%5Bproduct%5D=&SupportDesk%5Bsubmitter_name%5D=&ajax=supportdesk-grid
+2019/07/05 09:38:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/05 09:38:34 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index?SupportDesk%5Bsd_no%5D=&SupportDesk%5Bid_customer%5D=GWC&SupportDesk%5Bseverity%5D=&SupportDesk%5Breason%5D=&SupportDesk%5Bassigned_to%5D=&SupportDesk%5Bresponsibility%5D=&SupportDesk%5Bproduct%5D=&SupportDesk%5Bsubmitter_name%5D=&ajax=supportdesk-grid
+2019/07/05 09:41:45 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index?SupportDesk%5Bsd_no%5D=&SupportDesk%5Bid_customer%5D=&SupportDesk%5Bseverity%5D=&SupportDesk%5Bstatus%5D%5B%5D=2&SupportDesk%5Breason%5D=&SupportDesk%5Bassigned_to%5D=&SupportDesk%5Bresponsibility%5D=&SupportDesk%5Bproduct%5D=&SupportDesk%5Bsubmitter_name%5D=&ajax=supportdesk-grid
+2019/07/05 10:00:08 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index
+2019/07/05 10:00:13 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index
+2019/07/05 10:00:15 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index
+2019/07/05 10:00:16 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index
+2019/07/05 10:00:22 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index
+2019/07/07 10:45:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "login".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('login')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/login
+---
+2019/07/07 10:46:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "login.php".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('login.php')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/login.php
+---
+2019/07/07 10:47:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/projects/index
+---
+2019/07/09 10:02:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/09 10:40:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/09 10:40:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/09 10:43:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/09 10:44:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/09 10:44:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/09 11:35:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/11 09:10:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/11 09:34:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/11 09:39:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/11 09:49:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/11 09:50:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/11 09:51:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/11 14:57:23 [error] [php] Undefined offset: 1 (C:\wamp\www\sns\protected\models\Users.php:326)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(49): SupportDeskController->actionIndex()
+#1 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(133): SupportDeskController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): SupportDeskController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(265): SupportDeskController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(282): SupportDeskController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/supportDesk/index?SupportDesk%5Bsd_no%5D=&SupportDesk%5Bid_customer%5D=gwc&SupportDesk%5Bseverity%5D=&SupportDesk%5Breason%5D=&SupportDesk%5Bassigned_to%5D=&SupportDesk%5Bresponsibility%5D=&SupportDesk%5Bproduct%5D=&SupportDesk%5Bsubmitter_name%5D=&ajax=supportdesk-grid
+2019/07/11 15:36:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/supportDesk/index
+---
+2019/07/11 16:20:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/installationrequests/create
+---
+2019/07/11 16:20:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/installationrequests/create
+---
+2019/07/11 16:24:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "login.php".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('login.php')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/login.php
+---
+2019/07/11 17:02:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/11 17:02:58 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: SELECT expense FROM eas where id_project= .
+2019/07/11 17:02:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\models\Projects.php(172): CDbCommand->queryScalar()
+#2 C:\wamp\www\sns\protected\controllers\ExpensesController.php(143): Projects::isBillable('')
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#4 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('create')
+#13 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/create')
+#14 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\wamp\www\sns\index.php(26): CApplication->run()
+#16 {main}
+REQUEST_URI=/sns/expenses/create
+HTTP_REFERER=http://snsitn/sns/expenses/create
+---
