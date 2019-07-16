@@ -1,6 +1,6 @@
-<div class="tache new " style="    min-height:230px;"><div class="bgtaskk " id="section" style="background-size: 100% 230px;
-    height: 230px;
-    min-height: 230px;"></div>	<fieldset class="items_fieldset"><?php $id = $model->isNewRecord ? 'new' : $model->id;?>
+<div class="tache new " style="    min-height:230px;"><div class="bgtaskk " id="section" style="background-size: 100% 350px;
+    height: 350px;
+    min-height: 350px;"></div>	<fieldset class="items_fieldset"><?php $id = $model->isNewRecord ? 'new' : $model->id;?>
 		
 		<div class="textBox  two inline-block  width85" >	<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model, "type *"); ?></div>
 			<div class="input_text"><div class="hdselect">
@@ -64,10 +64,21 @@
 			<?php echo CCustomHtml::error($model, "parent_fbr", array('id'=>"parent_fbr")); ?>		
 		</div>
 
-		
-				<div class="textBox one inline-block width473  " id="notes">	<div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "notes"); ?></div>
-			<div class="input_text width473  "><?php echo CHtml::activeTextField($model, "notes", array('class'=> 'input_text_value width450')); ?>	</div>
-			<?php echo CCustomHtml::error($model, "notes", array('id'=>"notes"));  ?></div>
+        <!--/*
+        * Author: Mike
+        * Date: 03.07.19
+        * Change notes to short description and make the field wider + mandatory for FBR type tasks + put it on second row
+        */-->
+		<style>#ProjectsTasks_notes{width: 100% !important;height: 100%;border: none;background: transparent;}</style>
+		<div class="textBox one inline-block width473">
+            <div class="input_text_desc">
+                <?php echo CHtml::activelabelEx($model, "notes"); ?>
+            </div>
+            <div class="input_text width473" style="height: 70px;">
+                <?php echo CHtml::activeTextArea($model, "notes", array('class'=> 'input_text_value width450','')); ?>
+            </div>
+            <?php echo CCustomHtml::error($model, "notes", array('id'=>"notes"));  ?>
+        </div>
 
 
 		<?php if($id == "new"){?>

@@ -52,3 +52,14 @@ Author: Mike
                 protected/models/Eas.php (func: getNotes)
                 protected/views/eas/update.php
                 EasController.php (add func actionChangeSortRangeNote)
+
+
+8) "Under Environment add a 3rd Radio Button: Hosted  -  When Clicked it shows in addition to Customer Contact Name and Email, Hosting Contact Name & Email   On different note, add inside the IR, under Authentication drop don list: Hybrid "
+
+    changes:
+        -db: ALTER TABLE `installation_requests` ADD `hosting_contact_name` VARCHAR(45) NULL DEFAULT NULL AFTER `maintenance`, ADD `hosting_contact_email` VARCHAR(45) NULL DEFAULT NULL AFTER `hosting_contact_name`;ALTER TABLE `installation_requests` CHANGE `installation_locally` `installation_locally` TINYINT UNSIGNED NOT NULL;
+
+9) Add ETD (mandatory) on issue level     - Add ETD to Issue List weekly summary email and assignment email
+
+    changes:
+            -db: ALTER TABLE `projects_issues` ADD `etd_date` DATE NULL DEFAULT NULL AFTER `lastupdateddate`;

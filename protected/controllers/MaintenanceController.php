@@ -186,8 +186,12 @@ class MaintenanceController extends Controller{
 				}
 				//print_r($_POST['Maintenance']['starting_date']);exit;
 				if ($_POST['Maintenance']['starting_date']!=null && !preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $_POST['Maintenance']['starting_date'])){
-
-			$model->starting_date = DateTime::createFromFormat('d/m/Y', $_POST['Maintenance']['starting_date'])->format('Y-m-d');
+		/*
+         * Author: Mike
+         * Date: 10.07.19
+         * However, if I select dates from calendar it does not save. Need to put it manually
+         */
+					$model->starting_date = date('Y-m-d', strtotime($_POST['Maintenance']['starting_date']));
 		}else if ($_POST['Maintenance']['starting_date']!=null  && preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $_POST['Maintenance']['starting_date']))
 		{
 			$model->starting_date =$_POST['Maintenance']['starting_date'];
@@ -226,7 +230,8 @@ class MaintenanceController extends Controller{
 					if($model->support_service=='502'||$model->support_service=='501'){						
 						$services=Yii::app()->db->createCommand("select id ,default_value, field_type, access from support_services where type='".$model->support_service."' ")->queryAll();
 						foreach ($services as  $value) {
-							Yii::app()->db->createCommand("INSERT INTO maintenance_services (id_contract, id_service, `limit`,  access, field_type) VALUES ('".$model->id_maintenance."' , '".$value['id']."' ,'".$value['default_value']."' ,'".$value['access']."' ,'".$value['field_type']."') ")->execute();
+							$limit = isset($value['default_value'])?$value['default_value']:0;
+							Yii::app()->db->createCommand("INSERT INTO maintenance_services (id_contract, id_service, `limit`,  access, field_type) VALUES ('".$model->id_maintenance."' , '".$value['id']."' ,'".$limit."' ,'".$value['access']."' ,'".$value['field_type']."') ")->execute();
 						}				
 					}
 				}				

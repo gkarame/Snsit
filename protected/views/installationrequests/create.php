@@ -66,6 +66,37 @@
 		<?php echo $form->error($model,'installation_locally'); ?>
 		</div>
 </div></td>
+    <!--
+     /*
+      * Author: Mike
+      * Date: 12.07.19
+      * Under Environment add a 3rd Radio Button: Hosted  -  When Clicked it shows in addition to Customer Contact Name and Email, Hosting Contact Name & Email   On different note, add inside the IR, under Authentication drop don list: Hybrid
+      */
+    -->
+    <tr><td>
+            <div class="row contactname" >
+                <div>
+                    <?php echo $form->labelEx($model,'hosting_contact_name'.'*'); ?>
+                    <div class="inputBg_create">
+                        <?php echo $form->textField($model, 'hosting_contact_name',array('autocomplete'=>'off')); ?>
+                    </div>
+                    <?php echo $form->error($model,'hosting_contact_name'); ?>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="row contactname" style="margin-right:45px;">
+                <div>
+                    <?php echo $form->labelEx($model,'hosting_contact_email'.'*'); ?>
+                    <div class="inputBg_create">
+                        <?php echo $form->textField($model, 'hosting_contact_email',array('autocomplete'=>'off')); ?>
+                    </div>
+                    <?php echo $form->error($model,'hosting_contact_email'); ?>
+                </div>
+            </div>
+        </td>
+
+    </tr>
 <tr><td><div class="row InstallLocationRow margint10">
 <div>
 	<?php echo $form->label($model, 'installation_location'); ?>
@@ -125,20 +156,40 @@
 	if($('#InstallationRequests_installation_locally_1').attr('checked') != 'checked' || $('#InstallationRequests_installation_location').val() ==null){
 			$('#InstallationRequests_installation_location').parents('.row').addClass('hidden'); $('#InstallationRequests_prerequisites').parents('.row').addClass('hidden');
 			$('#InstallationRequests_customer_contact_name').parents('.row').addClass('hidden'); $('#InstallationRequests_customer_contact_email').parents('.row').addClass('hidden');
+            $('#InstallationRequests_hosting_contact_name').parents('.row').addClass('hidden');
+            $('#InstallationRequests_hosting_contact_email').parents('.row').addClass('hidden');
 		}
 	});
+    /*
+ * Author: Mike
+ * Date: 12.07.19
+ * Under Environment add a 3rd Radio Button: Hosted  -  When Clicked it shows in addition to Customer Contact Name and Email, Hosting Contact Name & Email   On different note, add inside the IR, under Authentication drop don list: Hybrid
+ */
 	function changePlacement(element){
 		$this = $(element);
-		if($this.val() == 1){
-		$('#InstallationRequests_installation_location').parents('.row').removeClass('hidden');
-		$('#InstallationRequests_prerequisites').parents('.row').removeClass('hidden');
-		$('#InstallationRequests_customer_contact_name').parents('.row').removeClass('hidden');
-		$('#InstallationRequests_customer_contact_email').parents('.row').removeClass('hidden');
-		}else{
+		if($this.val() == 1) {
+            $('#InstallationRequests_installation_location').parents('.row').removeClass('hidden');
+            $('#InstallationRequests_prerequisites').parents('.row').removeClass('hidden');
+            $('#InstallationRequests_customer_contact_name').parents('.row').removeClass('hidden');
+            $('#InstallationRequests_customer_contact_email').parents('.row').removeClass('hidden');
+            $('#InstallationRequests_hosting_contact_name').parents('.row').addClass('hidden');
+            $('#InstallationRequests_hosting_contact_email').parents('.row').addClass('hidden');
+        }
+		else if($this.val() == 2){
+                $('#InstallationRequests_installation_location').parents('.row').removeClass('hidden');
+                $('#InstallationRequests_prerequisites').parents('.row').removeClass('hidden');
+                $('#InstallationRequests_customer_contact_name').parents('.row').removeClass('hidden');
+                $('#InstallationRequests_customer_contact_email').parents('.row').removeClass('hidden');
+                $('#InstallationRequests_hosting_contact_name').parents('.row').removeClass('hidden');
+                $('#InstallationRequests_hosting_contact_email').parents('.row').removeClass('hidden');
+            }
+		else{
 		$('#InstallationRequests_installation_location').parents('.row').addClass('hidden');
 		$('#InstallationRequests_prerequisites').parents('.row').addClass('hidden');
 		$('#InstallationRequests_customer_contact_name').parents('.row').addClass('hidden');
 		$('#InstallationRequests_customer_contact_email').parents('.row').addClass('hidden');
+            $('#InstallationRequests_hosting_contact_name').parents('.row').addClass('hidden');
+            $('#InstallationRequests_hosting_contact_email').parents('.row').addClass('hidden');
 		}
 	}
 	function changePlacement2(element){

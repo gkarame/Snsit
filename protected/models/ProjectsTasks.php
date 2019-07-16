@@ -26,6 +26,11 @@ class ProjectsTasks extends CActiveRecord{
 			'phase' => array(self::HAS_MANY, 'ProjectPhases', 'id_project_phase'),
 		);
 	}
+    /*
+    * Author: Mike
+    * Date: 03.07.19
+    * Change notes to short description and make the field wider + mandatory for FBR type tasks + put it on second row
+    */
 	public function attributeLabels(){
 		return array(
 			'id' => 'ID',
@@ -39,7 +44,7 @@ class ProjectsTasks extends CActiveRecord{
 			'module' => 'Module',
 			'keywords' => 'Keywords',
 			'existsfbr' => 'Previously Done?',
-			'notes' => 'Notes',
+			'notes' => 'Short description',
 			'parent_fbr' => 'Parent FBR',
 			'type' => 'Type'
 		);

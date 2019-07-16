@@ -996,7 +996,14 @@ class Controller extends CController
 			$uat_open_checklist = array();
 			$uat_golive_pending_checklist = array();
 				$model = Projects::model()->findByPk($id);
-				$project_phases = Yii::app()->db->createCommand("select  m.description, pm.status , estimated_date_of_start, estimated_date_of_completion from projects_milestones pm join milestones m on pm.id_milestone = m.id
+                /*
+                 * Author: Mike
+                 * Date: 11.07.19
+                 * MDs are shown in the project main screen but not displayed in the Status Report
+                 */
+                $project_eas = Yii::app()->db->createCommand("SELECT * FROM " . (new Eas())->tableName() . " WHERE id_project={$id}")->queryAll();
+
+                $project_phases = Yii::app()->db->createCommand("select  m.description, pm.status , estimated_date_of_start, estimated_date_of_completion from projects_milestones pm join milestones m on pm.id_milestone = m.id
 				where pm.applicable='Yes' and  pm.id_project = ".$id." order by m.milestone_number")->queryAll();
 				$project_highlights = Yii::app()->db->createCommand("select description from status_report_highlights where status_report in (select id from projects_status_reports where project = ".$id.")")->queryAll();
 			//	$project_health_indicators = Yii::app()->db->createCommand("select project_scope, resources, timeline, project_finance, risks_issues, overall_project_health, indicators_date
@@ -1051,7 +1058,7 @@ projects_phases p where p.id_project=  ".$id." and  ((select sum(amount) from us
 						$uat_golive_pending_checklist = Yii::app()->db->createCommand("select c.descr,c.category from  checklist  c join projects_checklist pc on c.id = pc.id_checklist where (( c.id_phase = 6 and c.responsibility = 'Client' and pc.status = 'Pending' ) or (c.id_phase = 7 and c.responsibility = 'Client' and pc.status = 'Open')) and  pc.id_project = ".$id)->queryAll();
 					} }
 				$html = $this->renderPartial('application.views.projects._status_report_pdf', array('project_members' => $project_members,'model' => $model,'project_phases'=>$project_phases,'project_highlights'=>$project_highlights,'project_health_indicators'=>$project_health_indicators,'project_milestones'=>$project_milestones,'project_risks' => $project_risks,'project_risks_closed' => $project_risks_closed,'project_invoices' =>$project_invoices, 'project_time'=>$project_time
-					,'uat_open_checklist' => $uat_open_checklist,'uat_golive_pending_checklist' => $uat_golive_pending_checklist), true);
+					,'uat_open_checklist' => $uat_open_checklist,'uat_golive_pending_checklist' => $uat_golive_pending_checklist,'project_eas' => isset($project_eas[0])?$project_eas:null), true);
 			 	$pdf = Yii::app()->ePdf->mpdf(
 			 				'',    // mode - default ''
 			 				'A4-L',//,    // format - A4, for example, default ''
@@ -1068,7 +1075,7 @@ projects_phases p where p.id_project=  ".$id." and  ((select sum(amount) from us
 			 		if(!empty($uat_open_checklist) || !empty($uat_golive_pending_checklist) || !empty($project_milestones)  || !empty($project_risks_closed) || !empty($project_risks) || !empty($project_invoices)  || !empty($project_time) )
 			 		{
 			 			$html = $this->renderPartial('application.views.projects._status_report_pdf2', array('project_members' => $project_members,'model' => $model,'project_phases'=>$project_phases,'project_highlights'=>$project_highlights,'project_health_indicators'=>$project_health_indicators,'project_milestones'=>$project_milestones,'project_risks' => $project_risks,'project_risks_closed' => $project_risks_closed,'project_invoices' =>$project_invoices, 'project_time'=>$project_time
-						,'uat_open_checklist' => $uat_open_checklist,'uat_golive_pending_checklist' => $uat_golive_pending_checklist), true);
+						,'uat_open_checklist' => $uat_open_checklist,'uat_golive_pending_checklist' => $uat_golive_pending_checklist,isset($project_eas[0])?$project_eas:null), true);
 			 			$pdf->AddPage(); $pdf->writeHTML($html, 0, true, true);
 			 		}
 			 		$doc_model = new Documents; $doc_model->id_model = $id; $doc_model->model_table = 'projects';

@@ -129,7 +129,7 @@ class ExpenseSummaryController extends Controller
 		{
 			header('Content-disposition: attachment; filename=REPORTS.pdf');
 			header('Content-type: application/pdf');
-			readfile($file);
+            readfile(str_ireplace('\\','/',$file));
 		} 
 	}
 	
