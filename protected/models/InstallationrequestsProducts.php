@@ -1,7 +1,7 @@
 <?php 
 class InstallationrequestsProducts extends CActiveRecord {
 	CONST STATUS_PENDING = 0;	CONST STATUS_CLOSED = 1;	CONST STATUS_CANCELLED = 2;
-	CONST AUTHENTICATION_AD = 1;	CONST AUTHENTICATION_DB = 2;	CONST REPORTING_BIRT = 1;	CONST REPORTING_INFOR = 2;
+	CONST AUTHENTICATION_AD = 1;	CONST AUTHENTICATION_DB = 2; CONST AUTHENTICATION_HYBRID  = 3;	CONST REPORTING_BIRT = 1;	CONST REPORTING_INFOR = 2;
 	CONST DB_TYPE_MSSQL = 2;	CONST DB_TYPE_ORACLE = 3;
 	CONST DB_COLLATION_ARABIC = 1;	CONST DB_COLLATION_LATIN = 2;	CONST DB_COLLATION_FRENCH = 3;
 	CONST LANGUAGE_PACK_ARABIC = 0;	CONST LANGUAGE_PACK_Portuguese = 1;	CONST LANGUAGE_PACK_Dutch = 2;	CONST LANGUAGE_PACK_English = 3;	CONST LANGUAGE_PACK_French = 4;
@@ -222,7 +222,8 @@ class InstallationrequestsProducts extends CActiveRecord {
 	public static function getAuthenticationList(){
 		return array(
 			self::AUTHENTICATION_DB => 'DB Authentication',
-			self::AUTHENTICATION_AD => 'Active Directory Authentication');
+			self::AUTHENTICATION_AD => 'Active Directory Authentication',
+            self::AUTHENTICATION_HYBRID => 'Hybrid');
 	}
 	public static function getLicenseList(){
 		return array(

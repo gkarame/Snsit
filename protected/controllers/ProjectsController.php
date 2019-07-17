@@ -19,7 +19,7 @@ class ProjectsController extends Controller{
 			),
 			array(
 				'allow',
-					'actions'=>array('index','create','GetExcelInternal','view','update','CreateTasks','CreateRiskItem','createIssue','CreateScenarioItem','UpdateTasks','manageScenarioItem','manageIssueItem','ManageRiskItem','DeleteScenarioItem','DeleteRiskItem','ManageTasks','ChangeTask','ChangePhase','ValidateMilestones','ValidateAlerts','ValidateTimesheet',
+					'actions'=>array('AddChecklist','index','create','GetExcelInternal','view','update','CreateTasks','CreateRiskItem','createIssue','CreateScenarioItem','UpdateTasks','manageScenarioItem','manageIssueItem','ManageRiskItem','DeleteScenarioItem','DeleteRiskItem','ManageTasks','ChangeTask','ChangePhase','ValidateMilestones','ValidateAlerts','ValidateTimesheet',
 					'CreatePhase','getProjectsByClientsMulti','GetCityByClientsMulti','UpdatePhase','ChangeOffset' ,'ManagePhase','invoicesFlag','DeleteTask','DeletePhase','ManageMilestone','ManageChecklist','GetUnssignedUsersIssues','GetUnssignedUsers','assignUsersIssues','AssignUsers','GetAlertsPerProject',
 					'CreatePhase','issue','DeleteUploadIssueFile','UpdatePhase','Updatelessons','ChangeOffset' ,'ManagePhase','invoicesFlag','checklistFlag','timesheetFlag','DeleteTask','DeletePhase','ManageMilestone','ManageChecklist','GetUnssignedUsers','AssignUsers','GetAlertsPerProject',
 					'GetAssignedUsers','GetAssignedUsersIssues','ValidateOpenChecklist','ValidateOpenIssues','ValidateTimesheetGetNames','unassignUsersIssues', 'UnassignUsers','ValidateClosedonupdate','getProjectsByClient','GetProjectsByClientName','GetPhasesByProjectTimesheetReport' ,'GetProjectsByClientTimesheetReport','GetProjectsAndInternalByClient','GetProjectsTrainingsByClientName','GetParentProjectsMaintByClient','GetParentProjectsByClient','getProjectsByClientUser','GetCurrencyRate','GetProjectsTrainingsByClient',
@@ -62,6 +62,36 @@ class ProjectsController extends Controller{
 		Yii::app()->session['menu'] = $this->action_menu;
 		$this->render('issue',array('model'=>$model,	));
 	}
+
+    /*
+    * Author: Mike
+    * Date: 03.07.19
+    * Add the option of adding new check list items
+    */
+	public function actionAddChecklist(){
+	    $checklist= new Checklist;
+	    $last = Yii::app()->db->createCommand("SELECT MAX(id) AS id from checklist")->queryAll();
+        $checklist->id = $last[0]['id'] + 1;
+        $checklist->descr = $_POST['Checklist']['descr'];
+	    $checklist->category = $_POST['Checklist']['category'];
+        $checklist->checklist_number = $last[0]['id'] + 1;
+        $checklist->responsibility = $_POST['Checklist']['responsibility'];
+        $checklist->id_phase = (int)$_POST['Checklist']['id_phase'];
+        if ($checklist->save()){
+            $project_checklist = new ProjectsChecklist;
+            $project_checklist->id_project = (int)$_POST['project_id'];
+            $project_checklist->id_checklist = $checklist->id;
+            $project_checklist->status = $_POST['responsibility'];
+            $project_checklist->id_phase = $checklist->id_phase;
+            if ($project_checklist->save()){
+                echo true;
+                die();
+            }
+        }
+        echo false;
+        die();
+    }
+
 	public function actionIndex(){
 		if (!GroupPermissions::checkPermissions('general-projects')){
 			throw new CHttpException(403,'You don\'t have permission to access this page.');
@@ -548,6 +578,15 @@ echo json_encode(array('status'=>'success','readsurvey'=>$read , 'pname'=>$pname
     	$model->parent_fbr= $_POST['ProjectsTasks']['parent_fbr'];
     	$model->description= $_POST['ProjectsTasks']['description'];
   		$model->id_project_phase = (int)$_POST['id_phase'];
+        /*
+        * Author: Mike
+        * Date: 03.07.19
+        * Change notes to short description and make the field wider + mandatory for FBR type tasks + put it on second row
+        */
+
+  		if ((int)$model->type === 1){
+  		    $model->validatorList->add(CValidator::createValidator('required', $model, 'notes'));
+        }
   		if($model->existsfbr !=2 || $model->type != 1 ){
   			$model->parent_fbr='';
   		}else if(!empty($model->parent_fbr)){
@@ -562,7 +601,7 @@ echo json_encode(array('status'=>'success','readsurvey'=>$read , 'pname'=>$pname
 	  				'totalDays'=>Projects::getDaysOf($_POST['id_project'],$_POST['id_phase']),
 	  		));
 	    } else {
-	  		echo json_encode(array('status'=>'failure', 'error'=>$model->getErrors()));
+	  		echo json_encode(array('status'=>'failure', 'error'=>$model->getErrors(),'filers' => $model->rules()));
 	  	}    	
 	  	exit;
     }
@@ -826,6 +865,7 @@ echo json_encode(array('status'=>'success','readsurvey'=>$read , 'pname'=>$pname
    			{$model->close_date=date('Y-m-d');}
    			$model->lastupdateby=Yii::app()->user->id;
    			$model->lastupdateddate=date('Y-m-d');
+            $model->etd_date=date('Y-m-d',strtotime($_POST['ProjectsIssues']['etd_date']));
    			if ($model->save()){	
 
    				if(isset(Yii::app()->session['customers_conn'])){
@@ -4609,6 +4649,7 @@ projects_phases p where p.id_project=  ".$id." and  ((select sum(amount) from us
 		->setCellValue('K1', 'Last Updated By')
 		->setCellValue('L1', 'Last Updated On')
 		->setCellValue('M1', 'Closure Date')
+        ->setCellValue('N1', 'ETD')
 		;
 		$i = 1;
 		foreach($data as $d => $row){
@@ -4627,6 +4668,7 @@ projects_phases p where p.id_project=  ".$id." and  ((select sum(amount) from us
 			->setCellValue('K'.$i, Users::getCredentialsbyId($row['lastupdateby']))
 			->setCellValue('L'.$i, date("d/m/Y", strtotime($row['lastupdateddate'])))
 			->setCellValue('M'.$i, ($row['close_date'] !="0000-00-00")? date("d/m/Y", strtotime($row['close_date'])): " ")
+            ->setCellValue('M'.$i, ($row['etd_date'] !="0000-00-00")? date("d/m/Y", strtotime($row['etd_date'])): " ")
 			;			
 		}
 		$objPHPExcel->getActiveSheet()->setTitle('Issues List - '.date("d m Y"));

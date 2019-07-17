@@ -3,6 +3,7 @@ class InstallationRequests extends CActiveRecord {
 	CONST STATUS_INPROGRESS = 2;	CONST STATUS_COMPLETED = 3;	CONST STATUS_CANCELED = 4;
 	CONST DISASTER_YES = 1;	CONST DISASTER_NO = 2;	CONST prerequisite_YES = 1;	CONST prerequisite_NO = 2;
 	CONST INSTALL_LOCATION_REMOTE = 1;	CONST INSTALL_LOCATION_ONSITE = 2;	CONST LOCALLY_LOCALLY = 0;	CONST LOCALLY_CUSTOMER_SERVERS = 1;
+	CONST HOSTED = 2;
 	public $customErrors = array();	public $customer_name,$project_name,$product_id=null;
 	public static function model($className=__CLASS__){
 		return parent::model($className);
@@ -10,6 +11,11 @@ class InstallationRequests extends CActiveRecord {
 	public function tableName(){
 		return 'installation_requests';
 	}
+    /*
+     * Author: Mike
+     * Date: 12.07.19
+     * add hosting_contact_email and hosting_contact_name attr
+     */
 	public function rules(){
 return array(
 		array('ir_number,customer,project, deadline_date, expected_starting_date,disaster_recovery,installation_locally,requested_by,status', 'required'),
@@ -20,8 +26,8 @@ return array(
 		array('requested_by', 'exist', 'attributeName' => 'id', 'className' => 'Users','allowEmpty'=>false),
 		array('deadline_date, expected_starting_date', 'safe'),
 		array('notes','length','max'=>255),
-		array('customer_contact_name,customer_contact_email','length','max'=>45),
-		array('customer,project,customer_name, assigned_to, requested_by, status', 'safe', 'on'=>'search'),
+		array('customer_contact_name,customer_contact_email,hosting_contact_name,hosting_contact_email','length','max'=>45),
+		array('customer,project,customer_name, assigned_to, requested_by, status,hosting_contact_name,hosting_contact_email', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations(){
@@ -48,7 +54,9 @@ public function attributelabels(){
 			'status' => 'Status',
 			'prerequisites' => 'Prerequisites shared?',
 			'customer_contact_name' => 'Customer Contact Name',
-			'customer_contact_email' => 'Customer Contact Email',
+            'customer_contact_email' => 'Customer Contact Email',
+            'hosting_contact_name' => 'Hosting Contact Name',
+            'hosting_contact_email' => 'Hosting Contact Email',
 		);
 	}
 	public function search(){
@@ -314,7 +322,8 @@ public function attributelabels(){
 	} 
 	public static function installation_locally(){
 		return array( self::LOCALLY_LOCALLY => 'Locally',
-		self::LOCALLY_CUSTOMER_SERVERS => 'Customer Servers');
+		self::LOCALLY_CUSTOMER_SERVERS => 'Customer Servers',
+            self::HOSTED => 'Hosted');
 	}
 	public static function getlocallycustomerlabel($id){		$list = self::installation_locally();		return $list[$id];	}
 	public static function getDisasterList(){

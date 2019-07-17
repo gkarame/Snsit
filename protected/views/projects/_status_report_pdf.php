@@ -86,6 +86,21 @@ p {
                                 ?>
                             </td>
                         </tr>
+                        <!--
+                        /*
+                         * Author: Mike
+                         * Date: 11.07.19
+                         * MDs are shown in the project main screen but not displayed in the Status Report
+                         */
+                        -->
+                        <tr>
+                            <th style="width:40%;text-align:left;"> <!--  -->
+                                <font color=white> MDS </font>
+                            </th>
+                            <td>
+                                <?=isset($project_eas[0])?$project_eas[0]['mds']:'';?>
+                            </td>
+                        </tr>
                     </table>
                 </div>
                 <!-- </td> -->

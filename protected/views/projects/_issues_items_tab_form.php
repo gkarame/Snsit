@@ -12,6 +12,7 @@
 					array('name' => 'type','value' => '$data->type','htmlOptions' => array('class' => 'column70'), 'headerHtmlOptions' => array('class' => 'column70'),),
 					array('name' => 'assigned to','type'=>'raw','value' => 'ProjectsIssues::getUsersGrid(ProjectsIssues::getAssignedto($data->id))','htmlOptions' => array('class' => '','style' => 'width:100px  !important;'), 'headerHtmlOptions' => array('class' => 'column100'),),	
 					array('name' => 'logged_date','header' => 'Log Date', 'value' => 'date("d/m/Y", strtotime($data->logged_date))','visible' => true, 'htmlOptions' => array('class' => 'column100'), 'headerHtmlOptions' => array('class' => 'column100'),),
+                    array('name' => 'etd_date','header' => 'ETD', 'value' => 'date("d/m/Y", strtotime($data->etd_date))','visible' => true, 'htmlOptions' => array('class' => 'column100'), 'headerHtmlOptions' => array('class' => 'column100'),),
 					array('header'=>'','value'=>'$data->renderAttachment()','name' => 'attachment','sortable' => false,'headerHtmlOptions' => array('class' => 'attach-issue'),),
 					array('class'=>'CCustomButtonColumn','template'=>' {update}','htmlOptions'=>array('class' => 'button-column'),'buttons'=>array(						  
 						            	'update' => array('label' => Yii::t('translations', 'Edit'),'imageUrl' => null,'url' => 'Yii::app()->createUrl("projects/manageIssueItem", array("id"=>$data->id))','options' => array('onclick' => 'showIssueItemForm(this, false);return false;'),),),),),)); ?>

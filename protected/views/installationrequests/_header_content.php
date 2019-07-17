@@ -40,9 +40,24 @@
 	<div class="general_col2 "><?php echo CHtml::encode($model->customer_contact_name); ?></div>
 	<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('customer_contact_email')); ?></div>
 	<div class="general_col4 "><?php echo CHtml::encode($model->customer_contact_email); ?></div>
-</div>	
-<?php } 
- if ($model->installation_locally != InstallationRequests::LOCALLY_LOCALLY){ ?>
+</div>
+<!--
+/*
+ * Author: Mike
+ * Date: 12.07.19
+ * Under Environment add a 3rd Radio Button: Hosted  -  When Clicked it shows in addition to Customer Contact Name and Email, Hosting Contact Name & Email   On different note, add inside the IR, under Authentication drop don list: Hybrid
+ */
+ -->
+<?php } ?>
+<?php if ($model->installation_locally == InstallationRequests::HOSTED){ ?>
+    <div class="view_row">
+        <div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('hosting_contact_name')); ?></div>
+        <div class="general_col2 "><?php echo CHtml::encode($model->hosting_contact_name); ?></div>
+        <div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('hosting_contact_email')); ?></div>
+        <div class="general_col4 "><?php echo CHtml::encode($model->hosting_contact_email); ?></div>
+    </div>
+<?php } ?>
+<?php if ($model->installation_locally != InstallationRequests::LOCALLY_LOCALLY){ ?>
 <div class="view_row">
 	<div class="general_col1"><?php echo "Connections Link"; ?></div>
 	<div class="general_col2 "> <a href="<?php echo Yii::app()->createAbsoluteUrl("customers/view/".$model->customer);?>"> Click Here </a></div>

@@ -118,6 +118,29 @@ public static function getresponsibility($id){
 		return Yii::app()->db->createCommand("SELECT id_phase from checklist where id=".$id." ")->queryScalar();		
 		
 	}
+    /*
+    * Author: Mike
+    * Date: 03.07.19
+    * Add the option of adding new check list items
+    */
+	public static function getAllMilestones(){
+	    $data = Yii::app()->db->createCommand("SELECT id,description from milestones")->queryAll();
+	    $milestones = [];
+	    foreach ($data as $item){
+            $milestones[$item['id']] = $item['description'];
+        }
+        return $milestones;
+    }
+
+    public static function getAllCategories(){
+        $data = Yii::app()->db->createCommand("SELECT name from codelists_categories")->queryAll();
+        $categories = [];
+        foreach ($data as $k => $item){
+            $categories[$item['name']] = $item['name'];
+        }
+        return $categories;
+    }
+
 	public static function checkpermperItem($check, $project){		
 		$checknb= yii::app()->db->createCommand("Select id_checklist from projects_checklist where id= ".$check." ")->queryScalar();
 		$phase= Checklist::getPhasePerId($checknb);

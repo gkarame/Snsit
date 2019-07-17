@@ -156,6 +156,19 @@ class InstallationRequestsController extends Controller{
 					}
 					}
 				}
+                /*
+                * Author: Mike
+                * Date: 12.07.19
+                * Under Environment add a 3rd Radio Button: Hosted  -  When Clicked it shows in addition to Customer Contact Name and Email, Hosting Contact Name & Email   On different note, add inside the IR, under Authentication drop don list: Hybrid
+                */
+				if ($_POST['InstallationRequests']['installation_locally'] == InstallationRequests::HOSTED){
+                    if($model->hosting_contact_name == null){
+                        $model->addCustomError('hosting_contact_name', 'Contact hosting name cannot be blank');
+                    }
+                    if($model->hosting_contact_email == null){
+                        $model->addCustomError('hosting_contact_email', 'Contact hosting email cannot be blank');
+                    }
+                }
 				if($_POST['InstallationRequests']['installation_locally'] == InstallationRequests::LOCALLY_LOCALLY){
 					$model->installation_location = null;
 				}else{
@@ -982,7 +995,12 @@ class InstallationRequestsController extends Controller{
 				if($model->validate()){
 					if($model->save()){
 					$id_user = Yii::app()->user->id;
-						self::SendProductdone($id_ir, $id_irprd, $prd,$id_user);
+     /*
+     * Author: Mike
+     * Date: 10.07.19
+     * remove the closure notification email and on the last product closure on the IR include in the subject IR# is now closed
+     */
+						//self::SendProductdone($id_ir, $id_irprd, $prd,$id_user);
 						$closed = Yii::app()->db->createCommand("select (total = finished) from(
 						(select count(*) as total from installation_requests_products where id_ir = ".$id_ir.") as q1,
 					(select count(*) as finished from installation_requests_products where id_ir = ".$id_ir." and status =".InstallationrequestsProducts::STATUS_CLOSED.") as q2)")->queryScalar();

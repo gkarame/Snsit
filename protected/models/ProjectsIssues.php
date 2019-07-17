@@ -17,7 +17,7 @@ class ProjectsIssues extends CActiveRecord{
 			array('file', 'length', 'max' => 1000),	
 			array('fix', 'length', 'max' => 2000),	
 			array('notes', 'length', 'max' => 2000),	
-			array('id, id_project, id_issue, priority,status', 'safe', 'on'=>'search'),
+			array('id, id_project, id_issue, priority,status, etd_date', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations(){
@@ -45,6 +45,7 @@ class ProjectsIssues extends CActiveRecord{
 			'fixed_date' => 'Fixed Date',
 			'close_date' => 'Closed Date',
 			'module' => 'Module',
+            'etd_date' => 'ETD'
 		);
 	}
 	public function search(){

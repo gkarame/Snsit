@@ -36,6 +36,18 @@
 			<?php echo $form->labelEx($model,'fix'); ?>
 			<div class="dataRow"  style="width:250px;"><?php echo $form->textField($model,'fix'); ?></div>
 			<?php echo $form->error($model,'fix'); ?></div>
+<!--
+    /*
+    * Author: Mike
+    * Date: 15.07.19
+    * Add ETD (mandatory) on issue level
+    */
+-->
+        <div class="item inline-block one normal " id="fix" style="margin-left:-17px;margin-right: 0;" >
+            <?php echo $form->labelEx($model,'etd_date'); ?>
+            <div class="dataRow"  style="width:250px;height: 25px;"><?php echo $form->dateField($model,'etd_date'); ?></div>
+            <?php echo $form->error($model,'etd_date'); ?></div>
+
 		<div class="item inline-block one normal " id="notes" style="margin-left:-17px;" >
 			<?php echo $form->labelEx($model,'notes'); ?>
 			<div class="dataRow"  style="width:250px;"><?php echo $form->textField($model,'notes'); ?></div>
