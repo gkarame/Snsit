@@ -137,6 +137,7 @@ class IncomingTransfersController extends Controller{
 			}
 		}
 		$this->render('create',array('model'=>$model));
+
 	}
 
 	public function actioninputInv(){
