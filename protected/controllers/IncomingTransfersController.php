@@ -116,11 +116,14 @@ class IncomingTransfersController extends Controller{
 		$model->status = IncomingTransfers::STATUS_NEW;
 		$model->it_no = "00000";
 		$model->adddate = date('Y-m-d H:i:s');
+		$model->id_user = Yii::app()->user->id;
+
   		if(isset($_POST['IncomingTransfers'])){
 			try{	 	
 				$model->attributes = $_POST['IncomingTransfers'];
-				$model->id_user = Yii::app()->user->id;
-				$model->id_customer = Customers::getIdByName($model->customer_name);
+				print_r($_POST['IncomingTransfers']);exit();
+				//$model->id_user = Yii::app()->user->id;
+				//$model->id_customer = Customers::getIdByName($model->customer_name);
 				
 					if($model->save()){
 					$model->it_no = Utils::paddingCode($model->id);
