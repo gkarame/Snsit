@@ -1367,3 +1367,558 @@ Stack trace:
 REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
 HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
 ---
+2019/07/17 16:06:14 [error] [exception.CException] exception 'CException' with message 'Property "ProjectsIssues.etd_date" is not defined.' in C:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('etd_date')
+#1 C:\wamp\www\framework\base\CComponent.php(612) : eval()'d code(1): CActiveRecord->__get('etd_date')
+#2 C:\wamp\www\framework\base\CComponent.php(612): eval()
+#3 C:\wamp\www\framework\zii\widgets\grid\CDataColumn.php(137): CComponent->evaluateExpression('date("d/m/Y", s...', Array)
+#4 C:\wamp\www\framework\zii\widgets\grid\CGridColumn.php(151): CDataColumn->renderDataCellContent(0, Object(ProjectsIssues))
+#5 C:\wamp\www\framework\zii\widgets\grid\CGridView.php(616): CGridColumn->renderDataCell(0)
+#6 C:\wamp\www\framework\zii\widgets\grid\CGridView.php(572): CGridView->renderTableRow(0)
+#7 C:\wamp\www\framework\zii\widgets\grid\CGridView.php(482): CGridView->renderTableBody()
+#8 C:\wamp\www\framework\zii\widgets\CBaseListView.php(167): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 C:\wamp\www\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback('/{(\\w+)}/', Array, '{items}{pager}')
+#11 C:\wamp\www\framework\zii\widgets\CBaseListView.php(135): CBaseListView->renderContent()
+#12 C:\wamp\www\framework\web\CBaseController.php(173): CBaseListView->run()
+#13 C:\wamp\www\sns\protected\views\projects\_issues_items_tab_form.php(18): CBaseController->widget('zii.widgets.gri...', Array)
+#14 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#15 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#16 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#17 C:\wamp\www\sns\protected\views\projects\view.php(16): CController->renderPartial('_issues_items_t...', Array, true)
+#18 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#19 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#20 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#21 C:\wamp\www\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#22 C:\wamp\www\sns\protected\controllers\ProjectsController.php(255): CController->render('view', Array)
+#23 [internal function]: ProjectsController->actionView('782', NULL)
+#24 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#25 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectsController), Object(ReflectionMethod), Array)
+#26 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#27 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#28 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#29 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#30 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#31 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#32 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#33 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#34 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('view')
+#35 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('projects/view')
+#36 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#37 C:\wamp\www\sns\index.php(26): CApplication->run()
+#38 {main}
+REQUEST_URI=/sns/projects/view/782
+HTTP_REFERER=http://snsitn/sns/projects/index
+---
+2019/07/17 16:10:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/projects/index
+---
+2019/07/17 16:45:51 [error] [appMailer] Failed to send "New Customer Creation" email to []
+Message:
+Dear Senior Admin Team,
+
+Please note that a new customer TEST   has been created on SNSit by Micheline Daaboul.
+Kindly you are requested to complete all the information required for invoicing.
+
+
+Best Regards.
+SNSit
+2019/07/17 16:46:05 [error] [appMailer] Failed to send "New Customer Creation" email to []
+Message:
+Dear Senior Admin Team,
+
+Please note that a new customer TEST   has been created on SNSit by Micheline Daaboul.
+Kindly you are requested to complete all the information required for invoicing.
+
+
+Best Regards.
+SNSit
+2019/07/18 08:34:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/18 08:35:14 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'. The SQL statement executed was: SELECT `values` from codelkups where id='457' .
+2019/07/18 08:35:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\controllers\EasController.php(1856): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): EasController->actionupdateDuration()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('updateDuration')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('eas/updateDurat...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/eas/updateDuration
+HTTP_REFERER=http://snsitn/sns/eas/update/1464?new=1
+---
+2019/07/18 12:14:15 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:14:27 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:14:39 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:14:50 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:15:02 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:15:14 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:15:35 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:15:47 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:15:58 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:16:10 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:16:22 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:16:34 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:16:45 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:16:57 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:17:09 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:17:21 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 12:17:33 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\CustomersController.php(408): SwiftMailer->Send()
+#5 [internal function]: CustomersController->actionUpdate(NULL, 0, 0, NULL)
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CustomersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('customers/updat...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/customers/update/
+HTTP_REFERER=http://snsitn/sns/customers/create
+---
+2019/07/18 15:08:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---

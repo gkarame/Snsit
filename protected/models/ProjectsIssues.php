@@ -222,7 +222,7 @@ return array(
 	}
 	public static function getFbrsList($id_project){
 $result =  Yii::app()->db->createCommand("SELECT pt.id,pt.description as descr from projects_tasks pt, projects_phases pp
-where pp.id_project= ".$id_project." and pt.description like '%FBR%' and pt.description not in ('FBRXXX','FBR Testing','FBR Documentation') and  pp.id=pt.id_project_phase and pp.description like '%Development%' order by descr")->queryAll();
+where pp.id_project= ".$id_project." and (pt.description like '%FBR%' or type=1) and pt.description not in ('FBRXXX','FBR Testing','FBR Documentation') and  pp.id=pt.id_project_phase and pp.description like '%Development%' order by descr")->queryAll();
 		$fbrs = array();	foreach ($result as $i=>$res){	$fbrs[$res['id']]= $res['descr'];	}	return $fbrs;
 	}
 	public static function loggedlastWeek($id_project){
