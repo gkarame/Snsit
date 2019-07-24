@@ -947,47 +947,54 @@ class Controller extends CController
 					else {
 						$pdf = Yii::app()->ePdf->mpdf();
 					}
-					$html = $this->renderPartial($route.'pdf_report_head', array('expenses'=>$id), true);	$i = 0;	
-					foreach ($id as $key=>$expens)
-					{
-						if (isset($expens['projects']))
-						{
-							$projects = $expens['projects'];
-							foreach($projects as $key_project=>$project)
-							{
-								if($i == 0)
-								{
-									$html .= $this->renderPartial($route.'pdf_report', array('project'=>$project,'key_project'=>$key_project), true);	
-									$i = 1;
-								}
-								else
-								{
-									$html = $this->renderPartial($route.'pdf_report', array('project'=>$project,'key_project'=>$key_project), true);	
-								}
-								$pdf->AddPage(); $pdf->writeHTML($html, 0, true, true);
-							}
-						}
-						else
-						{
-							if ($profit != null)
-							{
-								$html .= $this->renderPartial($route.'pdf_report', array('projects'=>$expens,'key' => $key,'profit'=>$profit), true);	
-							}
-							else
-							{
-								if($i == 0)
-								{
-									$html .= $this->renderPartial($route.'pdf_report', array('user'=>$expens,'key' => $key), true);	
-									$i = 1;
-								}
-								else
-								{
-									$html = $this->renderPartial($route.'pdf_report', array('user'=>$expens,'key' => $key), true);	
-								}
-							}
-							$pdf->AddPage();	$pdf->writeHTML($html, 0, true, true);
-						}
-					}  
+                    $html = $this->renderPartial($route.'pdf_report_head', array('expenses'=>$id), true);
+					if (isset($id['istravelreport']) && $id['istravelreport']){
+                        $html = $this->renderPartial($route.'pdf_report', array('data' => $id['resp']), true);
+                        $pdf->AddPage();	$pdf->writeHTML($html, 0, true, true);
+                    }else{
+                        $i = 0;
+                        foreach ($id as $key=>$expens)
+                        {
+                            if (isset($expens['projects']))
+                            {
+                                $projects = $expens['projects'];
+                                foreach($projects as $key_project=>$project)
+                                {
+                                    if($i == 0)
+                                    {
+                                        $html .= $this->renderPartial($route.'pdf_report', array('project'=>$project,'key_project'=>$key_project), true);
+                                        $i = 1;
+                                    }
+                                    else
+                                    {
+                                        $html = $this->renderPartial($route.'pdf_report', array('project'=>$project,'key_project'=>$key_project), true);
+                                    }
+                                    $pdf->AddPage(); $pdf->writeHTML($html, 0, true, true);
+                                }
+                            }
+                            else
+                            {
+                                if ($profit != null)
+                                {
+                                    $html .= $this->renderPartial($route.'pdf_report', array('projects'=>$expens,'key' => $key,'profit'=>$profit), true);
+                                }
+                                else
+                                {
+                                    if($i == 0)
+                                    {
+                                        $html .= $this->renderPartial($route.'pdf_report', array('user'=>$expens,'key' => $key), true);
+                                        $i = 1;
+                                    }
+                                    else
+                                    {
+                                        $html = $this->renderPartial($route.'pdf_report', array('user'=>$expens,'key' => $key), true);
+                                    }
+                                }
+                                $pdf->AddPage();	$pdf->writeHTML($html, 0, true, true);
+                            }
+                        }
+                    }
+
 					$pdf->SetHTMLFooter($this->renderPartial($route.'_footer_pdf', array(), true));
 					$pdf->Output(Utils::getDirPathReports().'REPORTS.pdf', 'F');	return true;
 				}
