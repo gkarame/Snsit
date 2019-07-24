@@ -161,7 +161,7 @@ return array(
       'host'=>'outlook.office365.com',
       'From' => 'no_reply@sns-emea.com',
       'username'=>'no_reply@sns-emea.com',
-      'password'=>'Noreply@2018',
+      'password'=>'fvkbywfhhlzwwzqd',
        'port' => '587', 
       'security'=>'tls',
 

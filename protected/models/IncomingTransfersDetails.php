@@ -17,6 +17,7 @@ class IncomingTransfersDetails extends CActiveRecord {
             array('invoice_number', 'length', 'max'=>1000),
             array('paid_amount', 'length', 'max'=>15),
 			array('received_currency','validateCurrency'),
+			array('paid_amount','validateInv'),
 			array('final_invoice_number,id_it,id_customer', 'safe', 'on'=>'search'),
 			);
 	}
@@ -39,6 +40,25 @@ class IncomingTransfersDetails extends CActiveRecord {
 	 	if ( $this->received_currency != $tr_currency ){
 	 		$this->addError('received_currency','Received Currency doesnt match transfer');
 	    }			
+	}
+	public function validateInv(){
+		if($this->paid_amount == 2 )
+		{
+			$other= Yii::app()->db->createCommand("select received_amount, rate, id_it from incoming_transfers_details where final_invoice_number='".$this->final_invoice_number."' and invoice_number='".$this->invoice_number."' and id_it!=".$this->id_it."")->queryAll();
+		 	if(!empty($other))
+		 	{
+		 		$tot=0;
+		 		foreach ($other as $value) {
+		 			$tot += $value['received_amount']/$value['rate'];
+		 		}
+		 		$tot+= $this->received_amount/$this->rate;
+		 		//$status=Yii::app()->db->createCommand("select status from incoming_transfers where id =".$other['id_it']."")->queryScalar(); 
+
+		 		if ( $this->original_amount < $tot ){
+		 				$this->addError('received_amount','Invalid amount, Invoice partially paid');
+		    	}
+		 	}
+	    }		
 	}
 
 	public function renderfinal_invoice_number(){

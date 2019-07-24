@@ -221,7 +221,14 @@ class Booking extends CActiveRecord{
 		return $projects;
 	}
 	public static function getName($value){
-		$customers=substr($value, 0, (strlen($value)-2));
+		$ids= explode(',', $value); $str='';
+		foreach ($ids as $key) {
+			if(trim($key)!='')
+			{
+				$str.= trim($key).', ';
+			}
+		}
+		$customers=substr($value, 0, (strlen($str)-2));
 		return $customers;
 	}
 

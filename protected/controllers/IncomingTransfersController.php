@@ -21,7 +21,7 @@ class IncomingTransfersController extends Controller{
 
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array(
-						'index','view','create','update', 'delete','deleteInvoice','manageInvoice','GetUnssignedInvoices',
+						'index','view','create','update', 'delete','deleteInvoice','manageInvoice','GetUnssignedInvoices','GetAuxiliariesperbank','GetInvoices','closeInvoices',
 						'getInvoiceDetail','UpdateHeader','createTransfer','assignInvoices','GetExcel','updateinfoheader',
 						'inputInv','validateRate','getAmtIncurrency'
 						
@@ -92,7 +92,104 @@ class IncomingTransfersController extends Controller{
 			'model'=>$model,
 		));
 	}
+	public function actioncloseInvoices(){
+		$lines = $_POST['data']; 
+		$tr= $_POST['tr']; $errormsg='';
+		$currency= $_POST['currency']; $counter=0;
+		
+		foreach ($lines as $key => $line) {
+			$dts= explode(',', $line);
+			$inv = Yii::app()->db->createCommand("select invoice_number, id_customer, net_amount, currency	from receivables  where final_invoice_number='".$dts[0]."' ")->queryRow();
+			//print_r($dts);exit;
+			$model = new IncomingTransfersDetails;
+			$model->final_invoice_number= $dts[0];
+			$model->id_it = $tr;
+			$model->received_currency = $currency;
+			$model->rate =$dts[3];
+			$model->paid_amount= $dts[4];
+			if($model->paid_amount == 1 && empty(trim($dts[5])))
+			{
+				$model->received_amount = $inv['net_amount'] * $model->rate;
+			}else{
+				$model->received_amount = $dts[5];
+			} 
+   	
+    		$model->id_user=  Yii::app()->user->id;
+    		if(isset($model->final_invoice_number) && !empty($model->final_invoice_number))
+    		{
+    			$model->invoice_number =$inv['invoice_number'];
+    			$model->id_customer= $inv['id_customer'];
+    			$model->original_amount = $inv['net_amount'];
+    			$model->original_currency = $inv['currency'];
+    		}
+    		if($model->validate()){
+	    		$model->save();$counter++;
+	    		 
+    		}else{
+    			 
+    			 $errors = $model->getErrors();
+			     if (empty($errors)) {
+			         return;
+			     }
+			     $message = '';
+			     foreach ($errors as $name => $error) {
+			         if (!is_array($error)) {
+			             continue;
+			         }
+			         $message .= $name . ': ';
+			         foreach ($error as $e) {
+			             $message .= $e . ' ';
+			         }
+			     }
+    			 $errormsg .= '<br> Error on INV#'.$model->final_invoice_number.': '.$message;
+    			 //print_r($errormsg);exit;
+    		}
+		}
 
+		if($counter>0){
+			echo json_encode(array('status' => 'saved','message'=> $counter.' Invoices have been added to this TR <br>'.$errormsg));
+			exit;
+		}else{
+			echo json_encode(array('status' => 'failure','message'=> 'Error Encountered <br>'.$errormsg));
+			exit;
+		}  
+	}
+	public function actionGetInvoices(){
+	if (isset($_POST['tr'])){
+		$tr=(int)$_POST['tr'];
+		$model = $this->loadModel($tr);
+
+		$invoices=IncomingTransfers::getInvoicesPerTR($model->id, $model->id_customer, $model->partner, $model->month);
+
+		if(empty($invoices))
+		{
+			echo json_encode(array(	"status"=>"failure"));
+										exit;	
+		}
+		//print_r($invoices);exit;
+		$table="<table id=\"inputratetable\"> <tr><th></th><th>INV#</th><th>ORG AMT</th><th>ORG CURR</th><th>RATE</th><th>PAID AMT</th><th>REC AMT</th></tr>";
+		foreach ($invoices as $key => $invoice) {				 
+				$table.="<tr><td><input type=\"checkbox\" name=\"name1\" /></td><td>".$invoice['final_invoice_number']."</td><td>".$invoice['net_amount']."</td><td>".Codelkups::getCodelkup($invoice['currency'])."</td><td><input type=text style=\"width:50px !important;\" id=\"rate_".$key."\" value=\"1.00\" pattern=\"[0-9]+([,\.][0-9]+)?\"></td><td id=\"sign_".$key."\">".IncomingTransfers::getPaid()."</td><td><input type=text style=\"width:50px !important;\" id=\"offset_".$key."\" pattern=\"[0-9]+([,\.][0-9]+)?\"></td></tr>";
+			}			
+			$table.="<tr><td><label id='warn_label'></label></td></tr></table>";				
+			echo json_encode(array(
+											"status"=>"success",
+											'rate_table'=>$table,
+											
+										));
+									exit;	
+			}else{
+ 						
+					echo json_encode(array(	"status"=>"failure"));
+										exit;	
+
+		}
+	}
+	public function actionGetAuxiliariesperbank($id){
+		$this->layout='';
+		echo json_encode(IncomingTransfers::getAllAuxiliariesperbank((int)$id));
+		exit();
+	}
 	public function actionCreate(){
 		$error_message = '';
 		if(!GroupPermissions::checkPermissions('financial-incomingTransfers','write')){
@@ -121,7 +218,7 @@ class IncomingTransfersController extends Controller{
   		if(isset($_POST['IncomingTransfers'])){
 			try{	 	
 				$model->attributes = $_POST['IncomingTransfers'];
-				print_r($_POST['IncomingTransfers']);exit();
+				//print_r($_POST['IncomingTransfers']);exit();
 				//$model->id_user = Yii::app()->user->id;
 				//$model->id_customer = Customers::getIdByName($model->customer_name);
 				
@@ -370,14 +467,14 @@ class IncomingTransfersController extends Controller{
 		if($id == null){
 			$new = true;	$model = new IncomingTransfersDetails;
 			$model->id_it = (int)$_POST['id_it'];
-			$data = Yii::app()->db->createCommand("select currency,rate	from incoming_transfers  where id=".(int)$_POST['id_it'])->queryRow();
-			$model->received_currency = $data['currency'];
-			$model->rate = $data['rate'];
+			$data = Yii::app()->db->createCommand("select currency	from incoming_transfers  where id=".(int)$_POST['id_it'])->queryScalar();
+			$model->received_currency = $data;
+			$model->rate = '1.0000';
 		}else{
 			$id = (int)$id;
     		$model = IncomingTransfersDetails::model()->findByPk($id);
-			$data = Yii::app()->db->createCommand("select rate	from incoming_transfers  where id=".(int)$_POST['id_it'])->queryScalar();
-    		$model->rate = $data;
+			//$data = Yii::app()->db->createCommand("select rate	from incoming_transfers  where id=".(int)$_POST['id_it'])->queryScalar();
+    		
 		}
 		if(isset($_POST['IncomingTransfersDetails']))
 		{
@@ -414,7 +511,7 @@ class IncomingTransfersController extends Controller{
 	
 	public function actionvalidateRate(){	
 
-		if(sizeof($_POST['checkinvoice']) == 0)	{
+		/*if(sizeof($_POST['checkinvoice']) == 0)	{
 				echo json_encode(array_merge(array(
 					'status'=>'fail','message'=>'No Invoice is Selected.'
 				)));
@@ -436,7 +533,7 @@ class IncomingTransfersController extends Controller{
 					'status'=>'success'
 				)));
 				exit;
-		}
+		}*/
 	}
 	public function actioncreateTransfer(){	
 
@@ -447,7 +544,7 @@ class IncomingTransfersController extends Controller{
 				exit;
 			}
 
-		$received= $_POST['amt'];
+		/*$received= $_POST['amt'];
 		$currency= $_POST['curr'];
 		$bank= $_POST['bank'];
 		$off= $_POST['off'];
@@ -506,7 +603,7 @@ class IncomingTransfersController extends Controller{
 		echo json_encode(array_merge(array(
 					'status'=>'success', 'tr' => $model->it_no
 				)));
-				exit;
+				exit;*/
 	}
 public function actionGetUnssignedInvoices(){
 			
@@ -604,13 +701,13 @@ public function actionAssignInvoices(){
 		}		
 	}
 
-	public function actiongetAmtIncurrency() {
+	/*public function actiongetAmtIncurrency() {
 		$id = (int)$_POST['id'];	
 		$amount= $_POST['amount'];
 		$rate =Yii::app()->db->createCommand("select  rate from incoming_transfers where id = ".$id." LIMIT 1 ")->queryScalar();	
 		echo json_encode(array_merge(array('status'=>'success', 'actnet'=> $amount, 'actrate' => $rate, 'net'=> $amount*$rate)));
 			exit;
-	}
+	}*/
 	public function actiongetInvoiceDetail() {
 		$id =  $_POST['id'];	
 		 $select =Yii::app()->db->createCommand("select net_amount, currency from receivables where final_invoice_number = '".$id."' and old = 'No' LIMIT 1 ")->queryRow();	
@@ -664,7 +761,7 @@ public function actionAssignInvoices(){
 			$i++;
 			$objPHPExcel->setActiveSheetIndex($sheetId)
 			->setCellValue('A'.$i, ' '.$row->it_no)
-			->setCellValue('B'.$i, $row->eCustomer->name)
+			->setCellValue('B'.$i, IncomingTransfers::getName($row->id_customer))
 			->setCellValue('C'.$i, Codelkups::getCodelkup($row->partner))
 			->setCellValue('D'.$i, $row->received_amount) 
 			->setCellValue('E'.$i, Codelkups::getCodelkup($row->currency))

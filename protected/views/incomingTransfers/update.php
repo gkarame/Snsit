@@ -1,3 +1,9 @@
+<div id="popuptandm" style="width:700px"> <div class='titre red-bold'>Invoices</div> <div class='closetandm' style="margin-left: 700px !important;"> </div>		 
+			<div class='tandratecontainer'></div> 		
+			<div class='submitandm'>
+			<?php echo CHtml::submitButton('Submit', array('class'=>'new-submit' , 'style'=>'margin-left:135px;margin-top: 13px;' ,'onclick' => 'submitOffsets();','id'=>'createbut')); ?>
+				<img src="<?php echo Yii::app()->getBaseUrl().'/images/loader.gif';?>" id="img"  style="display:none;padding-top:5px;width:20px;height:20px;"/ ></div></div>
+
 <div class="mytabs ir_edit">
 	<?php $form=$this->beginWidget('CActiveForm', array('id'=>'tr-form','enableAjaxValidation'=>false,
 		'htmlOptions' => array('class' => 'ajax_submit','enctype' => 'multipart/form-data',),	)); ?>
@@ -5,6 +11,7 @@
 		<div class="header_title">	
 			<span class="red_title"><?php echo Yii::t('translations', 'TR HEADER');?></span>			
 <?php if(GroupPermissions::checkPermissions('financial-incomingTransfers', 'write') && $model->status==1){ ?>
+		<!--	<a class="header_button" onclick="getCustomers();">Add Customer</a> -->
 			<a class="header_button" onclick="showHeader(this);return false;" href="<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/updateHeader', array('id' => $model->id));?>"><?php echo Yii::t('translations', 'Edit Header');?></a>	
 		<?php } ?>
 		</div>
@@ -19,6 +26,7 @@
 	<div id="ir_products">
 	<div class="header_title">	
 			<span class="red_title"><?php echo Yii::t('translations', 'TR INVOICES');?></span>
+			<?php if($model->status == 1){?> <a class="header_button" onclick="showInvoices(<?php echo  $model->id;?>);" >Add Invoices</a><?php }?>
 		</div>
 		<div id="ir_products_content" class="border-grid grid">
 			<?php	$buttons = array();		$tmp = '';
@@ -69,6 +77,32 @@
 	<?php $this->endWidget();?>
 </div>
 <script>
+$(document).ready(function(){	$('#popuptandm').hide();});
+$(".closetandm").click(function() { $('#popuptandm').hide(); });
+function showInvoices(tr){
+//$('#popuptransfers').stop().show();
+		$.ajax({
+	 		type: "POST",
+		  	url: "<?php echo Yii::app()->createAbsoluteUrl('IncomingTransfers/GetInvoices');?>", 
+		  	dataType: "json",
+		  	data: 'tr= '+tr,
+		  	success: function(data) {
+		  		if (data) {
+		  			if(data.status=='success'){
+		  				 $('.tandratecontainer').html(data.rate_table); $('#popuptandm').stop().show();
+		  			}else{
+						var action_buttons = {
+						        "Ok": {
+							        	class: 'ok_button',
+							        	click: function() 
+								        {
+								            $( this ).dialog( "close" );
+								        }
+						        }
+				  		}
+				  		custom_alert('ERROR MESSAGE', 'TR doesn\'t have eligible invoices', action_buttons);
+		  			}	}}});		  	
+}
 function showProductForm(element, newItem) {
 		var url;
 		if (newItem) { url = "<?php echo Yii::app()->createAbsoluteUrl('IncomingTransfers/manageInvoice');?>";
@@ -126,6 +160,97 @@ function showProductForm(element, newItem) {
 				  	}
 			  	} } });
 	}
+	function submitOffsets(){
+ 	
+ 	var table= document.getElementById("inputratetable");
+ 	var tot = document.getElementById("inputratetable").rows.length;
+ 	var invoices = [];alertts='';
+	/*for (var i = 0; i < tot; i++) {
+    	invoices[invoices.length] = "HOUDA" + table[i].innerHTML;
+    }*/
+    var table = document.getElementById('inputratetable');
+    $("#inputratetable input[type=checkbox]:checked").each(function () {
+    	var row = $(this).closest("tr")[0];
+		message='';
+    	message += row.cells[1].innerHTML+',';
+    	message += row.cells[2].innerHTML+',';
+    	message += row.cells[3].innerHTML+',';
+        message += row.cells[4].children[0].value.replace(',','')+',';
+		message += row.cells[5].children[0].value+',';
+		message += row.cells[6].children[0].value.replace(',','');
+ //alert(message);
+		if(row.cells[4].children[0].value.trim() == '')
+    	{
+    		alertts+="INV#"+ row.cells[1].innerHTML+' rate cannot be empty <br>	';
+    	}
+    	if(row.cells[5].children[0].value.trim() == '')
+    	{
+    		if(alertts.length>0)
+    		{
+				alertts+=" and paid amount must be specified <br>	";
+    		}else{
+    			alertts+="INV#"+ row.cells[1].innerHTML+' paid amount must be specified <br>';
+    		}
+    	}
+    	if(row.cells[6].children[0].value.trim() == '' && row.cells[5].children[0].value == 2)
+    	{
+    		if(alertts.length>0)
+    		{
+				alertts+=" and received amount must be specified due to partial payment<br>	";
+    		}else{
+    			alertts+="INV#"+ row.cells[1].innerHTML+' received amount must be specified due to partial payment<br>';
+    		}
+    	}
+
+		invoices[invoices.length]= message;
+     });
+   
+    if(alertts != '')
+    {
+    	var buttons = {
+							        
+							        "Ok": {
+							        	class: 'ok_button',
+							        	click: function() 
+								        {
+								            $( this ).dialog( "close" );
+								        }
+							        }
+							}
+				  		custom_alert('ERROR MESSAGE', alertts, buttons); 
+    }else{
+    	$('#img').show();
+    	$.ajax({	type: "POST",  	url: "<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/closeInvoices');?>",
+		  	dataType: "json",  	data: { 'data': invoices,'tr': <?php echo  $model->id;?>,'currency': <?php echo  $model->currency;?>},
+		  	success: function(data) {
+			  	if (data) {
+					  if (data.status == 'success') { 		$('#img').hide(); 		$('#popuptandm').hide();    var buttons = {
+							        
+							        "Ok": {
+							        	class: 'ok_button',
+							        	click: function() 
+								        {
+								            $( this ).dialog( "close" );
+								        }
+							        }
+							}
+				  		custom_alert('ALERT MESSAGE', data.message, buttons);
+$.fn.yiiGridView.update('items-grid');
+					}else{			  				
+				  	$('#img').hide();$('#popuptandm').hide();  	$('#popuptandm').hide();   $.fn.yiiGridView.update('items-grid')
+				  		var buttons = {
+							        
+							        "Ok": {
+							        	class: 'ok_button',
+							        	click: function() 
+								        {
+								            $( this ).dialog( "close" );
+								        }
+							        }
+							}
+				  		custom_alert('ERROR MESSAGE', data.message, buttons); } } }	});
+    }
+}
 	/*function submitForm() {
 		var data = $("#tr-form").serialize(); 
 		$.ajax({ type: "POST", data: {'submitid':<?php echo $model->id?>}, dataType: "json", url : $("#tr-form").attr("action"),

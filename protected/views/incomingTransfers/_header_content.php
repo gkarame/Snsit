@@ -1,6 +1,6 @@
 <div class="view_row">
 	<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('customer')); ?></div>
-	<div class="general_col2 "><?php echo CHtml::encode(IncomingTransfers::getCustomers($model->id)); ?></div>
+	<div class="general_col2 "><?php echo CHtml::encode(IncomingTransfers::getName($model->id_customer)); ?></div>
 	<div class="general_col3 "><?php echo CHtml::encode($model->getAttributeLabel('partner')); ?></div>
 	<div class="general_col4 "><?php  echo CHtml::encode(Codelkups::getCodelkup($model->partner));  ?></div>
 </div>
@@ -23,7 +23,7 @@
 	<div class="general_col4 "><?php echo CHtml::encode(IncomingTransfers::getOffsettingLabel($model->offsetting)); ?></div>
 </div>
 
-<?php  if ( IncomingTransfersDetails::displayRate($model->id,$model->currency)) {   ?>
+<?php  /*if ( IncomingTransfersDetails::displayRate($model->id,$model->currency)) {   ?>
 
 <div class="view_row">
 	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('status')); ?></div>
@@ -45,7 +45,7 @@
 	<div class="general_col4"><?php echo CHtml::encode(date('d/m/Y', strtotime($model->adddate))); ?></div>
 </div>
 
-	<?php }else{ ?>
+	<?php }else*/{ ?>
 
 	<div class="view_row">
 	<div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('status')); ?></div>
@@ -60,8 +60,10 @@
 		<div class="general_col4 "><?php echo CHtml::encode($model->remarks); ?></div>
 	</div>
 	<div class="view_row">
-		<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('adddate')); ?></div>
-		<div class="general_col2 "><?php echo CHtml::encode(date('d/m/Y', strtotime($model->adddate))); ?></div>
+		<div class="general_col1"><?php echo CHtml::encode($model->getAttributeLabel('month')); ?></div>
+		<div class="general_col2 "><?php echo CHtml::encode(IncomingTransfers::getMonthName($model->month)); ?></div>	
+		<div class="general_col3"><?php echo CHtml::encode($model->getAttributeLabel('adddate')); ?></div>
+		<div class="general_col4 "><?php echo CHtml::encode(date('d/m/Y', strtotime($model->adddate))); ?></div>
 	</div>
 
 	<?php } ?>

@@ -1922,3 +1922,1026 @@ Stack trace:
 REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
 HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
 ---
+2019/07/19 02:30:50 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\ProjectsController.php(2938): SwiftMailer->Send(true)
+#5 C:\wamp\www\sns\protected\controllers\ProjectsController.php(2141): ProjectsController->sendNotificationsEmailsIssue('issue_assigned_...', '720', Array, '391')
+#6 [internal function]: ProjectsController->actionassignUsersIssues('720')
+#7 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectsController), Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectsController), Object(ReflectionMethod), Array)
+#9 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('assignUsersIssu...')
+#18 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('projects/assign...')
+#19 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\wamp\www\sns\index.php(26): CApplication->run()
+#21 {main}
+REQUEST_URI=/sns/projects/assignUsersIssues/720
+HTTP_REFERER=http://snsitn/sns/projects/view/720
+---
+2019/07/19 08:07:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/19 08:26:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/19 08:26:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/19 09:01:25 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'codelkup' in 'field list'. The SQL statement executed was: SELECT id, codelkup FROM `incoming_transfers` `t` WHERE id_codelist= :value  AND id in (1066, 1051,1052,1053,1054,1056,1592,1066) ORDER BY codelkup ASC.
+2019/07/19 09:01:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'codelkup' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\framework\db\ar\CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 C:\wamp\www\framework\db\ar\CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\wamp\www\sns\protected\models\IncomingTransfers.php(61): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(97): IncomingTransfers::getAllAuxiliariesperbank(1035)
+#5 [internal function]: IncomingTransfersController->actionGetAuxiliariesperbank('1035')
+#6 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(IncomingTransfersController), Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(IncomingTransfersController), Object(ReflectionMethod), Array)
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('getAuxiliariesp...')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('IncomingTransfe...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/IncomingTransfers/getAuxiliariesperbank?id=1035
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/create
+---
+2019/07/19 09:09:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/19 09:36:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/19 09:39:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')) ) and i.invoice_number not in (select invoice_number from incoming_transfers_' at line 2. The SQL statement executed was: SELECT i.invoice_number, i.final_invoice_number FROM receivables i , incoming_transfers tr where tr.id=48 and i.old = 'No' and 
+			(	( tr.partner=i.partner and tr.partner!=77 and i.status!='Paid' and i.partner_status='Paid' ) or ( tr.partner=77  and i.status!='Paid' and i.id_customer in ()) ) and i.invoice_number not in (select invoice_number from incoming_transfers_details where id_it=48 ) .
+2019/07/19 09:39:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')) ) and i.invoice_number not in (select invoice_number from incoming_transfers_' at line 2' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\sns\protected\models\IncomingTransfers.php(223): CDbCommand->queryAll()
+#2 C:\wamp\www\sns\protected\views\incomingTransfers\_product_form.php(8): IncomingTransfers::getInvoices(48, NULL, NULL)
+#3 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#4 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#6 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(415): CController->renderPartial('_product_form', Array, true, true)
+#7 [internal function]: IncomingTransfersController->actionmanageInvoice(NULL)
+#8 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(IncomingTransfersController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(IncomingTransfersController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('manageInvoice')
+#19 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('IncomingTransfe...')
+#20 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 C:\wamp\www\sns\index.php(26): CApplication->run()
+#22 {main}
+REQUEST_URI=/sns/IncomingTransfers/manageInvoice
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/update/48
+---
+2019/07/22 09:57:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 09:59:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 10:43:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 10:48:09 [error] [exception.CException] exception 'CException' with message 'Property "IncomingTransfers.rate" is not defined.' in C:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('rate')
+#1 C:\wamp\www\sns\protected\views\incomingTransfers\_header_content.php(32): CActiveRecord->__get('rate')
+#2 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#3 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#5 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(345): CController->renderPartial('_header_content', Array, true, false)
+#6 [internal function]: IncomingTransfersController->actionUpdateHeader('49')
+#7 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(IncomingTransfersController), Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(IncomingTransfersController), Object(ReflectionMethod), Array)
+#9 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('updateHeader')
+#18 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('IncomingTransfe...')
+#19 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\wamp\www\sns\index.php(26): CApplication->run()
+#21 {main}
+REQUEST_URI=/sns/IncomingTransfers/updateHeader/49
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/update/49
+---
+2019/07/22 10:48:12 [error] [exception.CException] exception 'CException' with message 'Property "IncomingTransfers.rate" is not defined.' in C:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('rate')
+#1 C:\wamp\www\sns\protected\views\incomingTransfers\_header_content.php(32): CActiveRecord->__get('rate')
+#2 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#3 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#5 C:\wamp\www\sns\protected\views\incomingTransfers\update.php(13): CController->renderPartial('_header_content', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#7 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#10 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(263): CController->render('update', Array)
+#11 [internal function]: IncomingTransfersController->actionUpdate('49', 0, NULL)
+#12 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(IncomingTransfersController), Array)
+#13 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(IncomingTransfersController), Object(ReflectionMethod), Array)
+#14 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#23 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('incomingTransfe...')
+#24 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#25 C:\wamp\www\sns\index.php(26): CApplication->run()
+#26 {main}
+REQUEST_URI=/sns/incomingTransfers/update/49?ajax=items-grid
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/update/49
+---
+2019/07/22 10:48:18 [error] [exception.CException] exception 'CException' with message 'Property "IncomingTransfers.rate" is not defined.' in C:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('rate')
+#1 C:\wamp\www\sns\protected\views\incomingTransfers\_header_content.php(32): CActiveRecord->__get('rate')
+#2 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#3 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#5 C:\wamp\www\sns\protected\views\incomingTransfers\update.php(13): CController->renderPartial('_header_content', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#7 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#10 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(263): CController->render('update', Array)
+#11 [internal function]: IncomingTransfersController->actionUpdate('49', 0, NULL)
+#12 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(IncomingTransfersController), Array)
+#13 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(IncomingTransfersController), Object(ReflectionMethod), Array)
+#14 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#23 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('incomingTransfe...')
+#24 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#25 C:\wamp\www\sns\index.php(26): CApplication->run()
+#26 {main}
+REQUEST_URI=/sns/incomingTransfers/update/49
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/create
+---
+2019/07/22 10:49:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 11:16:57 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\models\IncomingTransfers.php:51)
+Stack trace:
+#0 C:\wamp\www\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute()
+#1 C:\wamp\www\framework\base\CModel.php(159): CInlineValidator->validate()
+#2 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(298): IncomingTransfers->validate()
+#3 unknown(0): IncomingTransfersController->actionUpdateHeader()
+#4 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#8 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#14 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#15 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/IncomingTransfers/updateHeader/49
+2019/07/22 11:17:02 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\models\IncomingTransfers.php:51)
+Stack trace:
+#0 C:\wamp\www\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute()
+#1 C:\wamp\www\framework\base\CModel.php(159): CInlineValidator->validate()
+#2 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(298): IncomingTransfers->validate()
+#3 unknown(0): IncomingTransfersController->actionUpdateHeader()
+#4 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#8 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#14 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#15 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/IncomingTransfers/updateHeader/49
+2019/07/22 11:31:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 11:31:41 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. The SQL statement executed was: select currency from incoming_transfers where id =.
+2019/07/22 11:31:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\models\IncomingTransfers.php(74): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\validators\CInlineValidator.php(42): IncomingTransfers->validateCurrency('currency', Array)
+#3 C:\wamp\www\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(IncomingTransfers), 'currency')
+#4 C:\wamp\www\framework\base\CModel.php(159): CValidator->validate(Object(IncomingTransfers), NULL)
+#5 C:\wamp\www\framework\db\ar\CActiveRecord.php(805): CModel->validate(NULL)
+#6 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(132): CActiveRecord->save()
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(49): IncomingTransfersController->actionCreate()
+#8 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('create')
+#17 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('incomingTransfe...')
+#18 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\wamp\www\sns\index.php(26): CApplication->run()
+#20 {main}
+REQUEST_URI=/sns/incomingTransfers/create
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/create
+---
+2019/07/22 11:34:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 11:34:21 [error] [php] Undefined index:  (C:\wamp\www\sns\protected\models\IncomingTransfers.php:42)
+Stack trace:
+#0 C:\wamp\www\framework\web\CBaseController.php(95): IncomingTransfersController->renderInternal()
+#1 C:\wamp\www\framework\web\CController.php(869): IncomingTransfersController->renderFile()
+#2 C:\wamp\www\sns\protected\views\incomingTransfers\update.php(13): IncomingTransfersController->renderPartial()
+#3 C:\wamp\www\framework\web\CBaseController.php(126): require()
+#4 C:\wamp\www\framework\web\CBaseController.php(95): IncomingTransfersController->renderInternal()
+#5 C:\wamp\www\framework\web\CController.php(869): IncomingTransfersController->renderFile()
+#6 C:\wamp\www\framework\web\CController.php(782): IncomingTransfersController->renderPartial()
+#7 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(263): IncomingTransfersController->render()
+#8 unknown(0): IncomingTransfersController->actionUpdate()
+#9 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#11 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/update/50
+2019/07/22 14:52:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 14:53:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 14:53:52 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\BookingController.php(464): SwiftMailer->Send(true)
+#5 C:\wamp\www\sns\protected\controllers\BookingController.php(679): BookingController->sendBookingCreated('15', '19', '283', '1265', '23/07/2019', 'Evening', '27/07/2019', 'Evening', NULL, 'No', '31', 'ABA')
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(49): BookingController->actionCreate()
+#7 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('create')
+#16 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('booking/create')
+#17 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\wamp\www\sns\index.php(26): CApplication->run()
+#19 {main}
+REQUEST_URI=/sns/booking/create
+HTTP_REFERER=http://snsitn/sns/booking/create
+---
+2019/07/22 15:13:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 23:23:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/22 23:35:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 00:22:57 [error] [php] Undefined index: checkinvoice (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1014)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/getTransferInv
+2019/07/23 00:23:15 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1014)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/getTransferInv
+2019/07/23 00:28:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 00:32:46 [error] [php] Undefined index: TRIds (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1028)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563831166500&TR_ids=50&template=1&checktransfer=001
+2019/07/23 00:33:20 [error] [php] Undefined index: checkinvoice (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1028)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563831166500&TR_ids=50&template=1&checktransfer=001
+2019/07/23 00:33:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'snsit.incoming_tarincoming_transfers_details' doesn't exist. The SQL statement executed was: SELECT DISTINCT invoice_number FROM incoming_tarincoming_transfers_details  WHERE id_it in (50) .
+2019/07/23 00:33:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'snsit.incoming_tarincoming_transfers_details' doesn't exist' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\sns\protected\controllers\InvoicesController.php(1029): CDbCommand->queryAll()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): InvoicesController->actionPrintTransfer()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('PrintTransfer')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('invoices/PrintT...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563831216467&checkinvoice=50&template=1&checktransfer=001
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/index
+---
+2019/07/23 07:03:31 [error] [php] Undefined index: checkinvoice (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1028)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563831166500&TR_ids=50&template=1&checktransfer=001
+2019/07/23 07:03:56 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1030)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#2 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563854636461&checkinvoice=49&template=1&checktransfer=001
+2019/07/23 07:04:30 [error] [php] Undefined index: invoice_number (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1030)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563854636461&checkinvoice=49&template=1&checktransfer=001
+2019/07/23 07:04:42 [error] [php] Undefined index: invoice_number (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1030)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563854636461&checkinvoice=49&template=1&checktransfer=001
+2019/07/23 07:09:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '04482 and i.status not in ('New','To Print','Cancelled') order by i.type' at line 8. The SQL statement executed was: SELECT i.id, i.id_customer, i.final_invoice_number, i.type,i.net_amount,case when i.currency=9 
+					THEN i.net_amount 
+					else i.net_amount*(select c.rate from currency_rate c where c.currency=i.currency  order by c.date DESC  limit 1) end as usd_amount
+					,
+					case when i.currency=9 
+					THEN i.gross_amount 
+					else i.gross_amount*(select c.rate from currency_rate c where c.currency=i.currency  order by c.date DESC  limit 1) end as gross_amount
+					,i.currency,i.partner,i.partner_inv, i.snsapj_partner_inv, i.invoice_title as description FROM invoices i WHERE i.id IN 04482 and i.status not in ('New','To Print','Cancelled') order by i.type.
+2019/07/23 07:09:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '04482 and i.status not in ('New','To Print','Cancelled') order by i.type' at line 8' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\wamp\www\sns\protected\controllers\InvoicesController.php(1042): CDbCommand->queryAll()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): InvoicesController->actionPrintTransfer()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('PrintTransfer')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('invoices/PrintT...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563854636461&checkinvoice=49&template=1&checktransfer=001
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/index
+---
+2019/07/23 07:09:47 [error] [php] chmod(): Can not call chmod() for a non-standard stream (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1050)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#2 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563854636461&checkinvoice=49&template=1&checktransfer=001
+2019/07/23 07:11:41 [error] [php] chmod(): Can not call chmod() for a non-standard stream (C:\wamp\www\sns\protected\controllers\InvoicesController.php:1050)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\framework\web\filters\CFilterChain.php(133): InvoicesController->runAction()
+#2 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): InvoicesController->filterAccessControl()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(265): InvoicesController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(282): InvoicesController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/invoices/PrintTransfer?token=1563854636461&checkinvoice=49&template=1&checktransfer=001
+2019/07/23 07:24:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 07:25:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 07:26:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 07:27:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 07:37:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 07:42:07 [error] [exception.CException] exception 'CException' with message 'Property "IncomingTransfers.eCustomer" is not defined.' in C:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('eCustomer')
+#1 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(671): CActiveRecord->__get('eCustomer')
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): IncomingTransfersController->actionGetExcel()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('getExcel')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('incomingTransfe...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/incomingTransfers/getExcel/?
+HTTP_REFERER=http://snsitn/sns/incomingTransfers/index
+---
+2019/07/23 08:03:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 08:03:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 08:07:52 [error] [exception.CException] exception 'CException' with message 'Property "IncomingTransfers.id_it" is not defined.' in C:\wamp\www\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(145): CComponent->__get('id_it')
+#1 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(100): CActiveRecord->__get('id_it')
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): IncomingTransfersController->actionGetInvoices()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('GetInvoices')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('IncomingTransfe...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/IncomingTransfers/GetInvoices
+HTTP_REFERER=http://snsitn/sns/IncomingTransfers/update/50
+---
+2019/07/23 08:11:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/23 08:11:40 [error] [php] Undefined index: checktask (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:106)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/IncomingTransfers/GetInvoices
+2019/07/23 08:26:47 [error] [php] Undefined index: final_invoice_number (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:110)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/IncomingTransfers/GetInvoices
+2019/07/23 08:27:30 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:110)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/IncomingTransfers/GetInvoices
+2019/07/23 08:29:58 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:110)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/IncomingTransfers/GetInvoices
+2019/07/24 07:27:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 07:28:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 07:30:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 07:32:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 07:34:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 07:40:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 07:42:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 07:47:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 08:48:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 08:50:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 08:51:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 08:53:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 09:00:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 09:01:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 09:05:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 10:47:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 10:49:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/24 10:53:24 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:129)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/closeInvoices
+2019/07/24 10:54:18 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:129)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#2 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/closeInvoices
+2019/07/24 10:54:52 [error] [php] Array to string conversion (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:130)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#2 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#4 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/closeInvoices
+2019/07/24 10:57:09 [error] [php] Undefined variable: attribute (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:130)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/closeInvoices

@@ -37,7 +37,7 @@
 				?> 		 
 		</div>
 	</div>
-	<?php echo $form->hiddenField($model, 'id_customer'); ?>
+	<?php //echo $form->hiddenField($model, 'id_customer'); ?>
 	<?php echo $form->error($model,'id_customer'); ?>
 	</div>
 </td>
@@ -93,7 +93,7 @@
 <td><div class="row projectRow">
 		<?php echo $form->labelEx($model, 'bank_dolphin'); ?>
 		<div class="selectBg_create">
-			<?php echo $form->dropDownList($model, 'bank_dolphin', Codelkups::getCodelkupsDropDown('bank_code'), array('prompt' => Yii::t('translations', 'Choose Bank'))); ?>
+			<?php echo $form->dropDownList($model, 'bank_dolphin', Codelkups::getCodelkupsDropDown('bank_code'), array('onchange' => 'updateAux(this);','prompt' => Yii::t('translations', 'Choose Bank'))); ?>
 		</div>
 		<?php echo $form->error($model,'bank_dolphin'); ?>
 	</div>
@@ -111,7 +111,7 @@
 <td><div class="row projectRow">
 		<?php echo $form->labelEx($model, 'month'); ?>
 		<div class="selectBg_create">
-			<?php echo $form->dropDownList($model, 'month', Invoices::getMonths(), array('prompt' => Yii::t('translations', 'Choose Month'))); ?>
+			<?php echo $form->dropDownList($model, 'month', IncomingTransfers::getMonths(), array('prompt' => Yii::t('translations', 'Choose Month'))); ?>
 		</div>
 		<?php echo $form->error($model,'month'); ?>
 	</div>
@@ -147,5 +147,31 @@
 </div> 
 <script>
 	$(document).ready(function() {
+		//updateAux($('#IncomingTransfers_bank_dolphin'));
 	});
+	function updateAux(element) {
+		$this =  $(element);
+		//var id = $('#Booking_id_customer').val();
+		id= $this.val();
+		if (id)
+		{
+			$.ajax({
+	 			type: "GET",
+	 			data: {'id' : id},					
+	 			url: '<?php echo Yii::app()->createAbsoluteUrl('IncomingTransfers/getAuxiliariesperbank');?>', 
+	 			dataType: "json",
+	 			success: function(data) {
+				  	if (data) {
+				  		var selectOptions = '<option value="">Choose Auxliary</option>';
+				  		var index = 1;
+				  		$.each(data,function(id,name){
+				  			var selected =   ''; 
+				  			selectOptions += '<option value="' + id+'"' + selected + '>'+name+'</option>';
+				  		});
+					    $('#IncomingTransfers_aux').html(selectOptions);
+				  	}
+		  		}
+			});
+		} 
+	}
 </script>

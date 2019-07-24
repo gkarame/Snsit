@@ -1619,11 +1619,11 @@ public static function actionsendIssuesSSummary()
 					$emailstr="Dears, <br /><br />Below is a weekly summary of ".$project['name']." issues:<br/><br/>";
 					
 					$models= ProjectsIssues::getIssuesPendingorFixed($project['id']);
- 					$emailstr.="<table border='1'  style='font-family:Calibri;' ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Type</th><th>FBR</th><th>Status</th><th>Logged By</th><th>Logged Date</th></tr>";
+ 					$emailstr.="<table border='1'  style='font-family:Calibri;' ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Type</th><th>FBR</th><th>Status</th><th>Assigned To</th><th>Logged By</th><th>Logged Date</th></tr>";
 					foreach($models as $model){	
 						$descr =str_replace('Descr:', '', $model['description']);
 						$descr =str_replace('Issue:', '', $descr);
-					 	$emailstr.="<tr><td>".$model['id_issue']."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td> <td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'>".ProjectsIssues::getStatus($model['status'])." </td>  <td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td><td style='text-align:center'>  ".date("d/m/Y", strtotime($model['logged_date']))."</td></tr>";
+					 	$emailstr.="<tr><td>".$model['id_issue']."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td> <td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'>".ProjectsIssues::getStatus($model['status'])." </td> <td style='text-align:center'> ".ProjectsIssues::getUsersGrid(ProjectsIssues::getAssignedto($model['id']))." </td> <td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td><td style='text-align:center'>  ".date("d/m/Y", strtotime($model['logged_date']))."</td></tr>";
 					}
 					$emailstr.="</table> <br /><br />Best Regards,<br />SNSit";
 				
@@ -1733,11 +1733,11 @@ public static function actionsendDailyIssues()
 					$created= ProjectsIssues::getIssuesCreated($project['id']);
 					if(!empty($created)){
 						$emailstr.="<b>New Issues:</b><br/><br/>";
-						$emailstr.="<table border='1'  style='font-family:Calibri;' ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Module</th><th>Type</th><th>FBR</th><th>Logged By</th><th>Logged Date</th></tr>";
+						$emailstr.="<table border='1'  style='font-family:Calibri;' ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Module</th><th>Type</th><th>FBR</th><th>Assigned To</th><th>Logged By</th><th>Logged Date</th></tr>";
 						foreach($created as $model){	
 							$descr =str_replace('Descr:', '', $model['description']);
 							$descr =str_replace('Issue:', '', $descr);
-						 	$emailstr.="<tr><td>".sprintf("%03d", $model['id_issue'])."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td>  <td> ".Codelkups::getCodelkup($model['module'])." </td>  <td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td><td>".date("d/m/Y", strtotime($model['logged_date']))."</td></tr>";
+						 	$emailstr.="<tr><td>".sprintf("%03d", $model['id_issue'])."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td>  <td> ".Codelkups::getCodelkup($model['module'])." </td>  <td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'> ".ProjectsIssues::getUsersGrid(ProjectsIssues::getAssignedto($model['id']))." </td><td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td><td>".date("d/m/Y", strtotime($model['logged_date']))."</td></tr>";
 						}	
 						$emailstr.="</table><br />";					
 					}
@@ -1745,11 +1745,11 @@ public static function actionsendDailyIssues()
 					$models= ProjectsIssues::getIssuesupdated($project['id']);
 					if(!empty($models)){
 						$emailstr.="<b>Updated Issues:</b><br/><br/>";
-						$emailstr.="<table border='1'  style='font-family:Calibri;' ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Module</th><th>Type</th><th>FBR</th><th>Logged By</th><th>Logged Date</th></tr>";
+						$emailstr.="<table border='1'  style='font-family:Calibri;' ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Module</th><th>Type</th><th>FBR</th><th>Assigned To</th><th>Logged By</th><th>Logged Date</th></tr>";
 						foreach($models as $model){	
 							$descr =str_replace('Descr:', '', $model['description']);
 							$descr =str_replace('Issue:', '', $descr);
-						 	$emailstr.="<tr><td>".sprintf("%03d", $model['id_issue'])."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td> <td> ".Codelkups::getCodelkup($model['module'])." </td> <td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td><td>".date("d/m/Y", strtotime($model['logged_date']))."</td></tr>";
+						 	$emailstr.="<tr><td>".sprintf("%03d", $model['id_issue'])."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td> <td> ".Codelkups::getCodelkup($model['module'])." </td> <td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'> ".ProjectsIssues::getUsersGrid(ProjectsIssues::getAssignedto($model['id']))." </td><td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td><td>".date("d/m/Y", strtotime($model['logged_date']))."</td></tr>";
 						}
 						$emailstr.="</table> <br />";
 					}
@@ -1809,22 +1809,22 @@ public static function actionsendWeeklyIssuesSSummary()
 							$emailstr.="</table> <br />";
 							if(!empty($modelsPending))
 							{
-								$emailstr.='<b>Pending Issues:</b><br/><br/><table border="1"  style="font-family:Calibri;border-collapse: collapse;" ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Module</th><th>Type</th><th>FBR</th><th>Logged By</th></tr>';
+								$emailstr.='<b>Pending Issues:</b><br/><br/><table border="1"  style="font-family:Calibri;border-collapse: collapse;" ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Module</th><th>Type</th><th>FBR</th><th>Assigned To</th><th>Logged By</th><th>Logged Date</th></tr>';
 								foreach($modelsPending as $model){	
 									$descr =str_replace('Descr:', '', $model['description']);
 									$descr =str_replace('Issue:', '', $descr);
-								 	$emailstr.="<tr><td>".sprintf("%03d", $model['id_issue'])."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td> <td> ".Codelkups::getCodelkup($model['module'])." </td><td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td></tr>";
+								 	$emailstr.="<tr><td>".sprintf("%03d", $model['id_issue'])."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td> <td> ".Codelkups::getCodelkup($model['module'])." </td><td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'>  ".ProjectsIssues::getUsersGrid(ProjectsIssues::getAssignedto($model['id']))."</td> <td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td><td>".date("d/m/Y", strtotime($model['logged_date']))."</td></tr>";
 								}
 								$emailstr.="</table>  <br />";
 							}
 
 							if(!empty($modelsFixed))
 							{
-								$emailstr.='<b>Fixed Issues:</b><br/><br/><table  border="1"  style="font-family:Calibri;border-collapse: collapse;" ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Module</th><th>Type</th><th>FBR</th><th>Logged By</th></tr>';
+								$emailstr.='<b>Fixed Issues:</b><br/><br/><table  border="1"  style="font-family:Calibri;border-collapse: collapse;" ><tr><th>Issue#</th><th>Description</th><th>Priority</th><th>Status</th><th>Module</th><th>Type</th><th>FBR</th><th>Assigned To</th><th>Logged By</th><th>Logged Date</th></tr>';
 								foreach($modelsFixed as $model){	
 									$descr =str_replace('Descr:', '', $model['description']);
 									$descr =str_replace('Issue:', '', $descr);
-								 	$emailstr.="<tr><td>".sprintf("%03d", $model['id_issue'])."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td> <td> ".Codelkups::getCodelkup($model['module'])." </td> <td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td></tr>";
+								 	$emailstr.="<tr><td>".sprintf("%03d", $model['id_issue'])."</td> <td>".$descr."</td>  <td>".ProjectsIssues::getprio($model['priority'])." </td> <td> ".ProjectsIssues::getStatus($model['status'])." </td> <td> ".Codelkups::getCodelkup($model['module'])." </td> <td style='text-align:center'>  ".$model['type']."</td> <td style='text-align:center'>  ".ProjectsTasks::getTaskDescByid($model['fbr'])."</td> <td style='text-align:center'>  ".ProjectsIssues::getUsersGrid(ProjectsIssues::getAssignedto($model['id']))."</td><td style='text-align:center'>  ".Users::getCredentialsbyId($model['logged_by'])."</td><td>".date("d/m/Y", strtotime($model['logged_date']))."</td></tr>";
 								}
 								$emailstr.="</table> ";
 							}

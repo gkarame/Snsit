@@ -1011,21 +1011,27 @@ if (!isset($filterd_ids)){
 	} 		
 	public function actiongetTransferInv() {
 		if (isset($_POST['checkinvoice'])){ 
+			//print_r();exit;
 			echo json_encode(array(
 				'inv' => "",
-				'invoices_ids' => isset($_POST['checkinvoice']) ? $_POST['checkinvoice'] : "",
+				'TR_ids' => isset($_POST['checkinvoice']) ? $_POST['checkinvoice'] : "",
+				'count' =>count($_POST['checkinvoice']),
 			));
 		}
 	}	
 	public function actionPrintTransfer() {
-		if (isset($_GET['token'])){
+		/*if (isset($_GET['token'])){
 			setcookie("fileDownloadToken", $_GET['token']);
-		}
+		}*/
 		$qqq = array();
-		$q = array();		
-		$ids_invoices = '('.$_GET['checkinvoice'].')';
+		$q = array();	
+		$transfers = '('.$_GET['checkinvoice'].')';
+		$allinv=  Yii::app()->db->createCommand("SELECT invoice_number FROM incoming_transfers_details  WHERE id_it in ".$transfers." ")->queryAll();
+		$ids_invoices=  '('.	implode(',', array_column($allinv, 'invoice_number')).')';
+		//print_r($_GET['template']);exit;
+		//print_r("SELECT DISTINCT invoice_number FROM incoming_transfers_details  WHERE id_it in ".$transfers." ");exit;
 		$template= $_GET['template'];
-		$transferid= $_GET['checktransfer'];
+		$transferid= $_GET['checkinvoice'];
 		$id_dis = Yii::app()->db->createCommand("SELECT i.id, i.id_customer, i.final_invoice_number, i.type,i.net_amount,case when i.currency=9 
 					THEN i.net_amount 
 					else i.net_amount*(select c.rate from currency_rate c where c.currency=i.currency  order by c.date DESC  limit 1) end as usd_amount
