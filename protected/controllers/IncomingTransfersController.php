@@ -21,7 +21,7 @@ class IncomingTransfersController extends Controller{
 
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array(
-						'index','view','create','update', 'delete','deleteInvoice','manageInvoice','GetUnssignedInvoices','GetAuxiliariesperbank','GetInvoices','closeInvoices',
+						'index','view','create','update', 'delete','deleteInvoice','manageInvoice','GetFiltered','GetUnssignedInvoices','GetAuxiliariesperbank','GetInvoices','closeInvoices',
 						'getInvoiceDetail','UpdateHeader','createTransfer','assignInvoices','GetExcel','updateinfoheader',
 						'inputInv','validateRate','getAmtIncurrency'
 						
@@ -459,6 +459,19 @@ class IncomingTransfersController extends Controller{
 	public function actiondeleteInvoice($id){
 		$id = (int) $id;
 		Yii::app()->db->createCommand("DELETE FROM incoming_transfers_details WHERE id='{$id}'")->execute();
+	}
+	public function actiongetFiltered()
+	{
+		if (!isset($_POST['id_it']))
+    		exit;
+    	if (!isset($_POST['inv']))
+    		exit;
+
+    	$tr= $_POST['id_it'];
+    	$inv= $_POST['inv'];
+
+ 
+
 	}
 	public function actionmanageInvoice($id = NULL){
 		$new = false;

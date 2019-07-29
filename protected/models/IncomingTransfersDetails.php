@@ -58,7 +58,14 @@ class IncomingTransfersDetails extends CActiveRecord {
 		 				$this->addError('received_amount','Invalid amount, Invoice partially paid');
 		    	}
 		 	}
-	    }		
+	    }else if($this->paid_amount == 1 )
+	    {
+	    	$other= Yii::app()->db->createCommand("select count(1) from incoming_transfers_details where paid_amount=2 and received_amount>0 and  final_invoice_number='".$this->final_invoice_number."' and invoice_number='".$this->invoice_number."' and id_it!=".$this->id_it."")->queryScalar();
+		 	if($other>0)
+		 	{
+		 		$this->addError('received_amount','Invalid amount, Invoice partially paid');
+		 	}
+	    } 		
 	}
 
 	public function renderfinal_invoice_number(){

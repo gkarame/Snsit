@@ -28,6 +28,16 @@
 			<span class="red_title"><?php echo Yii::t('translations', 'TR INVOICES');?></span>
 			<?php if($model->status == 1){?> <a class="header_button" onclick="showInvoices(<?php echo  $model->id;?>);" >Add Invoices</a><?php }?>
 		</div>
+
+		 
+		  	Final# &nbsp;&nbsp;<input type="text" name="inv" id="inv" class ='width141'>
+		 <?php echo CHtml::button(Yii::t('translations', 'Search'), array('style'=>'  margin-left: 10px;','onclick'=>'searchinv()')); ?>	 
+ 
+		<?php Yii::app()->clientScript->registerScript('getInvoicesProviderGrid', "$('.search-form-checklist form').submit(function(){
+	$.fn.yiiGridView.update('items-grid', {		data: $(this).serialize()	});	return false; });"); ?>
+<div class="search-form-checklist "><?php $this->renderPartial('_searchInvoice',array(	'model'=>$model,)); ?></div> 
+
+
 		<div id="ir_products_content" class="border-grid grid">
 			<?php	$buttons = array();		$tmp = '';
 			if ($can_modify && GroupPermissions::checkPermissions('financial-incomingTransfers', 'write')) {
@@ -42,7 +52,9 @@
 	                	'options' => array('class' => 'delete',),
 					),   );
 		}
- $this->widget('zii.widgets.grid.CGridView', array('id'=>'items-grid','dataProvider'=>IncomingTransfers::getInvoicesProvider($model->id),
+
+
+ $this->widget('zii.widgets.grid.CGridView', array('id'=>'items-grid','dataProvider'=>$model->getInvoicesProviderGrid(),
                 'summaryText' => '','pager'=> Utils::getPagerArray(),'template'=>'{items}{pager}',
                 'afterAjaxUpdate' => 'js:function() {panelClip(".item_clip");panelClip(".term_clip");}',
                 'columns' => array(
@@ -102,6 +114,13 @@ function showInvoices(tr){
 				  		}
 				  		custom_alert('ERROR MESSAGE', 'TR doesn\'t have eligible invoices', action_buttons);
 		  			}	}}});		  	
+}
+function searchinv()
+{
+	inv=document.getElementById('inv').value ;
+	 $('#IncomingTransfers_it_no').val(inv);$('.search-btn').trigger('click');
+
+
 }
 function showProductForm(element, newItem) {
 		var url;

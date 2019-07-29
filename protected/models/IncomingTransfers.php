@@ -300,7 +300,7 @@ return array(
 			$wheredate =" AND MONTH(paid_date) = ".$month." ";
 		}
 		$selects= Yii::app()->db->createCommand("SELECT i.invoice_number, i.final_invoice_number FROM receivables i , incoming_transfers tr where tr.id=".$tr." and i.old = 'No' and i.partner= ". $partner." and 
-			(	( tr.partner=i.partner and tr.partner!=77 and i.status!='Paid' and i.partner_status='Paid' ".$wheredate.") or ( tr.partner=77  and i.status!='Paid' and i.id_customer in (".$custid.") )) and i.invoice_number not in (select invoice_number from incoming_transfers_details where id_it=".$tr." ".$where.") ")->queryAll();
+			(	( tr.partner=i.partner and tr.partner!=77 and i.status!='Paid'  and i.id_customer in (".$custid.") and i.partner_status='Paid' ".$wheredate.") or ( tr.partner=77  and i.status!='Paid' and i.id_customer in (".$custid.") )) and i.invoice_number not in (select invoice_number from incoming_transfers_details where id_it=".$tr." ".$where.") ")->queryAll();
 		$invoices = array();
 		foreach ($selects as $i=>$res){
 			$invoices[$res['final_invoice_number']] = $res['final_invoice_number'];
@@ -387,5 +387,27 @@ return array(
 		));
 		return $dataProvider;
 	}
+
+
+	
+	public function getInvoicesProviderGrid(){
+		$criteria=new CDbCriteria;
+			$criteria->condition = "(id_it = :tr)";	
+			$criteria->params = array(':tr' => $this->id);	
+
+			if((isset($_GET['IncomingTransfers']['it_no']) )){
+				$criteria->condition(" final_invoice_number like '%".$_GET['IncomingTransfers']['it_no']."%' " );
+			}
+	 	// print_r($criteria);exit;
+		return new CActiveDataProvider('IncomingTransfersDetails', array(
+			'criteria' => $criteria,
+			'pagination'=>array(
+                'pageSize' => Utils::getPageSize(),
+            ),
+            'sort'=>array(
+    			'defaultOrder'=>'final_invoice_number DESC',  
+            ),
+		));
+	}	
 }
 ?>
