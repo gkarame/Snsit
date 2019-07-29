@@ -113,4 +113,5 @@ class MainMenu extends CMenu{
 								'timesheetSummary' => array('label'=>Yii::t('translation', 'Timesheet Summary'), 'url'=>array('/reports/timesheetSummary')),
 								'vacationAudit' => array('label'=>Yii::t('translation', 'Vacation Audit'), 'url'=>array('/reports/vacationAudit')),
 								'vacationSummary' => array('label'=>Yii::t('translation', 'Vacation Balance Report'), 'url'=>array('/reports/vacationSummary')),
+                                'TravelRequests' => array('label'=>Yii::t('translation', 'Travel Requests Report'), 'url'=>array('/reports/travelRequests')),
 				),	),	);	} }

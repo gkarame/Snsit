@@ -14,7 +14,7 @@ class ProjectsController extends Controller{
 		return array(
 			array(
 				'allow',
-				'actions'=>array('GetAlerts','sendIssuesSSummary','deleteEmptyIssues','sendIssuesSSummarySolved','goLiveRemider','fbrsSummary','undocumentsTasksReminder','sendDailyIssues','sendWeeklyIssuesSSummary','sendContractOverload','sendProjectCRStatus','sendProjectSWStatus','sendProjectConStatus','sendProjectClosedNotTransitedSupport','sendNotificationsEmailsAlertsSecond','sendNotificationsEmailsAlerts','sendNotificationsEmailsAlertsperPM','sendSurvey','sendProjectsSurveyReminders'),
+				'actions'=>array('SendRedundantTaskFBR','GetAlerts','sendIssuesSSummary','deleteEmptyIssues','sendIssuesSSummarySolved','goLiveRemider','fbrsSummary','undocumentsTasksReminder','sendDailyIssues','sendWeeklyIssuesSSummary','sendContractOverload','sendProjectCRStatus','sendProjectSWStatus','sendProjectConStatus','sendProjectClosedNotTransitedSupport','sendNotificationsEmailsAlertsSecond','sendNotificationsEmailsAlerts','sendNotificationsEmailsAlertsperPM','sendSurvey','sendProjectsSurveyReminders'),
 				'users'=>array('*'),
 			),
 			array(
@@ -596,7 +596,19 @@ echo json_encode(array('status'=>'success','readsurvey'=>$read , 'pname'=>$pname
   		{
   			$model->description = $model->fbr.'-'.$model->title;
   		}
+        if(!empty($model->parent_fbr)){
+            $progect = Yii::app()
+                ->db->createCommand("SELECT p.name AS project_name,c.name AS castomer_name,c.primary_contact_email,
+                                 (SELECT CONCAT(u.firstname,' ',u.username,' ',u.lastname) FROM users AS u WHERE u.id=p.project_manager) AS project_m,
+                                 (SELECT CONCAT(u.firstname,' ',u.username,' ',u.lastname) FROM users AS u WHERE u.id=p.business_manager) AS business_m FROM projects AS p 
+                                 JOIN customers AS c ON c.id=p.customer_id
+                                WHERE p.id={$_POST['id_project']};")
+                ->queryAll();
+            self::sendNotificationsEmailsProjectSTask($model,$progect[0]);
+        }
     	if ($model->save()) {
+
+
 	  		echo json_encode(array('status'=>'saved',
 	  				'totalDays'=>Projects::getDaysOf($_POST['id_project'],$_POST['id_phase']),
 	  		));
@@ -605,6 +617,68 @@ echo json_encode(array('status'=>'success','readsurvey'=>$read , 'pname'=>$pname
 	  	}    	
 	  	exit;
     }
+
+    /*
+    * Author: Mike
+    * Date: 19.07.19
+    * Add email to be triggered and sent to the PM and Bernard when a task FBR is flagged as redundant
+    */
+    private static function sendNotificationsEmailsProjectSTask($data,$project){
+        $body = <<<XER
+            <p style="background: yellow;">Dear All,<br>Please find below a list of FBRs which were created as redundant for project</p>
+            <table>
+                  <thead>
+                    <tr>
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">Project</span></th>
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">Customer</span></th>
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">PM</span></th>
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">BM</span></th>
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">FBR #</span></th>
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">Title</span></th>                      
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">Module</span></th>
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">Keywords</span></th>
+                      <th style="padding: 5px;" scope="col"><span style="background: yellow;">Complexity</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            
+XER;
+        $complexity = [1 => 'Low',2 => 'Medium', 3 => 'High'];
+
+        $body .= <<<XER
+
+             <tr>
+                <td style="padding: 5px;"><span style="background: yellow;">{$project['project_name']}</span></td>
+                <td style="padding: 5px;"><span style="background: yellow;">{$project['castomer_name']}</span></td>
+                <td style="padding: 5px;"><span style="background: yellow;">{$project['project_m']}</span></td>
+                <td style="padding: 5px;"><span style="background: yellow;">{$project['business_m']}</span></td>
+                <td style="padding: 5px;"><span style="background: yellow;">{$data->fbr}</span></td>
+                <td style="padding: 5px;"><span style="background: yellow;">{$data->title}</span></td>
+                <td style="padding: 5px;"><span style="background: yellow;"></span></td>
+                <td style="padding: 5px;"><span style="background: yellow;">{$data->keywords}</span></td>
+                <td style="padding: 5px;"><span style="background: yellow;">{$complexity[(int)$data->complexity]}</span></td>
+             <tr>
+
+XER;
+
+
+
+        $body .= '</tbody></table>';
+        Yii::app()->mailer->ClearAddresses();
+        Yii::app()->mailer->AddAddress('Bernard.Khazzaka@sns-emea.com');
+        Yii::app()->mailer->Subject  = 'task FBR is flagged as redundant';
+        Yii::app()->mailer->MsgHTML("<div style='font-size:11pt;font-family:Calibri;'>".nl2br($body)."</div>");
+        try{
+            Yii::app()->mailer->Send(true);
+            if(isset($project['primary_contact_email']) && !empty($project['primary_contact_email'])){
+                Yii::app()->mailer->AddAddress($project['primary_contact_email']);
+                Yii::app()->mailer->Send(true);
+            }
+        }catch (Exception $exception){
+            CVarDumper::dump($exception,10,true);
+        }
+    }
+
 	public function actionUpdateTasks($id=null){
     	if (isset($_POST['save'])){	
     	}else{
