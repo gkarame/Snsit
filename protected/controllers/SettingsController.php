@@ -10,7 +10,7 @@ class SettingsController extends Controller{
         return array(
             array(
                 'allow', 
-                'actions' => array('index','settings','editSettings','editCodeList','manageCodelkup','deleteCodelkup',
+                'actions' => array('EditCountryPerdiem','DeleteCountryPerdiem','SaveCountryPerdiem','index','settings','editSettings','editCodeList','manageCodelkup','deleteCodelkup',
 				'ManageCodelkupCurrency','manageCodelkupSupportPlan','manageCodelkupTemplate','ManageCodelkupYearlySales','writequery','exestatment'),
                 'expression' => '!$user->isGuest && isset($user->isAdmin) AND $user->isAdmin'
             ),
@@ -41,12 +41,47 @@ class SettingsController extends Controller{
         $settings->unsetAttributes();        
         $codelists_categories = CodelistsCategories::model()->with('codelists')->findAll(array(
             'order' => 'list_order ASC'
-        ));        
+        ));
+
+        $all_countries = Yii::app()->db->createCommand('SELECT * from apps_countries')->queryAll();
+        $all_countries_perdiem = CountryPerdiem::getAllRecords();
+
         $this->render('index', array(
             'settings' => $settings,
-            'codelists_categories' => $codelists_categories
+            'codelists_categories' => $codelists_categories,
+            'all_countries' => $all_countries,
+            'all_countries_perdiem' => $all_countries_perdiem
         ));
-    }    
+    }
+    public function actionSaveCountryPerdiem(){
+        $country_perdiem = new CountryPerdiem();
+        $country_perdiem->id_country = (int)$_POST['country_id'];
+        $country_perdiem->per_diem = $_POST['perdiem'];
+        $country = Yii::app()->db->createCommand('SELECT * from apps_countries where id='.(int)$_POST['country_id'])->queryAll();
+        if ($country_perdiem->save()){
+            echo json_encode([
+                'country_perdiem' => $country_perdiem->getAttributes(),
+                'country' => $country[0]
+            ]);
+        }else{
+            echo json_encode(['error' => 'Date don`t save!']);
+        }
+    }
+    public function actionEditCountryPerdiem(){
+        $edit = CountryPerdiem::model()->updateByPk((int)$_POST['id'],array('per_diem'=>$_POST['val']));
+        if ($edit) {echo true;}
+        else {echo false;}
+
+    }
+    public function actionDeleteCountryPerdiem($id)
+    {
+        if (CountryPerdiem::model()->find('id=:id', array(':id'=>(int)$id))->delete()){
+            echo true;
+        }else{
+            echo false;
+        }
+    }
+
     public function actionEditSettings(){
         if (!GroupPermissions::checkPermissions('settings-general_settings', 'write')) {
             throw new CHttpException(403, 'You don\'t have permission to access this page.');

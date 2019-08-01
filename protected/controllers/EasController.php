@@ -372,6 +372,11 @@ public function actionGetRegion($id){
 		if (isset($_POST['Eas']))
 		{
 			unset($_POST['Eas']['category']);	unset($_POST['Eas']['project_name']);	unset($_POST['Eas']['id_parent_project']);	unset($_POST['Eas']['id_customer']);
+			if ($_POST['Eas']['country_perdiem_id'] == '0' || $_POST['Eas']['country_perdiem_id'] == '' || $_POST['Eas']['expense'] == 'N/A' ||  !isset($_POST['country_perdiem_checbox'])){
+                $model->country_perdiem_id = null;
+            }else{
+                $model->country_perdiem_id = (int)$_POST['Eas']['country_perdiem_id'];
+            }
 			if (isset($_POST['Eas']['billto_contact_person']) && $_POST['Eas']['billto_contact_person'] != $model->billto_contact_person){		
 					$model->billto_contact_person= $_POST['Eas']['billto_contact_person']; } 
 			if (isset($_POST['Eas']['billto_address']) && $_POST['Eas']['billto_address'] != $model->billto_address){		
@@ -426,6 +431,9 @@ public function actionGetRegion($id){
 					switch ($_POST['Eas']['expense']){
 						case 'N/A':
 						case 'Actuals':
+                        if(empty($_POST['Eas']['country_perdiem_id']) && $_POST['country_perdiem_checbox'] == 1){
+                            $model->addCustomError('country_perdiem_id', 'Country cannot be blank');
+                        }
 							break;
 						case '':
 							$model->addCustomError('expense', 'Expense cannot be blank');
@@ -435,6 +443,9 @@ public function actionGetRegion($id){
 							{
 								$model->addCustomError('lump_sum', 'Lump Sum cannot be blank');
 							}
+                            if(empty($_POST['Eas']['country_perdiem_id']) && !empty($_POST['Eas']['lump_sum'])){
+                                $model->addCustomError('country_perdiem_id', 'Country cannot be blank');
+                            }
 							break;
 					}
 				}
@@ -654,9 +665,10 @@ public function actionGetRegion($id){
 			}
 		}
 		echo json_encode(array_merge(array(
+                        'country_perdiem_id' => $model->country_perdiem_id,
 						'status' => 'success',					
 						'can_modify' => $model->isEditable(),
-						'html' => $this->renderPartial('_edit_header_content', array('model' => $model), true, false)
+						'html' => $this->renderPartial('_edit_header_content', array('model' => $model), true, true)
 				), $extra));
 		Yii::app()->end();
 	}	

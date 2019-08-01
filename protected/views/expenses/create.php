@@ -47,6 +47,16 @@
 			<?php echo $form->error($model,'payable'); ?>
 		</div>		
 		<div class="horizontalLine margint15"></div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'country_id'); ?>
+        <div class="projectRow" id="Expenses_country_id_block" style="width:200px !important;">
+            <?php echo $form->dropDownList($model, 'country_id', Country::getCountersDropDownOriginals(), array('prompt' => Yii::t('translations', 'Choose Country'))); ?>
+        </div>
+        <?php echo $form->error($model,'country_id'); ?>
+    </div>
+
+    <div class="horizontalLine margint15"></div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Create', array('class'=>'submit')); ?>
 	</div>
@@ -79,3 +89,19 @@ function getCustomerProjects(element) {
 </script>
 <script> var getProjectsByClientUrl = '<?php echo Yii::app()->createAbsoluteUrl('projects/getProjectsByClient');?>'; </script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/scripts/common.js"></script>
+<script>
+    $('#Expenses_project_id').change(function () {
+        const all_country = <?=CJSON::encode(Country::getAllCounters())?>;
+
+        $.get('<?php echo Yii::app()->createAbsoluteUrl('expenses/GetCountryCustomerProject');?>/'+$(this).val(),function (data) {
+            let html='<select name="Expenses[country_id]" id="Expenses_country_id">';
+            data = JSON.parse(data);
+            all_country.forEach(function (item) {
+                html += `<option ${item.country_name.toLocaleLowerCase() === data.codelkup.toLocaleLowerCase()?'selected':''} value="${item.id}">${item.country_name}</option>`
+            })
+            html += '</select>';
+
+            $('#Expenses_country_id_block').html(html)
+        });
+    });
+</script>

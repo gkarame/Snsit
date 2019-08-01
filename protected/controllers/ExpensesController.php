@@ -18,7 +18,7 @@ class ExpensesController extends Controller{
 						'index','create', 'delete', 'update', 'deleteItem', 'approval', 'view','duplicateitems','multiApproval', 'multipay', 'multipayprint',
 						'updateHeader' ,'UpdateHeaderList', 'createItem', 'getUSDRate', 'deleteItem', 'getNote', 'manageItem',
 						 'approveExpens', 'rejectExpens', 'print', 'printSelected','upload','deleteUpload','createInvoice',
-						'printBankTransfer','generateTransfer'
+						'printBankTransfer','generateTransfer','GetCountryCustomerProject'
 				),
 				 'expression'=>'!$user->isGuest && isset($user->isAdmin) AND $user->isAdmin',
 			),
@@ -64,6 +64,17 @@ class ExpensesController extends Controller{
 			 ),
 		 );
 	}
+	public function actionGetCountryCustomerProject($id){
+	    $command = Yii::app()->db->createCommand();
+	    $country_name = $command->select('codelkups.codelkup')
+            ->from('projects')
+            ->join('customers','customers.id=projects.customer_id')
+            ->join('codelkups','codelkups.id=customers.country ')
+            ->where('projects.id=:id', array(':id'=>$id))
+            ->queryRow();
+
+	    echo CJSON::encode($country_name);
+    }
 	public function actionIndex(){
 		$searchArray = isset($_GET['Expenses']) ? $_GET['Expenses'] : Utils::getSearchSession();
 		$this->action_menu = array_map("unserialize", array_unique(array_map("serialize", array_merge( 
@@ -131,29 +142,71 @@ class ExpensesController extends Controller{
 		))));
 		Yii::app()->session['menu'] = $this->action_menu;		
 		$model = new Expenses();		
-		if (isset($_POST['Expenses'])){				
-			$model->attributes = $_POST['Expenses'];
-			$model->no = "00000";
-			$model->user_id = Yii::app()->user->id;
-			$model->status = Expenses::STATUS_NEW;
-			$model->creationDate =  date('Y-m-d');
-			if(substr($model->project_id, -1) == 't'){
-				$model->training = 1;	$model->project_id = substr($model->project_id, 0, -1);
-			}
-			$model->billable = Projects::isBillable($model->project_id) == 1 ? 'yes' : 'no';			
-			if (empty($_POST['Expenses']['currency'])){
-				$model->currency = Customers::getId('default_currency', $model->customer_id);
-			}
-			if($model->customer_id == 0 && $model->customer_id != null){
-				$model->project_id = 0;
-			}
-			if ($model->save()) {
-				$model->no = Utils::paddingCode($model->id);
-				$model->startDate = date('d/m/Y',strtotime($model->startDate));
-				$model->endDate = date('d/m/Y',strtotime($model->endDate));
-				$model->save();
-				$this->redirect(array('expenses/update', 'id'=>$model->id, 'new' => 1));
-			}
+		if (isset($_POST['Expenses'])){
+		    $prediem = CountryPerdiem::model()->find('id_country=:id',array('id' => (int)$_POST['Expenses']['country_id']));
+            $has_perdiem = false;
+
+		    if (!empty($_POST['Expenses']['project_id'])){
+                $prediem_eas = Eas::model()->findAll('id_project=:project',array('project' => (int)$_POST['Expenses']['project_id']));
+
+                foreach ($prediem_eas as $item){
+                    if (isset($item['country_perdiem_id'])) $has_perdiem = true;
+                }
+            }
+
+		    if (!isset($prediem) && $has_perdiem){
+                $model->addError('country_id','Country is not specified under settings');
+            }
+
+		    if (empty($model->getErrors())){
+                $model->attributes = $_POST['Expenses'];
+                $model->no = "00000";
+                $model->user_id = Yii::app()->user->id;
+                $model->status = Expenses::STATUS_NEW;
+                $model->creationDate =  date('Y-m-d');
+                if(substr($model->project_id, -1) == 't'){
+                    $model->training = 1;	$model->project_id = substr($model->project_id, 0, -1);
+                }
+                $model->billable = Projects::isBillable($model->project_id) == 1 ? 'yes' : 'no';
+                if (empty($_POST['Expenses']['currency'])){
+                    $model->currency = Customers::getId('default_currency', $model->customer_id);
+                }
+                if($model->customer_id == 0 && $model->customer_id != null){
+                    $model->project_id = 0;
+                }
+
+                if ($model->save()) {
+                    $model->no = Utils::paddingCode($model->id);
+                    $model->startDate = date('d/m/Y',strtotime($model->startDate));
+                    $model->endDate = date('d/m/Y',strtotime($model->endDate));
+
+                    if ($has_perdiem){
+                        $diff_date = date_diff(new DateTime(str_ireplace('/','-',$model->endDate)), new DateTime(str_ireplace('/','-',$model->startDate)))->days;
+
+                        $expense_prediem = new ExpensesDetails();
+                        $expense_prediem->expenses_id = $model->id;
+                        $expense_prediem->type = 47;
+                        $expense_prediem->currency_rate_id = 66;
+                        $expense_prediem->original_amount = (float)$prediem['per_diem'] * $diff_date;
+                        $expense_prediem->amount = $expense_prediem->original_amount;
+                        $expense_prediem->billable = "Yes";
+                        $expense_prediem->payable = "Yes";
+                        $expense_prediem->notes = "";
+                        $expense_prediem->date = date('d/m/Y',time());
+                        $expense_prediem->original_currency=9;
+
+                        if ($expense_prediem->save()){
+                            $model->billable_amount = $expense_prediem->original_amount;
+                            $model->payable_amount = $expense_prediem->original_amount;
+                            $model->total_amount = $expense_prediem->original_amount;
+                        }
+                    }
+
+                    $model->save();
+
+                    $this->redirect(array('expenses/update', 'id'=>$model->id, 'new' => 1));
+                }
+            }
 		}		
 		$this->render('create', array('model' => $model));
 	}
@@ -413,7 +466,7 @@ class ExpensesController extends Controller{
     		'jquery-ui.min.js' => false,
 		);
     	echo json_encode(array('status'=>'success', 'form'=>$this->renderPartial('_item_form', array(
-            	'model'=> $model, 'expens' => $expens
+            	'model'=> $model, 'expens' => $expens,'expense_model' => Expenses::model()->find('id=:id',array('id' => $model->expenses_id))
         	), true, true)));
         exit;
 	}
@@ -423,9 +476,9 @@ class ExpensesController extends Controller{
 			$model->date = date('d/m/Y', strtotime($model->date));
 		}
 		Yii::app()->clientScript->scriptMap=array(
-						'jquery.js'=>false,
-						'jquery.min.js' => false,
-						'jquery-ui.min.js' => false,	);
+						'jquery.js'=>true,
+						'jquery.min.js' => true,
+						'jquery-ui.min.js' => true,	);
 
 		$project_id = (int)$model->expenses->project_id;
 		$customer_id = (int)$model->expenses->customer_id;
