@@ -19,7 +19,7 @@ class Expenses extends CActiveRecord{
 			array('status', 'length', 'max'=>11),
 			array('billable', 'length', 'max'=>3),
 			array('startDate, endDate', 'type', 'type' => 'date', 'message' => '{attribute} is not a valid date!', 'dateFormat' => 'dd/MM/yyyy'),
-			array('id, no, customer_id, project_id_t, project_id, status, startDate, endDate, currency, total_amount, billable, billable_amount, payable_amount, user_id, creationDate,customer_name', 'safe', 'on'=>'search'),
+			array('id, no, customer_id, project_id_t, project_id,country_id, status, startDate, endDate, currency, total_amount, billable, billable_amount, payable_amount, user_id, creationDate,customer_name', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations()	{
@@ -57,6 +57,7 @@ class Expenses extends CActiveRecord{
 			'payable_amount' => 'Payable Amount',
 			'user_id' => 'User',
 			'creationDate' => 'Creation date',
+            'country_id' => 'Country'
 		);
 	}
 	public function search()	{

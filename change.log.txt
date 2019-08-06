@@ -63,3 +63,14 @@ Author: Mike
 
     changes:
             -db: ALTER TABLE `projects_issues` ADD `etd_date` DATE NULL DEFAULT NULL AFTER `lastupdateddate`;
+
+10) Add new item expense module
+
+    changes:
+        -db: INSERT INTO `codelists` (`id`, `codelist`, `label`, `description`, `id_category`) VALUES ('39', 'country_perdiem', 'COUNTRY/PER DIEM', '', '8');
+             CREATE TABLE `snsit`.`country_perdiem` ( `id` INT NOT NULL AUTO_INCREMENT , `id_country` INT NOT NULL , `per_diem` VARCHAR(60) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+             ALTER TABLE `country_perdiem` ADD FOREIGN KEY (`id_country`) REFERENCES `apps_countries`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+             ALTER TABLE `eas` ADD `country_perdiem_id` INT NULL AFTER `id_customer`;
+             ALTER TABLE `eas` ADD CONSTRAINT `eas_country_perdiem_id` FOREIGN KEY (`country_perdiem_id`) REFERENCES `apps_countries`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+             ALTER TABLE `expenses` ADD `country_id` INT NULL AFTER `pv_nb`;
+             ALTER TABLE `expenses` ADD FOREIGN KEY (`country_id`) REFERENCES `apps_countries`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;

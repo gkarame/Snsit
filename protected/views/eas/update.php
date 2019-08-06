@@ -36,7 +36,7 @@
 		<div class="header_content tache">
 			<?php $this->renderPartial('_header_content', array('model' => $model));?>
 		</div>
-		<div class="hidden edit_header_content tache new"></div>
+		<div class="hidden edit_header_content tache new" style="height: 165px;border: 2px solid rgba(255,0,0,0.68);"></div>
 		<br clear="all" />
 	</div>
 	<div id="ea_items">
@@ -424,7 +424,16 @@
 		  	success: function(data) {
 			  	if (data) {
 				  	if (data.status == 'success') {
-						$('.edit_header_content').html(data.html);	$('.edit_header_content').removeClass('hidden');	$('.header_content').addClass('hidden'); 	}  	} 		}	});
+						$('.edit_header_content').html(data.html);
+						$('.edit_header_content').removeClass('hidden');
+						$('.header_content').addClass('hidden');
+						if (data.country_perdiem_id != null){
+                            $('#ea-form #country_perdiem_checbox').attr('checked','checked')
+                        }
+				  	}
+			  	}
+		    }
+		});
 	}
 function updateTermSandU(element, id) {
 		var url = "<?php echo Yii::app()->createAbsoluteUrl('eas/manageTermSandU');?>";
@@ -655,6 +664,36 @@ function updateTermSandU(element, id) {
 		if (isNaN(val) || val == 0) {	$(element).val(""); } else { $(element).val(val); }
 	}
 	function updateHeader(element){
+	    <?php $country_perdiem = CountryPerdiem::model()->findAll()?>
+	    const country_prediem = JSON.parse('<?=CJSON::encode($country_perdiem);?>');
+	    let valid = true;
+	    const val_expence = $('#Eas_expense').val();
+	    const prediem_checbox = $('#perdiemchecbox input').attr('checked');
+	    const val_country_id = $('#Eas_country_perdiem_id').val();
+
+	    if (val_expence === 'Lump Sum' || (val_expence === 'Actuals' && prediem_checbox === 'checked')){
+	        let flag_val = false;
+            country_prediem.forEach(function (item) {
+                if(val_country_id == item.id_country){
+                    flag_val = true
+                }
+            });
+
+            if(!flag_val){
+                valid = false
+            }
+        }
+
+	    if (val_expence === 'Actuals' && prediem_checbox === undefined){
+            $('#Eas_country_id').val(0);
+        }
+
+	    if(!valid){
+	        alert('Country is not specified under settings');
+	        return false;
+	    }
+
+
 		$.ajax({ type: "POST", data: $('#header_fieldset').serialize()  + '&ajax=eas-form',					
 		  	url: "<?php echo Yii::app()->createAbsoluteUrl('eas/updateHeader', array('id' => $model->id));?>", dataType: "json",
 		  	success: function(data) {

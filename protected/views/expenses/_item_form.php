@@ -1,5 +1,20 @@
 <div class="tache new">
 	<div class="bg"></div>
+    <?php
+        $type = ExpensesDetails::getTypes();
+
+        if (isset($expense_model)){
+            $expense_modelu = $expense_model->expensesDetails;
+            foreach ($type as $k => $item){
+                foreach ($expense_modelu as $data){
+                    if ($k == $data['type']){
+                        unset($type[$k]);
+                    }
+                }
+            }
+        }
+    ?>
+
 	<?php $form=$this->beginWidget('CActiveForm', array(
 		'id'=>'expenses-form',
 		'enableAjaxValidation'=>false,	)); ?>
@@ -7,7 +22,7 @@
 		<div class="item inline-block one normal left11">
 			<?php echo $form->labelEx($model,'type'); ?>
 			<div class="selectRow">
-			<?php echo $form->dropDownList($model, 'type', ExpensesDetails::getTypes(),array('prompt'=>'')); ?> 
+			<?php echo $form->dropDownList($model, 'type', $type,array('prompt'=>'')); ?>
 			</div>
 			<?php echo $form->error($model,'type'); ?>
 		</div>

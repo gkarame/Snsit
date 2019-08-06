@@ -1,4 +1,4 @@
-<div class="bg ea_bg"><?php $can_modify=true; ?> </div>
+<?php $can_modify=true; ?>
 <fieldset id="header_fieldset">
 	<div class="textBox inline-block bigger_amt">
 		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"status"); ?></div>
@@ -68,16 +68,15 @@
 		</div>
 		<?php echo CCustomHtml::error($model, "billto_address", array('id'=>"Eas_billto_contact_person_em_")); ?>
 	</div>
-
 	<?php if($model->category == '25'){?>
 	<br clear="all"><?php }?>
 	<div class="textBox three-smaller inline-block itms" style=" margin-right: 0px;">
 			<div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "description"); ?></div>
-			<div class="input_text" style="   <?php if($model->category == 25) { echo ' width: 387px;'; } else{ echo ' width: 355px;';} ?> ">
+			<div class="input_text" style="   <?php if($model->category == 25) { echo 'width: 250px;'; } else{ echo ' width: 250px;';} ?> ">
 				<?php  if($model->category == '27' && $model->status<2){ 
-					echo CHtml::activeTextField($model, "description", array('class'=> 'input_text_value', 'style'=>' width:340px;',  'disabled' => $can_modify && ($model->category != '24') ? '' : 'disabled')); 
+					echo CHtml::activeTextField($model, "description", array('class'=> 'input_text_value', 'style'=>' width: 240px;',  'disabled' => $can_modify && ($model->category != '24') ? '' : 'disabled'));
 						}else{
-							echo CHtml::activeTextField($model, "description", array('class'=> 'input_text_value','style'=>' width:340px;','disabled' => $can_modify && ($model->category != '24') ? '' : 'disabled')); 
+							echo CHtml::activeTextField($model, "description", array('class'=> 'input_text_value','style'=>' width: 240px;','disabled' => $can_modify && ($model->category != '24') ? '' : 'disabled'));
 					
 						}
 					?>
@@ -114,16 +113,31 @@
 		</div>
 		<?php echo CCustomHtml::error($model, "customer_lpo", array('id'=>"Eas_customer_lpo_em_")); ?>
 	</div>	
-		
+
 	<div class="textBox bigger_amt inline-block " >
 		<div class="input_text_desc"><?php echo CHtml::activelabelEx($model,"crmOpp"); ?></div>
 		<div class="input_text"  style="width:62px  !important; ">
 			<?php echo CHtml::activeTextField($model, "crmOpp", array('class'=> 'input_text_value')); ?>
 		</div>
 		<?php echo CCustomHtml::error($model, "crmOpp", array('id'=>"crmOpp")); ?>
-	</div>	
-	<div style="right:85px; padding-top:75px;" class="save" onclick="updateHeader(this);return false;"><u><b>SAVE</b></u></div>
-	<div style=" left:833px; color:#333; padding-top:75px;" class="save" onclick="$(this).parents('.tache.new').siblings('.tache').removeClass('hidden');$(this).parents('.tache.new').addClass('hidden');$(this).parents('.tache.new').html('');"><u><b>CANCEL</b></u></div>
+	</div>
+    <div class="textBox inline-block bigger_amt country_perdiem" <?php if($model->expense === 'N/A'):?>style="display: none"<?php endif;?>>
+        <div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "country_perdiem_id"); ?> </div>
+        <div class="input_text <?=isset($model->country_perdiem_id)?'checked' : ''?>" style="width: auto;border: none;" id="perdiemchecbox">
+            <?php  echo CHtml::CheckBox('country_perdiem_checbox',isset($model->country_perdiem_id)?'checked' : '' ); ?>
+        </div>
+    </div>
+    <div class="textBox inline-block bigger_amt country_perdiem">
+        <div class="input_text_desc"><?php echo CHtml::label("Country",''); ?></div>
+        <div class="input_text">
+            <div class="hdselect">
+                <?php echo CHtml::dropDownList('Eas[country_perdiem_id]',isset($model->country_perdiem_id)?$model->country_perdiem_id:'', Country::getCountersDropDownOriginals(), array('prompt' => 'Choose country ', 'class' => 'codelist_dropdown','style' => 'z-index: 1000;')); ?>
+            </div>
+        </div>
+        <?php echo CCustomHtml::error($model, "country_perdiem_id", array('id'=>"Eas_country_perdiem_id_")); ?>
+    </div>
+    <div style="right:85px; padding-top:105px;" class="save" onclick="updateHeader(this);return false;"><u><b>SAVE</b></u></div>
+	<div style=" left:833px; color:#333; padding-top:105px;" class="save" onclick="$(this).parents('.tache.new').siblings('.tache').removeClass('hidden');$(this).parents('.tache.new').addClass('hidden');$(this).parents('.tache.new').html('');"><u><b>CANCEL</b></u></div>
 </fieldset>
 <script type="text/javascript">
 	$(function() {	changeExpense('#Eas_expense');	}); 
@@ -132,11 +146,22 @@
 		switch ($this.val()) {
 			case '': 
 				$('#Eas_lump_sum').parents('.textBox').addClass('hidden');
+				$('.country_perdiem').hide();
+                $('#perdiemchecbox input').removeAttr('checked').removeAttr('disabled');
 				break;
 			case 'N/A':
+                $('.country_perdiem').hide();
+                $('#perdiemchecbox input').removeAttr('checked').removeAttr('disabled');
+                break;
 			case 'Actuals':
-				$('#Eas_lump_sum').parents('.textBox').addClass('hidden');			
+				$('#Eas_lump_sum').parents('.textBox').addClass('hidden');
+                $('.country_perdiem').show();
+                $('#perdiemchecbox input').removeAttr('checked').removeAttr('disabled');
 				break;
+            case 'Lump Sum':
+                $('.country_perdiem').show();
+                $('#perdiemchecbox input').attr('checked','checked').attr('disabled','disabled');
+                break;
 			default:
 				$('#Eas_lump_sum').parents('.textBox').removeClass('hidden');
 				break;
