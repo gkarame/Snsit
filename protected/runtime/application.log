@@ -3561,3 +3561,353 @@ Stack trace:
 #24 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
 #25 C:\wamp\www\sns\index.php(26): CWebApplication->run()
 REQUEST_URI=/sns/incomingTransfers/update/62
+2019/07/30 07:25:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/31 07:23:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/31 07:59:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/31 08:00:31 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\InvoicesController.php(1334): SwiftMailer->Send(true)
+#5 C:\wamp\www\sns\protected\controllers\InvoicesController.php(492): InvoicesController::sendNotificationsEmails(Array, 'to_print')
+#6 [internal function]: InvoicesController->actionChangeStatus(NULL)
+#7 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(InvoicesController), Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(InvoicesController), Object(ReflectionMethod), Array)
+#9 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('changeStatus')
+#18 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('invoices/change...')
+#19 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\wamp\www\sns\index.php(26): CApplication->run()
+#21 {main}
+REQUEST_URI=/sns/invoices/changeStatus
+HTTP_REFERER=http://snsitn/sns/invoices/index
+---
+2019/07/31 08:00:43 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\InvoicesController.php(1334): SwiftMailer->Send(true)
+#5 C:\wamp\www\sns\protected\controllers\InvoicesController.php(492): InvoicesController::sendNotificationsEmails(Array, 'to_print')
+#6 [internal function]: InvoicesController->actionChangeStatus(NULL)
+#7 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(InvoicesController), Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(InvoicesController), Object(ReflectionMethod), Array)
+#9 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('changeStatus')
+#18 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('invoices/change...')
+#19 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\wamp\www\sns\index.php(26): CApplication->run()
+#21 {main}
+REQUEST_URI=/sns/invoices/changeStatus
+HTTP_REFERER=http://snsitn/sns/invoices/index
+---
+2019/07/31 08:00:55 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\InvoicesController.php(1334): SwiftMailer->Send(true)
+#5 C:\wamp\www\sns\protected\controllers\InvoicesController.php(492): InvoicesController::sendNotificationsEmails(Array, 'to_print')
+#6 [internal function]: InvoicesController->actionChangeStatus(NULL)
+#7 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(InvoicesController), Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(InvoicesController), Object(ReflectionMethod), Array)
+#9 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('changeStatus')
+#18 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('invoices/change...')
+#19 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\wamp\www\sns\index.php(26): CApplication->run()
+#21 {main}
+REQUEST_URI=/sns/invoices/changeStatus
+HTTP_REFERER=http://snsitn/sns/invoices/index
+---
+2019/07/31 08:01:07 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "no_reply@sns-emea.com" using 1 possible authenticators' in C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\lib\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\wamp\www\sns\protected\extensions\Yii-SwiftMailer-master\SwiftMailer.php(174): Swift_Mailer->send(Object(Swift_Message))
+#4 C:\wamp\www\sns\protected\controllers\InvoicesController.php(1334): SwiftMailer->Send(true)
+#5 C:\wamp\www\sns\protected\controllers\InvoicesController.php(492): InvoicesController::sendNotificationsEmails(Array, 'to_print')
+#6 [internal function]: InvoicesController->actionChangeStatus(NULL)
+#7 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(InvoicesController), Array)
+#8 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(InvoicesController), Object(ReflectionMethod), Array)
+#9 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('changeStatus')
+#18 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('invoices/change...')
+#19 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\wamp\www\sns\index.php(26): CApplication->run()
+#21 {main}
+REQUEST_URI=/sns/invoices/changeStatus
+HTTP_REFERER=http://snsitn/sns/invoices/index
+---
+2019/07/31 08:39:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/07/31 10:02:02 [error] [exception.CException] exception 'CException' with message 'CDbCriteria and its behaviors do not have a method or closure named "condition".' in C:\wamp\www\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\wamp\www\sns\protected\models\IncomingTransfers.php(399): CComponent->__call('condition', Array)
+#1 C:\wamp\www\sns\protected\models\IncomingTransfers.php(399): CDbCriteria->condition(' final_invoice_...')
+#2 C:\wamp\www\sns\protected\views\incomingTransfers\update.php(58): IncomingTransfers->getInvoicesProviderGrid()
+#3 C:\wamp\www\framework\web\CBaseController.php(126): require('C:\\wamp\\www\\sns...')
+#4 C:\wamp\www\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\wamp\\www\\sns...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(869): CBaseController->renderFile('C:\\wamp\\www\\sns...', Array, true)
+#6 C:\wamp\www\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#7 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(356): CController->render('update', Array)
+#8 [internal function]: IncomingTransfersController->actionUpdate('66', 0, NULL)
+#9 C:\wamp\www\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(IncomingTransfersController), Array)
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(IncomingTransfersController), Object(ReflectionMethod), Array)
+#11 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('update')
+#20 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('IncomingTransfe...')
+#21 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\wamp\www\sns\index.php(26): CApplication->run()
+#23 {main}
+REQUEST_URI=/sns/IncomingTransfers/update/66?IncomingTransfers%5Bsearched_inv%5D=6&ajax=items-grid
+HTTP_REFERER=http://snsitn/sns/IncomingTransfers/update/66
+---
+2019/08/02 07:40:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/02 08:45:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_highlight-soft_75_cccccc_1x100.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/02 08:48:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "uploads/users/58/documents/892/houdanasser@gmail.com.JPG".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('uploads/users/5...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/uploads/users/58/documents/892/houdanasser@gmail.com.JPG
+HTTP_REFERER=http://snsitn/sns/performance/view/58
+---
+2019/08/02 08:57:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/02 09:00:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/02 09:40:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/mCSB_buttons.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('images/mCSB_but...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/images/mCSB_buttons.png
+HTTP_REFERER=http://snsitn/sns/css/mCustomScrollbar.css
+---
+2019/08/02 09:40:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/02 09:44:31 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'. The SQL statement executed was: SELECT `values` from codelkups where id='425' .
+2019/08/02 09:44:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\controllers\EasController.php(1856): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): EasController->actionupdateDuration()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('updateDuration')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('eas/updateDurat...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/eas/updateDuration
+HTTP_REFERER=http://snsitn/sns/eas/update/1467?new=1
+---
+2019/08/06 09:12:40 [error] [php] Undefined variable: users (C:\wamp\www\sns\protected\models\IncomingTransfers.php:242)
+Stack trace:
+#0 C:\wamp\www\framework\zii\widgets\grid\CDataColumn.php(137): CDataColumn->evaluateExpression()
+#1 C:\wamp\www\framework\zii\widgets\grid\CGridColumn.php(151): CDataColumn->renderDataCellContent()
+#2 C:\wamp\www\framework\zii\widgets\grid\CGridView.php(616): CDataColumn->renderDataCell()
+#3 C:\wamp\www\framework\zii\widgets\grid\CGridView.php(572): CGridView->renderTableRow()
+#4 C:\wamp\www\framework\zii\widgets\grid\CGridView.php(482): CGridView->renderTableBody()
+#5 C:\wamp\www\framework\zii\widgets\CBaseListView.php(167): CGridView->renderItems()
+#6 unknown(0): CGridView->renderSection()
+#7 C:\wamp\www\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback()
+#8 C:\wamp\www\framework\zii\widgets\CBaseListView.php(135): CGridView->renderContent()
+#9 C:\wamp\www\framework\web\CBaseController.php(173): CGridView->run()
+#10 C:\wamp\www\sns\protected\views\incomingTransfers\index.php(38): IncomingTransfersController->widget()
+#11 C:\wamp\www\framework\web\CBaseController.php(126): require()
+#12 C:\wamp\www\framework\web\CBaseController.php(95): IncomingTransfersController->renderInternal()
+#13 C:\wamp\www\framework\web\CController.php(869): IncomingTransfersController->renderFile()
+#14 C:\wamp\www\framework\web\CController.php(782): IncomingTransfersController->renderPartial()
+#15 C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php(69): IncomingTransfersController->render()
+#16 C:\wamp\www\framework\web\actions\CInlineAction.php(49): IncomingTransfersController->actionIndex()
+#17 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#19 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#21 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#22 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#23 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#25 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#26 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#27 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/index
+2019/08/06 09:43:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/06 09:44:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/06 09:44:22 [error] [php] Undefined index: IncomingTransfers (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:735)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/getExcel
+2019/08/06 09:44:46 [error] [php] Undefined index: IncomingTransfers (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:735)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/getExcel
+2019/08/06 09:45:34 [error] [php] Undefined index: IncomingTransfers (C:\wamp\www\sns\protected\controllers\IncomingTransfersController.php:735)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(133): IncomingTransfersController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): IncomingTransfersController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(265): IncomingTransfersController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(282): IncomingTransfersController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
+REQUEST_URI=/sns/incomingTransfers/getExcel

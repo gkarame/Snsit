@@ -21,7 +21,7 @@ return array(
 		array('notes,id_customer, remarks','length','max'=>2000),
 		array('status','validateStatus'),
 		array('currency','validateCurrency'),
-		array('it_no,partner,id_customer, currency, offsetting, status,id_user,bank_dolphin,aux', 'safe', 'on'=>'search'),
+		array('it_no,partner,id_customer, currency, offsetting, status,id_user,bank_dolphin,aux,searched_inv', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations(){
@@ -238,8 +238,22 @@ return array(
             ),
 		));
 	}
+	public static function getDescriptionGrid($customers){
+		$arr = Utils::getShortText($customers, 25);
+		if ($customers != null)
+		return '<div class="first_it panel_container" style ="width: 150px !important;">'
+				.'<div class="item_clip clip"  style ="width: 150px !important;">'.$arr['text'].'</div>'
+				.'<u class="red">+</u>'
+				.'<div class="panel" style = "left:0px">'
+					.'<div class="phead"></div>'
+					.'<div class="pcontent"><div class="cover">'.$customers.'</div></div>'
+					.'<div class="pftr"></div>'
+				.'</div>'
+			.'</div>';
+	}
+
 	public static function getPaid(){
-		return "<select class=\"assigned_to\" style=\"width:40px;border:none;\" name=\"assigned_to\" id=\"assigned_to\">
+		return "<select class=\"assigned_to\" style=\"width:60px;border:none;\" name=\"assigned_to\" id=\"assigned_to\">
 		<option value=\"\"></option>
 		<option value=\"1\">Fully</option>
 		<option value=\"2\">Partial</option>
@@ -270,7 +284,7 @@ return array(
 			$wheredate =" AND MONTH(paid_date) = ".$month." ";
 		}
 		$selects= Yii::app()->db->createCommand("SELECT i.invoice_number, i.final_invoice_number, i.net_amount,  i.currency FROM receivables i , incoming_transfers tr where tr.id=".$tr." and i.old = 'No' and i.partner= ". $partner." and 
-			(	( tr.partner=i.partner and tr.partner!=77 and i.status!='Paid' and i.partner_status='Paid' ".$wheredate.") or ( tr.partner=77  and i.status!='Paid' and i.id_customer in (".$custid.") )) and i.invoice_number not in (select invoice_number from incoming_transfers_details where id_it=".$tr." ) ")->queryAll();
+			(	( tr.partner=i.partner and tr.partner!=77 and i.status!='Paid'  and i.id_customer in (".$custid.")  and i.partner_status='Paid' ".$wheredate.") or ( tr.partner=77  and i.status!='Paid' and i.id_customer in (".$custid.") )) and i.invoice_number not in (select invoice_number from incoming_transfers_details where id_it=".$tr." ) ")->queryAll();
 		return $selects;		
 	}
 
@@ -395,8 +409,8 @@ return array(
 			$criteria->condition = "(id_it = :tr)";	
 			$criteria->params = array(':tr' => $this->id);	
 
-			if((isset($_GET['IncomingTransfers']['it_no']) )){
-				$criteria->condition(" final_invoice_number like '%".$_GET['IncomingTransfers']['it_no']."%' " );
+			if((isset($_GET['IncomingTransfers']['searched_inv']) )){
+				$criteria->addCondition(" final_invoice_number like '%".$_GET['IncomingTransfers']['searched_inv']."%' " );
 			}
 	 	// print_r($criteria);exit;
 		return new CActiveDataProvider('IncomingTransfersDetails', array(

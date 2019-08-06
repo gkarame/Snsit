@@ -258,5 +258,17 @@ class InternalTasks extends CActiveRecord{
 		}
 		return $name;
 	}
+	public static function getAllUsersTaskForEmail($id){
+		$result =  Yii::app()->db->createCommand('SELECT id_user from user_internal where id_task='.$id)->queryAll();	$name = "";
+		foreach($result as $res){
+			$result_name =  Yii::app()->db->createCommand('SELECT firstname,lastname from users where id='.$res['id_user'])->queryAll();
+				foreach($result_name as $rname){	$fname =  strtoupper(substr($rname['lastname'], 0, 1));	$name.=ucwords($rname['firstname']).' '.$fname.'., '; }
+		}
+		if($name != '')
+		{
+			$name= substr($name, 0, (strlen($name)-2));
+		}
+		return $name;
+	}
 
 }?>

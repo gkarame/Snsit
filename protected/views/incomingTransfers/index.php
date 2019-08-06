@@ -19,8 +19,8 @@ $('.search-form form').submit(function(){	$.fn.yiiGridView.update('it-grid', { d
 		array('class'=>'CCheckBoxColumn','id'=>'checkinvoice','htmlOptions' => array('class' => 'item checkbox_grid_invoice'),'selectableRows'=>2,),
 		array('header'=>Yii::t('translations', 'TR #'),'value'=>'$data->renderRequestNumber()','name' => 'it_no',
 			'htmlOptions' => array('class' => 'column50'),'headerHtmlOptions' => array('class' => 'column50'),),
-        array('name' => 'id_customer','header' => Yii::t('translations', 'Customer'),'value' => 'IncomingTransfers::getName($data->id_customer)',
-			'htmlOptions' => array('class' => 'column90'),'headerHtmlOptions' => array('class' => 'column90'),),	
+        array('name' => 'id_customer','header' => Yii::t('translations', 'Customer'),'value' => 'IncomingTransfers::getDescriptionGrid(IncomingTransfers::getName($data->id_customer))',
+			'type'=>'raw','htmlOptions' => array('style' => 'width: 190px !important;', 'onmouseenter'=>"showToolTip(this);", "onmouseleave"=>"hideToolTip(this);"),'headerHtmlOptions' => array('style' => 'width: 190px !important;'),),	
 
 array('name' => 'partner','header' => Yii::t('translations', 'Partner'),'value' => 'Codelkups::getCodelkup($data->partner)',
 			'htmlOptions' => array('class' => 'column90'),'headerHtmlOptions' => array('class' => 'column90'),),	
@@ -171,6 +171,8 @@ function assignrecipients() {
 function UncheckAll () { $('[id^="checkinvoice"]').attr('checked',false);	 }
 
 function getExcel() {	
-			$('.action_list').hide(); window.location.replace("<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/getExcel');?>/?"); }
+
+			$('.action_list').hide(); window.location.replace("<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/getExcel');?>/?"); 
+		}
 
 </script>

@@ -698,9 +698,10 @@ class InternalController extends Controller{
 	                $taskinfo= InternalTasks::closedTaskslastTWOweekorAllInfo($select['id']);
 	                if(!empty($taskinfo))
 	                {
-	                	$message .= "<br/><br/><b>Closed Tasks (Last Two Weeks):</b><br/><br/><table border='1'  style='font-family:Calibri;' ><tr><th style='width:300px;'>Task</th><th style='width:100px;'>Priority</th><th style='width:400px;'>Remarks</th></tr>";
+	                	$message .= "<br/><br/><b>Closed Tasks (Last Two Weeks):</b><br/><br/><table border='1'  style='font-family:Calibri;' ><tr><th style='width:300px;'>Task</th><th style='width:100px;'>Priority</th><th style='width:400px;'>Remarks</th><th style='width:300px;'>Assignee(s)</th></tr>";
 	                	foreach($taskinfo as $t){
-	                		$message.="<tr><td>".$t['description']."</td> <td>".InternalTasks::getPriority($t['priority'])."</td> <td>".$t['notes']."</td></tr>";
+	                		$assignee= InternalTasks::getAllUsersTaskForEmail($t['id']);
+	                		$message.="<tr><td>".$t['description']."</td> <td>".InternalTasks::getPriority($t['priority'])."</td> <td>".$t['notes']."</td><td>".$assignee."</td></tr>";
 	                	}
 	                	$message .= "</table>";
 	                }

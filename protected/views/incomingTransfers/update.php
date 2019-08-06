@@ -5,6 +5,10 @@
 				<img src="<?php echo Yii::app()->getBaseUrl().'/images/loader.gif';?>" id="img"  style="display:none;padding-top:5px;width:20px;height:20px;"/ ></div></div>
 
 <div class="mytabs ir_edit">
+<?php Yii::app()->clientScript->registerScript('getInvoicesProviderGrid', "$('.search-form-checklist form').submit(function(){
+	$.fn.yiiGridView.update('items-grid', {		data: $(this).serialize()	});	return false; });"); ?>
+<div class="search-form-checklist hidden"><?php $this->renderPartial('_searchInvoice',array(	'model'=>$model,)); ?></div> 
+
 	<?php $form=$this->beginWidget('CActiveForm', array('id'=>'tr-form','enableAjaxValidation'=>false,
 		'htmlOptions' => array('class' => 'ajax_submit','enctype' => 'multipart/form-data',),	)); ?>
 	<div id="ir_header" class="edit_header">
@@ -26,17 +30,14 @@
 	<div id="ir_products">
 	<div class="header_title">	
 			<span class="red_title"><?php echo Yii::t('translations', 'TR INVOICES');?></span>
-			<?php if($model->status == 1){?> <a class="header_button" onclick="showInvoices(<?php echo  $model->id;?>);" >Add Invoices</a><?php }?>
+			<?php if($model->status == 1){?> <a class="header_button" style="margin-top: 29px;" onclick="showInvoices(<?php echo  $model->id;?>);" >Add Invoices</a><?php }?>
 		</div>
 
 		 
 		  	Final# &nbsp;&nbsp;<input type="text" name="inv" id="inv" class ='width141'>
 		 <?php echo CHtml::button(Yii::t('translations', 'Search'), array('style'=>'  margin-left: 10px;','onclick'=>'searchinv()')); ?>	 
  
-		<?php Yii::app()->clientScript->registerScript('getInvoicesProviderGrid', "$('.search-form-checklist form').submit(function(){
-	$.fn.yiiGridView.update('items-grid', {		data: $(this).serialize()	});	return false; });"); ?>
-<div class="search-form-checklist "><?php $this->renderPartial('_searchInvoice',array(	'model'=>$model,)); ?></div> 
-
+		
 
 		<div id="ir_products_content" class="border-grid grid">
 			<?php	$buttons = array();		$tmp = '';
@@ -118,7 +119,7 @@ function showInvoices(tr){
 function searchinv()
 {
 	inv=document.getElementById('inv').value ;
-	 $('#IncomingTransfers_it_no').val(inv);$('.search-btn').trigger('click');
+	 $('#IncomingTransfers_searched_inv').val(inv);$('.search-btn').trigger('click');
 
 
 }
