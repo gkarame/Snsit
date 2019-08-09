@@ -131,7 +131,7 @@
         <div class="input_text_desc"><?php echo CHtml::label("Country",''); ?></div>
         <div class="input_text">
             <div class="hdselect">
-                <?php echo CHtml::dropDownList('Eas[country_perdiem_id]',isset($model->country_perdiem_id)?$model->country_perdiem_id:'', Country::getCountersDropDownOriginals(), array('prompt' => 'Choose country ', 'class' => 'codelist_dropdown','style' => 'z-index: 1000;')); ?>
+                <?php echo CHtml::dropDownList('Eas[country_perdiem_id]',isset($model->country_perdiem_id)?$model->country_perdiem_id:$country_choose['id'], Country::getCountersDropDownOriginals(), array('prompt' => 'Choose country ', 'class' => 'codelist_dropdown','style' => 'z-index: 1000;')); ?>
             </div>
         </div>
         <?php echo CCustomHtml::error($model, "country_perdiem_id", array('id'=>"Eas_country_perdiem_id_")); ?>

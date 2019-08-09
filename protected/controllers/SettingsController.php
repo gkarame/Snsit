@@ -57,29 +57,38 @@ class SettingsController extends Controller{
         $country_perdiem = new CountryPerdiem();
         $country_perdiem->id_country = (int)$_POST['country_id'];
         $country_perdiem->per_diem = $_POST['perdiem'];
-        $country = Yii::app()->db->createCommand('SELECT * from apps_countries where id='.(int)$_POST['country_id'])->queryAll();
         if ($country_perdiem->save()){
-            echo json_encode([
-                'country_perdiem' => $country_perdiem->getAttributes(),
-                'country' => $country[0]
-            ]);
+            echo $this->getCountryPrediemHtmlOption();
         }else{
             echo json_encode(['error' => 'Date don`t save!']);
         }
     }
     public function actionEditCountryPerdiem(){
         $edit = CountryPerdiem::model()->updateByPk((int)$_POST['id'],array('per_diem'=>$_POST['val']));
-        if ($edit) {echo true;}
+        if ($edit) {
+            echo $this->getCountryPrediemHtmlOption();
+        }
         else {echo false;}
 
     }
     public function actionDeleteCountryPerdiem($id)
     {
         if (CountryPerdiem::model()->find('id=:id', array(':id'=>(int)$id))->delete()){
-            echo true;
+            echo $this->getCountryPrediemHtmlOption();
         }else{
             echo false;
         }
+    }
+
+    protected function getCountryPrediemHtmlOption(){
+        $data = CountryPerdiem::getAllRecords();
+        $html = '';
+        foreach ($data as $item){
+            $html .= <<<XER
+<option onclick="$('#save_country_perdiem_select').attr('data-country','{$item->getRelated('countryData')->country_name}').attr('data-prediem','{$item->per_diem}')" value="{$item->id}">{$item->getRelated('countryData')->country_name} - {$item->per_diem}</option>;
+XER;
+        }
+        return $html;
     }
 
     public function actionEditSettings(){

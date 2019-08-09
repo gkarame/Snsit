@@ -664,11 +664,24 @@ public function actionGetRegion($id){
 				Yii::app()->end();
 			}
 		}
+		$customer_country = Yii::app()->db->createCommand()
+            ->select('ck.codelkup')
+            ->from('codelkups ck')
+            ->join('customers c', 'c.country=ck.id')
+            ->join('eas e', 'e.id_customer=c.id')
+            ->where('e.id=:id', array(':id'=>$id))
+            ->queryRow();
+
+		$country_choose = Yii::app()->db->createCommand()
+            ->select('id')
+            ->from('apps_countries')
+            ->where('country_name=:country_name', array(':country_name'=>$customer_country['codelkup']))
+            ->queryRow();
 		echo json_encode(array_merge(array(
                         'country_perdiem_id' => $model->country_perdiem_id,
 						'status' => 'success',					
 						'can_modify' => $model->isEditable(),
-						'html' => $this->renderPartial('_edit_header_content', array('model' => $model), true, true)
+						'html' => $this->renderPartial('_edit_header_content', array('model' => $model,'country_choose' => $country_choose), true, true)
 				), $extra));
 		Yii::app()->end();
 	}	

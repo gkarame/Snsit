@@ -137,42 +137,70 @@
                     }
                 });
             });
-
-        $('#codelists_8').append(`
-                      <?php if($len_countryes_perdier !== 0):?>
-                        <?php foreach ($all_countries_perdiem as $item):?>
-                            <div id="save_country_perdiem_<?=$item->id?>" class="codelist textBox inline-block<?php echo ($i == $len - 1 && $len_countryes_perdier !== 0) ? ' last' : ''; ?>"
+        <?php if($len_countryes_perdier !== 0):?>
+            $('#codelists_8').append(`
+                            <div id="save_country_perdiem" class="codelist textBox inline-block last">
                                 <div class="normal_mode">
-                                    <div class="codelist_name input_text_desc">COUNTRY/PER DIEM</div>
-                                    <div class="input_text input_text_two_col">
+                                    <div class="codelist_name input_text_desc">SAVE COUNTRY/PER DIEM</div>
+                                    <div class="input_text">
                                         <div class="hdselect">
-                                            <?=CHtml::textField('country_id',$item->getRelated('countryData')->country_name, array('class' => 'codelist_dropdown', 'id' => 'save_country_id_'.$item->id,'style' => 'z-index: 1000;top: -5px;','readonly'=>"readonly")); ?>
+                                            <select data-country="" data-prediem="" class="codelist_dropdown" name="save_country_perdiem_select" id="save_country_perdiem_select">
+                                                <option value=""></option>
+                                                <?php foreach ($all_countries_perdiem as $item):?>
+                                                    <option onclick="$('#save_country_perdiem_select').attr('data-country','<?=$item->getRelated('countryData')->country_name?>').attr('data-prediem','<?=$item->per_diem?>')" value="<?=$item->id?>"><?=$item->getRelated('countryData')->country_name . ' - ' . $item->per_diem?></option>
+                                                <?php endforeach;?>
+                                            </select>
                                         </div>
-                                    </div>
-                                    <div class="input_text" style="width: 93px;float: left;margin-left: 0;background-position: right;">
-                                        <?=CHtml::textField('perdier', $item->per_diem, array('id' => 'save_perdier_' . $item->id, 'class' => 'codelkup_input','style' => 'width: 100%;z-index: 1000;')); ?>
                                     </div>
                                     <div class="btnsList" style="top: 5px;">
                                         <a class="editCodelkup manageCodelkup"
                                             href="javascript:void(0);"
-                                            onclick="editPrediem(<?=$item->id?>);return false;">EDIT</a>
+                                            onclick="editPrediem();return false;">EDIT</a>
                                         <a class="deleteCodelkup red"
                                        href="<?php echo Yii::app()->createAbsoluteUrl('settings/DeleteCountryPerdiem'); ?>"
-                                       onclick="deleteCountryPrediem(this,<?=$item->id?>);return false;">DELETE</a>
+                                       onclick="deleteCountryPrediem(this);return false;">DELETE</a>
                                     </div>
                                 </div>
                             </div>
-                        <?php endforeach;?>
-                      <?php endif;?>
-
-        `);
+                            <div class="edit_mode" style="display: none;" id="save_country_perdiem_edit">
+                                <div class="bg1" style="display: block;"></div>
+                                <div class="codelist_name input_text_desc" style="padding-top: 10px;">Edit COUNTRY/PER DIEM</div>
+                                <div class="" style="display: flex;padding: 10px 0;margin-right: 27px;">
+                                    <input data-prediem-id="" id="edit_country" readonly="readonly" style="padding: 1px 5px;width: 50%;height: 25px;border: 2px solid #ccc;border-radius: 5px 0 0 5px;"  class="codelkup_input edit_input" type="text" value="df" name="">
+                                    <input id="edit_prediem" style="padding: 1px 5px;width: 50%;height: 25px;border: 2px solid #ccc;border-radius: 0 5px 5px 0;z-index: 1000;" class="codelkup_input edit_input" type="text" value="df" name="">
+                                </div>                                                                                                                                <div style="display:none;" class="error red"></div>
+                                <div class="btnsList">
+                                     <a class="save red" href="javascript:void(0);" onclick="saveChangeCountryPerdier(this);return false;">SAVE</a>
+                                     <a class="cancel" href="javascript:void(0);" onclick="$('#save_country_perdiem_edit').toggle();$('#save_country_perdiem').toggle();return false;">CANCEL</a>
+                                </div>
+                            </div>
+            `);
+        <?php endif;?>
     });
 
-    function editPrediem(id) {
-        const val = $(`#save_perdier_${id}`).val();
+    function editPrediem() {
+        const val = $('#save_country_perdiem_select').val();
+        const country = $('#save_country_perdiem_select').attr('data-country');
+        const prediem = $('#save_country_perdiem_select').attr('data-prediem');
+
+        if (country.length > 0){
+            $('#edit_country').val(country).attr('data-prediem-id',val);
+            $('#edit_prediem').val(prediem);
+
+            $('#save_country_perdiem_edit').toggle();
+            $('#save_country_perdiem').toggle();
+        }
+    }
+
+    function saveChangeCountryPerdier() {
+        const id = $('#edit_country').attr('data-prediem-id');
+        const val = $('#edit_prediem').val();
+
         $.post(`<?=Yii::app()->createAbsoluteUrl('settings/EditCountryPerdiem'); ?>`,{id,val},function (data) {
-            if (data == 1){
-                alert('Success')
+            if (data != 0){
+                $('#save_country_perdiem_select').html(data)
+                $('#save_country_perdiem_edit').toggle();
+                $('#save_country_perdiem').toggle();
             } else{
                 alert('Error!')
             }
@@ -184,40 +212,25 @@
         const perdiem = $('#perdier_'+id).val();
         if(country_id.length !== 0 && perdiem.length !== 0){
             $.post(configJs.urls.baseUrl + '/settings/SaveCountryPerdiem',{country_id, perdiem},function (data) {
-                data = JSON.parse(data);
-                $('#codelists_8').append(`
-                             <div id="save_country_perdiem_${data.country_perdiem.id}" class="codelist textBox inline-block"
-                                <div class="normal_mode">
-                                    <div class="codelist_name input_text_desc">COUNTRY/PER DIEM</div>
-                                    <div class="input_text input_text_two_col">
-                                        <div class="hdselect">
-                                            <input class="codelist_dropdown" id="save_country_id_${data.country_perdiem.id}" style="z-index: 1000;top: -5px;" readonly="readonly" type="text" value="${data.country.country_name}" name="country_id">
-                                        </div>
-                                    </div>
-                                    <div class="input_text" style="width: 93px;float: left;margin-left: 0;background-position: right;">
-                                        <input id="save_perdier_${data.country_perdiem.id}" class="codelkup_input" style="width: 100%;z-index: 1000;" readonly="readonly" type="text" value="${data.country_perdiem.per_diem}" name="perdier">
-                                    </div>
-                                    <a class="deleteCodelkup red"
-                                       href="<?php echo Yii::app()->createAbsoluteUrl('settings/DeleteCountryPerdiem'); ?>"
-                                       onclick="deleteCountryPrediem(this,${data.country_perdiem.id});return false;">DELETE</a>
-                                </div>
-                            </div>
-                `);
+                $('#save_country_perdiem_select').html(data)
             });
         }else {
             alert('Input don`t be blank')
         }
     }
 
-    function deleteCountryPrediem(element,id) {
-        var $this = $(element);
-        var url = $this.attr('href');
+    function deleteCountryPrediem(element) {
+        const id = $('#save_country_perdiem_select').val();
+        if (id.length > 0){
+            var $this = $(element);
+            var url = $this.attr('href');
 
-        if (confirm('DELETE')){
-            $.get(`${url}/${id}`,function (data) {
-                if (data == 1) $('#save_country_perdiem_'+id).remove();
-                else alert('Error')
-            });
+            if (confirm('DELETE')){
+                $.get(`${url}/${id}`,function (data) {
+                    if (data != 0) $('#save_country_perdiem_select').html(data);
+                    else alert('Error')
+                });
+            }
         }
     }
 
