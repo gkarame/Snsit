@@ -372,10 +372,10 @@ public function actionGetRegion($id){
 		if (isset($_POST['Eas']))
 		{
 			unset($_POST['Eas']['category']);	unset($_POST['Eas']['project_name']);	unset($_POST['Eas']['id_parent_project']);	unset($_POST['Eas']['id_customer']);
-			if ($_POST['Eas']['country_perdiem_id'] == '0' || $_POST['Eas']['country_perdiem_id'] == '' || $_POST['Eas']['expense'] == 'N/A' ||  !isset($_POST['country_perdiem_checbox'])){
-                $model->country_perdiem_id = null;
+			if ($_POST['Eas']['country_perdiem'] == '' || $_POST['Eas']['expense'] == 'N/A' ||  !isset($_POST['country_perdiem_checbox'])){
+                $model->country_perdiem = null;
             }else{
-                $model->country_perdiem_id = (int)$_POST['Eas']['country_perdiem_id'];
+                $model->country_perdiem = $_POST['Eas']['country_perdiem'];
             }
 			if (isset($_POST['Eas']['billto_contact_person']) && $_POST['Eas']['billto_contact_person'] != $model->billto_contact_person){		
 					$model->billto_contact_person= $_POST['Eas']['billto_contact_person']; } 
@@ -431,8 +431,8 @@ public function actionGetRegion($id){
 					switch ($_POST['Eas']['expense']){
 						case 'N/A':
 						case 'Actuals':
-                        if(empty($_POST['Eas']['country_perdiem_id']) && $_POST['country_perdiem_checbox'] == 1){
-                            $model->addCustomError('country_perdiem_id', 'Country cannot be blank');
+                        if(empty($_POST['Eas']['country_perdiem']) && $_POST['country_perdiem_checbox'] == 1){
+                            $model->addCustomError('country_perdiem', 'Country cannot be blank');
                         }
 							break;
 						case '':
@@ -443,8 +443,8 @@ public function actionGetRegion($id){
 							{
 								$model->addCustomError('lump_sum', 'Lump Sum cannot be blank');
 							}
-                            if(empty($_POST['Eas']['country_perdiem_id']) && !empty($_POST['Eas']['lump_sum'])){
-                                $model->addCustomError('country_perdiem_id', 'Country cannot be blank');
+                            if(empty($_POST['Eas']['country_perdiem']) && !empty($_POST['Eas']['lump_sum'])){
+                                $model->addCustomError('country_perdiem', 'Country cannot be blank');
                             }
 							break;
 					}
@@ -671,17 +671,11 @@ public function actionGetRegion($id){
             ->join('eas e', 'e.id_customer=c.id')
             ->where('e.id=:id', array(':id'=>$id))
             ->queryRow();
-
-		$country_choose = Yii::app()->db->createCommand()
-            ->select('id')
-            ->from('apps_countries')
-            ->where('country_name=:country_name', array(':country_name'=>$customer_country['codelkup']))
-            ->queryRow();
 		echo json_encode(array_merge(array(
-                        'country_perdiem_id' => $model->country_perdiem_id,
+                        'country_perdiem_id' => $model->country_perdiem,
 						'status' => 'success',					
 						'can_modify' => $model->isEditable(),
-						'html' => $this->renderPartial('_edit_header_content', array('model' => $model,'country_choose' => $country_choose), true, true)
+						'html' => $this->renderPartial('_edit_header_content', array('model' => $model,'country_choose' => $customer_country), true, true)
 				), $extra));
 		Yii::app()->end();
 	}	

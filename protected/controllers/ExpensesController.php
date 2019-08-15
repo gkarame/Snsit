@@ -141,20 +141,19 @@ class ExpensesController extends Controller{
 			)
 		))));
 		Yii::app()->session['menu'] = $this->action_menu;		
-		$model = new Expenses();		
+		$model = new Expenses();
 		if (isset($_POST['Expenses'])){
-		    $prediem = CountryPerdiem::model()->find('id_country=:id',array('id' => (int)$_POST['Expenses']['country_id']));
+		    $prediem = Yii::app()->db->createCommand("SELECT cp.*,ac.country_name FROM country_perdiem AS cp JOIN apps_countries AS ac ON ac.id=cp.id_country WHERE  ac.country_name='".$_POST['Expenses']['country_id']."'")->queryAll();
             $has_perdiem = false;
-
 		    if (!empty($_POST['Expenses']['project_id'])){
                 $prediem_eas = Eas::model()->findAll('id_project=:project',array('project' => (int)$_POST['Expenses']['project_id']));
 
                 foreach ($prediem_eas as $item){
-                    if (isset($item['country_perdiem_id'])) $has_perdiem = true;
+                    if (isset($item['country_perdiem'])) $has_perdiem = true;
                 }
             }
 
-		    if (!isset($prediem) && $has_perdiem){
+		    if (empty($prediem) && $has_perdiem){
                 $model->addError('country_id','Country is not specified under settings');
             }
 
@@ -187,7 +186,7 @@ class ExpensesController extends Controller{
                         $expense_prediem->expenses_id = $model->id;
                         $expense_prediem->type = 47;
                         $expense_prediem->currency_rate_id = 66;
-                        $expense_prediem->original_amount = (float)$prediem['per_diem'] * $diff_date;
+                        $expense_prediem->original_amount = (float)$prediem[0]['per_diem'] * $diff_date;
                         $expense_prediem->amount = $expense_prediem->original_amount;
                         $expense_prediem->billable = "Yes";
                         $expense_prediem->payable = "Yes";

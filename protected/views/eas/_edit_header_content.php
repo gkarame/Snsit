@@ -122,19 +122,19 @@
 		<?php echo CCustomHtml::error($model, "crmOpp", array('id'=>"crmOpp")); ?>
 	</div>
     <div class="textBox inline-block bigger_amt country_perdiem" <?php if($model->expense === 'N/A'):?>style="display: none"<?php endif;?>>
-        <div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "country_perdiem_id"); ?> </div>
-        <div class="input_text <?=isset($model->country_perdiem_id)?'checked' : ''?>" style="width: auto;border: none;" id="perdiemchecbox">
-            <?php  echo CHtml::CheckBox('country_perdiem_checbox',isset($model->country_perdiem_id)?'checked' : '' ); ?>
+        <div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "country_perdiem"); ?> </div>
+        <div class="input_text <?=isset($model->country_perdiem)?'checked' : ''?>" style="width: auto;border: none;" id="perdiemchecbox">
+            <?php  echo CHtml::CheckBox('country_perdiem_checbox',isset($model->country_perdiem)?'checked' : '' ); ?>
         </div>
     </div>
     <div class="textBox inline-block bigger_amt country_perdiem">
         <div class="input_text_desc"><?php echo CHtml::label("Country",''); ?></div>
         <div class="input_text">
             <div class="hdselect">
-                <?php echo CHtml::dropDownList('Eas[country_perdiem_id]',isset($model->country_perdiem_id)?$model->country_perdiem_id:$country_choose['id'], Country::getCountersDropDownOriginals(), array('prompt' => 'Choose country ', 'class' => 'codelist_dropdown','style' => 'z-index: 1000;')); ?>
+                <?php echo CHtml::textField('Eas[country_perdiem]',isset($country_choose['codelkup'])?$country_choose['codelkup']:'', array('prompt' => 'Choose country ', 'class' => 'codelist_dropdown','style' => 'z-index: 1000;')); ?>
             </div>
         </div>
-        <?php echo CCustomHtml::error($model, "country_perdiem_id", array('id'=>"Eas_country_perdiem_id_")); ?>
+        <?php echo CCustomHtml::error($model, "country_perdiem", array('id'=>"Eas_country_perdiem_id_")); ?>
     </div>
     <div style="right:85px; padding-top:105px;" class="save" onclick="updateHeader(this);return false;"><u><b>SAVE</b></u></div>
 	<div style=" left:833px; color:#333; padding-top:105px;" class="save" onclick="$(this).parents('.tache.new').siblings('.tache').removeClass('hidden');$(this).parents('.tache.new').addClass('hidden');$(this).parents('.tache.new').html('');"><u><b>CANCEL</b></u></div>
@@ -156,7 +156,7 @@
 			case 'Actuals':
 				$('#Eas_lump_sum').parents('.textBox').addClass('hidden');
                 $('.country_perdiem').show();
-                $('#perdiemchecbox input').removeAttr('checked').removeAttr('disabled');
+                $('#perdiemchecbox input').removeAttr('disabled');
 				break;
             case 'Lump Sum':
                 $('.country_perdiem').show();
