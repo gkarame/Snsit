@@ -516,6 +516,7 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/scripts/jquery-1.10.2.min.map
 ---
+<<<<<<< HEAD
 2019/07/03 07:32:42 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'mds' in 'field list'. The SQL statement executed was: SELECT mds FROM eas WHERE id_project =782 .
 2019/07/03 07:32:43 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'mds' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
 Stack trace:
@@ -3911,3 +3912,771 @@ Stack trace:
 #9 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
 #10 C:\wamp\www\sns\index.php(26): CWebApplication->run()
 REQUEST_URI=/sns/incomingTransfers/getExcel
+=======
+2019/07/31 17:02:18 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/07/31 17:02:20 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php:337
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('GetCountryCusto...')
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/GetCou...')
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#12 {main}
+REQUEST_URI=/expenses/GetCountryCustomerProject
+HTTP_REFERER=http://snsit.loc/expenses/create
+---
+2019/07/31 17:04:19 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/07/31 17:06:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/07/31 17:07:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/07/31 17:12:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:12:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:14:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:14:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/07/31 17:16:43 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:16:47 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/07/31 17:17:31 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:18:14 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:18:42 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:19:17 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:19:31 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:22:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "scripts/jquery-1.10.2.min.map". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('scripts/jquery-...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/scripts/jquery-1.10.2.min.map
+---
+2019/07/31 17:22:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/07/31 17:32:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'expense' cannot be null. The SQL statement executed was: UPDATE `eas` SET `id`=:yp0, `id_customer`=:yp1, `country_perdiem_id`=:yp2, `ea_number`=:yp3, `description`=:yp4, `id_project`=:yp5, `currency`=:yp6, `status`=:yp7, `author`=:yp8, `created`=:yp9, `approved`=:yp10, `file`=:yp11, `category`=:yp12, `customer_lpo`=:yp13, `discount`=:yp14, `expense`=:yp15, `start_date`=:yp16, `end_date`=:yp17, `TM`=:yp18, `billto_contact_person`=:yp19, `billto_address`=:yp20, `primary_contact_name`=:yp21, `netamountusd`=:yp22, `netmandayrateusd`=:yp23, `old`=:yp24, `project_n`=:yp25, `send_email`=:yp26, `approver`=:yp27, `crmOpp`=:yp28, `rate`=:yp29, `template`=:yp30, `customization`=:yp31, `support_percent`=:yp32, `support_amt`=:yp33, `mds`=:yp34, `id_parent_project`=:yp35 WHERE `eas`.`id`=1526.
+2019/07/31 17:32:25 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'expense' cannot be null in F:\OSPanel_5_2_9\OSPanel\domains\framework\db\CDbCommand.php:358
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\db\ar\CActiveRecord.php(1756): CDbCommand->execute()
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\db\ar\CActiveRecord.php(1130): CActiveRecord->updateByPk('1526', Array)
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\db\ar\CActiveRecord.php(811): CActiveRecord->update(NULL)
+#3 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\EasController.php(605): CActiveRecord->save()
+#4 [internal function]: EasController->actionUpdateHeader(1526)
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(EasController), Array)
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EasController), Object(ReflectionMethod), Array)
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#11 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#14 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('updateHeader')
+#16 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('eas/updateHeade...')
+#17 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#19 {main}
+REQUEST_URI=/eas/updateHeader/1526
+HTTP_REFERER=http://snsit.loc/eas/update/1526
+---
+2019/07/31 17:37:02 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/07/31 17:41:07 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 09:45:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'snsit.users.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT users.id AS userid, users.firstname, users.lastname, count(expenses.id) as total, projects.name AS nameProject, projects.project_manager
+		FROM expenses 
+		LEFT JOIN users ON (expenses.user_id = users.id) 
+		LEFT JOIN projects ON (expenses.project_id = projects.id)
+		WHERE expenses.status = 'Submitted' and users.id<> projects.project_manager
+		GROUP BY projects.project_manager, projects.name 
+union
+SELECT users.id AS userid, users.firstname, users.lastname, count(expenses.id) as total, projects.name AS nameProject, projects.business_manager
+		FROM expenses 
+		LEFT JOIN users ON (expenses.user_id = users.id) 
+		LEFT JOIN projects ON (expenses.project_id = projects.id)
+		WHERE expenses.status = 'Submitted' and users.id= projects.project_manager
+		GROUP BY projects.business_manager, projects.name
+order by userid ASC
+.
+2019/08/01 09:45:22 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'snsit.users.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in F:\OSPanel_5_2_9\OSPanel\domains\framework\db\CDbCommand.php:543
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\models\Expenses.php(261): CDbCommand->queryAll()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\views\site\_alerts_list.php(25): Expenses::getLastExpenses('Submitted')
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(126): require('F:\\OSPanel_5_2_...')
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\\OSPanel_5_2_...', NULL, true)
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(872): CBaseController->renderFile('F:\\OSPanel_5_2_...', NULL, true)
+#6 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\views\layouts\main.php(31): CController->renderPartial('//site/_alerts_...')
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(126): require('F:\\OSPanel_5_2_...')
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\\OSPanel_5_2_...', Array, true)
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('F:\\OSPanel_5_2_...', Array, true)
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div class="con...')
+#11 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div class="con...')
+#12 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(215): COutputProcessor->run()
+#13 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(309): CBaseController->endWidget('CContentDecorat...')
+#14 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\views\layouts\column1.php(4): CBaseController->endContent()
+#15 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(126): require('F:\\OSPanel_5_2_...')
+#16 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\\OSPanel_5_2_...', Array, true)
+#17 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(787): CBaseController->renderFile('F:\\OSPanel_5_2_...', Array, true)
+#18 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\SiteController.php(67): CController->render('index', Array)
+#19 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#20 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#22 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#23 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('')
+#25 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#26 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#28 {main}
+REQUEST_URI=/
+---
+2019/08/01 09:45:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'snsit.users.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT users.id AS userid, users.firstname, users.lastname, count(expenses.id) as total, projects.name AS nameProject, projects.project_manager
+		FROM expenses 
+		LEFT JOIN users ON (expenses.user_id = users.id) 
+		LEFT JOIN projects ON (expenses.project_id = projects.id)
+		WHERE expenses.status = 'Submitted' and users.id<> projects.project_manager
+		GROUP BY projects.project_manager, projects.name 
+union
+SELECT users.id AS userid, users.firstname, users.lastname, count(expenses.id) as total, projects.name AS nameProject, projects.business_manager
+		FROM expenses 
+		LEFT JOIN users ON (expenses.user_id = users.id) 
+		LEFT JOIN projects ON (expenses.project_id = projects.id)
+		WHERE expenses.status = 'Submitted' and users.id= projects.project_manager
+		GROUP BY projects.business_manager, projects.name
+order by userid ASC
+.
+2019/08/01 09:54:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 09:55:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 09:56:40 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 09:57:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 09:58:15 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 10:08:08 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 10:15:46 [error] [php] Undefined index: country_id (F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php:146)
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): ExpensesController->run()
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CWebApplication->run()
+REQUEST_URI=/expenses/create
+2019/08/01 10:18:12 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 10:24:29 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 10:26:01 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 10:54:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 10:56:15 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 10:56:24 [error] [exception.Exception] Exception: DateTime::__construct(): Failed to parse time string (14/08/2019) at position 0 (1): Unexpected character in F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php:169
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php(169): DateTime->__construct('14/08/2019')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('create')
+#11 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/create')
+#12 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#14 {main}
+REQUEST_URI=/expenses/create
+HTTP_REFERER=http://snsit.loc/expenses/create
+---
+2019/08/01 11:07:19 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 11:10:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 11:15:18 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 11:20:31 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 11:36:38 [error] [exception.CException] CException: Property "ExpensesDetails.expensesDetails" is not defined. in F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CComponent.php:130
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\db\ar\CActiveRecord.php(145): CComponent->__get('expensesDetails')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\views\expenses\_item_form.php(4): CActiveRecord->__get('expensesDetails')
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(126): require('F:\\OSPanel_5_2_...')
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\\OSPanel_5_2_...', Array, true)
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(872): CBaseController->renderFile('F:\\OSPanel_5_2_...', Array, true)
+#5 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php(487): CController->renderPartial('_item_form', Array, true, true)
+#6 [internal function]: ExpensesController->actionManageItem('17355')
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(ExpensesController), Array)
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ExpensesController), Object(ReflectionMethod), Array)
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#13 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#16 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('manageItem')
+#18 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/manage...')
+#19 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#21 {main}
+REQUEST_URI=/expenses/manageItem/17355
+HTTP_REFERER=http://snsit.loc/expenses/update/3411?new=1
+---
+2019/08/01 11:43:48 [error] [php] Undefined variable: expense_model (F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\views\expenses\_item_form.php:4)
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php(455): ExpensesController->renderPartial()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreateItem()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): ExpensesController->run()
+#12 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CWebApplication->run()
+REQUEST_URI=/expenses/createItem
+2019/08/01 11:46:40 [error] [php] Trying to get property 'expensesDetails' of non-object (F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\views\expenses\_item_form.php:6)
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php(455): ExpensesController->renderPartial()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreateItem()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): ExpensesController->run()
+#12 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CWebApplication->run()
+REQUEST_URI=/expenses/createItem
+2019/08/01 11:49:58 [error] [php] Undefined variable: expense_model (F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\views\expenses\_item_form.php:5)
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php(455): ExpensesController->renderPartial()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreateItem()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): ExpensesController->run()
+#12 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CWebApplication->run()
+REQUEST_URI=/expenses/createItem
+2019/08/01 15:44:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 15:44:58 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 15:45:58 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php:33
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php(250): ExpensesController->loadModel(1)
+#1 [internal function]: ExpensesController->actionUpdate(1, 0)
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs(Object(ExpensesController), Array)
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ExpensesController), Object(ReflectionMethod), Array)
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('update')
+#13 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/update')
+#14 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#16 {main}
+REQUEST_URI=/expenses/update/1?_=1564663547740
+HTTP_REFERER=http://snsit.loc/expenses/update/3412
+---
+2019/08/01 15:46:43 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 15:46:50 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php:337
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('GetCountryCusto...')
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/GetCou...')
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#12 {main}
+REQUEST_URI=/expenses/GetCountryCustomerProject/
+HTTP_REFERER=http://snsit.loc/expenses/create
+---
+2019/08/01 16:41:54 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 16:41:57 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php:337
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('GetCountryCusto...')
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/GetCou...')
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#12 {main}
+REQUEST_URI=/expenses/GetCountryCustomerProject/
+HTTP_REFERER=http://snsit.loc/expenses/create
+---
+2019/08/01 16:43:53 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 16:43:56 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php:337
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('GetCountryCusto...')
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/GetCou...')
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#12 {main}
+REQUEST_URI=/expenses/GetCountryCustomerProject/
+HTTP_REFERER=http://snsit.loc/expenses/create
+---
+2019/08/01 16:44:11 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php:337
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): CController->run('GetCountryCusto...')
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/GetCou...')
+#10 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#12 {main}
+REQUEST_URI=/expenses/GetCountryCustomerProject/
+HTTP_REFERER=http://snsit.loc/expenses/create
+---
+2019/08/01 16:44:44 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "images/mCSB_buttons.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('images/mCSB_but...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/images/mCSB_buttons.png
+HTTP_REFERER=http://snsit.loc/css/mCustomScrollbar.css
+---
+2019/08/01 16:55:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 17:00:53 [error] [php] Undefined variable: prediem_eas (F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php:151)
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#4 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(291): CFilterChain->run()
+#6 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#7 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(282): ExpensesController->run()
+#8 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CWebApplication->run()
+REQUEST_URI=/expenses/create
+2019/08/01 17:11:08 [error] [exception.ParseError] ParseError: syntax error, unexpected '{' in F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\protected\controllers\ExpensesController.php:161
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(276): CWebApplication->createController('create/')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('expenses/create')
+#2 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#3 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#4 {main}
+REQUEST_URI=/expenses/create
+HTTP_REFERER=http://snsit.loc/expenses/create
+---
+2019/08/01 17:12:32 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+2019/08/01 17:13:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png". in F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php:286
+Stack trace:
+#0 F:\OSPanel_5_2_9\OSPanel\domains\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 F:\OSPanel_5_2_9\OSPanel\domains\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 F:\OSPanel_5_2_9\OSPanel\domains\snsit.loc\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsit.loc/css/jquery-ui-1.9.2.css
+---
+>>>>>>> dev-mike
+2019/08/07 10:09:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/07 10:12:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/07 10:17:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/images/ui-bg_glass_75_dadada_1x400.png".' in C:\wamp\www\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('css/images/ui-b...')
+#1 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\sns\index.php(26): CApplication->run()
+#3 {main}
+REQUEST_URI=/sns/css/images/ui-bg_glass_75_dadada_1x400.png
+HTTP_REFERER=http://snsitn/sns/css/jquery-ui-1.9.2.css
+---
+2019/08/07 10:18:57 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'. The SQL statement executed was: SELECT `values` from codelkups where id='64' .
+2019/08/07 10:18:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'values' in 'field list'' in C:\wamp\www\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\www\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\www\sns\protected\controllers\EasController.php(1868): CDbCommand->queryScalar()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(49): EasController->actionupdateDuration()
+#3 C:\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(282): CController->run('updateDuration')
+#12 C:\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('eas/updateDurat...')
+#13 C:\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\wamp\www\sns\index.php(26): CApplication->run()
+#15 {main}
+REQUEST_URI=/sns/eas/updateDuration
+HTTP_REFERER=http://snsitn/sns/eas/update/1470?new=1
+---
