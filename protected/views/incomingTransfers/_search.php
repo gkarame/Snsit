@@ -1,5 +1,5 @@
-<div class="wide search" id="search-ir" style="overflow:inherit;">
-	<?php $form=$this->beginWidget('CActiveForm', array('action'=>Yii::app()->createUrl($this->route),'method'=>'get',)); ?>
+<div class="wide search" id="search_ir" style="overflow:inherit;">
+	<?php $form=$this->beginWidget('CActiveForm', array('action'=>Yii::app()->createUrl($this->route),'method'=>'get','id'=>'search_incomingTransfers')); ?>
 
 	<div class="row status  width260" >	<div class="inputBg_txt" >	
 	<?php echo $form->label($model,'it_no', array('class'=>"width89")); ?>	<span class="spliter"></span>

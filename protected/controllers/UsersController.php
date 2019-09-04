@@ -10,7 +10,7 @@ class UsersController extends Controller{
 		return array(
 		
 			array('allow',
-				'actions'=>array('SendVisaToExpire','SendDailytest','sendBillability','changeCountry', 'checkperf', 'checkUserContract', 'checkProbationEnd'),
+				'actions'=>array('SendVisaToExpire','SendDailytest','sendBillability','changeCountry', 'checkperf', 'checkUserContract', 'checkProbationEnd','archiveTaskYear'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -418,6 +418,86 @@ class UsersController extends Controller{
 			}
 		}
 	}
+	public function actionarchiveTaskYear()
+	{
+
+		/*$eas=Yii::app()->db->createCommand("SELECT id , id_customer FROM `eas` where YEAR(created)<2018  order by created desc")->queryAll();
+		foreach ($eas as $ea) {
+			//print_r($ea);exit;
+			$customer= $ea['id_customer'];
+			$model_id=$ea['id'];
+			//$dirname= dirname(Yii::app()->request->scriptFile)."\uploads\customers\\\\\\".;
+			$dir = dirname(Yii::app()->request->scriptFile)."\uploads\customers\\{$customer}\\eas\\{$model_id}";
+			$dir= str_replace("\\","/",$dir);
+			if(is_dir($dir))
+			{
+				$handle=opendir($dir);
+				while (($file = readdir($handle))!==false) {
+					echo "$file <br>";
+					@unlink($dir.'/'.$file);
+				}
+				closedir($handle);
+				rmdir($dir);
+			}
+		}*/
+
+		$srs= Yii::app()->db->createCommand("SELECT id , id_customer FROM `support_desk` where YEAR(date)<2018 order by date desc")->queryAll();
+		foreach ($srs as $ea) {
+			//print_r($ea);exit;
+			$customer= $ea['id_customer'];
+			$model_id=$ea['id'];
+			//$dirname= dirname(Yii::app()->request->scriptFile)."\uploads\customers\\\\\\".;
+			$dir = dirname(Yii::app()->request->scriptFile)."\uploads\customers\\{$customer}\\supportdesk\\{$model_id}\comments";
+			$dir= str_replace("\\","/",$dir);
+			if(is_dir($dir))
+			{
+				$handle=opendir($dir);
+				while (($file = readdir($handle))!==false) {
+					echo "$file <br>";
+					@unlink($dir.'/'.$file);
+				}
+				closedir($handle);
+				rmdir($dir);
+			}
+			$dir = dirname(Yii::app()->request->scriptFile)."\uploads\customers\\{$customer}\\supportdesk\\{$model_id}";
+			$dir= str_replace("\\","/",$dir);
+			if(is_dir($dir))
+			{
+				$handle=opendir($dir);
+				while (($file = readdir($handle))!==false) {
+					echo "$file <br>";
+					@unlink($dir.'/'.$file);
+				}
+				closedir($handle);
+				rmdir($dir);
+			}
+		}
+
+
+		$expenses= Yii::app()->db->createCommand("SELECT id , customer_id FROM `expenses` where YEAR(creationdate)<2018 order by creationdate desc")->queryAll();
+		foreach ($expenses as $ea) {
+			//print_r($ea);exit;
+			$customer= $ea['customer_id'];
+			$model_id=$ea['id'];
+			//$dirname= dirname(Yii::app()->request->scriptFile)."\uploads\customers\\\\\\".;
+			
+			$dir = dirname(Yii::app()->request->scriptFile)."\uploads\customers\\{$customer}\\expenses\\{$model_id}";
+			$dir= str_replace("\\","/",$dir);
+			if(is_dir($dir))
+			{
+				$handle=opendir($dir);
+				while (($file = readdir($handle))!==false) {
+					echo "$file <br>";
+					@unlink($dir.'/'.$file);
+				}
+				closedir($handle);
+				rmdir($dir);
+			}
+		}
+	}
+
+	
+
 	public function actioncheckProbationEnd(){ 
 		$part = array();
 		$notif = EmailNotifications::getNotificationByUniqueName('user_prob');

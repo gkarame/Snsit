@@ -372,10 +372,10 @@ public function actionGetRegion($id){
 		if (isset($_POST['Eas']))
 		{
 			unset($_POST['Eas']['category']);	unset($_POST['Eas']['project_name']);	unset($_POST['Eas']['id_parent_project']);	unset($_POST['Eas']['id_customer']);
-			if ($_POST['Eas']['country_perdiem_id'] == '0' || $_POST['Eas']['country_perdiem_id'] == '' || $_POST['Eas']['expense'] == 'N/A' ||  !isset($_POST['country_perdiem_checbox'])){
-                $model->country_perdiem_id = null;
+			if ($_POST['Eas']['country_perdiem'] == '' || $_POST['Eas']['expense'] == 'N/A' ||  !isset($_POST['country_perdiem_checbox'])){
+                $model->country_perdiem = null;
             }else{
-                $model->country_perdiem_id = (int)$_POST['Eas']['country_perdiem_id'];
+                $model->country_perdiem = $_POST['Eas']['country_perdiem'];
             }
 			if (isset($_POST['Eas']['billto_contact_person']) && $_POST['Eas']['billto_contact_person'] != $model->billto_contact_person){		
 					$model->billto_contact_person= $_POST['Eas']['billto_contact_person']; } 
@@ -431,8 +431,8 @@ public function actionGetRegion($id){
 					switch ($_POST['Eas']['expense']){
 						case 'N/A':
 						case 'Actuals':
-                        if(empty($_POST['Eas']['country_perdiem_id']) && $_POST['country_perdiem_checbox'] == 1){
-                            $model->addCustomError('country_perdiem_id', 'Country cannot be blank');
+                        if(empty($_POST['Eas']['country_perdiem']) && $_POST['country_perdiem_checbox'] == 1){
+                            $model->addCustomError('country_perdiem', 'Country cannot be blank');
                         }
 							break;
 						case '':
@@ -443,8 +443,8 @@ public function actionGetRegion($id){
 							{
 								$model->addCustomError('lump_sum', 'Lump Sum cannot be blank');
 							}
-                            if(empty($_POST['Eas']['country_perdiem_id']) && !empty($_POST['Eas']['lump_sum'])){
-                                $model->addCustomError('country_perdiem_id', 'Country cannot be blank');
+                            if(empty($_POST['Eas']['country_perdiem']) && !empty($_POST['Eas']['lump_sum'])){
+                                $model->addCustomError('country_perdiem', 'Country cannot be blank');
                             }
 							break;
 					}
@@ -604,14 +604,16 @@ public function actionGetRegion($id){
 			}
 			if ($model->save()){
 				if (!$error){
+					$aust_out_amount=0;
 					$country=Yii::app()->db->createCommand("SELECT country from customers where id=".$model->id_customer." ")->queryScalar(); 
 					if($country=='398' ){
 						$net_amount = $model->getNetAmountWithExpOffshore("Yes"); 
+						$aust_out_amount = $model->getNetAmountWithExpOffshore("No"); 
 					}else
 					{
 						$net_amount = $model->getNetAmountWithExp(); 
 					}
-					if($net_amount >0 &&$model->status == 2 && $model->category != 454  && $model->TM != 1 && $app!=2 && $initialStat!=2){	self::CreateInvoice($model);	}
+					if(($aust_out_amount>0 || $net_amount >0) && $model->status == 2 && $model->category != 454  && $model->TM != 1 && $app!=2 && $initialStat!=2){	self::CreateInvoice($model);	}
 					else if ($net_amount == 0 && $model->category != 454 && $model->status == 2  && $model->status != 5 && $model->TM != 1)
 					{
 						$model->status=5; $model->save();
@@ -664,11 +666,18 @@ public function actionGetRegion($id){
 				Yii::app()->end();
 			}
 		}
+		$customer_country = Yii::app()->db->createCommand()
+            ->select('ck.codelkup')
+            ->from('codelkups ck')
+            ->join('customers c', 'c.country=ck.id')
+            ->join('eas e', 'e.id_customer=c.id')
+            ->where('e.id=:id', array(':id'=>$id))
+            ->queryRow();
 		echo json_encode(array_merge(array(
-                        'country_perdiem_id' => $model->country_perdiem_id,
+                        'country_perdiem_id' => $model->country_perdiem,
 						'status' => 'success',					
 						'can_modify' => $model->isEditable(),
-						'html' => $this->renderPartial('_edit_header_content', array('model' => $model), true, true)
+						'html' => $this->renderPartial('_edit_header_content', array('model' => $model,'country_choose' => $customer_country), true, true)
 				), $extra));
 		Yii::app()->end();
 	}	
@@ -1775,16 +1784,25 @@ public function actionGetRegion($id){
 			$model->sold_by = "";
 			$model->type = "Standard";
 			$model->currency = $eas->currency;
-			if($model->save()){
-				$model->invoice_number = Utils::paddingCode($model->id);
-				if($model->invoice_number == "99999")
-					$model->invoice_number = "00000";
-				$model->save();
-				if($country=='398' ){
+			if($country=='398' && $net_amount == 0)
+			{				
 					$net_amountAust = $eas->getNetAmountWithExpOffshore("No"); 
 					if($net_amountAust>0)
 					{
 						self::createInvoiceAUST($eas->id_customer,$eas->description, $titleaust , $eas->id_project, $eas->id,$model->payment, $eas->currency,$payment['payment_term'],$net_amountAust);				
+					}
+			}else{
+				if($model->save()){
+					$model->invoice_number = Utils::paddingCode($model->id);
+					if($model->invoice_number == "99999")
+						$model->invoice_number = "00000";
+					$model->save();
+					if($country=='398' ){
+						$net_amountAust = $eas->getNetAmountWithExpOffshore("No"); 
+						if($net_amountAust>0)
+						{
+							self::createInvoiceAUST($eas->id_customer,$eas->description, $titleaust , $eas->id_project, $eas->id,$model->payment, $eas->currency,$payment['payment_term'],$net_amountAust);				
+						}
 					}
 				}
 			}

@@ -566,6 +566,16 @@ $group = NULL; $export = false;
 								 Yii::app()->db->createCommand("UPDATE eas SET status=5  WHERE id =".$model->id_ea." ")->execute();
 							}
 						}
+						$training= Yii::app()->db->createCommand("SELECT id_training from training_eas where id_ea =".$model->id_ea." ")->queryScalar();
+						if(!empty($training))
+						{
+							 $easstat= Yii::app()->db->createCommand("SELECT count(1) from eas where id in (select id_ea from training_eas where id_training= ".$training.") and status != '0' and status!='5'")->queryScalar();
+								$inv=  Yii::app()->db->createCommand("SELECT count(1) from invoices where id_ea in  (select id_ea from training_eas where id_training= ".$training.") and status != 'Cancelled' ")->queryScalar();
+								if($easstat == 0 && $inv ==0) {
+									Yii::app()->db->createCommand("UPDATE trainings_new_module SET status = 0 WHERE idTrainings =".$training." ")->execute();
+								}
+						}
+
 					}
 					if($model->status == "To Print" && $old_status != $model->status){
 						array_push($models_to_print,$model);

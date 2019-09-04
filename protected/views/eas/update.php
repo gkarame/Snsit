@@ -664,17 +664,17 @@ function updateTermSandU(element, id) {
 		if (isNaN(val) || val == 0) {	$(element).val(""); } else { $(element).val(val); }
 	}
 	function updateHeader(element){
-	    <?php $country_perdiem = CountryPerdiem::model()->findAll()?>
-	    const country_prediem = JSON.parse('<?=CJSON::encode($country_perdiem);?>');
+	    <?php $country = Country::model()->findAll()?>
+	    const country = JSON.parse('<?=CJSON::encode($country);?>');
 	    let valid = true;
 	    const val_expence = $('#Eas_expense').val();
 	    const prediem_checbox = $('#perdiemchecbox input').attr('checked');
-	    const val_country_id = $('#Eas_country_perdiem_id').val();
+	    const val_country = $('#Eas_country_perdiem').val();
 
 	    if (val_expence === 'Lump Sum' || (val_expence === 'Actuals' && prediem_checbox === 'checked')){
 	        let flag_val = false;
-            country_prediem.forEach(function (item) {
-                if(val_country_id == item.id_country){
+            country.forEach(function (item) {
+                if(val_country == item.country_name){
                     flag_val = true
                 }
             });

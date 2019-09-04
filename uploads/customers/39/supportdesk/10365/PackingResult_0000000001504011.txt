@@ -1,5 +1,0 @@
-EDI_DC40_U   0000000001504011          DELVRY03                                                    SHPCON                                           AIRLINK_IFLSELAIRLINKUAE                                                                                           SAPIM2    LS  IM2CLNT300                                                                                           04052015121929                                                                                                                20150512121929      
-E2EDL20003                       0000000001504011              0080056170
-E2EDL18                          0000000001504011              PIC
-E2EDL24007                       0000000001504011              9000011332621670                          SLEEVE                                                                                                                                5              
-E2EDL24007                       0000000001504011              9000021095881950                          RING; SNAP,3RD GEAR                                                                                                                   2              

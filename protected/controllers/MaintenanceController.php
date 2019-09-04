@@ -126,6 +126,10 @@ class MaintenanceController extends Controller{
 				$model->currency_rate_id = $rate['id'];
 			}
 			if ($model->save())	{	
+				if(!empty($model->ea) && ($model->sns_share == 0 || empty($model->sns_share)) && $model->owner!=77)
+				{
+					Yii::app()->db->createCommand("update eas set status=5 where id=".$model->ea )->execute();
+				}
 				if ($model->status == "Active") {
 					Yii::app()->db->createCommand("INSERT INTO default_tasks (name, id_parent, billable,id_maintenance) VALUES ('".$model->customer0->name."',".Maintenance::SUPPORT_TASK.",'"."YES"."',".$model->id_maintenance.")" )->execute();
 				}

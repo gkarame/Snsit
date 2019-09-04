@@ -55,15 +55,33 @@ class IncomingTransfersDetails extends CActiveRecord {
 		 		//$status=Yii::app()->db->createCommand("select status from incoming_transfers where id =".$other['id_it']."")->queryScalar(); 
 
 		 		if ( $this->original_amount < $tot ){
-		 				$this->addError('received_amount','Invalid amount, Invoice partially paid');
-		    	}
+		 			$id_its= array_unique(array_column($other, 'id_it'));
+					$str= implode(',', $id_its);
+			 		if(count($id_its)>1)
+			 		{
+			 		$this->addError('received_amount','Invalid amount, Invoice partially paid on TRs '.$str);
+
+			 		}else{
+
+			 		$this->addError('received_amount','Invalid amount, Invoice partially paid on TR '.$str);
+			 		};
+			    }
 		 	}
 	    }else if($this->paid_amount == 1 )
 	    {
-	    	$other= Yii::app()->db->createCommand("select count(1) from incoming_transfers_details where paid_amount=2 and received_amount>0 and  final_invoice_number='".$this->final_invoice_number."' and invoice_number='".$this->invoice_number."' and id_it!=".$this->id_it."")->queryScalar();
-		 	if($other>0)
+	    	$other= Yii::app()->db->createCommand("select distinct(id_it) from incoming_transfers_details where paid_amount=2 and received_amount>0 and  final_invoice_number='".$this->final_invoice_number."' and invoice_number='".$this->invoice_number."' and id_it!=".$this->id_it."")->queryAll();
+		 	if(!empty($other))
 		 	{
-		 		$this->addError('received_amount','Invalid amount, Invoice partially paid');
+		 		$id_its= array_unique(array_column($other, 'id_it'));
+					$str= implode(',', $id_its);
+		 		if(count($id_its)>1)
+		 		{
+		 		$this->addError('received_amount','Invalid amount, Invoice partially paid on TRs '.$str);
+
+		 		}else{
+
+		 		$this->addError('received_amount','Invalid amount, Invoice partially paid on TR '.$str);
+		 		}
 		 	}
 	    } 		
 	}

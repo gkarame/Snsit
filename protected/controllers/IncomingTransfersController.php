@@ -93,6 +93,11 @@ class IncomingTransfersController extends Controller{
 		));
 	}
 	public function actioncloseInvoices(){
+		if(!isset($_POST['data']))
+		{
+			echo json_encode(array('status' => 'failure','message'=> 'Please select an invoice'));
+			exit;
+		}
 		$lines = $_POST['data']; 
 		$tr= $_POST['tr']; $errormsg='';
 		$currency= $_POST['currency']; $counter=0;
@@ -730,8 +735,68 @@ public function actionAssignInvoices(){
 
 	public function actionGetExcel()
 	{
-		$model = new IncomingTransfers('getAll');
-		$data = $model->getAll(null, true)->getData();	
+		$criteria = new CDbCriteria;
+		$criteria->select = array(
+				"t.*"	
+		);
+ 
+
+		if(isset($_POST['checkinvoice']))
+		{
+ 			$trs = $_POST['checkinvoice'];
+ 			$trs_str= implode(',', $trs);
+ 				$criteria->addCondition("id in (".$trs_str.")");
+ 			//print_r($trs);
+		}else{			
+			if(!empty($_POST['IncomingTransfers']['it_no']) && $_POST['IncomingTransfers']['it_no']!='' &&  $_POST['IncomingTransfers']['it_no']!=' ')
+			{
+				$criteria->compare('it_no',$_POST['IncomingTransfers']['it_no'], true);
+			}
+
+			if(!empty($_POST['IncomingTransfers']['id_customer']) && $_POST['IncomingTransfers']['id_customer']!='' &&  $_POST['IncomingTransfers']['id_customer']!=' ')
+			{
+				$criteria->compare('customer.name', $_POST['IncomingTransfers']['id_customer'], true);
+			}
+
+			if (isset($_POST['IncomingTransfers']['partner']) && $_POST['IncomingTransfers']['partner'] != ""){
+				 	$criteria->compare('t.partner', $_POST['IncomingTransfers']['partner']);  
+			}
+
+			if (isset($_POST['IncomingTransfers']['status']) && $_POST['IncomingTransfers']['status'] != ""){	
+				$criteria->compare('t.status', $_POST['IncomingTransfers']['status']);	
+			}
+
+			if (isset($_POST['IncomingTransfers']['offsetting']) && $_POST['IncomingTransfers']['offsetting'] != ""){	
+				$criteria->compare('t.offsetting', $_POST['IncomingTransfers']['offsetting']);	
+			}
+
+			if (isset($_POST['IncomingTransfers']['id_user']) && $_POST['IncomingTransfers']['id_user'] != ""){	
+				$criteria->compare('t.id_user', $_POST['IncomingTransfers']['id_user']);	
+			}
+
+			if (isset($_POST['IncomingTransfers']['currency']) && $_POST['IncomingTransfers']['currency'] != ""){	
+				$criteria->compare('t.currency', $_POST['IncomingTransfers']['currency']);	
+			}
+		}
+
+
+
+		$dataProvider = new CActiveDataProvider('IncomingTransfers', array(
+				'criteria' => $criteria,
+				'pagination'=> false 
+				,
+				'sort'=>array( 
+               		'attributes' => array(
+						  
+					),
+               		'defaultOrder' =>  't.it_no DESC '),
+           		 )
+		);
+
+
+ 		$data  = $dataProvider->getData();
+
+
 		Yii::import('ext.phpexcel.XPHPExcel');
 		if (PHP_SAPI == 'cli')
 			die('Error PHP Excel extension');
@@ -741,55 +806,180 @@ public function actionAssignInvoices(){
 		->setTitle("SNS IRs Export");		
 		$sheetId = 0;
 		
-		$nb = sizeof($data);          
-        $objPHPExcel->getActiveSheet()->getStyle('A1:K1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');         
-        $styleArray = array(
-            'font' => array(
-                'color' => array('rgb' => 'FFFFFF'
-                )
-            ),
-            'borders' => array(
-                'allborders' => array('style' => PHPExcel_Style_Border::BORDER_THIN,'color' => array(    'argb' => '000000')
-                )
-            ));
+		$nb = sizeof($data); 
 
-        $objPHPExcel->getActiveSheet()->getStyle('A1:K1')->applyFromArray($styleArray); 
+		if($nb ==1 ){
+			$objPHPExcel->getActiveSheet()->getStyle('A1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');  
+			$objPHPExcel->getActiveSheet()->getStyle('A2')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');  
+			$objPHPExcel->getActiveSheet()->getStyle('A3')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532'); 
+			$objPHPExcel->getActiveSheet()->getStyle('A4')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532'); 
+			$objPHPExcel->getActiveSheet()->getStyle('A5')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532'); 
 
-		$objPHPExcel->setActiveSheetIndex($sheetId)
-		->setCellValue('A1', 'TR #')
-		->setCellValue('B1', 'Customer')
-		->setCellValue('C1', 'Partner')
-		->setCellValue('D1', 'Received Amount')
-		->setCellValue('E1', 'currency')
-		->setCellValue('F1', 'Offsetting')
-		->setCellValue('G1', 'Status')
-		->setCellValue('H1', 'Notes')
-		->setCellValue('I1', 'Remarks')
-		->setCellValue('J1', 'Created By')
-		->setCellValue('K1', 'Created On')
-		;
-		$i = 1;
-		foreach($data as $d => $row)
-		{
-			$i++;
+			$objPHPExcel->getActiveSheet()->getStyle('G1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');  
+			$objPHPExcel->getActiveSheet()->getStyle('G2')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');  
+			$objPHPExcel->getActiveSheet()->getStyle('G3')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532'); 
+			$objPHPExcel->getActiveSheet()->getStyle('G4')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532'); 
+			$objPHPExcel->getActiveSheet()->getStyle('G5')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');
+			$objPHPExcel->getActiveSheet()->getStyle('G6')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');
+
+	        $styleArray = array(
+	            'font' => array(
+	                'color' => array('rgb' => 'FFFFFF'
+	                )
+	            ),
+	            'borders' => array(
+	                'allborders' => array('style' => PHPExcel_Style_Border::BORDER_THIN,'color' => array(    'argb' => '000000')
+	                )
+	            ));
+ 
+	        $objPHPExcel->getActiveSheet()->getStyle('A1')->applyFromArray($styleArray);   
+			$objPHPExcel->getActiveSheet()->getStyle('A2')->applyFromArray($styleArray);  
+			$objPHPExcel->getActiveSheet()->getStyle('A3')->applyFromArray($styleArray);  
+			$objPHPExcel->getActiveSheet()->getStyle('A4')->applyFromArray($styleArray);  
+			$objPHPExcel->getActiveSheet()->getStyle('A5')->applyFromArray($styleArray); 
+
+			$objPHPExcel->getActiveSheet()->getStyle('G1')->applyFromArray($styleArray);  
+			$objPHPExcel->getActiveSheet()->getStyle('G2')->applyFromArray($styleArray);  
+			$objPHPExcel->getActiveSheet()->getStyle('G3')->applyFromArray($styleArray); 
+			$objPHPExcel->getActiveSheet()->getStyle('G4')->applyFromArray($styleArray); 
+			$objPHPExcel->getActiveSheet()->getStyle('G5')->applyFromArray($styleArray); 			
+			$objPHPExcel->getActiveSheet()->getStyle('G6')->applyFromArray($styleArray); 
+
 			$objPHPExcel->setActiveSheetIndex($sheetId)
-			->setCellValue('A'.$i, ' '.$row->it_no)
-			->setCellValue('B'.$i, IncomingTransfers::getName($row->id_customer))
-			->setCellValue('C'.$i, Codelkups::getCodelkup($row->partner))
-			->setCellValue('D'.$i, $row->received_amount) 
-			->setCellValue('E'.$i, Codelkups::getCodelkup($row->currency))
-			->setCellValue('F'.$i, IncomingTransfers::getOffsettingLabel($row->offsetting))
-			->setCellValue('G'.$i, IncomingTransfers::getStatusLabel($row->status))
-			->setCellValue('H'.$i, $row->notes)
-			->setCellValue('I'.$i, $row->remarks)
-			->setCellValue('J'.$i, (Users::getNameById($row->id_user)))
-			->setCellValue('K'.$i, date('d/m/Y',strtotime($row->adddate)))
+			->setCellValue('A1', 'TR #')
+			->setCellValue('G1', 'Customer')
+			->setCellValue('A2', 'Partner')
+			->setCellValue('G2', 'Status')
+			->setCellValue('A3', 'Received Amount')
+			->setCellValue('G3', 'currency')
+			->setCellValue('A4', 'Created By')
+			->setCellValue('G4', 'Created On')
+			->setCellValue('A5', 'Offsetting')
+			->setCellValue('G5', 'Notes')
+			->setCellValue('G6', 'Remarks')
 			;
+			$itnumb= '';
+			foreach($data as $d => $row)
+			{
+				$itnumb= $row->it_no;
+			
+				$objPHPExcel->setActiveSheetIndex($sheetId)
+				->setCellValue('B1', ' '.$row->it_no)
+				->setCellValue('H1', IncomingTransfers::getName($row->id_customer))
+				->setCellValue('B2', Codelkups::getCodelkup($row->partner))
+				->setCellValue('H2', IncomingTransfers::getStatusLabel($row->status))
+				->setCellValue('B3', $row->received_amount) 
+				->setCellValue('H3', Codelkups::getCodelkup($row->currency))
+				->setCellValue('B4', (Users::getNameById($row->id_user)))
+				->setCellValue('H4', date('d/m/Y',strtotime($row->adddate)))
+				->setCellValue('B5', IncomingTransfers::getOffsettingLabel($row->offsetting))
+				->setCellValue('H5', $row->notes)
+				->setCellValue('H6', $row->remarks)
+				;
+
+				$i= 9;
+				$objPHPExcel->getActiveSheet()->getStyle('A9:H9')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');
+				$objPHPExcel->getActiveSheet()->getStyle('A9:H9')->applyFromArray($styleArray);
+
+				$objPHPExcel->setActiveSheetIndex($sheetId)
+				->setCellValue('A9', 'Final #')
+				->setCellValue('B9', 'Invoice #')
+				->setCellValue('C9', 'Original Amount')
+				->setCellValue('D9', 'Partial Amount')
+				->setCellValue('E9', 'Original Currency')
+				->setCellValue('F9', 'Paid Amount')
+				->setCellValue('G9', 'Received Amount')
+				->setCellValue('H9', 'Received Currency')
+				;
+
+				$criteria2=new CDbCriteria;
+				$criteria2->condition = "(id_it = :tr)";	
+				$criteria2->params = array(':tr' => $itnumb);
+
+				$dataProvider2 = new CActiveDataProvider('IncomingTransfersDetails', array(
+				'criteria' => $criteria2,
+				'pagination'=> false 
+				,
+				'sort'=>array( 
+               		'attributes' => array(
+						  
+					),
+               		'defaultOrder' =>  't.final_invoice_number DESC '),
+           		 )
+				);
+				$dataLines  = $dataProvider2->getData();
+				foreach($dataLines as $d => $row)
+				{
+					$i++; 
+					$objPHPExcel->setActiveSheetIndex($sheetId)
+					->setCellValue('A'.$i, ' '.$row->final_invoice_number)
+					->setCellValue('B'.$i, ''.$row->invoice_number)
+					->setCellValue('C'.$i, Utils::formatNumber($row->original_amount))
+					->setCellValue('D'.$i, Utils::formatNumber(IncomingTransfersDetails::getPaidPerInvoice($row->invoice_number))) 
+					->setCellValue('E'.$i, Codelkups::getCodelkup($row->original_currency))
+					->setCellValue('F'.$i, IncomingTransfersDetails::getPaidLabel($row->paid_amount))
+					->setCellValue('G'.$i, Utils::formatNumber($row->received_amount))
+					->setCellValue('H'.$i, Codelkups::getCodelkup($row->received_currency)) 
+					;
+				}	
+
+			}
+			$objPHPExcel->getActiveSheet()->setTitle('IR# '.$itnumb.' - '.date("d m Y"));
+			$objPHPExcel->setActiveSheetIndex(0);		
+			header('Content-Type: application/vnd.ms-excel');
+			header('Content-Disposition: attachment;filename="IR# '.$itnumb.''.date("d_m_Y").'.xls"');
+		}   else
+		{
+
+	        $objPHPExcel->getActiveSheet()->getStyle('A1:K1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID)->getStartColor()->setRGB('b20532');         
+	        $styleArray = array(
+	            'font' => array(
+	                'color' => array('rgb' => 'FFFFFF'
+	                )
+	            ),
+	            'borders' => array(
+	                'allborders' => array('style' => PHPExcel_Style_Border::BORDER_THIN,'color' => array(    'argb' => '000000')
+	                )
+	            ));
+
+	        $objPHPExcel->getActiveSheet()->getStyle('A1:K1')->applyFromArray($styleArray); 
+
+			$objPHPExcel->setActiveSheetIndex($sheetId)
+			->setCellValue('A1', 'TR #')
+			->setCellValue('B1', 'Customer')
+			->setCellValue('C1', 'Partner')
+			->setCellValue('D1', 'Received Amount')
+			->setCellValue('E1', 'currency')
+			->setCellValue('F1', 'Offsetting')
+			->setCellValue('G1', 'Status')
+			->setCellValue('H1', 'Notes')
+			->setCellValue('I1', 'Remarks')
+			->setCellValue('J1', 'Created By')
+			->setCellValue('K1', 'Created On')
+			;
+			$i = 1;
+			foreach($data as $d => $row)
+			{
+				$i++; 
+				$objPHPExcel->setActiveSheetIndex($sheetId)
+				->setCellValue('A'.$i, ' '.$row->it_no)
+				->setCellValue('B'.$i, IncomingTransfers::getName($row->id_customer))
+				->setCellValue('C'.$i, Codelkups::getCodelkup($row->partner))
+				->setCellValue('D'.$i, $row->received_amount) 
+				->setCellValue('E'.$i, Codelkups::getCodelkup($row->currency))
+				->setCellValue('F'.$i, IncomingTransfers::getOffsettingLabel($row->offsetting))
+				->setCellValue('G'.$i, IncomingTransfers::getStatusLabel($row->status))
+				->setCellValue('H'.$i, $row->notes)
+				->setCellValue('I'.$i, $row->remarks)
+				->setCellValue('J'.$i, (Users::getNameById($row->id_user)))
+				->setCellValue('K'.$i, date('d/m/Y',strtotime($row->adddate)))
+				;
+			}
+			$objPHPExcel->getActiveSheet()->setTitle('Incoming Transfers - '.date("d m Y"));
+			$objPHPExcel->setActiveSheetIndex(0);		
+			header('Content-Type: application/vnd.ms-excel');
+			header('Content-Disposition: attachment;filename="TRs_'.date("d_m_Y").'.xls"');
 		}
-		$objPHPExcel->getActiveSheet()->setTitle('Incoming Transfers - '.date("d m Y"));
-		$objPHPExcel->setActiveSheetIndex(0);		
-		header('Content-Type: application/vnd.ms-excel');
-		header('Content-Disposition: attachment;filename="TRs_'.date("d_m_Y").'.xls"');
 		header('Cache-Control: max-age=0');
 		header('Cache-Control: max-age=1');
 		header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
@@ -797,7 +987,9 @@ public function actionAssignInvoices(){
 		header ('Cache-Control: cache, must-revalidate'); 
 		header ('Pragma: public');		
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
-		$objWriter->save('php://output');
+		$path = dirname(Yii::app()->request->scriptFile)."/uploads/excel/export.xls";
+		$objWriter->save($path);
+		echo json_encode(array ('success' =>'success'));
 		exit;
 	}
 }

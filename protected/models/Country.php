@@ -11,8 +11,8 @@ class Country extends CActiveRecord
     }
     public function rules(){
         return array(
-            array('country_code, country_name', 'required'),
-            array('country_code, country_name', 'safe', 'on'=>'search'),
+            array('country_name', 'required'),
+            array('country_name', 'safe', 'on'=>'search'),
         );
     }
     public static function getAllCounters(){

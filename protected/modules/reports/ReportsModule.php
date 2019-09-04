@@ -17,12 +17,13 @@ class ReportsModule extends CWebModule
         * Author: Mike
         * Date: 25.06.19
         * Fix 404 error when link from module
-        */
+      
 		$url = explode('/',Yii::app()->request->getUrl());
 		$controller = Yii::app()->createController($url[2]);
 		if (isset($controller)){
             Yii::app()->request->redirect(str_ireplace('/reports','',Yii::app()->request->getUrl()));
         }
+          */
 	}
 
 	public function beforeControllerAction($controller, $action)

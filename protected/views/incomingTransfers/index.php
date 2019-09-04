@@ -172,7 +172,15 @@ function UncheckAll () { $('[id^="checkinvoice"]').attr('checked',false);	 }
 
 function getExcel() {	
 
-			$('.action_list').hide(); window.location.replace("<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/getExcel');?>/?"); 
+		//	$('.action_list').hide(); window.location.replace("<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/getExcel');?>/?"); 
+
+$.ajax({type: "POST",	data:$('.checkbox_grid_invoice input').serialize() + '&' +  $('#search_incomingTransfers').serialize()+ '&ajax=incomingTransfers-form',	url: "<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/getExcel');?>", 
+	  	dataType: "json",
+	  	success: function(data) {
+		  	if(data.success == 'success')
+		  		window.location = "<?php echo Yii::app()->createAbsoluteUrl("site/download", array('file'=>Utils::getFileExcel(true)));?>";
+		  	
+  		}	});
 		}
 
 </script>

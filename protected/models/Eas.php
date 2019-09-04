@@ -37,7 +37,7 @@ class Eas extends CActiveRecord{
 			array('TM,customization', 'length', 'max'=>3),
 			array('start_date, end_date', 'safe'),
 			array('customization','validatesupport'),
-			array('id,country_perdiem_id, id_customer, ea_number, description, id_project, status,TM, author, created, approved, category, mds', 'safe', 'on'=>'search'),
+			array('id,country_perdiem, id_customer, ea_number, description, id_project, status,TM, author, created, approved, category, mds', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations()	{
@@ -208,7 +208,7 @@ class Eas extends CActiveRecord{
 			'crmOpp' => 'CRM #',
 			'template' => 'Subtype',
             'mds' => 'Mds',
-            'country_perdiem_id' => 'Per Diem'
+            'country_perdiem' => 'Per Diem'
 		);
 	}	
 	public function getFormatExpense()	{

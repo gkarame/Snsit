@@ -1,9 +1,0 @@
-EDI_DC40                         682   SHP_OBDLV_CONFIRM_DECENTRAL03                               SHP_OBDLV_CONFIRM_DECENTRAL                      FP_SHP_OBDLS  ARAMEX                                                                                               SAPEP6    LS  SAP                                                                                                  20150426                                                4307453822                                                                                
-E2SHP_OBDLV_CONFIRM_DECENTR000                                 4307453822
-E2BPOBDLVHDRCON001                                             4307453822                                                                     639037371461                
-E2BPDLVCONTROL001                                                   SAPJP6        4307453822
-E2BPDLVDEADLN000                                               4307453822WSHDRWADTI20141204        UTC+4                                                                                                    
-E2BPOBDLVITEMCON001                                            4307453822000020000009007775501973                 1.00000        
-E2BPOBDLVITEMCON001                                            4307453822000030000009007775502100                 1.00000        
-E2BPOBDLVITEMCON001                                            4307453822000040000009007775502101                 1.00000        
-E2BPOBDLVITEMCON001                                            4307453822000010000009007775502102                 1.00000        

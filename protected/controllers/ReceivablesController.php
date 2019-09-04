@@ -863,14 +863,24 @@ if (isset($_POST['Receivables']['invoice_date_month']) &&$_POST['Receivables']['
 			//print_r($model->partner."UPDATE `invoices` SET {$set_items} " . $where . " ");exit;
             Yii::app()->db->createCommand("UPDATE `invoices` SET {$set_items} " . $where . " ")->execute(); 
 
-          /*  if($_POST['Receivables']['status'] == 'Cancelled' and !empty($model->id_ea))
+            if($_POST['Receivables']['status'] == 'Cancelled' and !empty($model->id_ea))
 			{
-				$getremaininginv= Yii::app()->db->createCommand("SELECT count(1) from invoices where id_ea =".$model->id_ea." and status!= 'Cancelled' ")->queryScalar();
+				 /* $getremaininginv= Yii::app()->db->createCommand("SELECT count(1) from invoices where id_ea =".$model->id_ea." and status!= 'Cancelled' ")->queryScalar();
 				if($getremaininginv == 0)
 				{
 					Yii::app()->db->createCommand("UPDATE eas SET status=0  WHERE id =".$model->id_ea." ")->execute();
-				}
-			}*/
+				}*/
+
+				$training= Yii::app()->db->createCommand("SELECT id_training from training_eas where id_ea =".$model->id_ea." ")->queryScalar();
+						if(!empty($training))
+						{
+							 $easstat= Yii::app()->db->createCommand("SELECT count(1) from eas where id in (select id_ea from training_eas where id_training= ".$training.") and status != '0' and status!='5'")->queryScalar();
+								$inv=  Yii::app()->db->createCommand("SELECT count(1) from invoices where id_ea in  (select id_ea from training_eas where id_training= ".$training.") and status != 'Cancelled' ")->queryScalar();
+								if($easstat == 0 && $inv ==0) {
+									Yii::app()->db->createCommand("UPDATE trainings_new_module SET status = 0 WHERE idTrainings =".$training." ")->execute();
+								}
+						}
+			}
 
 
             $nr             = Yii::app()->db->createCommand("UPDATE `invoices` SET id_assigned='" . $assignHr . "' WHERE id_customer='" . $model['id_customer'] . "' ")->execute();

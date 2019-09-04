@@ -54,32 +54,51 @@ class SettingsController extends Controller{
         ));
     }
     public function actionSaveCountryPerdiem(){
+        $country = Country::model()->find('country_name=:name',array(':name' => $_POST['country_name']));
+        if (!isset($country)){
+            $country = new Country();
+            $country->country_name = $_POST['country_name'];
+            $country->save();
+        }
         $country_perdiem = new CountryPerdiem();
-        $country_perdiem->id_country = (int)$_POST['country_id'];
+        $country_perdiem->id_country = $country->id;
         $country_perdiem->per_diem = $_POST['perdiem'];
-        $country = Yii::app()->db->createCommand('SELECT * from apps_countries where id='.(int)$_POST['country_id'])->queryAll();
         if ($country_perdiem->save()){
-            echo json_encode([
-                'country_perdiem' => $country_perdiem->getAttributes(),
-                'country' => $country[0]
-            ]);
+            echo $this->getCountryPrediemHtmlOption();
         }else{
             echo json_encode(['error' => 'Date don`t save!']);
         }
     }
     public function actionEditCountryPerdiem(){
         $edit = CountryPerdiem::model()->updateByPk((int)$_POST['id'],array('per_diem'=>$_POST['val']));
-        if ($edit) {echo true;}
+        $perdiem = CountryPerdiem::model()->find('id=:id',array(':id' => (int)$_POST['id']));
+        $edit += Country::model()->updateByPk($perdiem->id_country,array('country_name' => $_POST['country_name']));
+        if ($edit) {
+            echo $this->getCountryPrediemHtmlOption();
+        }
         else {echo false;}
 
     }
     public function actionDeleteCountryPerdiem($id)
     {
-        if (CountryPerdiem::model()->find('id=:id', array(':id'=>(int)$id))->delete()){
-            echo true;
+        $country_perdiem = CountryPerdiem::model()->find('id=:id', array(':id'=>(int)$id));
+        if ($country_perdiem->delete()){
+            Country::model()->find('id=:id', array(':id'=>(int)$country_perdiem->id_country))->delete();
+            echo $this->getCountryPrediemHtmlOption();
         }else{
             echo false;
         }
+    }
+
+    protected function getCountryPrediemHtmlOption(){
+        $data = CountryPerdiem::getAllRecords();
+        $html = '';
+        foreach ($data as $item){
+            $html .= <<<XER
+<option onclick="$('#save_country_perdiem_select').attr('data-country','{$item->getRelated('countryData')->country_name}').attr('data-prediem','{$item->per_diem}')" value="{$item->id}">{$item->getRelated('countryData')->country_name} - {$item->per_diem}</option>;
+XER;
+        }
+        return $html;
     }
 
     public function actionEditSettings(){

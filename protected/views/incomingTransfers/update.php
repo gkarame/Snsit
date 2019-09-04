@@ -244,7 +244,7 @@ function showProductForm(element, newItem) {
 		  	dataType: "json",  	data: { 'data': invoices,'tr': <?php echo  $model->id;?>,'currency': <?php echo  $model->currency;?>},
 		  	success: function(data) {
 			  	if (data) {
-					  if (data.status == 'success') { 		$('#img').hide(); 		$('#popuptandm').hide();    var buttons = {
+					  if (data.status == 'success' || data.status == 'saved') { 		$('#img').hide(); 		$('#popuptandm').hide();    var buttons = {
 							        
 							        "Ok": {
 							        	class: 'ok_button',

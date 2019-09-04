@@ -1,6 +1,0 @@
-------WH6-----
---------------
-UPDATE LOT
-SET QTY= QTY + .00001
-WHERE  LOT='0000004244';
-COMMIT;
