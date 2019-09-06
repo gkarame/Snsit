@@ -13,7 +13,7 @@
 				<a class="header_button" onclick="showHeader(this);return false;" href="<?php echo Yii::app()->createAbsoluteUrl('deployments/updateHeader', array('id' => $model->id));?>"><?php echo Yii::t('translations', 'Edit Header');?></a>
 			</div>
 			<div class="header_content tache">
-				<?php $this->renderPartial('_header_content', array('model' => $model));?>
+				<?php $this->renderPartial('_header_content', array('model' => $model,'rsr' => $rsr));?>
 			</div>
 			<div class="hidden edit_header_content tache new" style="width:98%;height:230px;"></div>
 			<br clear="all" />

@@ -59,4 +59,12 @@
 	<div class="general_col2 "><?php echo CHtml::encode(date('d/m/Y', strtotime($model->adddate))); ?></div>
 </div>
 	<?php }?>
+<?php if(!empty($rsr)): ?>
+<div class="view_row">
+    <div class="general_col1 "><?php echo CHtml::encode($model->getAttributeLabel('RSR')); ?></div>
+    <div class="general_col2 ">
+        <a href="<?=Yii::app()->createAbsoluteUrl("SupportRequest/update/" . $rsr); ?>"> <?=$rsr?> </a>
+    </div>
+</div>
+<?php endif ?>
 <div class="horizontalLine smaller_margin"></div>

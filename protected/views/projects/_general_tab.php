@@ -163,14 +163,10 @@
                  * Hide survey fields on the projects
                  */
             -->
-            <div class="general_col4 "><?php echo Projects::checktandm($model->id); ?></div>
-            <div class="general_col1"><?php echo CHtml::encode(Yii::t('translations','mds')); ?></div>
-            <div class="general_col2 "><?php echo Projects::getMDS($model->id); ?></div><?php }  ?></div>
+            <div class="general_col4 "><?php echo Projects::checktandm($model->id); ?></div><?php }  ?></div>
 		<?php  if($model->id_type== '28' ) { ?>	<div class="view_row">
 			<div class="general_col1"><?php echo CHtml::encode(Yii::t('translations','t&m')); ?></div>
 			<div class="general_col2 "><?php echo Projects::checktandm($model->id); ?></div>
-            <div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','mds')); ?></div>
-            <div class="general_col4 "><?php echo Projects::getMDS($model->id); ?></div>
 	<?php }?>
 
 		<?php if($model->id_type=='27' && ($model->template==1 || $model->template==4 || $model->template==6 )){ ?> 
@@ -192,7 +188,10 @@
 				<div class="general_col2 "><?php echo CHtml::encode($model->complexmodule); ?></div>
 			<?php } ?>
 		</div>	<?php }?>
-
+       <div class="view_row">
+            <div class="general_col3"><?php echo CHtml::encode(Yii::t('translations','mds')); ?></div>
+            <div class="general_col4 "><?php echo Projects::getMDS($model->id); ?></div>
+       </div>
 
 		<div class="horizontalLine smaller_margin"></div></div><?php }?><div id="budget_record"  class="grid border-grid">
 <?php $provider = $model->getEasProvider(); $eas = $provider->getData();

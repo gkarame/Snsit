@@ -238,6 +238,38 @@ class SupportDesk extends CActiveRecord{
 		return $status;
 	}	
 	public static function getdeploymentdd($id_support_desk,$deployment){
+	    $rsr = SupportRequest::getRSR($id_support_desk);
+	    $editable = false;
+	    if (!empty($rsr)){
+            $deployment = 'No';
+            $editable = true;
+        }else{
+	        $support_desk = self::model()->findByPk($id_support_desk);
+	        if (isset($support_desk->reason)){
+                $criteria = new CDbCriteria(array(
+                    'with'=>array(
+                        'codelist'=>array(
+                            'alias'=>'cl',
+                            'together'=>true
+                        ),
+                    ),
+                    'select' => 'cl.id, cl.codelkup',
+                    'condition' =>'cl.codelist LIKE :value',
+                    'params' => array(':value' => '%reason%'),
+                ));
+
+                $codelkups = Codelkups::model()->findAll($criteria);
+
+                foreach ($codelkups as $codelkup){
+                    if ($codelkup->id == $support_desk->reason && ($support_desk->reason == '409' || $support_desk->reason == '413' || $support_desk->reason == '402' || $support_desk->reason == '405' || $support_desk->reason== '404' || $support_desk->reason == '406')){
+                        $deployment = 'Yes';
+                        $editable = true;
+                        break;
+                    }
+                }
+            }
+        }
+
 		$users[''] = '';
 		$users['Yes'] = 'Yes';
 		$users['No'] = 'No';
@@ -245,8 +277,9 @@ class SupportDesk extends CActiveRecord{
 			return CHtml::dropDownlist('deployment', $deployment, $users, array(
 		        'class'     => 'assigned_to',
 		    	'onchange'=>'changeInput('."value".','. $id_support_desk.','."7".')',
-		    	'style'=>'width:190px;border:none;'
-		    ));
+		    	'style'=>'width:190px;border:none;',
+                'disabled'=>$editable === true?true:false,
+            ));
 	    }else{
 	    	return CHtml::dropDownlist('deployment', $deployment, $users, array(
 		        'class'     => 'assigned_to',
