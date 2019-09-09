@@ -391,10 +391,13 @@ class InstallationRequestsController extends Controller{
 						(select count(*) as total from installation_requests_products where id_ir = ".$model->id_ir.") as q1
 		,
 					(select count(*) as finished from installation_requests_products where id_ir = ".$model->id_ir." and status =".InstallationrequestsProducts::STATUS_CLOSED.") as q2)")->queryScalar();
-				if($closed != 0 && $closed != 1){
+				if($closed != 0){
 					$update_ir = Yii::app()->db->createCommand("update installation_requests set status =".InstallationRequests::STATUS_COMPLETED." where id = ".$model->id_ir)->execute();
 					if(!empty($id_user)) {
-						self::SendCompletedEmail($model->id_ir,$id_user);					
+                        $ir_products = InstallationrequestsProducts::model()->findAll("id_ir=:id_ir",array(':id_ir' => $model->id_ir));
+                        foreach ($ir_products as $product){
+                            self::SendProductdone((int)$model->id_ir,(int)$product->id,(int)$product->id_product,(int)$id_user);
+                        }
 					}				
 				}
 					echo json_encode(array('status' => 'saved'));
@@ -488,8 +491,11 @@ class InstallationRequestsController extends Controller{
 					(select count(*) as finished from installation_requests_products where id_ir = ".$model->id_ir." and status =".InstallationrequestsProducts::STATUS_CLOSED.") as q2)")->queryScalar();
 			if($closed != 0){					
 					$update_ir = Yii::app()->db->createCommand("update installation_requests set status =".InstallationRequests::STATUS_COMPLETED." where id = ".$model->id_ir)->execute();
-					if(!empty($id_user) && $closed != 1) {
-						self::SendCompletedEmail($model->id_ir,$id_user);
+					if(!empty($id_user)) {
+					    $ir_products = InstallationrequestsProducts::model()->findAll("id_ir=:id_ir",array(':id_ir' => $model->id_ir));
+					    foreach ($ir_products as $product){
+					        self::SendProductdone((int)$model->id_ir,(int)$product->id,(int)$product->id_product,(int)$id_user);
+                        }
 					}
 				}
 			if ($redirect == 0)	{

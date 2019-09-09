@@ -74,7 +74,6 @@ class Invoices extends CActiveRecord{
             'gross_amount' => 'Gross Amount',
             'partner_amount' => 'Partner Amount',
             'file' => 'File',
-			'net_amount' => 'Net Amount',
 			'final_invoice_number' => 'Invoice #',
 			'transfer_number' => 'Transfer #',
 			'remarks' => 'Remarks',

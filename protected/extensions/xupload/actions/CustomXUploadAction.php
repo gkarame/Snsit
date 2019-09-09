@@ -518,38 +518,31 @@ class CustomXUploadAction extends CAction {
 	              		default:
 	              			try 
 		                	{
-                                if ($this->stateVariable == "eas" && !preg_match('/image/', $model->{$this->mimeTypeAttribute}) )
-                                { 
-                                    $returnValue = 'Problem saving file, must be an image.';
-                                    //echo "<script type='text/javascript'>alert('$returnValue');</script>";
-                                }else
+                                if ($this->stateVariable == "maintenance")
                                 {
-    		                		if ($this->stateVariable == "maintenance") 
-    		                		{
-    									$query = "SELECT file FROM `{$this->stateVariable}` WHERE id_maintenance='{$_POST['modelId']}'";
-    		                		}
-    								else
-    								{ 
-    									$query = "SELECT file FROM `{$this->stateVariable}` WHERE id='{$_POST['modelId']}'";
-    								}
-    								
-    								$filename = Yii::app()->db->createCommand($query)->queryScalar();
-    								if ($filename != $model->{$this->fileNameAttribute}) 
-    								{
-    									is_file( $path.$filename ) && $path.$filename[0] !== '.' && unlink( $path.$filename );
-    								}
-    								
-    								if ($this->stateVariable == "maintenance")
-    								{ 
-    									$query = "UPDATE `{$this->stateVariable}` SET file='{$model->name}' WHERE id_maintenance='{$_POST['modelId']}'";
-    								}
-    								else
-    								{ 	
-    									$query = "UPDATE `{$this->stateVariable}` SET file='{$model->name}' WHERE id='{$_POST['modelId']}'";
-    								}	
-    								Yii::app()->db->createCommand($query)->execute();
-    								$returnValue = true;
+                                    $query = "SELECT file FROM `{$this->stateVariable}` WHERE id_maintenance='{$_POST['modelId']}'";
                                 }
+                                else
+                                {
+                                    $query = "SELECT file FROM `{$this->stateVariable}` WHERE id='{$_POST['modelId']}'";
+                                }
+
+                                $filename = Yii::app()->db->createCommand($query)->queryScalar();
+                                if ($filename != $model->{$this->fileNameAttribute})
+                                {
+                                    is_file( $path.$filename ) && $path.$filename[0] !== '.' && unlink( $path.$filename );
+                                }
+
+                                if ($this->stateVariable == "maintenance")
+                                {
+                                    $query = "UPDATE `{$this->stateVariable}` SET file='{$model->name}' WHERE id_maintenance='{$_POST['modelId']}'";
+                                }
+                                else
+                                {
+                                    $query = "UPDATE `{$this->stateVariable}` SET file='{$model->name}' WHERE id='{$_POST['modelId']}'";
+                                }
+                                Yii::app()->db->createCommand($query)->execute();
+                                $returnValue = true;
 							}
 							catch (Exception $e) 
 							{

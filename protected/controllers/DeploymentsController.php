@@ -42,6 +42,11 @@ class DeploymentsController extends Controller{
 		}		
 		$id = (int) $id;
 		$model = $this->loadModel($id);
+		if ($model->assigned_srs){
+			$support_desk = SupportDesk::model()->findByPk($model->assigned_srs);
+			$rsr = SupportRequest::getRSR($support_desk->id);
+		}
+
 		$subtab = $this->getSubTab(Yii::app()->createUrl('deployments/view', array('id' => $id)));
 		$this->action_menu = array_map("unserialize", array_unique(array_map("serialize", array_merge(
 			$this->action_menu,
@@ -65,6 +70,7 @@ class DeploymentsController extends Controller{
 		$this->jsConfig->current['activeTab'] = $subtab;
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'rsr' => isset($rsr)?$rsr:null
 		));		
 	}
 	public function actionCreate(){
@@ -98,6 +104,16 @@ class DeploymentsController extends Controller{
 			$model->attributes = $_POST['Deployments'];
 			$model->dep_no = "00000"; 
 			$model->adddate = $date = date('Y-m-d H:i:s');
+
+			$support_desk = SupportDesk::model()->findByPk($model->assigned_srs);
+			if (isset($support_desk)){
+				$rsr = SupportRequest::getRSR($support_desk->id);
+			}
+
+			if (!empty($rsr)){
+				$model->status = 1;
+			}
+
 			if ($model->save())	{
 				$model->user=Yii::app()->user->id;
 				$model->dep_no = Utils::paddingCode($model->id);

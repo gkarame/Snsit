@@ -1597,7 +1597,7 @@ public function actionGetRegion($id){
 			header('Content-disposition: attachment; filename=EA_'.$model->ea_number.'.pdf');
 			header('Content-type: application/pdf');
 			//chmod($file, 0777);
-			readfile($file);
+			readfile(str_ireplace('\\','/',$file));
 			Yii::app()->end();
 		} else{
 			$this->redirect(array(Utils::getMenuOrder(true)));

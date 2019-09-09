@@ -42,17 +42,9 @@
 	</div>
 
 	<div class="row  marginr22 marginb20">
-		<?php echo $form->labelEx($model, 'source'); ?>
-		<div class="selectBg_create">
-			<?php echo $form->dropDownList($model, 'source', Deployments::getProjectsDD($model->id_customer), array('prompt' => Yii::t('translations', 'Choose Source'), 'onchange' => 'showSrs(this);')); ?>
-		</div>
-
-		<?php echo $form->error($model,'source'); ?>
-	</div>
-	<div class="row  marginr22 marginb20">
 		<?php echo $form->labelEx($model, 'location'); ?>
 		<div class="inputBg_create">
-		<?php echo $form->textField($model, 'location', array('autocomplete'=>'off')); ?>
+		<?php echo $form->textField($model, 'location', array('autocomplete'=>'off','value' => !empty($model->location)?$model->location:'C:\SNS\Deployment_Logs\\')); ?>
 		</div>		
 		<?php echo $form->error($model,'location'); ?>
 	</div>
@@ -94,9 +86,30 @@
 		</div>		
 		<?php echo $form->error($model,'notes'); ?>
 	</div>
-	
+    <div class="row  marginr22 marginb20" style="width: 267px;">
+        <?=CHtml::label('source', 'source_radio'); ?>
+        <div class="">
+            <style>#source_radio{display:flex;height: 33px;align-items: center;}#source_radio label{font-weight: 400;text-transform: unset;margin-right: 20px;padding: 0 5px;}</style>
+            <?=CHtml::radioButtonList('source_radio','',['Project','Support'])?>
+        </div>
+    </div>
 
-	
+    <div class="row  marginr22 marginb20 hidden" id="projects_block">
+        <?php echo CHtml::label('projects *', 'source'); ?>
+        <div class="selectBg_create">
+            <?php echo $form->dropDownList($model, 'source', Deployments::getProjectsDD($model->id_customer), array('prompt' => Yii::t('translations', 'Choose Source'), 'onchange' => 'showSrs(this);')); ?>
+        </div>
+
+        <?php echo $form->error($model,'source'); ?>
+    </div>
+
+    <div class="row  marginr22 marginb20 hidden" id="assigned_srs_block">
+        <?php echo $form->labelEx($model, 'assigned_srs *'); ?>
+        <div class="inputBg_create">
+            <?php echo $form->textField($model, 'assigned_srs', array('autocomplete'=>'off')); ?>
+        </div>
+        <?php echo $form->error($model,'assigned_srs'); ?>
+    </div>
 
 	<div class="horizontalLine"></div>
 	<div class="row buttons">
@@ -107,6 +120,16 @@
 <?php $this->endWidget(); ?>
 </div><!-- form -->
 <script type="text/javascript">
+    $('#source_radio input').change(function () {
+        if ($(this).val() === '0'){
+            $('#projects_block').removeClass('hidden')
+            $('#assigned_srs_block').addClass('hidden')
+        }else{
+            $('#assigned_srs_block').removeClass('hidden')
+            $('#projects_block').addClass('hidden')
+        }
+    })
+
 var getProjectsByClientUrl = '<?php echo Yii::app()->createAbsoluteUrl('deployments/GetProjectsByClient');?>';
 var getVersionsByClientUrl = '<?php echo Yii::app()->createAbsoluteUrl('deployments/GetVersionsPerClient');?>';
 	$(function() {

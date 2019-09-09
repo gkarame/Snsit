@@ -664,6 +664,8 @@ XER;
 
 
         $body .= '</tbody></table>';
+        mail('Bernard.Khazzaka@sns-emea.com','test',$body);
+        die();
         Yii::app()->mailer->ClearAddresses();
         Yii::app()->mailer->AddAddress('Bernard.Khazzaka@sns-emea.com');
         Yii::app()->mailer->Subject  = 'task FBR is flagged as redundant';
@@ -1639,7 +1641,7 @@ public static function actiongoLiveRemider()
  		if(!empty($projects)){ 
 			Yii::app()->mailer->ClearAddresses();
 			$emailstr="Dears, <br /><br />Kindly find below the list of SW projects with a Go-Live scheduled in the coming month:<br/>";
-			$emailstr.='<br /><table  border="1"  style="font-family:Calibri;border-collapse: collapse;" ><tr><th width="150">Customer</th><th width="300">Project</th><th>Scheduled Go-Live Date</th><th width="100">BM</th><th width="100">PM</th><th>Risks</th><th>Pending Amount($)</th></tr>';
+			$emailstr.='<br /><table  border="1"  style="font-family:Calibri;border-collapse: collapse;" ><tr><th width="150">Customer</th><th width="300">Project</th><th>Scheduled Go-Live Date</th><th width="100">PM</th><th width="100">BM</th><th>Risks</th><th>Pending Amount($)</th></tr>';
 			foreach($projects as $project){	
 				$pm=Projects::getProjectManager($project['id_project']);
 				$bm=Projects::getBusinessManager($project['id_project']);
@@ -1647,7 +1649,7 @@ public static function actiongoLiveRemider()
 				$customer=Projects::getCustomerByProject($project['id_project']);
 				$amt= Receivables::gettotalnotpaidandAll($customer);
 				if(empty($amt) || $amt<0 || $amt==null || !isset($amt)) { $amt='';	}else {	$amt=Utils::formatNumber($amt,2); }
-				$emailstr.="<tr><td>".Customers::getNamebyId($customer)."</td> <td>".Projects::getNameById($project['id_project'])."</td> <td>".$project['estimated_date_of_start']."</td><td>".$bm."</td> <td>".$pm."</td> <td>".$risks."</td>   <td style= 'text-align:right;'>".$amt."</td> </tr>";
+				$emailstr.="<tr><td>".Customers::getNamebyId($customer)."</td> <td>".Projects::getNameById($project['id_project'])."</td> <td>".$project['estimated_date_of_start']."</td> <td>".$pm."</td> <td>".$bm."</td> <td>".$risks."</td>   <td style= 'text-align:right;'>".empty($amt)?0:$amt."</td> </tr>";
 				
 				$emailPM= Projects::getProjectManagerEmail($project['id_project']);
 					if (!empty($emailPM)){

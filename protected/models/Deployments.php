@@ -9,7 +9,7 @@ class Deployments extends CActiveRecord{
 	}
 	public function rules(){
 		return array(
-			array('id_customer, dep_date, description,status, module, infor_version, source,location', 'required'),
+			array('id_customer, dep_date, description,status, module, infor_version,location', 'required'),
 			array('id_customer, user,status', 'numerical', 'integerOnly'=>true),
 			array('dep_no', 'length', 'max'=>10),
 			array('description, notes, location', 'length', 'max'=>2000),

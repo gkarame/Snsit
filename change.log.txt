@@ -78,3 +78,11 @@ Author: Mike
              ALTER TABLE `eas` ADD `country_perdiem` VARCHAR(60) NULL DEFAULT NULL AFTER `id_customer`;
              ALTER TABLE `expenses` ADD `country_id` INT NULL AFTER `pv_nb`;
              ALTER TABLE `expenses` ADD FOREIGN KEY (`country_id`) REFERENCES `apps_countries`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+10) Deployment Modules Changes
+
+    changes:
+        -db: ALTER TABLE `deployments` CHANGE `source` `source` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+             ALTER TABLE `deployments` CHANGE `assigned_srs` `assigned_srs` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+             ALTER TABLE `deployments` CHANGE `dep_version` `dep_version` VARCHAR(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+             ALTER TABLE `deployments` CHANGE `user` `user` INT(11) NULL;
