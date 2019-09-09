@@ -22,8 +22,7 @@
             terms.push('');
 
             this.value = terms.join(', ');
-            refreshProjectListsProjects();
-            refreshDestination();
+            refreshcurrencypartner();
             (document.getElementById('.header_title')).onclick();
             
             return false;

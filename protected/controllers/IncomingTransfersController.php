@@ -21,7 +21,7 @@ class IncomingTransfersController extends Controller{
 
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array(
-						'index','view','create','update', 'delete','deleteInvoice','manageInvoice','GetFiltered','GetUnssignedInvoices','GetAuxiliariesperbank','GetInvoices','closeInvoices',
+						'index','view','create','update', 'delete','deleteInvoice','manageInvoice','GetFiltered','GetUnssignedInvoices','getpartnerCurrency','GetAuxiliariesperbank','GetInvoices','closeInvoices',
 						'getInvoiceDetail','UpdateHeader','createTransfer','assignInvoices','GetExcel','updateinfoheader',
 						'inputInv','validateRate','getAmtIncurrency'
 						
@@ -188,6 +188,16 @@ class IncomingTransfersController extends Controller{
 					echo json_encode(array(	"status"=>"failure"));
 										exit;	
 
+		}
+	}
+	public function actionGetpartnerCurrency($id){
+		if(isset($id))
+		{
+			$partners=Yii::app()->db->createCommand("select currency ,partner  from invoices where id_customer=".(int)$id." and status not in ('New', 'To Print','Paid','Cancelled') order by id desc limit 1")->queryRow();
+			if(!empty($partners))
+			{
+				//echo json_encode(IncomingTransfers::getAllAuxiliariesperbank((int)$id));
+			}
 		}
 	}
 	public function actionGetAuxiliariesperbank($id){
@@ -910,6 +920,11 @@ public function actionAssignInvoices(){
 				$dataLines  = $dataProvider2->getData();
 				foreach($dataLines as $d => $row)
 				{
+					$p='';
+					if($row->paid_amount == '2')
+					{
+						$p=IncomingTransfersDetails::getPaidLabel($row->paid_amount);
+					}
 					$i++; 
 					$objPHPExcel->setActiveSheetIndex($sheetId)
 					->setCellValue('A'.$i, ' '.$row->final_invoice_number)
@@ -917,7 +932,7 @@ public function actionAssignInvoices(){
 					->setCellValue('C'.$i, Utils::formatNumber($row->original_amount))
 					->setCellValue('D'.$i, Utils::formatNumber(IncomingTransfersDetails::getPaidPerInvoice($row->invoice_number))) 
 					->setCellValue('E'.$i, Codelkups::getCodelkup($row->original_currency))
-					->setCellValue('F'.$i, IncomingTransfersDetails::getPaidLabel($row->paid_amount))
+					->setCellValue('F'.$i, $p)
 					->setCellValue('G'.$i, Utils::formatNumber($row->received_amount))
 					->setCellValue('H'.$i, Codelkups::getCodelkup($row->received_currency)) 
 					;

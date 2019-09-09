@@ -44,7 +44,7 @@ class IncomingTransfersDetails extends CActiveRecord {
 	public function validateInv(){
 		if($this->paid_amount == 2 )
 		{
-			$other= Yii::app()->db->createCommand("select received_amount, rate, id_it from incoming_transfers_details where final_invoice_number='".$this->final_invoice_number."' and invoice_number='".$this->invoice_number."' and id_it!=".$this->id_it."")->queryAll();
+			$other= Yii::app()->db->createCommand("select received_amount, rate, id_it from incoming_transfers_details where final_invoice_number='".$this->final_invoice_number."' and invoice_number='".$this->invoice_number."' and id_it!=".$this->id_it."  and id_it not in (select id from incoming_transfers where status=3)")->queryAll();
 		 	if(!empty($other))
 		 	{
 		 		$tot=0;
@@ -69,7 +69,7 @@ class IncomingTransfersDetails extends CActiveRecord {
 		 	}
 	    }else if($this->paid_amount == 1 )
 	    {
-	    	$other= Yii::app()->db->createCommand("select distinct(id_it) from incoming_transfers_details where paid_amount=2 and received_amount>0 and  final_invoice_number='".$this->final_invoice_number."' and invoice_number='".$this->invoice_number."' and id_it!=".$this->id_it."")->queryAll();
+	    	$other= Yii::app()->db->createCommand("select distinct(id_it) from incoming_transfers_details where paid_amount=2 and received_amount>0 and  final_invoice_number='".$this->final_invoice_number."' and invoice_number='".$this->invoice_number."' and id_it!=".$this->id_it." and id_it not in (select id from incoming_transfers where status=3)")->queryAll();
 		 	if(!empty($other))
 		 	{
 		 		$id_its= array_unique(array_column($other, 'id_it'));
@@ -138,7 +138,7 @@ class IncomingTransfersDetails extends CActiveRecord {
 	}
 
 	public static function getPaidPerInvoice($id){
-		return Yii::app()->db->createCommand("select received_amount/rate from incoming_transfers_details where invoice_number ='".$id."'")->queryScalar();
+		return Yii::app()->db->createCommand("select received_amount/rate from incoming_transfers_details where invoice_number ='".$id."' and id_it not in (select id from incoming_transfers where status=3)")->queryScalar();
 	}
 
 }

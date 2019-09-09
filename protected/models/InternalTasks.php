@@ -160,6 +160,8 @@ class InternalTasks extends CActiveRecord{
 			0 => 'New',
 			1 => 'In Progress',
 			2 => 'In Testing',
+			5 => 'Fixed',
+			6 => 'Reopened',
 			4 => 'On Hold',
 			3 => 'Closed'
 		); 
@@ -181,6 +183,12 @@ class InternalTasks extends CActiveRecord{
 				break;
 			case 4:
 				return 'On Hold';
+				break;
+			case 5:
+				return 'Fixed';
+				break;
+			case 6:
+				return 'Reopened';
 				break;
 			default:
 				return '';
