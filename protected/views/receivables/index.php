@@ -105,7 +105,7 @@ Yii::app()->clientScript->registerScript('search', "$('.search-button').click(fu
 				array('name' => 'Paid Date','value' => '$data->paid_date != "0000-00-00" ? date("d/m/Y", strtotime($data->paid_date)) :"" ','htmlOptions' => array('class' => 'column90'),'headerHtmlOptions' => array('class' => 'column90'),),
 				array('name' => 'age','value' => '$data->age','header' => '<a href="'.Yii::app()->getBaseUrl(true).'/receivables?group=age">age</a>','htmlOptions' => array('class' => 'column65'),'headerHtmlOptions' => array('class' => 'column65'),),
 				array('name' => 'Ea','type'=>'raw','value'=>'Receivables::getEASerInvoice($data->id_ea)','htmlOptions' => array('class' => 'column65'),'headerHtmlOptions' => array('class' => 'column65'),),
-				
+                array('name' => 'Notes','type'=>'raw' ,'value'=>'empty($data->notes)?"":"<div class=\"invoice_notes_block\"><img src=\"https://img.icons8.com/office/16/000000/note.png\"><div class=\"invoice_notes\">".$data->notes."<div></div>"','htmlOptions' => array('class' => 'center'))
 				),)); } ?>
 <script type="text/javascript">
 $( function() {

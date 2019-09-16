@@ -106,7 +106,7 @@ class InstallationRequestsController extends Controller{
 		$this->render('view', array('model' => $model,'infomodel'=> (($model->status == InstallationRequests::STATUS_COMPLETED) ? $infomodel:'')));
 	}
 	public function actionCreate(){
-		$error1 = false;	$error2 = false;	$error_message = '';
+		$error1 = false;	$error2 = false;$error3 = false;	$error_message = '';
 		if(!GroupPermissions::checkPermissions('ir-general-installationrequests','write')){
 			throw new CHttpException(403,'You don\'t have permission to access this page.');
 		}
@@ -174,12 +174,27 @@ class InstallationRequestsController extends Controller{
 				}else{
 					$model->installation_location = InstallationRequests::INSTALL_LOCATION_REMOTE;
 				}
+
+                if ((int)$_POST['source_type'] === 1){
+                    $maintenance_services = Yii::app()->db->createCommand("SELECT * FROM `maintenance_services` where id_contract={$model->project} AND id_service='15'")->queryRow();
+                    if (!empty($maintenance_services)){
+                        $actuals = MaintenanceServices::getActual($maintenance_services['id'],15,'1');
+                        if ((int)$maintenance_services['limit'] <= (int)$actuals){
+                            $model->addError('project','Sorry, you don’t have any free IR in  selected support plan');
+                            $error3 = true;
+                        }
+                    }else{
+                        $model->addError('project','Sorry, you don’t have any free IR in  selected support plan');
+                        $error3 = true;
+                    }
+                    $model->project = $model->project.'m';
+                }
 				if(substr($model->project, -1) == 'm'){
 					$model->maintenance = 1;	
 				}else{
 					$model->maintenance = 0;
 				}
-				if(!$error1 && !$error2){
+				if(!$error1 && !$error2 && !$error3){
 				if($model->validate()){
 					if($model->save()){
 					$model->ir_number = Utils::paddingCode($model->id);
@@ -288,6 +303,20 @@ class InstallationRequestsController extends Controller{
 						}
 					$extra['info'][] = "Saved !";
 			}
+            if ((int)$_POST['source_type'] === 1){
+                $maintenance_services = Yii::app()->db->createCommand("SELECT * FROM `maintenance_services` where id_contract={$model->project} AND id_service='15'")->queryRow();
+                if (!empty($maintenance_services)){
+                    $actuals = MaintenanceServices::getActual($maintenance_services['id'],15,'1');
+                    if ((int)$maintenance_services['limit'] <= (int)$actuals){
+                        echo 'false';
+                        die();
+                    }
+                }else{
+                    echo 'false';
+                    die();
+                }
+                $model->project = $model->project.'m';
+            }
 			if(substr($model->project, -1) == 'm'){
 					$model->maintenance = 1;	
 				}else{

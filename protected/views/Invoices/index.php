@@ -32,7 +32,7 @@
 		array('name' => 'Old','type'  => 'raw','value'=>'Invoices::getOld( $data->id, $data->old)','htmlOptions' => array('class' => 'center')),
 		array('name' => 'Invoice date','type'  => 'raw','value'=>'Invoices::getInvoiceDate( $data->invoice_date_month, $data->invoice_date_year, $data->id)',
         	'htmlOptions' => array('class' => 'column6 custom_date'),'headerHtmlOptions' => array('class' => 'inv_date'),),
-        array('name' => 'Notes','type'=>'raw' ,'value'=>'empty($data->notes)?"":"<div class=\"invoice_notes_block\"><img src=\"https://img.icons8.com/office/16/000000/note.png\"><div class=\"invoice_notes\">".$data->notes."<div></div>"','htmlOptions' => array('class' => 'center')),),)); ?>
+        ),)); ?>
 		<br clear="all"><br><div class="new_inv">
 	<?php	if(GroupPermissions::checkPermissions('financial-invoices','write')){	echo CHtml::link(Yii::t('translation', 'New Invoice'), array('create'), array('class'=>'add-invoice add-btn')); } ?></div>
 <script type="text/javascript">

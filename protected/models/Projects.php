@@ -545,17 +545,25 @@ public static function getAllProjectsAssignedtoUserProd($user_id){
 	public static function getAllPMsProjectsAssignedtoUser($user_id){	
 		return Yii::app()->db->createCommand("SELECT distinct p.project_manager as pm FROM projects p , projects_phases pp , projects_tasks pt , user_task uta, users u WHERE uta.id_task=pt.id and pt.id_project_phase=pp.id and pp.id_project=p.id and uta.id_user='".$user_id."' and p.status='1'  and u.id=p.project_manager and u.active=1")->queryAll();
 	}
-	public static function getAllParentProjectsMaintSelect($customer_id=0){
+	public static function getAllParentProjectsMaintSelect($customer_id=0,$type = null){
 		if ($customer_id){
 			if(preg_match("/[a-z]/i", $customer_id)){
 				$customer_id=Customers::getIdByName($customer_id);
-			}	
-			$items = array();	
-			$training = Yii::app()->db->createCommand("SELECT id_maintenance as id , contract_description as name FROM maintenance WHERE customer = $customer_id and support_service in (501,502) and status='Active'")->queryAll();
-			$result =  Yii::app()->db->createCommand("SELECT id ,name FROM projects WHERE customer_id = $customer_id AND status = 1")->queryAll();			
-			foreach ($result as $id => $res){	$items[$res['id']] = $res['name'];	}
-			foreach ($training as $id => $res)	{	$items[$res['id'].'m'] = $res['name'];	}
-			return $items;  
+			}
+			if (isset($type)){
+			    if ($type == 'project'){
+			        return Yii::app()->db->createCommand("SELECT id ,name FROM projects WHERE customer_id = $customer_id AND status = 1")->queryAll();
+                }else if($type == 'maintenance'){
+			        return Yii::app()->db->createCommand("SELECT id_maintenance as id , contract_description as name FROM maintenance WHERE customer = $customer_id and support_service in (501,502) and status='Active'")->queryAll();
+                }
+            }else{
+                $items = array();
+                $training = Yii::app()->db->createCommand("SELECT id_maintenance as id , contract_description as name FROM maintenance WHERE customer = $customer_id and support_service in (501,502) and status='Active'")->queryAll();
+                $result =  Yii::app()->db->createCommand("SELECT id ,name FROM projects WHERE customer_id = $customer_id AND status = 1")->queryAll();
+                foreach ($result as $id => $res){	$items[$res['id']] = $res['name'];	}
+                foreach ($training as $id => $res)	{	$items[$res['id'].'m'] = $res['name'];	}
+                return $items;
+            }
 		}else{
 			return CHtml::listData(self::model()->findAll(array('condition'=>'status=1', 'order'=>'name ASC')), 'id', 'name');	
 		}	
@@ -1405,4 +1413,7 @@ where pa.alerts<>' ' and pa.id_project=p.id and p.deactivate_alerts='No' and (p.
 		$name=Yii::app()->db->createCommand("SELECT sent_to , sent_to_first_name  FROM surveys_status where id_project=".$id." and surveys_sent='1' and surv_type='".$surv_type."'")->queryRow();
 		return ucfirst($name['sent_to_first_name'])." ".ucfirst($name['sent_to']);
 	}
+	public static function getCustomerProjects($id){
+	    return Yii::app()->db->createCommand("SELECT * FROM projects WHERE customer_id={$id}")->queryAll();
+    }
 } ?>

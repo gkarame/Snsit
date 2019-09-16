@@ -2706,9 +2706,9 @@ public static function actionsendProjectClosedNotTransitedSupport(){
 			}
     	}
 	}
-	public function actionGetParentProjectsMaintByClient($id){
+	public function actionGetParentProjectsMaintByClient($id,$type){
 		$this->layout='';
-		echo json_encode(Projects::getAllParentProjectsMaintSelect((int)$id));
+		echo json_encode(Projects::getAllParentProjectsMaintSelect((int)$id,$type));
 		exit();
 	}
 	public function actionGetParentProjectsByClient($id){

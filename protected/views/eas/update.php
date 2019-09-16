@@ -665,7 +665,7 @@ function updateTermSandU(element, id) {
 	}
 	function updateHeader(element){
 	    <?php $country = Country::model()->findAll()?>
-	    const country = JSON.parse('<?=CJSON::encode($country);?>');
+	    const country = JSON.parse(`<?=CJSON::encode($country);?>`);
 	    let valid = true;
 	    const val_expence = $('#Eas_expense').val();
 	    const prediem_checbox = $('#perdiemchecbox input').attr('checked');
