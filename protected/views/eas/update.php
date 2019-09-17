@@ -36,7 +36,7 @@
 		<div class="header_content tache">
 			<?php $this->renderPartial('_header_content', array('model' => $model));?>
 		</div>
-		<div class="hidden edit_header_content tache new" style="height: 165px;border: 2px solid rgba(255,0,0,0.68);"></div>
+		<div class="hidden edit_header_content tache new" style="padding-bottom:15px;height: auto;border: 2px solid rgba(255,0,0,0.68);"></div>
 		<br clear="all" />
 	</div>
 	<div id="ea_items">
