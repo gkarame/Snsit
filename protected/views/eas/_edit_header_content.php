@@ -124,10 +124,10 @@
     <div class="textBox inline-block bigger_amt country_perdiem" <?php if($model->expense === 'N/A'):?>style="display: none"<?php endif;?>>
         <div class="input_text_desc"><?php echo CHtml::activelabelEx($model, "country_perdiem"); ?> </div>
         <div class="input_text <?=isset($model->country_perdiem)?'checked' : ''?>" style="width: auto;border: none;" id="perdiemchecbox">
-            <?php  echo CHtml::CheckBox('',isset($model->country_perdiem)?'checked' : '' ); ?>
+            <?php  echo CHtml::CheckBox('',isset($model->country_perdiem)?'checked' : '',array('disabled' => ($model->expense != 'N/A' && $model->expense != 'Actuals')?'disabled':'') ); ?>
         </div>
     </div>
-    <div class="textBox inline-block bigger_amt country_perdiem">
+    <div class="textBox inline-block bigger_amt country_perdiem" <?php if($model->expense === 'N/A'):?>style="display: none"<?php endif;?>>
         <div class="input_text_desc"><?php echo CHtml::label("Country",''); ?></div>
         <div class="input_text">
             <div class="hdselect">
@@ -141,7 +141,6 @@
 	<div style=" left:833px; color:#333; padding-top:105px;" class="save" onclick="$(this).parents('.tache.new').siblings('.tache').removeClass('hidden');$(this).parents('.tache.new').addClass('hidden');$(this).parents('.tache.new').html('');"><u><b>CANCEL</b></u></div>
 </fieldset>
 <script type="text/javascript">
-	$(function() {	changeExpense('#Eas_expense');	}); 
 	function changeExpense(element) {
 		$this = $(element);
 		switch ($this.val()) {
@@ -157,7 +156,7 @@
 			case 'Actuals':
 				$('#Eas_lump_sum').parents('.textBox').addClass('hidden');
                 $('.country_perdiem').show();
-                $('#perdiemchecbox input').removeAttr('disabled');
+                $('#perdiemchecbox input').removeAttr('checked').removeAttr('disabled');
 				break;
             case 'Lump Sum':
                 $('#Eas_lump_sum').parents('.textBox').removeClass('hidden');
@@ -165,6 +164,8 @@
                 $('#perdiemchecbox input').attr('checked','checked').attr('disabled','disabled');
                 break;
 			default:
+                $('.country_perdiem').show();
+                $('#perdiemchecbox input').attr('checked','checked').attr('disabled','disabled');
 				$('#Eas_lump_sum').parents('.textBox').removeClass('hidden');
 				break;
 		}

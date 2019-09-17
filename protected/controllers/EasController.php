@@ -372,9 +372,9 @@ public function actionGetRegion($id){
 		if (isset($_POST['Eas']))
 		{
 			unset($_POST['Eas']['category']);	unset($_POST['Eas']['project_name']);	unset($_POST['Eas']['id_parent_project']);	unset($_POST['Eas']['id_customer']);
-			if ($_POST['Eas']['country_perdiem'] == '' || $_POST['Eas']['expense'] == 'N/A' ||  !isset($_POST['country_perdiem_checbox'])){
+			if (empty($_POST['Eas']['country_perdiem']) || $_POST['Eas']['expense'] == 'N/A' ||  (int)$_POST['country_perdiem_checbox'] === 0){
                 $model->country_perdiem = null;
-            }else{
+            }else if((int)$_POST['country_perdiem_checbox'] === 1 && !empty($_POST['Eas']['country_perdiem'])){
                 $model->country_perdiem = $_POST['Eas']['country_perdiem'];
             }
 			if (isset($_POST['Eas']['billto_contact_person']) && $_POST['Eas']['billto_contact_person'] != $model->billto_contact_person){		
@@ -599,7 +599,7 @@ public function actionGetRegion($id){
 			if ($model->validate()){
 				if ($model->expense == 'Actuals' && $old_expense != $model->expense){		Projects::setBillable($model->id_project);	$model->modifyTerms();}
 				if ($model->expense == 'N/A' && $old_expense != $model->expense){		$model->modifyTerms();}
-				if ($model->expense != 'N/A' && $model->expense != 'Actuals')	{	$model->expense = $model->lump_sum;
+				if ($model->expense != 'N/A' && $model->expense != 'Actuals')	{	$model->expense = $_POST['Eas']['lump_sum'];
 					$model->modifyTerms();	}
 			}
 			if ($model->save()){
