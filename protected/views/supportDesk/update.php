@@ -269,7 +269,13 @@ function postComm(){
   		}
 	});
 }
-function changeInput(value,id_support_dask,type){	
+function changeInput(value,id_support_dask,type){
+    if (type == 3 && (value == 409 || value == 413 || value == 402 || value == 405 || value == 404 || value == 406)){
+        changeInput('Yes',<?php echo $model->id; ?>, 7);
+        $('#deployment').attr('disabled','disabled')
+        $('#deployment option').removeAttr('selected');
+        $('#deployment option[value="Yes"]').attr('selected','selected');
+    }
 	$.ajax({type: "POST", 	url: "<?php echo Yii::app()->createAbsoluteUrl('supportDesk/assigned');?>",  	dataType: "json",
 	  	data: {'value':value,'id_support_desk':id_support_dask,'type':type},
 	  	success: function(data) {

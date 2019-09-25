@@ -10,14 +10,14 @@ class ProjectsTasks extends CActiveRecord{
 	public function rules(){
 		return array(
 			array('id_project_phase, billable, type', 'required'),
-			array('id_project_phase, complexity,module,type', 'numerical', 'integerOnly'=>true),
+			array('id_project_phase, complexity,module,type,author_id', 'numerical', 'integerOnly'=>true),
 			array('man_days_budgeted', 'numerical','integerOnly'=>false),
 			array('billable,complexity,fbr', 'length', 'max'=>3),
 			array('title', 'length', 'max'=>200),
 			array('keywords,notes', 'length', 'max'=>3000),
 			array('type','validatetype'),
 			
-			array('id, id_project_phase, man_days_budgeted, billable, description,type, fbr, title, module, keywords,notes, existsfbr, redundant_send', 'safe', 'on'=>'search'),
+			array('id,author_id, id_project_phase, man_days_budgeted, billable, description,type, fbr, title, module, keywords,notes, existsfbr, redundant_send', 'safe', 'on'=>'search'),
 		);
 	}
 	public function relations(){
@@ -46,7 +46,8 @@ class ProjectsTasks extends CActiveRecord{
 			'existsfbr' => 'Previously Done?',
 			'notes' => 'Short description',
 			'parent_fbr' => 'Parent FBR',
-			'type' => 'Type'
+			'type' => 'Type',
+            'author_id' => 'Author'
 		);
 	}
 	
