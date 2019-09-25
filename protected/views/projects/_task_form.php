@@ -80,6 +80,11 @@
             <?php echo CCustomHtml::error($model, "notes", array('id'=>"notes"));  ?>
         </div>
 
+        <div class="textBox  inline-block paddingl21 width150" id="author_id" >	<div class="input_text_desc " style="width: 150px;"><?php echo CHtml::activelabelEx($model, "author_id"); ?></div>
+            <div class="input_text width150"><div class="hdselect">
+                    <?php echo CHtml::activeDropDownList($model, "author_id",  Users::getLineManagers(), array('class'=>'input_text_value width146')); ?>
+                </div> 	</div>	<?php echo CCustomHtml::error($model, "author_id", array('id'=>"author_id")); ?>	</div>
+
 
 		<?php if($id == "new"){?>
 			<div style="right:75px;" class="save top185" onclick="createTask(this,<?php echo $id_phase;?>,<?php echo $id_project?>);return false;"><u><b>SAVE</b></u></div>

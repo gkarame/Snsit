@@ -736,15 +736,7 @@ if (isset($_POST['Receivables']['invoice_date_month']) &&$_POST['Receivables']['
         $i = 1;
         foreach ($data as $d => $row) {
             $net   = Receivables::getAmountUsd($row->rCurrency['id'], $row->net_amount);
-            if(!empty($net))
-            {
-            	$net= round($net, 2);
-            }
             $gross = Receivables::getAmountUsd($row->rCurrency['id'], $row->gross_amount);
-            if(!empty($gross))
-            {
-            	$gross=round($gross,2);
-            }
             $final = $row->final_invoice_number;
             if ($row->partner == '554') {
                 $final = $row->snsapj_partner_inv;
@@ -756,25 +748,10 @@ if (isset($_POST['Receivables']['invoice_date_month']) &&$_POST['Receivables']['
             }else{
             	$pinv = $row->partner_inv;
             }
-
             $i++;
-            $objPHPExcel->getActiveSheet()->getStyle('I' . $i)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
-			$objPHPExcel->getActiveSheet()->getStyle('J' . $i)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
-			$objPHPExcel->getActiveSheet()->getStyle('K' . $i)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
-			$objPHPExcel->getActiveSheet()->getStyle('L' . $i)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
-			
             $objPHPExcel->setActiveSheetIndex($sheetId)->setCellValue('A' . $i, isset($row->customer->name) ? $row->customer->name : '')
-                     ->setCellValue('B' . $i, $final)->setCellValue('C' . $i, isset($row->ea->ea_number) ? $row->ea->ea_number : "")
-                     ->setCellValue('D' . $i, $row->invoice_title)->setCellValue('E' . $i, $row->partner ? $row->rPartner->codelkup : '')->setCellValue('F' . $i, $pinv)
-					->setCellValue('G' . $i, 'USD')->setCellValue('H' . $i, ($row->currency!=9)? Codelkups::getCodelkup($row->currency): "")
-					->setCellValue('I' . $i, $gross)->setCellValue('J' . $i, ($row->currency!=9)? round($row->gross_amount,2): "")
-					->setCellValue('K' . $i, $net)->setCellValue('L' . $i, ($row->currency!=9)? round($row->net_amount,2): "")
-					->setCellValue('M' . $i, $row->partner != '77' ? $row->partner_status : '')->setCellValue('N' . $i, ($row->status == 'Printed') ? "Not Paid" : $row->status)
-					->setCellValue('O' . $i, $row->age)->setCellValue('P' . $i, date("d/m/Y", strtotime($row->getinvdate())))
-					->setCellValue('Q' . $i, ($row->paid_date != '0000-00-00') ? date("d/m/Y", strtotime($row->paid_date)) : '')
-					->setCellValue('R' . $i, $row->old)->setCellValue('S' . $i, $row->payment)->setCellValue('T' . $i, $row->payment_procente . "%")
-					->setCellValue('U' . $i, $row->sns_share . ' %')->setCellValue('V' . $i, $row->remarks)->setCellValue('W' . $i, $row->notes)
-					->setCellValue('X' . $i, (Users::getUsername($row->id_assigned)));
+                     ->setCellValue('B' . $i, $final)->setCellValue('C' . $i, isset($row->ea->ea_number) ? $row->ea->ea_number : "")->setCellValue('D' . $i, $row->invoice_title)->setCellValue('E' . $i, $row->partner ? $row->rPartner->codelkup : '')->setCellValue('F' . $i, $pinv)
+					->setCellValue('G' . $i, 'USD')->setCellValue('H' . $i, ($row->currency!=9)? Codelkups::getCodelkup($row->currency): "")->setCellValue('I' . $i, $gross)->setCellValue('J' . $i, ($row->currency!=9)? $row->gross_amount: "")->setCellValue('K' . $i, $net)->setCellValue('L' . $i, ($row->currency!=9)? $row->net_amount: "")->setCellValue('M' . $i, $row->partner != '77' ? $row->partner_status : '')->setCellValue('N' . $i, ($row->status == 'Printed') ? "Not Paid" : $row->status)->setCellValue('O' . $i, $row->age)->setCellValue('P' . $i, date("d/m/Y", strtotime($row->getinvdate())))->setCellValue('Q' . $i, ($row->paid_date != '0000-00-00') ? date("d/m/Y", strtotime($row->paid_date)) : '')->setCellValue('R' . $i, $row->old)->setCellValue('S' . $i, $row->payment)->setCellValue('T' . $i, $row->payment_procente . "%")->setCellValue('U' . $i, $row->sns_share . ' %')->setCellValue('V' . $i, $row->remarks)->setCellValue('W' . $i, $row->notes)->setCellValue('X' . $i, (Users::getUsername($row->id_assigned)));
         }
 		$objPHPExcel->getActiveSheet()->setTitle('Invoices # - ' . date("d m Y"));
         $objPHPExcel->setActiveSheetIndex(0);
@@ -863,24 +840,14 @@ if (isset($_POST['Receivables']['invoice_date_month']) &&$_POST['Receivables']['
 			//print_r($model->partner."UPDATE `invoices` SET {$set_items} " . $where . " ");exit;
             Yii::app()->db->createCommand("UPDATE `invoices` SET {$set_items} " . $where . " ")->execute(); 
 
-            if($_POST['Receivables']['status'] == 'Cancelled' and !empty($model->id_ea))
+          /*  if($_POST['Receivables']['status'] == 'Cancelled' and !empty($model->id_ea))
 			{
-				 /* $getremaininginv= Yii::app()->db->createCommand("SELECT count(1) from invoices where id_ea =".$model->id_ea." and status!= 'Cancelled' ")->queryScalar();
+				$getremaininginv= Yii::app()->db->createCommand("SELECT count(1) from invoices where id_ea =".$model->id_ea." and status!= 'Cancelled' ")->queryScalar();
 				if($getremaininginv == 0)
 				{
 					Yii::app()->db->createCommand("UPDATE eas SET status=0  WHERE id =".$model->id_ea." ")->execute();
-				}*/
-
-				$training= Yii::app()->db->createCommand("SELECT id_training from training_eas where id_ea =".$model->id_ea." ")->queryScalar();
-						if(!empty($training))
-						{
-							 $easstat= Yii::app()->db->createCommand("SELECT count(1) from eas where id in (select id_ea from training_eas where id_training= ".$training.") and status != '0' and status!='5'")->queryScalar();
-								$inv=  Yii::app()->db->createCommand("SELECT count(1) from invoices where id_ea in  (select id_ea from training_eas where id_training= ".$training.") and status != 'Cancelled' ")->queryScalar();
-								if($easstat == 0 && $inv ==0) {
-									Yii::app()->db->createCommand("UPDATE trainings_new_module SET status = 0 WHERE idTrainings =".$training." ")->execute();
-								}
-						}
-			}
+				}
+			}*/
 
 
             $nr             = Yii::app()->db->createCommand("UPDATE `invoices` SET id_assigned='" . $assignHr . "' WHERE id_customer='" . $model['id_customer'] . "' ")->execute();

@@ -870,14 +870,11 @@ class SupportDesk extends CActiveRecord{
 				//Yii::app()->mailer->AddCcs($email_account_manager);
 				Yii::app()->mailer->AddAddress($email_account_manager);
 			}
-
-		$emails = EmailNotificationsGroups::getNotificationUsers($notif['id']);
-	    		foreach ($emails as $email){
-					if (filter_var($email, FILTER_VALIDATE_EMAIL))  
-					//	Yii::app()->mailer->AddCcs($email);
-					{	Yii::app()->mailer->AddAddress($email);	}
-				}
-					
+		$email_bern_moh= Yii::app()->db->createCommand("SELECT email from user_personal_details WHERE id_user in (9, 20) ")->queryColumn();	
+			foreach ($email_bern_moh as $email_bern_mo)	{    			
+    				//Yii::app()->mailer->AddCcs($email_bern_mo);    	
+					//Yii::app()->mailer->AddAddress($email_bern_mo);					
+    		} 		
     		Yii::app()->mailer->Subject  = $subject;
 			Yii::app()->mailer->MsgHTML("<div style='font-size:11pt;font-family:Calibri;'>".nl2br($body)."</div>");
 	    	Yii::app()->mailer->Send(true);

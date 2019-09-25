@@ -142,6 +142,10 @@ function showProductForm(element, newItem) {
 		$.ajax({ type: "POST", data: $('#header_fieldset').serialize()  + '&ajax=ir-form',					
 		  	url: "<?php echo Yii::app()->createAbsoluteUrl('Installationrequests/updateHeader', array('id' => $model->id));?>", dataType: "json",
 		  	success: function(data) {
+                if (data === false){
+                    alert('Sorry, you don’t have any free IR in  selected support plan');
+                    return false;
+                }
 			  	if (data) {
 				  	if (data.status == 'saved' && data.html) {
 				  		$('.header_content').html(data.html); $('.header_content').removeClass('hidden'); $('.edit_header_content').addClass('hidden');

@@ -22,7 +22,7 @@ class CustomersController extends Controller
 			array('allow',
 				'actions'=>array(
 						'index','view','create','checkifksa','updatelicencesCust','getless','getAll','update', 'delete', 'manageContact','updateSensitive','updateCustSupp', 'deleteContact', 'manageConnection','uptodateConnection', 'deleteConnection', 
-						'download', 'upload','accessFlag','deleteUploadConnFile'
+						'download', 'upload','accessFlag','deleteUploadConnFile','customerInfo'
 				),
 				 'expression'=>'!$user->isGuest && isset($user->isAdmin) AND $user->isAdmin',
 			),
@@ -775,5 +775,14 @@ where c.id not in ('223','37','218','217','135','169','221','149','150','237','2
 				Yii::app()->db->createCommand($query)->execute();
 			}else {	unset(Yii::app()->session['customers_conn']); }			
 		}
-	}	
+	}
+
+	public function actionCustomerInfo(){
+	    if (isset($_GET['customer_id'])){
+	        $customer = Customers::model()->findByPk((int)$_GET['customer_id']);
+	        echo CJSON::encode($customer);
+        }else{
+	        echo null;
+        }
+    }
 }?>

@@ -57,7 +57,7 @@
 			<div class="wrapper_action" id="action_tabs_right">	<div onclick="chooseActions();" class="action triggerAction"><u><b>ACTION</b></u></div>
 				<div class="action_list actionPanel" style="margin-top: 80px;">  	<div class="headli"></div>	<div class="contentli">	
 				<?php if (GroupPermissions::checkPermissions('financial-receivables', 'write')){ ?>
-						<!--<div class="cover"><div class="li noborder" onclick="showTransfer();">Create Transfer</div></div>-->
+						<div class="cover"><div class="li noborder" onclick="showTransfer();">Create Transfer</div></div>
 						<div class="cover"><div class="li noborder" onclick="changeStatusPaid();">Set Partner to Paid</div></div>
 						<div class="cover"><div class="li noborder" onclick="printReceivables();">Download</div></div><?php } ?>
 						<!-- <div class="cover"><div class="li noborder"><a class="shareby_button" href="#" onclick="shareReceivables(this);return false;" >Share</a></div></div>-->

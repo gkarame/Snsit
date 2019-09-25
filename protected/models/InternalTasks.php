@@ -160,8 +160,6 @@ class InternalTasks extends CActiveRecord{
 			0 => 'New',
 			1 => 'In Progress',
 			2 => 'In Testing',
-			5 => 'Fixed',
-			6 => 'Reopened',
 			4 => 'On Hold',
 			3 => 'Closed'
 		); 
@@ -183,12 +181,6 @@ class InternalTasks extends CActiveRecord{
 				break;
 			case 4:
 				return 'On Hold';
-				break;
-			case 5:
-				return 'Fixed';
-				break;
-			case 6:
-				return 'Reopened';
 				break;
 			default:
 				return '';
@@ -259,18 +251,6 @@ class InternalTasks extends CActiveRecord{
 		foreach($result as $res){
 			$result_name =  Yii::app()->db->createCommand('SELECT firstname,lastname from users where id='.$res['id_user'])->queryAll();
 				foreach($result_name as $rname){	$fname =  strtoupper(substr($rname['lastname'], 0, 1));	$name.=ucwords($rname['firstname']).'.'.$fname.' | '; }
-		}
-		if($name != '')
-		{
-			$name= substr($name, 0, (strlen($name)-2));
-		}
-		return $name;
-	}
-	public static function getAllUsersTaskForEmail($id){
-		$result =  Yii::app()->db->createCommand('SELECT id_user from user_internal where id_task='.$id)->queryAll();	$name = "";
-		foreach($result as $res){
-			$result_name =  Yii::app()->db->createCommand('SELECT firstname,lastname from users where id='.$res['id_user'])->queryAll();
-				foreach($result_name as $rname){	$fname =  strtoupper(substr($rname['lastname'], 0, 1));	$name.=ucwords($rname['firstname']).' '.$fname.'., '; }
 		}
 		if($name != '')
 		{

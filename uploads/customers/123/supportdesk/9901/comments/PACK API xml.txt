@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<structPackStoreHeader xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Pack>
+    <structPackStoreHeaders>
+      <PackKey>fhgjhj</PackKey>
+      <PackDescr>gtfutu</PackDescr>
+      <PackUom1>CS</PackUom1>
+      <CaseCnt>24</CaseCnt>
+      <PackUom3>EA</PackUom3>
+      <Qty>1</Qty>
+      <PackUom4>PL</PackUom4>
+      <Pallet>720</Pallet>
+    </structPackStoreHeaders>
+  </Pack>
+</structPackStoreHeader>

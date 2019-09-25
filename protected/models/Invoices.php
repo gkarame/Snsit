@@ -374,7 +374,6 @@ class Invoices extends CActiveRecord{
 		return null;
 	}	
 	public static function getTransferMore($template,$transferid){
-		$path = true;
 		if ($template<5){
 			$filePath = dirname(Yii::app()->request->scriptFile)."/uploads/transfers/SNSAPJ/TRANSFER_".$transferid.'.pdf';
 			$fileName = Yii::app()->getBaseUrl(true)."/uploads/transfers/SNSAPJ/TRANSFER_".$transferid.'.pdf';

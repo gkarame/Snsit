@@ -19,14 +19,6 @@
 	<?php echo $form->error($model,'customer'); ?>
 	</div>
 </td>
-<td><div class="row projectRow">
-		<?php echo $form->labelEx($model, 'project'); ?>
-		<div class="selectBg_create">
-			<?php echo $form->dropDownList($model, 'project', array(), array('prompt' => Yii::t('translations', 'Choose project'))); ?>
-		</div>
-		<?php echo $form->error($model,'project'); ?>
-	</div>
-</td>
 <td><div class="row StartDateRow ">
 		<div>
 		<?php echo $form->labelEx($model,'expected_starting_date'); ?>
@@ -37,8 +29,8 @@
 			<?php echo $form->error($model,'expected_starting_date'); ?>
 		</div>
 	</div>
-</td></tr>
-<tr><td><div class="row DeadlineRow margint10 ">
+</td>
+<td><div class="row DeadlineRow ">
 		<div>
 		<?php echo $form->labelEx($model,'deadline_date'); ?>
 			<div class="inputBg_create ">
@@ -49,7 +41,7 @@
 		</div>
 	</div>
 </td>
-<td><div class="row rowDisasterRecovery margint10"><div>
+<tr><td><div class="row rowDisasterRecovery margint10"><div>
 		<?php echo $form->labelEx($model, 'disaster_recovery'); ?>
 		<div class="">
 			<?php echo $form->radioButtonList($model, 'disaster_recovery',InstallationRequests::getDisasterList(),array('separator' => "  ", 'labelOptions'=>array('style'=>'display:inline'))); ?>
@@ -123,7 +115,7 @@
 	<?php echo $form->error($model,'customer_contact_email'); ?>
 	</div>
 </div></td></tr></table>
-<div class="row rowprerequisitesRecovery margint10" style="margin-right:150px;">
+<div class="row rowprerequisitesRecovery margint10" style="margin-right:127px;">
 		<div>
 		<?php echo $form->labelEx($model, 'prerequisites'); ?>
 		<div class="">
@@ -139,6 +131,18 @@
 	</div>
 	<?php echo $form->error($model,'notes'); ?>
 </div> </div>
+
+    <div class="row InstallLocationRow margint10 " style="margin-right:40px;">
+        <div> <?= CHtml::label('Source','source_type') ?>
+            <div class="">
+                <?=CHtml::radioButtonList('source_type','',['Project','Support Plan'],array('separator' => "  ", 'labelOptions'=>array('style'=>'display:inline'),'onchange' => 'changeSource(this)'))?>
+            </div>
+            <?php echo $form->error($model,'project'); ?>
+         </div>
+    </div>
+
+    <div id="project_block"></div>
+
 <br clear="all" /> <br clear="all" />
 	<?php if($error1){?>
 		<div> <span><b><font color="red">Note: Please Create a connection for this customer to proceed with IR creation</font></b></span> </div>		
@@ -203,22 +207,37 @@
 		}
 	}
 function getCustomerProjects(element) {
-		$this = $(element);		var val = $this.val();
-		if (val) {
-			$.ajax({ type: "GET",url: '<?php echo Yii::app()->createAbsoluteUrl('projects/GetParentProjectsMaintByClient');?>',data: { id: val},dataType: "json",
-			  	success: function(data) {
-				  	if (data) {
-				  		var arr = [];
-				  		for (var key in data) { if (data.hasOwnProperty(key)) { arr.push({'id': key, 'label': data[key]}); } }
-				  		 var sorted = arr.sort(function (a, b) {
-			    				if (a.label > b.label) { return 1; }
-			    				if (a.label < b.label) { return -1; }
-			    				return 0;
-						 });
-				  		var selectOptions = '<option value=""></option>'; var index = 1;
-				  		$.each(sorted,function(index,val){ selectOptions += '<option value="' + val.id+'">'+val.label+'</option>'; });
-					    $('#InstallationRequests_project').html(selectOptions);
-					} } });
-		} else { $('#InstallationRequests_project').html('<option value=""></option>'); }
-	}	
+		$this = $(element);
+		var val = $this.val();
+        getCustomerProgOrContr(val,'project','Projects');
+		$('#source_type_0').attr('checked','checked')
+	}
+
+	function getCustomerProgOrContr(val,type,title) {
+        let html = `<div class="row projectRow">
+                        <label for="InstallationRequests_project" class="required">${title} <span class="required">*</span></label>
+                            <div class="selectBg_create">
+                                <select name="InstallationRequests[project]" id="InstallationRequests_project">`;
+
+        if (val) {
+            $.ajax({ type: "GET",url: '<?php echo Yii::app()->createAbsoluteUrl('projects/GetParentProjectsMaintByClient');?>',data: { id: val,type:type},dataType: "json",
+                success: function(data) {
+                    if (data) {
+                        data.forEach(function (item) {
+                            html += `<option value="${item.id}">${item.name}</option>`
+                        });
+
+                        $('#project_block').html(html + `</select></div></div>`);
+                    } } });
+        } else { $('#project_block').html(html + `<option value=""></option></select></div></div>`);}
+    }
+
+    function changeSource(obj){
+	    const user = $('#InstallationRequests_customer').val();
+        if(parseInt($(obj).val()) === 0){
+            getCustomerProgOrContr(user,'project','Projects');
+        }else{
+            getCustomerProgOrContr(user,'maintenance','Support plans');
+        }
+    }
 </script>

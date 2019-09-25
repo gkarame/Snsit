@@ -128,7 +128,7 @@ class TravelController extends Controller{
 			if ($_POST['Travel']['billable'] == 'no'){
 				$_POST['Travel']['status'] = Travel::STATUS_CLOSED;
 			}	
-			if (($_POST['Travel']['billable'] == 'yes' || $_POST['Travel']['billable'] == 'Yes' ) && $model->billable=='no'){
+			if (($_POST['Travel']['billable'] == 'yes' || $_POST['Travel']['billable'] == 'Yes' ) && $model->billable=='No'){
 				$model->attributes = $_POST['Travel'];
 				$id=Invoices::checkToPrintTravelInvoices($model);
 				if(substr($model->id_project, -1) == 't') { $model->id_project = substr($model->id_project, 0, -1);}
@@ -159,12 +159,12 @@ class TravelController extends Controller{
 						$travelcodevisa = Utils::paddingCode($getid);
 						if($model->training=='1')
 						{$checkcust= Yii::app()->db->createCommand("insert into travel (id, travel_cod, id_user, id_customer,id_project,expense_type, amount, currency, billable, status,date,inv_number,final_inv_number, training,file)
-						values (".$getid.", '".$travelcodevisa."', ".$model->id_user.", ".$model->id_customer.", ".$model->id_project.", 104,250, 9, 'yes', 1, '".$model->date."', null, null,'1', null)")->execute();
+						values (".$getid.", '".$travelcodevisa."', ".$model->id_user.", ".$model->id_customer.", ".$model->id_project.", 104,250, 9, 'Yes', 1, '".$model->date."', null, null,'1', null)")->execute();
 						
 
 						}else{
 							$checkcust= Yii::app()->db->createCommand("insert into travel (id, travel_cod, id_user, id_customer,id_project,expense_type, amount, currency, billable, status,date,inv_number,final_inv_number, training,file)
-						values (".$getid.", '".$travelcodevisa."', ".$model->id_user.", ".$model->id_customer.", ".$model->id_project.", 104,250, 9, 'yes', 1, '".$model->date."', null, null,null, null)")->execute();
+						values (".$getid.", '".$travelcodevisa."', ".$model->id_user.", ".$model->id_customer.", ".$model->id_project.", 104,250, 9, 'Yes', 1, '".$model->date."', null, null,null, null)")->execute();
 						
 						}
 						$visa= Travel::model()->findByPk($getid);

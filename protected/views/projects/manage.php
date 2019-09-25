@@ -15,28 +15,17 @@
 	        Yii::t('translations', 'Milestones') => $this->renderPartial('_milestone_tab_form', array('model'=>$model), true),
 			Yii::t('translations', 'Risks') => $this->renderPartial('_risks_tab', array('model'=>ProjectsRisks::model(),'id_project'=>$model->id), true),
 	        Yii::t('translations', 'Checklist') => $this->renderPartial('_checklist_items_tab_form', array('model'=>$model), true),
-			Yii::t('translations', 'Issues') => $this->renderPartial('_issues_items_tab_form', array('model'=>$model,'edit'=>false,'id_project'=>$model->id), true),
 			Yii::t('translations', 'Alerts') => $this->renderPartial('_alerts_tab', array('model' => $model), true),
 			Yii::t('translations', 'Documents') => $this->renderPartial('application.views.documents.index', array_merge(array('id_model' => $model->id, 'model_table' => 'projects', 'action' => 'update', 'active' => $active)), true),
-		); } else if ($model->id_type == 28){
+		); }else{
 		$tabs = array(
 			Yii::t('translations', 'General') => $this->renderPartial('_general_tab', array('model'=>$model,'edit'=>GroupPermissions::checkPermissions('projects-projects_general','write') ? true : false), true),
 	        Yii::t('translations', 'Tasks') => $this->renderPartial('_tasks_tab', array('model'=>$model), true),
 	        Yii::t('translations', 'Milestones') => $this->renderPartial('_milestone_tab_form', array('model'=>$model), true),
-			Yii::t('translations', 'Issues') => $this->renderPartial('_issues_items_tab_form', array('model'=>$model,'edit'=>false,'id_project'=>$model->id), true),
 			Yii::t('translations', 'Alerts') => $this->renderPartial('_alerts_tab', array('model' => $model), true),
 			Yii::t('translations', 'Documents') => $this->renderPartial('application.views.documents.index', array_merge(array('id_model' => $model->id, 'model_table' => 'projects', 'action' => 'update', 'active' => $active)), true),
 			Yii::t('translations', 'Risks') => $this->renderPartial('_risks_tab', array('model'=>ProjectsRisks::model(),'id_project'=>$model->id), true),
-		); }else{
-			$tabs = array(
-			Yii::t('translations', 'General') => $this->renderPartial('_general_tab', array('model'=>$model,'edit'=>GroupPermissions::checkPermissions('projects-projects_general','write') ? true : false), true),
-	        Yii::t('translations', 'Tasks') => $this->renderPartial('_tasks_tab', array('model'=>$model), true),
-	        Yii::t('translations', 'Milestones') => $this->renderPartial('_milestone_tab_form', array('model'=>$model), true),
-			Yii::t('translations', 'Alerts') => $this->renderPartial('_alerts_tab', array('model' => $model), true),
-			Yii::t('translations', 'Documents') => $this->renderPartial('application.views.documents.index', array_merge(array('id_model' => $model->id, 'model_table' => 'projects', 'action' => 'update', 'active' => $active)), true),
-			Yii::t('translations', 'Risks') => $this->renderPartial('_risks_tab', array('model'=>ProjectsRisks::model(),'id_project'=>$model->id), true),
-		);
-		}	
+		); }	
 	$this->widget('CCustomJuiTabs', array(   'tabs'=> $tabs,   'options'=>array('collapsible'=>false,'active' =>  'js:configJs.current.activeTab', ),  'headerTemplate'=> '<li><a href="{url}">{title}</a></li>',));	?></div>
 <?php	Yii::import("xupload.XUpload"); $x = new XUpload;	$x->publishAssets(); ?>
 <script type="text/javascript">

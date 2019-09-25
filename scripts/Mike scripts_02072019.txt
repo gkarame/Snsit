@@ -1,5 +1,0 @@
-alter table projects_tasks add redundant_send int default 0
-
-alter table eas add mds text nul
-l
-alter table codelkups add sort_rang int  null 

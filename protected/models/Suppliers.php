@@ -226,7 +226,7 @@ class Suppliers extends CActiveRecord{
 	public static function getCarSuppPerCityDD($origin=null){
 		if($origin != null)
 		{
-			$result=  Yii::app()->db->createCommand("SELECT id, name, preffered FROM suppliers WHERE category = 'Car Rental' and (city='".$origin."' or id=131 )union all select 'Choose another supplier' as id , 'Choose another supplier' as name, 'No' as preffered  order by preffered desc, name ASC ")->queryAll();	
+			$result=  Yii::app()->db->createCommand("SELECT id, name, preffered FROM suppliers WHERE category = 'Car Rental' and city='".$origin."' union all select 'Choose another supplier' as id , 'Choose another supplier' as name, 'No' as preffered  order by preffered desc, name ASC ")->queryAll();	
 			$users = array();
 			foreach ($result as $i => $res){	$users[$res['id']] = $res['name'];	}
 			return $users;

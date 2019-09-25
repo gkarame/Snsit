@@ -372,9 +372,9 @@ public function actionGetRegion($id){
 		if (isset($_POST['Eas']))
 		{
 			unset($_POST['Eas']['category']);	unset($_POST['Eas']['project_name']);	unset($_POST['Eas']['id_parent_project']);	unset($_POST['Eas']['id_customer']);
-			if ($_POST['Eas']['country_perdiem'] == '' || $_POST['Eas']['expense'] == 'N/A' ||  !isset($_POST['country_perdiem_checbox'])){
+			if (empty($_POST['Eas']['country_perdiem']) || $_POST['Eas']['expense'] == 'N/A' ||  (int)$_POST['country_perdiem_checbox'] === 0){
                 $model->country_perdiem = null;
-            }else{
+            }else if((int)$_POST['country_perdiem_checbox'] === 1 && !empty($_POST['Eas']['country_perdiem'])){
                 $model->country_perdiem = $_POST['Eas']['country_perdiem'];
             }
 			if (isset($_POST['Eas']['billto_contact_person']) && $_POST['Eas']['billto_contact_person'] != $model->billto_contact_person){		
@@ -599,21 +599,19 @@ public function actionGetRegion($id){
 			if ($model->validate()){
 				if ($model->expense == 'Actuals' && $old_expense != $model->expense){		Projects::setBillable($model->id_project);	$model->modifyTerms();}
 				if ($model->expense == 'N/A' && $old_expense != $model->expense){		$model->modifyTerms();}
-				if ($model->expense != 'N/A' && $model->expense != 'Actuals')	{	$model->expense = $model->lump_sum;
+				if ($model->expense != 'N/A' && $model->expense != 'Actuals')	{	$model->expense = $_POST['Eas']['lump_sum'];
 					$model->modifyTerms();	}
 			}
 			if ($model->save()){
 				if (!$error){
-					$aust_out_amount=0;
 					$country=Yii::app()->db->createCommand("SELECT country from customers where id=".$model->id_customer." ")->queryScalar(); 
 					if($country=='398' ){
 						$net_amount = $model->getNetAmountWithExpOffshore("Yes"); 
-						$aust_out_amount = $model->getNetAmountWithExpOffshore("No"); 
 					}else
 					{
 						$net_amount = $model->getNetAmountWithExp(); 
 					}
-					if(($aust_out_amount>0 || $net_amount >0) && $model->status == 2 && $model->category != 454  && $model->TM != 1 && $app!=2 && $initialStat!=2){	self::CreateInvoice($model);	}
+					if($net_amount >0 &&$model->status == 2 && $model->category != 454  && $model->TM != 1 && $app!=2 && $initialStat!=2){	self::CreateInvoice($model);	}
 					else if ($net_amount == 0 && $model->category != 454 && $model->status == 2  && $model->status != 5 && $model->TM != 1)
 					{
 						$model->status=5; $model->save();
@@ -1784,25 +1782,16 @@ public function actionGetRegion($id){
 			$model->sold_by = "";
 			$model->type = "Standard";
 			$model->currency = $eas->currency;
-			if($country=='398' && $net_amount == 0)
-			{				
+			if($model->save()){
+				$model->invoice_number = Utils::paddingCode($model->id);
+				if($model->invoice_number == "99999")
+					$model->invoice_number = "00000";
+				$model->save();
+				if($country=='398' ){
 					$net_amountAust = $eas->getNetAmountWithExpOffshore("No"); 
 					if($net_amountAust>0)
 					{
 						self::createInvoiceAUST($eas->id_customer,$eas->description, $titleaust , $eas->id_project, $eas->id,$model->payment, $eas->currency,$payment['payment_term'],$net_amountAust);				
-					}
-			}else{
-				if($model->save()){
-					$model->invoice_number = Utils::paddingCode($model->id);
-					if($model->invoice_number == "99999")
-						$model->invoice_number = "00000";
-					$model->save();
-					if($country=='398' ){
-						$net_amountAust = $eas->getNetAmountWithExpOffshore("No"); 
-						if($net_amountAust>0)
-						{
-							self::createInvoiceAUST($eas->id_customer,$eas->description, $titleaust , $eas->id_project, $eas->id,$model->payment, $eas->currency,$payment['payment_term'],$net_amountAust);				
-						}
 					}
 				}
 			}

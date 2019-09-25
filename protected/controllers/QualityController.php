@@ -314,8 +314,7 @@ class QualityController extends Controller{
         echo json_encode(Quality::GetCustomProjectsDevTasks((int) $id));
         exit();
     }    
-    public function actionsendQADone(){	
-    	$selects=Quality::getQCTasksDoneCurrentMonth();
+    public function actionsendQADone(){	$selects=Quality::getQCTasksDoneCurrentMonth();
 		$notif = EmailNotifications::getNotificationByUniqueName('qa_done');
 		if ($notif != NULL ){
 			$to_replace = array(

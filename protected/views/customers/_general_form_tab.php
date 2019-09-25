@@ -70,19 +70,12 @@
 		<div class="row">
 			<?php echo CHtml::activeLabelEx($model,'bill_to_contact_person'); ?>			
 			<div class="inputBg_create">
-                <!--
-                    /*
-                     * Author: Mike
-                     * Date: 19.06.19
-                     * disable autofilled fields
-                     */
-                -->
-				<?php echo CHtml::activeTextField($model, 'bill_to_contact_person',['disabled' => 'disabled']); ?>
+				<?php echo CHtml::activeTextField($model, 'bill_to_contact_person'); ?>
 			</div>			
 			<?php echo CCustomHtml::error($model,'bill_to_contact_person', array('id'=>"Customers_bill_to_contact_person_em_")); ?>
 		</div>
 <div class="row ">
-			<?php echo CHtml::activeLabelEx($model,'customer_reference'); ?>			
+			<?php echo CHtml::activeLabelEx($model,'customer_reference'); ?>
 			<div class="selectBg_create">
 				<?php echo CHtml::activeDropDownList($model, 'customer_reference', Customers::getCustomersBilling(),array('prompt'=>Yii::t('translations', ''))); ?>
 			</div>			
@@ -171,14 +164,7 @@
 		<div class="row <?php if(Customers::hasMaint($model->id) != 0 || Customers::hasMaintMainCustomer($model->id) != 0)  { echo 'margint115';}else{ echo 'margint36';} ?> ">
 			<?php echo CHtml::activeLabelEx($model,'bill_to_contact_email'); ?>			
 			<div class="inputBg_create">
-                <!--
-                    /*
-                     * Author: Mike
-                     * Date: 19.06.19
-                     * disable autofilled fields
-                     */
-                -->
-                    <?php echo CHtml::activeTextField($model, 'bill_to_contact_email',['disabled' => 'disabled']); ?>
+                    <?php echo CHtml::activeTextField($model, 'bill_to_contact_email'); ?>
 			</div>			
 			<?php echo CCustomHtml::error($model,'bill_to_contact_email', array('id'=>"Customers_bill_to_contact_email_em_")); ?>
 		</div>
@@ -270,14 +256,7 @@
 		
 			<?php echo CHtml::activeLabelEx($model,'bill_to_address'); ?>			
 			<div class="textareaBg_create">
-                <!--
-                    /*
-                     * Author: Mike
-                     * Date: 19.06.19
-                     * disable autofilled fields
-                     */
-                -->
-				<?php echo CHtml::activeTextArea($model, 'bill_to_address',['disabled' => 'disabled']); ?>
+				<?php echo CHtml::activeTextArea($model, 'bill_to_address'); ?>
 			</div>					
 			<?php echo CCustomHtml::error($model, 'bill_to_address', array('id'=>"Customers_bill_to_address_em_")); ?>
 		</div>
@@ -354,6 +333,23 @@
 	</div>
 </div>
 <script>
+    $('#Customers_customer_reference').change(function () {
+        if($(this).val().length > 0){
+            $.get("<?php echo Yii::app()->createAbsoluteUrl('customers/customerInfo');?>?customer_id=" + $(this).val(),function (data) {
+                const customer = JSON.parse(data)
+                if(customer !== null){
+                    $('#Customers_bill_to_contact_person').val(customer.bill_to_contact_person).attr('disabled','disabled').css('background','#ccc')
+                    $('#Customers_bill_to_contact_email').val(customer.bill_to_contact_email).attr('disabled','disabled').css('background','#ccc')
+                    $('#Customers_bill_to_address').val(customer.bill_to_address).attr('disabled','disabled').css('background','#ccc')
+                }
+            })
+        }else{
+            $('#Customers_bill_to_contact_person').removeAttr('disabled').css('background','none repeat scroll 0 0 transparent')
+            $('#Customers_bill_to_contact_email').removeAttr('disabled').css('background','none repeat scroll 0 0 transparent')
+            $('#Customers_bill_to_address').removeAttr('disabled').css('background','none repeat scroll 0 0 transparent')
+        }
+    });
+
 	$("#sw_dropdown").change(function(){
 		var selected= $("#sw_dropdown option:selected").val()
 		if(selected=="N/A"){	$("#cs_div").hide();	$("#sd_checkbox").hide();

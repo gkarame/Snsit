@@ -1,0 +1,8 @@
+Author Drop down
+    - db: ALTER TABLE `projects_tasks` ADD `author_id` INT NULL AFTER `redundant_send`;
+          ALTER TABLE `projects_tasks` ADD FOREIGN KEY (`author_id`) REFERENCES `users`(`id`) ON DELETE SET NULL ON UPDATE RESTRICT;
+
+    - files: protected/views/projects/_task_form.php (lines:82-86)
+             protected/views/projects/_general_tab.php (lines:424-436)
+             protected/models/ProjectsTasks.php (add new attr)
+             protected/views/supportDesk/update.php (lines:272-278)

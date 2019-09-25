@@ -1,5 +1,5 @@
-<div class="wide search" id="search_ir" style="overflow:inherit;">
-	<?php $form=$this->beginWidget('CActiveForm', array('action'=>Yii::app()->createUrl($this->route),'method'=>'get','id'=>'search_incomingTransfers')); ?>
+<div class="wide search" id="search-ir" style="overflow:inherit;">
+	<?php $form=$this->beginWidget('CActiveForm', array('action'=>Yii::app()->createUrl($this->route),'method'=>'get',)); ?>
 
 	<div class="row status  width260" >	<div class="inputBg_txt" >	
 	<?php echo $form->label($model,'it_no', array('class'=>"width89")); ?>	<span class="spliter"></span>
@@ -72,10 +72,7 @@
 						<?php if(GroupPermissions::checkPermissions('financial-incomingTransfers','write')){ ?>
 						<!--	<div class="li noborder" ><a class="special_edit_header" href="<?php //echo Yii::app()->createAbsoluteUrl('incomingTransfers/create');?>"><?php //echo Yii::t('translations', 'NEW TR');?></a></div>-->
 							
-							<div class="li noborder" ><a class="special_edit_header"  href="<?php echo Yii::app()->createAbsoluteUrl('incomingTransfers/create');?>"><?php echo Yii::t('translations', 'NEW TRANSFER');?></a></div>
-							 <!--<div class="li noborder" onclick="getRecipients();">ADD INVOICES</div> -->
-							  <div class="li noborder" onclick="showtrpop();">PRINT TRANSFER</div>
-							 
+							 <div class="li noborder" onclick="getRecipients();">ADD INVOICES</div>
 						<?php } ?>
 							 <div class="li noborder" onclick="getExcel();">EXPORT TO EXCEL</div>
 					</div>

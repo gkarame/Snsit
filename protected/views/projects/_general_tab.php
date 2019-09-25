@@ -32,7 +32,7 @@
 
 				<div class="row">
 					<?php echo CHtml::activeLabelEx($model,'Complex Modules to Implement *'); ?>						
-						<div class="selectBg_create" ><?php echo CHtml::activeDropDownList($model, 'complexmodule', Projects::getcomplexModule(), array('prompt'=>Yii::t('translations', ''),'id'=>'complexmodule_dropdown','onchange' => 'changeCategory(this)')); ?>
+						<div class="selectBg_create" ><?php echo CHtml::activeDropDownList($model, 'complexmodule', Projects::getcomplexModule(), array('prompt'=>Yii::t('translations', ''),'id'=>'complexmodule_dropdown')); ?>
 						</div><?php echo CCustomHtml::error($model,'complexmodule', array('id'=>"Projects_complexmodule_em_")); ?></div>
 <?php if($model->template==1 || $model->template==4 || $model->template==6 ){ ?> 
 				<div class="row">
@@ -421,14 +421,19 @@ $("#status_dropdown").change(function(){
 								} } } } }	}); }
 
 if (selecteds=="2" && noerror == 0)	{	$('#popupProjClose').stop().show(); } });
-function changeCategory(element) {		$this =  $(element);		
-		switch ($this.val()) {
-			case 'Yes':
-				document.getElementById("complexnotesdiv").classList.remove("hidden");  
-				break;
-			case 'No':
-				document.getElementById("complexnotesdiv").classList.add("hidden"); 
-				break;	}	}
+
+$('#complexmodule_dropdown').change(function () {
+    switch ($(this).val()) {
+        case 'Yes':
+            $('#complexnotesdiv').removeClass('hidden')
+            break;
+        case 'No':
+            $('#complexnotesdiv').addClass('hidden')
+            break;
+        default:
+            $('#complexnotesdiv').addClass('hidden')
+    }
+})
 
 function sendSurveyEmail(element){ var toemail= document.getElementById('to').value; var name= document.getElementById('name').value; var fname= document.getElementById('fname').value;	
 

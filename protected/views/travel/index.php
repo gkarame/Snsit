@@ -13,7 +13,7 @@ $('.search-form form').submit(function(){	$.fn.yiiGridView.update('travel-grid',
 			array('name'=>'idProject.name','header'=> Yii::t('translations', 'Project'),'value'	=> '($data->training!=1) ? Projects::getNamebyId($data->id_project) : Trainings::getName($data->id_project)'),
 			array('name' => 'id_user','header' => 'Resource','value' => 'Users::getUsername($data->idUser->id)'),
 			array('name'=>'expenseType.codelkup','header'=> Yii::t('translations', 'Expense Type'),'value'	=> 'isset($data->expenseType->codelkup) ? $data->expenseType->codelkup : ""',),
-			array('name'=>'amount','value'=>'Utils::formatNumber($data->amount)." USD"'),	array('name'=>'billable','value'=>'ucfirst($data->billable)'),
+			array('name'=>'amount','value'=>'Utils::formatNumber($data->amount)." USD"'),	'billable',
 			array(		'name' => 'status',		'value'=>'$data->getStatusLabel($data->status)',	),
 			array(		'class'=>'CCustomButtonColumn',		'template'=>$tmp,	'htmlOptions'=>array('class' => 'button-column'),	'buttons'=>$buttons,	),	),)); ?>
 <script type="text/javascript">

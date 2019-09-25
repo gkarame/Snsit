@@ -396,7 +396,7 @@ class TimesheetsController extends Controller
 	}
 	public function sendAlertNoFBR($tasks, $timesheet){
 
-		$subject = "Missing FBR Attachment";
+		$subject = "Missing FBR Document";
 		$notif = EmailNotifications::getNotificationByUniqueName('fbr_doc');
 		if ($notif != NULL) 
     	{

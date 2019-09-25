@@ -1,0 +1,12 @@
+Installation Requests Module Changes
+    -files: protected/views/installationrequests/_edit_header_content.php (lines: 5-32;114-139)
+            protected/views/customers/_general_form_tab.php (lines:336-350)
+            protected/views/installationrequests/create.php (lines:134-145,210-245)
+            protected/controllers/CustomersController.php (lines:779-787)
+            protected/controllers/InstallationrequestsController.php (lines:109,177-191,197)
+            protected/models/Projects.php (lines:548;552-566)
+            protected/controllers/ProjectsController.php (lines:2709;2711)
+            protected/views/installationrequests/update.php (lines:145-148)
+
+Receivables change
+    -files: protected/views/receivables/index.php (lines:108)

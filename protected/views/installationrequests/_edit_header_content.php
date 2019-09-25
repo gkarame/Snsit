@@ -2,15 +2,34 @@
 <fieldset id="header_fieldset">
 <tabel><tr>
 <?php if(GroupPermissions::checkPermissions('ir-general-installationrequests', 'write')){ ?>
-<td><div class="textBox inline-block " style="width:200px;">
-		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"project"); ?></div>
-		<div class="input_text">
-			<div class="hdselect">
-				<?php echo CHtml::activeDropDownList($model, "project", Projects::getAllParentProjectsMaintSelect($model->customer), array('style'=>'width:190px;','class'=>'', 'value'=>$model->project)); ?>
-			</div>
-		</div>
-		<?php echo CCustomHtml::error($model, "project", array('id'=>"Installationrequests_project_em_")); ?>
-</div></td>
+<td>
+    <div class="textBox inline-block">
+        <div class="input_text_desc padding_smaller"> <?= CHtml::label('Source','source_type') ?>
+            <div class="" style="margin-top: 10px;">
+                <?php  ?>
+                <?=CHtml::radioButtonList('source_type',$model->maintenance,['Project','Support Plan'],array('separator' => "  ", 'labelOptions'=>array('style'=>'display:inline-block;margin-left: 20px;margin-top: 3px;'),'onchange' => 'changeSource(this)'))?>
+            </div>
+            <?php echo CCustomHtml::error($model,'project'); ?>
+        </div>
+    </div>
+</td>
+        <td><div class="textBox inline-block " id="project_block" style="width:200px;">
+                <?php
+                    $type_project = ((int)$model->maintenance === 1)?'maintenance':'project';
+                    $projects = Projects::getAllParentProjectsMaintSelect($model->customer,$type_project);
+                ?>
+                <div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,((int)$model->maintenance === 1)?'Support plans':'Projects'); ?></div>
+                <div class="input_text">
+                    <div class="hdselect">
+                        <select style="width:190px;" class="" value="<?=$model->project?>" name="InstallationRequests[project]" id="InstallationRequests_project">
+                            <?php foreach ($projects as $project):?>
+                                <option <?if((int)$project['id'] === (int)$model->project):?> selected="selected" <?php endif ?> value="<?=$project['id']?>"><?=$project['name']?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <?php echo CCustomHtml::error($model, "project", array('id'=>"Installationrequests_project_em_")); ?>
+            </div></td>
 <td><div class="textBox inline-block bigger_amt2">
 		<div class="input_text_desc padding_smaller"><?php echo CHtml::activelabelEx($model,"expected_starting_date"); ?></div>
 		<div class="input_text">
@@ -92,5 +111,30 @@ $(function() {
 function environment_change(element){
 $this = $(element);
 if($this.val() == 0){	$('#InstallationRequests_installation_location').parents('.cc').addClass('hidden');
-	}else{	$('#InstallationRequests_installation_location').parents('.cc').removeClass('hidden');	} } 
+	}else{	$('#InstallationRequests_installation_location').parents('.cc').removeClass('hidden');	} }
+
+function changeSource(obj){
+    const user = '<?=$model->customer?>';
+    if(parseInt($(obj).val()) === 0){
+        getCustomerProgOrContr(user,'project');
+        $("#project_block .input_text_desc").text('Projects')
+    }else{
+        getCustomerProgOrContr(user,'maintenance');
+        $("#project_block .input_text_desc").text('Support plans')
+    }
+}
+
+function getCustomerProgOrContr(val,type) {
+    $.ajax({ type: "GET",url: '<?php echo Yii::app()->createAbsoluteUrl('projects/GetParentProjectsMaintByClient');?>',data: { id: val,type:type},dataType: "json",
+        success: function(data) {
+            if (data) {
+                let html = '';
+                data.forEach(function (item) {
+                    html += `<option value="${item.id}">${item.name}</option>`
+                });
+                $('#InstallationRequests_project').html(html);
+            }
+        }
+    });
+}
 </script>

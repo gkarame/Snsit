@@ -566,16 +566,6 @@ $group = NULL; $export = false;
 								 Yii::app()->db->createCommand("UPDATE eas SET status=5  WHERE id =".$model->id_ea." ")->execute();
 							}
 						}
-						$training= Yii::app()->db->createCommand("SELECT id_training from training_eas where id_ea =".$model->id_ea." ")->queryScalar();
-						if(!empty($training))
-						{
-							 $easstat= Yii::app()->db->createCommand("SELECT count(1) from eas where id in (select id_ea from training_eas where id_training= ".$training.") and status != '0' and status!='5'")->queryScalar();
-								$inv=  Yii::app()->db->createCommand("SELECT count(1) from invoices where id_ea in  (select id_ea from training_eas where id_training= ".$training.") and status != 'Cancelled' ")->queryScalar();
-								if($easstat == 0 && $inv ==0) {
-									Yii::app()->db->createCommand("UPDATE trainings_new_module SET status = 0 WHERE idTrainings =".$training." ")->execute();
-								}
-						}
-
 					}
 					if($model->status == "To Print" && $old_status != $model->status){
 						array_push($models_to_print,$model);
@@ -1021,27 +1011,21 @@ if (!isset($filterd_ids)){
 	} 		
 	public function actiongetTransferInv() {
 		if (isset($_POST['checkinvoice'])){ 
-			//print_r();exit;
 			echo json_encode(array(
 				'inv' => "",
-				'TR_ids' => isset($_POST['checkinvoice']) ? $_POST['checkinvoice'] : "",
-				'count' =>count($_POST['checkinvoice']),
+				'invoices_ids' => isset($_POST['checkinvoice']) ? $_POST['checkinvoice'] : "",
 			));
 		}
 	}	
 	public function actionPrintTransfer() {
-		/*if (isset($_GET['token'])){
+		if (isset($_GET['token'])){
 			setcookie("fileDownloadToken", $_GET['token']);
-		}*/
+		}
 		$qqq = array();
-		$q = array();	
-		$transfers = '('.$_GET['checkinvoice'].')';
-		$allinv=  Yii::app()->db->createCommand("SELECT invoice_number FROM incoming_transfers_details  WHERE id_it in ".$transfers." ")->queryAll();
-		$ids_invoices=  '('.	implode(',', array_column($allinv, 'invoice_number')).')';
-		//print_r($_GET['template']);exit;
-		//print_r("SELECT DISTINCT invoice_number FROM incoming_transfers_details  WHERE id_it in ".$transfers." ");exit;
+		$q = array();		
+		$ids_invoices = '('.$_GET['checkinvoice'].')';
 		$template= $_GET['template'];
-		$transferid= $_GET['checkinvoice'];
+		$transferid= $_GET['checktransfer'];
 		$id_dis = Yii::app()->db->createCommand("SELECT i.id, i.id_customer, i.final_invoice_number, i.type,i.net_amount,case when i.currency=9 
 					THEN i.net_amount 
 					else i.net_amount*(select c.rate from currency_rate c where c.currency=i.currency  order by c.date DESC  limit 1) end as usd_amount

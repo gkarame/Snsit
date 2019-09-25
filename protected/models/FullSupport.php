@@ -25,12 +25,11 @@ class FullSupport extends CActiveRecord{
 		$criteria = new CDbCriteria;
 		$criteria->with = array('PrimaryContact', 'SecondaryContact','cType');	$criteria->together = true;
 		$criteria->compare('t.primary_contact', $this->primary_contact);	$criteria->compare('t.secondary_contact', $this->secondary_contact);
-		$criteria->addCondition("(YEAR(t.from_date) = YEAR(CURRENT_DATE()) or YEAR(t.to_date) = YEAR(CURRENT_DATE()) )");
 		$criteria->compare('t.type','402');	$criteria->order = "t.from_date DESC";		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 			'pagination'=>array(
-                'pageSize' => 15,
+                'pageSize' => Utils::getPageSize(),
             ),          
 		));
 	}	
@@ -38,12 +37,11 @@ class FullSupport extends CActiveRecord{
 		$criteria = new CDbCriteria;	$criteria->with = array('PrimaryContact', 'SecondaryContact','cType');
 		$criteria->together = true;	$criteria->compare('t.primary_contact', $this->primary_contact);
 		$criteria->compare('t.secondary_contact', $this->secondary_contact);	$criteria->compare('t.type','403');
-		$criteria->addCondition("(YEAR(t.from_date) = YEAR(CURRENT_DATE()) or YEAR(t.to_date) = YEAR(CURRENT_DATE()) )");
 		$criteria->order = "t.from_date DESC";
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 			'pagination'=>array(
-               'pageSize' => 15,
+                'pageSize' => Utils::getPageSize(),
             ),          
 		));
 	}	

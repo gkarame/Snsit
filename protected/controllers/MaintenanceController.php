@@ -21,6 +21,7 @@ class MaintenanceController extends Controller{
 			),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array(
+						'getUserMaintains',
 						'upload','getServicesGrid','index','view','create','accessFlag','updatefields','updatefieldsItem','update', 'delete','updateHeader','manageItem','newItem',
 						'deleteItem','inputDate','inputInv','inputInvItems','deactivateitems','barChart','DeleteService', 'lineChart','manageService','changeInput',
 						'changeInput2','deleteUpload','createInvMaintItem','createInvMaint','GetExcel2','getExcel'
@@ -41,6 +42,10 @@ class MaintenanceController extends Controller{
 		 		 'stateVariable' => 'maintenance'
 			 ),
 		 );
+	}
+	public function actionGetUserMaintains($id){
+		echo CJSON::encode(Maintenance::getCustomerMaintence($id,[501,502]));
+		exit();
 	}
 	public function actionView($id){
 		if(!GroupPermissions::checkPermissions('financial-maintenance'))	{
@@ -72,7 +77,7 @@ class MaintenanceController extends Controller{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 			'data'=>"19914"
-		));		
+		));
 	}
 	public function actionCreate(){
 		if (!GroupPermissions::checkPermissions('financial-maintenance','write')){
@@ -126,10 +131,6 @@ class MaintenanceController extends Controller{
 				$model->currency_rate_id = $rate['id'];
 			}
 			if ($model->save())	{	
-				if(!empty($model->ea) && ($model->sns_share == 0 || empty($model->sns_share)) && $model->owner!=77)
-				{
-					Yii::app()->db->createCommand("update eas set status=5 where id=".$model->ea )->execute();
-				}
 				if ($model->status == "Active") {
 					Yii::app()->db->createCommand("INSERT INTO default_tasks (name, id_parent, billable,id_maintenance) VALUES ('".$model->customer0->name."',".Maintenance::SUPPORT_TASK.",'"."YES"."',".$model->id_maintenance.")" )->execute();
 				}
